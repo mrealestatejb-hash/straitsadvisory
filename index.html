@@ -650,7 +650,7 @@ function startHeroCycle() {
   clearInterval(heroInterval);
   heroInterval = setInterval(() => {
     switchVideo((currentVid + 1) % videos.length);
-  }, 8000);
+  }, 5000);
 }
 
 dots.forEach(dot => {
