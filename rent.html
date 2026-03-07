@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rent Out Your Property - Straits Advisory</title>
+<meta name="description" content="Find quality tenants or get full property management. Hassle-free rental services for Malaysia property owners.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><rect width='28' height='28' rx='6' fill='%23c9a962'/><path d='M7 14h14M14 7v14' stroke='white' stroke-width='2.5' stroke-linecap='round'/></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#1a1a2e;--gold:#c9a962;--radius:12px;--transition:0.25s cubic-bezier(.4,0,.2,1)}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;color:#1a1a2e;background:#fff;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,5vw,60px);height:64px;background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,0.06)}
+.nav-logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px;color:var(--navy)}
+.nav-logo svg{width:28px;height:28px}
+.nav-links{display:flex;align-items:center;gap:28px;font-size:14px;font-weight:500}
+.nav-links a{color:#555;transition:color var(--transition)}
+.nav-links a:hover,.nav-links a.active{color:var(--navy)}
+.nav-cta{background:var(--navy);color:#fff!important;padding:8px 20px;border-radius:50px;font-size:13px;transition:all var(--transition)}
+.nav-cta:hover{background:var(--gold)}
+
+.hero{margin-top:64px;padding:60px clamp(20px,5vw,60px) 50px;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);text-align:center;color:#fff}
+.hero h1{font-size:clamp(28px,5vw,48px);font-weight:800;margin-bottom:16px;line-height:1.15}
+.hero h1 span{color:var(--gold)}
+.hero p{font-size:clamp(14px,2vw,18px);color:rgba(255,255,255,0.75);max-width:550px;margin:0 auto}
+
+/* PATH SELECTION */
+.path-section{max-width:800px;margin:0 auto;padding:60px clamp(20px,5vw,60px)}
+.path-header{text-align:center;margin-bottom:32px}
+.path-header h2{font-size:24px;font-weight:800;color:var(--navy);margin-bottom:8px}
+.path-header p{font-size:15px;color:#6b7280}
+.path-cards{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.path-card{border:2px solid #e5e7eb;border-radius:var(--radius);padding:28px 24px;cursor:pointer;transition:all var(--transition);position:relative}
+.path-card:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,0.08)}
+.path-card.selected{border-color:var(--gold);background:rgba(201,169,98,0.05)}
+.path-card.selected::after{content:'Selected';position:absolute;top:12px;right:12px;background:var(--gold);color:#fff;padding:3px 10px;border-radius:50px;font-size:11px;font-weight:600}
+.path-icon{font-size:32px;margin-bottom:12px}
+.path-title{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.path-desc{font-size:13px;color:#6b7280;margin-bottom:14px;line-height:1.6}
+.path-list{list-style:none;padding:0}
+.path-list li{padding:4px 0;font-size:13px;color:#374151;display:flex;align-items:center;gap:6px}
+.path-list li::before{content:'¹3';color:#059669;font-weight:700;font-size:12px}
+.path-plus{margin-top:10px;padding-top:10px;border-top:1px solid #e5e7eb}
+.path-plus-label{font-size:12px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px}
+
+/* FORM */
+.form-section{max-width:680px;margin:0 auto 60px;padding:0 clamp(20px,5vw,60px);display:none}
+.form-section.visible{display:block}
+.form-header{text-align:center;margin-bottom:32px}
+.form-header h2{font-size:24px;font-weight:800;color:var(--navy);margin-bottom:8px}
+.form-header p{font-size:14px;color:#6b7280}
+.form-divider{font-size:14px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:1px;margin:32px 0 16px;padding-bottom:8px;border-bottom:2px solid var(--gold);display:inline-block}
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:13px;font-weight:600;color:var(--navy);margin-bottom:6px}
+.form-group .hint{font-size:12px;color:#9ca3af;font-weight:400;margin-left:4px}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:10px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:inherit;font-size:14px;color:#374151;transition:border-color var(--transition)}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--gold)}
+.form-group textarea{resize:vertical;min-height:80px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.radio-group{display:flex;flex-wrap:wrap;gap:8px}
+.radio-group label{display:flex;align-items:center;gap:6px;padding:8px 14px;border:1px solid #d1d5db;border-radius:8px;cursor:pointer;font-size:13px;font-weight:500;transition:all var(--transition)}
+.radio-group label:has(input:checked){border-color:var(--gold);background:rgba(201,169,98,0.08)}
+.radio-group input{display:none}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 32px;border-radius:8px;font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;transition:all var(--transition);border:none}
+.btn-primary{background:var(--navy);color:#fff}
+.btn-primary:hover{background:var(--gold)}
+.btn-success{background:#059669;color:#fff}
+.btn-success:hover{background:#047857}
+.btn-center{display:flex;justify-content:center;margin-top:32px}
+
+/* MANAGEMENT OPTIONS (shown only for path B) */
+.mgmt-options{display:none}
+.mgmt-options.visible{display:block}
+
+/* THANK YOU */
+.thank-you{display:none;text-align:center;padding:60px 20px}
+.thank-you .check{font-size:64px;margin-bottom:16px}
+.thank-you h2{font-size:28px;font-weight:800;color:var(--navy);margin-bottom:12px}
+.thank-you p{font-size:16px;color:#6b7280;max-width:500px;margin:0 auto 24px}
+
+/* SIDEBAR CTA */
+.sidebar-cta{text-align:center;padding:40px clamp(20px,5vw,60px) 60px}
+.sidebar-cta p{font-size:15px;color:#6b7280;margin-bottom:16px}
+.wa-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:50px;background:#25d366;color:#fff;font-size:14px;font-weight:600;transition:all var(--transition)}
+.wa-btn:hover{background:#1ebe5d;transform:scale(1.03)}
+.wa-btn svg{width:18px;height:18px}
+
+@media(max-width:768px){
+  .path-cards{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .nav-links a:not(.nav-cta){display:none}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <svg viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="#c9a962"/><path d="M7 14h14M14 7v14" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg>
+    Straits Advisory
+  </a>
+  <div class="nav-links">
+    <a href="buy.html">Buy</a>
+    <a href="sell.html">Sell</a>
+    <a href="rent.html" class="active">Rent</a>
+    <a href="services.html">Services</a>
+    <a href="why-work-with-us.html">About</a>
+    <a href="https://wa.me/60197058001" class="nav-cta" target="_blank">WhatsApp Us</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <h1>Rent Out Your <span>Property</span></h1>
+  <p>Find quality tenants. Hassle-free management.</p>
+</section>
+
+<!-- PATH SELECTION -->
+<div class="path-section" id="pathSection">
+  <div class="path-header">
+    <h2>What do you need?</h2>
+    <p>Choose the service that fits your situation.</p>
+  </div>
+  <div class="path-cards">
+    <div class="path-card" id="pathA" onclick="selectPath('A')">
+      <div class="path-icon">&#x1f50d;</div>
+      <h3 class="path-title">Find Tenants</h3>
+      <p class="path-desc">We source and screen quality tenants for your property.</p>
+      <ul class="path-list">
+        <li>Tenant sourcing &amp; screening</li>
+        <li>Lease agreement preparation</li>
+        <li>One-time service</li>
+      </ul>
+    </div>
+    <div class="path-card" id="pathB" onclick="selectPath('B')">
+      <div class="path-icon">&#x1f3e0;</div>
+      <h3 class="path-title">Full Management</h3>
+      <p class="path-desc">End-to-end property management so you can sit back.</p>
+      <ul class="path-list">
+        <li>Tenant sourcing &amp; screening</li>
+        <li>Lease agreement preparation</li>
+      </ul>
+      <div class="path-plus">
+        <div class="path-plus-label">Plus</div>
+        <ul class="path-list">
+          <li>Rent collection</li>
+          <li>Maintenance coordination</li>
+          <li>Airbnb management available</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RENTAL FORM -->
+<div class="form-section" id="rentalForm">
+  <div class="form-header">
+    <h2 id="formTitle">Tenant Sourcing Request</h2>
+    <p>Fill in your property details and rental preferences.</p>
+  </div>
+
+  <div class="form-divider">Property Details</div>
+  <div class="form-group">
+    <label>Property Type</label>
+    <div class="radio-group">
+      <label><input type="radio" name="propType" value="Condo/Apartment" checked> Condo / Apartment</label>
+      <label><input type="radio" name="propType" value="Landed House"> Landed House</label>
+      <label><input type="radio" name="propType" value="Room"> Room</label>
+      <label><input type="radio" name="propType" value="Commercial"> Commercial</label>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Property Name</label>
+    <input type="text" id="propName" placeholder="e.g. R&amp;F Princess Cove">
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label>Unit Number</label>
+      <input type="text" id="unitNum" placeholder="e.g. A-12-05">
+    </div>
+    <div class="form-group">
+      <label>Built-up Size (sqft)</label>
+      <input type="number" id="builtUp" placeholder="e.g. 850">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label>Bedrooms</label>
+      <select id="bedrooms"><option>Studio</option><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5+</option></select>
+    </div>
+    <div class="form-group">
+      <label>Bathrooms</label>
+      <select id="bathrooms"><option>1</option><option selected>2</option><option>3</option><option>4+</option></select>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Furnished Status</label>
+    <div class="radio-group">
+      <label><input type="radio" name="furnished" value="Unfurnished"> Unfurnished</label>
+      <label><input type="radio" name="furnished" value="Partially Furnished" checked> Partially</label>
+      <label><input type="radio" name="furnished" value="Fully Furnished"> Fully Furnished</label>
+    </div>
+  </div>
+
+  <div class="form-divider">Location</div>
+  <div class="form-group">
+    <label>State</label>
+    <div class="radio-group">
+      <label><input type="radio" name="state" value="Johor" checked> Johor</label>
+      <label><input type="radio" name="state" value="Kuala Lumpur"> Kuala Lumpur</label>
+      <label><input type="radio" name="state" value="Penang"> Penang</label>
+      <label><input type="radio" name="state" value="Other"> Other</label>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label>Area / Township</label>
+      <input type="text" id="area" placeholder="e.g. Bukit Chagar">
+    </div>
+    <div class="form-group">
+      <label>Full Address</label>
+      <input type="text" id="address" placeholder="Full property address">
+    </div>
+  </div>
+
+  <div class="form-divider">Rental Preferences</div>
+  <div class="form-row">
+    <div class="form-group">
+      <label>Target Rent (RM/month)</label>
+      <input type="text" id="targetRent" placeholder="e.g. 2,500">
+    </div>
+    <div class="form-group">
+      <label>Available From</label>
+      <input type="date" id="availFrom">
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Minimum Lease</label>
+    <div class="radio-group">
+      <label><input type="radio" name="minLease" value="6 months"> 6 months</label>
+      <label><input type="radio" name="minLease" value="1 year" checked> 1 year</label>
+      <label><input type="radio" name="minLease" value="2 years"> 2 years</label>
+      <label><input type="radio" name="minLease" value="Flexible"> Flexible</label>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Tenant Preference</label>
+    <div class="radio-group">
+      <label><input type="radio" name="tenantPref" value="Anyone" checked> Anyone</label>
+      <label><input type="radio" name="tenantPref" value="Working professionals"> Professionals</label>
+      <label><input type="radio" name="tenantPref" value="Families"> Families</label>
+      <label><input type="radio" name="tenantPref" value="Students"> Students</label>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Pets Allowed?</label>
+    <div class="radio-group">
+      <label><input type="radio" name="pets" value="Yes"> Yes</label>
+      <label><input type="radio" name="pets" value="No" checked> No</label>
+    </div>
+  </div>
+
+  <!-- Management options (Path B only) -->
+  <div class="mgmt-options" id="mgmtOptions">
+    <div class="form-divider">Management Options</div>
+    <div class="form-group">
+      <label>Rental Type</label>
+      <div class="radio-group">
+        <label><input type="radio" name="rentalType" value="Long-term only" checked> Long-term only</label>
+        <label><input type="radio" name="rentalType" value="Open to Airbnb/short-term"> Open to Airbnb / short-term</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Need Property Management Services?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="needMgmt" value="Yes" checked> Yes</label>
+        <label><input type="radio" name="needMgmt" value="No"> No</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-divider">Contact</div>
+  <div class="form-group">
+    <label>Your Name</label>
+    <input type="text" id="contactName" placeholder="Full name">
+  </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label>Phone (WhatsApp)</label>
+      <input type="tel" id="contactPhone" placeholder="+65 or +60">
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" id="contactEmail" placeholder="your@email.com">
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Are you the owner or authorized agent?</label>
+    <div class="radio-group">
+      <label><input type="radio" name="ownerType" value="Owner" checked> Owner</label>
+      <label><input type="radio" name="ownerType" value="Authorized Agent"> Authorized Agent</label>
+    </div>
+  </div>
+
+  <div class="btn-center">
+    <button class="btn btn-success" onclick="submitRental()">Submit Rental Request</button>
+  </div>
+</div>
+
+<!-- THANK YOU -->
+<div class="thank-you" id="thankYou">
+  <div class="check">&#x2705;</div>
+  <h2>Request Submitted!</h2>
+  <p>Our rental team will review your property details and contact you within 24 hours.</p>
+  <a href="https://wa.me/60197058001?text=Hi%2C%20I%20just%20submitted%20a%20rental%20request%20for%20my%20property." target="_blank" class="wa-btn">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+    Chat on WhatsApp
+  </a>
+</div>
+
+<div class="sidebar-cta" id="sidebarCta">
+  <p>Prefer to talk? WhatsApp us directly.</p>
+  <a href="https://wa.me/60197058001?text=Hi%2C%20I%20want%20to%20rent%20out%20my%20property" target="_blank" class="wa-btn">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+    WhatsApp Us
+  </a>
+</div>
+
+<script>
+var selectedPath='';
+function selectPath(p){
+  selectedPath=p;
+  document.getElementById('pathA').classList.toggle('selected',p==='A');
+  document.getElementById('pathB').classList.toggle('selected',p==='B');
+  document.getElementById('rentalForm').classList.add('visible');
+  document.getElementById('mgmtOptions').classList.toggle('visible',p==='B');
+  document.getElementById('formTitle').textContent=p==='A'?'Tenant Sourcing Request':'Full Management Request';
+  setTimeout(function(){
+    document.getElementById('rentalForm').scrollIntoView({behavior:'smooth',block:'start'});
+  },200);
+}
+
+function getRadio(name){
+  var el=document.querySelector('input[name="'+name+'"]:checked');
+  return el?el.value:'';
+}
+
+function submitRental(){
+  // Placeholder: send to API/webhook in production
+  document.getElementById('rentalForm').style.display='none';
+  document.getElementById('pathSection').style.display='none';
+  document.getElementById('sidebarCta').style.display='none';
+  document.getElementById('thankYou').style.display='block';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+
+</body>
+</html>
