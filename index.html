@@ -29,47 +29,70 @@ img{max-width:100%;display:block}
 button{cursor:pointer;border:none;background:none;font-family:inherit}
 a{text-decoration:none;color:inherit}
 
-/* NAV */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;
-  background:rgba(255,255,255,.72);backdrop-filter:saturate(180%) blur(20px);
-  -webkit-backdrop-filter:saturate(180%) blur(20px);
-  border-bottom:1px solid var(--border-light);height:var(--nav-height);
-  display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,4vw,48px)}
-.nav-logo{font-weight:700;font-size:18px;color:var(--text);display:flex;align-items:center;gap:10px}
+/* NAV — transparent over video */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--nav-height);
+  display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,4vw,48px);
+  transition:background .4s,border-color .4s,backdrop-filter .4s}
+.nav--transparent{background:transparent;border-bottom:1px solid transparent}
+.nav--solid{background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(20px);
+  -webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border-light)}
+.nav-logo{font-weight:700;font-size:18px;display:flex;align-items:center;gap:10px;transition:color .3s}
+.nav--transparent .nav-logo{color:#fff}
+.nav--solid .nav-logo{color:var(--text)}
 .nav-logo svg{width:28px;height:28px}
 .nav-links{display:flex;align-items:center;gap:24px}
-.nav-links a{font-size:14px;font-weight:500;color:var(--text-secondary);transition:color .2s}
-.nav-links a:hover{color:var(--text)}
-.nav-cta{background:var(--blue);color:#fff;padding:8px 20px;border-radius:20px;
-  font-size:14px;font-weight:600;transition:var(--transition)}
-.nav-cta:hover{background:var(--blue-hover);transform:scale(1.02)}
+.nav-links a{font-size:14px;font-weight:500;transition:color .3s}
+.nav--transparent .nav-links a{color:rgba(255,255,255,.8)}
+.nav--transparent .nav-links a:hover{color:#fff}
+.nav--solid .nav-links a{color:var(--text-secondary)}
+.nav--solid .nav-links a:hover{color:var(--text)}
+.nav-cta{padding:8px 20px;border-radius:20px;font-size:14px;font-weight:600;transition:var(--transition)}
+.nav--transparent .nav-cta{background:rgba(255,255,255,.15);backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);color:#fff;border:1px solid rgba(255,255,255,.25)}
+.nav--transparent .nav-cta:hover{background:rgba(255,255,255,.25)}
+.nav--solid .nav-cta{background:var(--blue);color:#fff;border:1px solid var(--blue)}
+.nav--solid .nav-cta:hover{background:var(--blue-hover)}
 @media(max-width:768px){.nav-links a:not(.nav-cta){display:none}}
 
-/* HERO */
-.hero{padding:calc(var(--nav-height) + 60px) clamp(16px,4vw,48px) 40px;
-  text-align:center;background:linear-gradient(180deg,var(--bg-tertiary) 0%,var(--bg) 100%);
-  min-height:60vh;display:flex;flex-direction:column;align-items:center;justify-content:center}
-.hero-badge{display:inline-flex;align-items:center;gap:6px;
-  background:linear-gradient(135deg,#ff6b35,#f7c948);color:#fff;
-  padding:6px 16px;border-radius:20px;font-size:13px;font-weight:600;
-  margin-bottom:20px;letter-spacing:.3px}
-.hero-badge::before{content:"";width:6px;height:6px;border-radius:50%;background:#fff;
-  animation:pulse-dot 2s infinite}
+/* VIDEO HERO */
+.video-hero{position:relative;width:100%;height:100vh;min-height:600px;overflow:hidden;background:#0a0a0a}
+.video-hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  opacity:0;transition:opacity 1.5s ease}
+.video-hero video.active{opacity:1}
+.video-hero-overlay{position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.45) 0%,rgba(0,0,0,.25) 40%,rgba(0,0,0,.55) 100%);z-index:1}
+.video-hero-content{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;padding:0 clamp(20px,5vw,60px)}
+.hero-tagline{font-size:clamp(36px,7vw,72px);font-weight:800;letter-spacing:-.03em;line-height:1.08;
+  margin-bottom:20px;color:#fff}
+.hero-tagline .gold{color:#c9a962}
+.hero-subtext{font-size:clamp(15px,2vw,20px);color:rgba(255,255,255,.75);max-width:540px;
+  line-height:1.6;font-weight:400;margin-bottom:36px}
+.hero-wa-btn{display:inline-flex;align-items:center;gap:10px;background:#25d366;color:#fff;
+  padding:16px 36px;border-radius:50px;font-size:17px;font-weight:600;
+  transition:var(--transition);box-shadow:0 4px 20px rgba(37,211,102,.35)}
+.hero-wa-btn:hover{background:#20bd5a;transform:translateY(-2px);box-shadow:0 6px 28px rgba(37,211,102,.45)}
+.hero-wa-btn svg{width:22px;height:22px}
+/* Location dots */
+.hero-dots{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;
+  display:flex;gap:10px;align-items:center}
+.hero-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.35);
+  cursor:pointer;transition:var(--transition);position:relative}
+.hero-dot.active{background:#fff;width:12px;height:12px}
+.hero-dot-label{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);
+  font-size:11px;color:rgba(255,255,255,.7);white-space:nowrap;opacity:0;
+  transition:opacity .3s;pointer-events:none;font-weight:500;letter-spacing:.3px}
+.hero-dot.active .hero-dot-label{opacity:1}
+/* Scroll indicator */
+.hero-scroll{position:absolute;bottom:70px;left:50%;transform:translateX(-50%);z-index:2;
+  display:flex;flex-direction:column;align-items:center;gap:6px;opacity:.6}
+.hero-scroll-line{width:1px;height:32px;background:linear-gradient(180deg,transparent,#fff);
+  animation:scrollPulse 2s infinite}
+@keyframes scrollPulse{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
 @keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.4}}
-.hero h1{font-size:clamp(32px,6vw,64px);font-weight:800;letter-spacing:-.03em;
-  line-height:1.08;margin-bottom:16px;
-  background:linear-gradient(135deg,var(--text) 0%,var(--text-secondary) 100%);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  background-clip:text}
-.hero p{font-size:clamp(16px,2.5vw,21px);color:var(--text-secondary);max-width:600px;
-  line-height:1.5;font-weight:400}
-.hero-stats{display:flex;gap:40px;margin-top:36px;flex-wrap:wrap;justify-content:center}
-.hero-stat{text-align:center}
-.hero-stat .value{font-size:28px;font-weight:700;color:var(--text)}
-.hero-stat .label{font-size:13px;color:var(--text-tertiary);margin-top:2px}
 
 /* SEARCH + FILTERS */
-.filters-section{position:sticky;top:var(--nav-height);z-index:50;
+.filters-section{position:sticky;top:0;z-index:50;
   background:rgba(255,255,255,.85);backdrop-filter:saturate(180%) blur(20px);
   -webkit-backdrop-filter:saturate(180%) blur(20px);
   border-bottom:1px solid var(--border-light);
@@ -247,9 +270,9 @@ a{text-decoration:none;color:inherit}
 <body>
 
 <!-- NAV -->
-<nav class="nav">
+<nav class="nav nav--transparent" id="mainNav">
   <a href="#" class="nav-logo">
-    <svg viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="#007aff"/><path d="M7 14h14M14 7v14" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg>
+    <svg viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="#c9a962"/><path d="M7 14h14M14 7v14" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg>
     Straits Advisory
   </a>
   <div class="nav-links">
@@ -259,17 +282,24 @@ a{text-decoration:none;color:inherit}
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-badge">RTS Link 2026 — Now Open</div>
-  <h1>Singapore Living,<br>Johor Prices</h1>
-  <p>Premium JB properties from S$268K. Freehold condos, landed homes & seafront living — 5 min RTS commute to Singapore.</p>
-  <div class="hero-stats">
-    <div class="hero-stat"><div class="value">46</div><div class="label">Properties</div></div>
-    <div class="hero-stat"><div class="value">S$268K</div><div class="label">From</div></div>
-    <div class="hero-stat"><div class="value">6-8%</div><div class="label">Rental Yield</div></div>
-    <div class="hero-stat"><div class="value">5 min</div><div class="label">To Singapore</div></div>
+<!-- VIDEO HERO -->
+<section class="video-hero" id="videoHero">
+  <video id="vid0" src="public/videos/kl-aerial.mp4" muted autoplay loop playsinline class="active"></video>
+  <video id="vid1" src="public/videos/jb-harbour.mp4" muted loop playsinline></video>
+  <div class="video-hero-overlay"></div>
+  <div class="video-hero-content">
+    <h1 class="hero-tagline">Bridging Markets.<br><span class="gold">Building Futures.</span></h1>
+    <p class="hero-subtext">Your trusted gateway to Johor Bahru property investment.</p>
+    <a href="https://wa.me/6581234567" class="hero-wa-btn" target="_blank">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.138.562 4.145 1.543 5.888L0 24l6.304-1.654A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.97 0-3.837-.53-5.445-1.455l-.39-.232-4.047 1.062 1.08-3.946-.254-.404A9.715 9.715 0 0 1 2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/></svg>
+      Get Started on WhatsApp
+    </a>
   </div>
+  <div class="hero-dots" id="heroDots">
+    <div class="hero-dot active" data-index="0"><span class="hero-dot-label">Kuala Lumpur</span></div>
+    <div class="hero-dot" data-index="1"><span class="hero-dot-label">Puteri Harbour</span></div>
+  </div>
+  <div class="hero-scroll"><div class="hero-scroll-line"></div></div>
 </section>
 
 <!-- FILTERS -->
@@ -599,10 +629,58 @@ document.getElementById('sortSelect').addEventListener('change', (e) => {
   renderCards();
 });
 
-// Scroll to top button
-window.addEventListener('scroll', () => {
-  document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 500);
+// ─── VIDEO HERO CROSSFADE ───
+const videos = [document.getElementById('vid0'), document.getElementById('vid1')];
+const dots = document.querySelectorAll('.hero-dot');
+let currentVid = 0;
+let heroInterval;
+
+function switchVideo(index) {
+  if (index === currentVid) return;
+  videos[currentVid].classList.remove('active');
+  dots[currentVid].classList.remove('active');
+  currentVid = index;
+  videos[currentVid].currentTime = 0;
+  videos[currentVid].play();
+  videos[currentVid].classList.add('active');
+  dots[currentVid].classList.add('active');
+}
+
+function startHeroCycle() {
+  clearInterval(heroInterval);
+  heroInterval = setInterval(() => {
+    switchVideo((currentVid + 1) % videos.length);
+  }, 8000);
+}
+
+dots.forEach(dot => {
+  dot.addEventListener('click', () => {
+    switchVideo(parseInt(dot.dataset.index));
+    startHeroCycle(); // Reset timer on manual switch
+  });
 });
+
+startHeroCycle();
+
+// ─── NAV SCROLL: transparent → solid ───
+const nav = document.getElementById('mainNav');
+const heroSection = document.getElementById('videoHero');
+
+function updateNav() {
+  const heroBottom = heroSection.getBoundingClientRect().bottom;
+  if (heroBottom <= 64) {
+    nav.classList.remove('nav--transparent');
+    nav.classList.add('nav--solid');
+  } else {
+    nav.classList.remove('nav--solid');
+    nav.classList.add('nav--transparent');
+  }
+  // Scroll to top button
+  document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 500);
+}
+
+window.addEventListener('scroll', updateNav, { passive: true });
+updateNav();
 
 // Escape key to close detail
 document.addEventListener('keydown', (e) => {
