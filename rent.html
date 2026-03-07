@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rent Out Your Property - Straits Advisory</title>
-<meta name="description" content="Find quality tenants or get full property management. Hassle-free rental services for Malaysia property owners.">
+<title>Rent Made Simple - Straits Advisory</title>
+<meta name="description" content="Whether you're a landlord or tenant, we've got you covered. List your property or find your next rental home in Malaysia.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><rect width='28' height='28' rx='6' fill='%23c9a962'/><path d='M7 14h14M14 7v14' stroke='white' stroke-width='2.5' stroke-linecap='round'/></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -14,6 +14,7 @@ html{scroll-behavior:smooth}
 body{font-family:Inter,system-ui,-apple-system,sans-serif;color:#1a1a2e;background:#fff;-webkit-font-smoothing:antialiased}
 a{text-decoration:none;color:inherit}
 
+/* NAV */
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,5vw,60px);height:64px;background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,0.06)}
 .nav-logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px;color:var(--navy)}
 .nav-logo svg{width:28px;height:28px}
@@ -23,37 +24,54 @@ a{text-decoration:none;color:inherit}
 .nav-cta{background:var(--navy);color:#fff!important;padding:8px 20px;border-radius:50px;font-size:13px;transition:all var(--transition)}
 .nav-cta:hover{background:var(--gold)}
 
-.hero{margin-top:64px;padding:60px clamp(20px,5vw,60px) 50px;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);text-align:center;color:#fff}
-.hero h1{font-size:clamp(28px,5vw,48px);font-weight:800;margin-bottom:16px;line-height:1.15}
+/* HERO */
+.hero{margin-top:64px;padding:70px clamp(20px,5vw,60px) 60px;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);text-align:center;color:#fff}
+.hero h1{font-size:clamp(32px,6vw,56px);font-weight:800;margin-bottom:16px;line-height:1.1}
 .hero h1 span{color:var(--gold)}
-.hero p{font-size:clamp(14px,2vw,18px);color:rgba(255,255,255,0.75);max-width:550px;margin:0 auto}
+.hero p{font-size:clamp(15px,2vw,19px);color:rgba(255,255,255,0.7);max-width:520px;margin:0 auto}
 
 /* PATH SELECTION */
-.path-section{max-width:800px;margin:0 auto;padding:60px clamp(20px,5vw,60px)}
-.path-header{text-align:center;margin-bottom:32px}
-.path-header h2{font-size:24px;font-weight:800;color:var(--navy);margin-bottom:8px}
-.path-header p{font-size:15px;color:#6b7280}
-.path-cards{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.path-card{border:2px solid #e5e7eb;border-radius:var(--radius);padding:28px 24px;cursor:pointer;transition:all var(--transition);position:relative}
-.path-card:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,0.08)}
-.path-card.selected{border-color:var(--gold);background:rgba(201,169,98,0.05)}
-.path-card.selected::after{content:'Selected';position:absolute;top:12px;right:12px;background:var(--gold);color:#fff;padding:3px 10px;border-radius:50px;font-size:11px;font-weight:600}
-.path-icon{font-size:32px;margin-bottom:12px}
-.path-title{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:8px}
-.path-desc{font-size:13px;color:#6b7280;margin-bottom:14px;line-height:1.6}
-.path-list{list-style:none;padding:0}
-.path-list li{padding:4px 0;font-size:13px;color:#374151;display:flex;align-items:center;gap:6px}
-.path-list li::before{content:'�3';color:#059669;font-weight:700;font-size:12px}
-.path-plus{margin-top:10px;padding-top:10px;border-top:1px solid #e5e7eb}
-.path-plus-label{font-size:12px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px}
+.path-section{max-width:860px;margin:0 auto;padding:60px clamp(20px,5vw,60px) 40px}
+.section-header{text-align:center;margin-bottom:36px}
+.section-header h2{font-size:clamp(22px,3vw,30px);font-weight:800;color:var(--navy);margin-bottom:8px}
+.section-header p{font-size:15px;color:#6b7280}
+.path-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.path-card{border:2px solid #e5e7eb;border-radius:var(--radius);padding:32px 28px;cursor:pointer;transition:all var(--transition);position:relative;display:flex;flex-direction:column}
+.path-card:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,0.08)}
+.path-card.selected{border-color:var(--gold);background:rgba(201,169,98,0.04)}
+.path-card.selected::after{content:'\2713';position:absolute;top:16px;right:16px;width:28px;height:28px;border-radius:50%;background:var(--gold);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700}
+.path-icon{font-size:36px;margin-bottom:14px}
+.path-title{font-size:20px;font-weight:800;color:var(--navy);margin-bottom:4px}
+.path-subtitle{font-size:14px;color:#6b7280;margin-bottom:18px;line-height:1.5}
+.path-list{list-style:none;padding:0;margin-bottom:24px;flex:1}
+.path-list li{padding:6px 0;font-size:13px;color:#374151;display:flex;align-items:center;gap:8px}
+.path-list li::before{content:'\2713';color:#059669;font-weight:700;font-size:12px;width:18px;height:18px;border-radius:50%;background:rgba(5,150,105,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.path-btn{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;padding:12px;border:none;border-radius:8px;font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;transition:all var(--transition)}
+.path-btn-owner{background:var(--navy);color:#fff}
+.path-btn-owner:hover{background:var(--gold)}
+.path-btn-tenant{background:#f3f4f6;color:var(--navy);border:1px solid #d1d5db}
+.path-btn-tenant:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
 
-/* FORM */
-.form-section{max-width:680px;margin:0 auto 60px;padding:0 clamp(20px,5vw,60px);display:none}
-.form-section.visible{display:block}
-.form-header{text-align:center;margin-bottom:32px}
-.form-header h2{font-size:24px;font-weight:800;color:var(--navy);margin-bottom:8px}
-.form-header p{font-size:14px;color:#6b7280}
-.form-divider{font-size:14px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:1px;margin:32px 0 16px;padding-bottom:8px;border-bottom:2px solid var(--gold);display:inline-block}
+/* FLOW CONTAINERS */
+.flow-container{display:none;max-width:720px;margin:0 auto;padding:0 clamp(20px,5vw,60px) 60px}
+.flow-container.visible{display:block}
+.flow-back{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:#6b7280;cursor:pointer;margin-bottom:24px;padding:6px 0;transition:color var(--transition)}
+.flow-back:hover{color:var(--navy)}
+
+/* LANDLORD SUB-SELECTION */
+.sub-select{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:36px}
+.sub-card{border:2px solid #e5e7eb;border-radius:var(--radius);padding:24px 20px;cursor:pointer;transition:all var(--transition)}
+.sub-card:hover{border-color:var(--gold)}
+.sub-card.selected{border-color:var(--gold);background:rgba(201,169,98,0.05)}
+.sub-card h4{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.sub-card ul{list-style:none;padding:0}
+.sub-card ul li{font-size:13px;color:#6b7280;padding:3px 0;display:flex;align-items:center;gap:6px}
+.sub-card ul li::before{content:'\2713';color:#059669;font-weight:700;font-size:11px}
+.sub-plus{margin-top:8px;padding-top:8px;border-top:1px solid #e5e7eb}
+.sub-plus-label{font-size:11px;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px}
+
+/* FORM STYLES */
+.form-divider{font-size:13px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:1px;margin:32px 0 16px;padding-bottom:8px;border-bottom:2px solid var(--gold);display:inline-block}
 .form-group{margin-bottom:18px}
 .form-group label{display:block;font-size:13px;font-weight:600;color:var(--navy);margin-bottom:6px}
 .form-group .hint{font-size:12px;color:#9ca3af;font-weight:400;margin-left:4px}
@@ -66,39 +84,57 @@ a{text-decoration:none;color:inherit}
 .radio-group label:has(input:checked){border-color:var(--gold);background:rgba(201,169,98,0.08)}
 .radio-group input{display:none}
 
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 32px;border-radius:8px;font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;transition:all var(--transition);border:none}
+/* STEPPER */
+.stepper{display:flex;justify-content:center;gap:8px;margin-bottom:32px;flex-wrap:wrap}
+.step-pill{display:flex;align-items:center;gap:6px;padding:8px 16px;border-radius:50px;font-size:12px;font-weight:600;background:#f3f4f6;color:#9ca3af;transition:all var(--transition)}
+.step-pill.active{background:var(--navy);color:#fff}
+.step-pill.done{background:#059669;color:#fff}
+.step-num{width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:11px}
+
+/* FORM STEPS */
+.form-step{display:none}
+.form-step.active{display:block}
+
+/* BUTTONS */
+.btn-row{display:flex;gap:12px;margin-top:28px}
+.btn{flex:1;padding:12px 24px;border-radius:8px;font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;transition:all var(--transition);border:none;text-align:center}
+.btn-outline{background:#fff;border:1px solid #d1d5db;color:#374151}
+.btn-outline:hover{background:#f3f4f6}
 .btn-primary{background:var(--navy);color:#fff}
 .btn-primary:hover{background:var(--gold)}
 .btn-success{background:#059669;color:#fff}
 .btn-success:hover{background:#047857}
-.btn-center{display:flex;justify-content:center;margin-top:32px}
-
-/* MANAGEMENT OPTIONS (shown only for path B) */
-.mgmt-options{display:none}
-.mgmt-options.visible{display:block}
 
 /* THANK YOU */
 .thank-you{display:none;text-align:center;padding:60px 20px}
-.thank-you .check{font-size:64px;margin-bottom:16px}
+.thank-check{font-size:64px;margin-bottom:16px}
 .thank-you h2{font-size:28px;font-weight:800;color:var(--navy);margin-bottom:12px}
-.thank-you p{font-size:16px;color:#6b7280;max-width:500px;margin:0 auto 24px}
+.thank-you p{font-size:16px;color:#6b7280;max-width:500px;margin:0 auto 24px;line-height:1.6}
 
-/* SIDEBAR CTA */
-.sidebar-cta{text-align:center;padding:40px clamp(20px,5vw,60px) 60px}
-.sidebar-cta p{font-size:15px;color:#6b7280;margin-bottom:16px}
-.wa-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:50px;background:#25d366;color:#fff;font-size:14px;font-weight:600;transition:all var(--transition)}
+/* BOTTOM CTA */
+.bottom-cta{text-align:center;padding:48px clamp(20px,5vw,60px) 64px;background:#f9fafb;border-top:1px solid #e5e7eb}
+.bottom-cta p{font-size:15px;color:#6b7280;margin-bottom:16px}
+.wa-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:50px;background:#25d366;color:#fff;font-size:15px;font-weight:600;transition:all var(--transition)}
 .wa-btn:hover{background:#1ebe5d;transform:scale(1.03)}
-.wa-btn svg{width:18px;height:18px}
+.wa-btn svg{width:20px;height:20px}
+
+/* MGMT OPTIONS */
+.mgmt-fields{display:none}
+.mgmt-fields.visible{display:block}
 
 @media(max-width:768px){
-  .path-cards{grid-template-columns:1fr}
+  .path-grid,.sub-select{grid-template-columns:1fr}
   .form-row{grid-template-columns:1fr}
   .nav-links a:not(.nav-cta){display:none}
+  .btn-row{flex-direction:column}
+  .stepper{gap:4px}
+  .step-pill{padding:6px 10px;font-size:11px}
 }
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav class="nav">
   <a href="index.html" class="nav-logo">
     <svg viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="#c9a962"/><path d="M7 14h14M14 7v14" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg>
@@ -114,39 +150,76 @@ a{text-decoration:none;color:inherit}
   </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
-  <h1>Rent Out Your <span>Property</span></h1>
-  <p>Find quality tenants. Hassle-free management.</p>
+  <h1>Rent <span>Made Simple</span></h1>
+  <p>Whether you’re a landlord or tenant, we’ve got you covered.</p>
 </section>
 
 <!-- PATH SELECTION -->
 <div class="path-section" id="pathSection">
-  <div class="path-header">
-    <h2>What do you need?</h2>
-    <p>Choose the service that fits your situation.</p>
+  <div class="section-header">
+    <h2>I am a...</h2>
+    <p>Choose the option that fits your situation.</p>
   </div>
-  <div class="path-cards">
-    <div class="path-card" id="pathA" onclick="selectPath('A')">
-      <div class="path-icon">&#x1f50d;</div>
-      <h3 class="path-title">Find Tenants</h3>
-      <p class="path-desc">We source and screen quality tenants for your property.</p>
+  <div class="path-grid">
+    <!-- OWNER CARD -->
+    <div class="path-card" id="cardOwner" onclick="selectPath('owner')">
+      <div class="path-icon">&#x1f3e0;</div>
+      <div class="path-title">Property Owner</div>
+      <div class="path-subtitle">I have a property to rent out</div>
       <ul class="path-list">
+        <li>Find quality tenants</li>
+        <li>Tenant screening &amp; verification</li>
+        <li>Lease agreement preparation</li>
+        <li>Optional: Full property management</li>
+      </ul>
+      <button class="path-btn path-btn-owner" onclick="event.stopPropagation();selectPath('owner')">List My Property &#x2192;</button>
+    </div>
+    <!-- TENANT CARD -->
+    <div class="path-card" id="cardTenant" onclick="selectPath('tenant')">
+      <div class="path-icon">&#x1f50d;</div>
+      <div class="path-title">Tenant</div>
+      <div class="path-subtitle">I’m looking for a place to rent</div>
+      <ul class="path-list">
+        <li>Access to exclusive listings</li>
+        <li>Verified properties only</li>
+        <li>No agent fees for tenants</li>
+        <li>Flexible lease options</li>
+      </ul>
+      <button class="path-btn path-btn-tenant" onclick="event.stopPropagation();selectPath('tenant')">Find a Rental &#x2192;</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- LANDLORD FLOW -->
+<!-- ============================================================ -->
+<div class="flow-container" id="landlordFlow">
+  <div class="flow-back" onclick="goBack()">&#x2190; Back to selection</div>
+
+  <div class="section-header">
+    <h2>What do you need?</h2>
+    <p>Choose the service level that suits you.</p>
+  </div>
+  <div class="sub-select" id="landlordSubSelect">
+    <div class="sub-card" id="subA" onclick="selectLandlordSub('A')">
+      <h4>&#x1f50d; Find Tenants</h4>
+      <ul>
         <li>Tenant sourcing &amp; screening</li>
         <li>Lease agreement preparation</li>
         <li>One-time service</li>
       </ul>
     </div>
-    <div class="path-card" id="pathB" onclick="selectPath('B')">
-      <div class="path-icon">&#x1f3e0;</div>
-      <h3 class="path-title">Full Management</h3>
-      <p class="path-desc">End-to-end property management so you can sit back.</p>
-      <ul class="path-list">
+    <div class="sub-card" id="subB" onclick="selectLandlordSub('B')">
+      <h4>&#x1f3e0; Full Management</h4>
+      <ul>
         <li>Tenant sourcing &amp; screening</li>
         <li>Lease agreement preparation</li>
       </ul>
-      <div class="path-plus">
-        <div class="path-plus-label">Plus</div>
-        <ul class="path-list">
+      <div class="sub-plus">
+        <div class="sub-plus-label">Plus</div>
+        <ul>
           <li>Rent collection</li>
           <li>Maintenance coordination</li>
           <li>Airbnb management available</li>
@@ -154,208 +227,398 @@ a{text-decoration:none;color:inherit}
       </div>
     </div>
   </div>
-</div>
 
-<!-- RENTAL FORM -->
-<div class="form-section" id="rentalForm">
-  <div class="form-header">
-    <h2 id="formTitle">Tenant Sourcing Request</h2>
-    <p>Fill in your property details and rental preferences.</p>
-  </div>
-
-  <div class="form-divider">Property Details</div>
-  <div class="form-group">
-    <label>Property Type</label>
-    <div class="radio-group">
-      <label><input type="radio" name="propType" value="Condo/Apartment" checked> Condo / Apartment</label>
-      <label><input type="radio" name="propType" value="Landed House"> Landed House</label>
-      <label><input type="radio" name="propType" value="Room"> Room</label>
-      <label><input type="radio" name="propType" value="Commercial"> Commercial</label>
-    </div>
-  </div>
-  <div class="form-group">
-    <label>Property Name</label>
-    <input type="text" id="propName" placeholder="e.g. R&amp;F Princess Cove">
-  </div>
-  <div class="form-row">
+  <!-- LANDLORD FORM -->
+  <div id="landlordForm" style="display:none">
+    <div class="form-divider">Property Details</div>
     <div class="form-group">
-      <label>Unit Number</label>
-      <input type="text" id="unitNum" placeholder="e.g. A-12-05">
-    </div>
-    <div class="form-group">
-      <label>Built-up Size (sqft)</label>
-      <input type="number" id="builtUp" placeholder="e.g. 850">
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="form-group">
-      <label>Bedrooms</label>
-      <select id="bedrooms"><option>Studio</option><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5+</option></select>
-    </div>
-    <div class="form-group">
-      <label>Bathrooms</label>
-      <select id="bathrooms"><option>1</option><option selected>2</option><option>3</option><option>4+</option></select>
-    </div>
-  </div>
-  <div class="form-group">
-    <label>Furnished Status</label>
-    <div class="radio-group">
-      <label><input type="radio" name="furnished" value="Unfurnished"> Unfurnished</label>
-      <label><input type="radio" name="furnished" value="Partially Furnished" checked> Partially</label>
-      <label><input type="radio" name="furnished" value="Fully Furnished"> Fully Furnished</label>
-    </div>
-  </div>
-
-  <div class="form-divider">Location</div>
-  <div class="form-group">
-    <label>State</label>
-    <div class="radio-group">
-      <label><input type="radio" name="state" value="Johor" checked> Johor</label>
-      <label><input type="radio" name="state" value="Kuala Lumpur"> Kuala Lumpur</label>
-      <label><input type="radio" name="state" value="Penang"> Penang</label>
-      <label><input type="radio" name="state" value="Other"> Other</label>
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="form-group">
-      <label>Area / Township</label>
-      <input type="text" id="area" placeholder="e.g. Bukit Chagar">
-    </div>
-    <div class="form-group">
-      <label>Full Address</label>
-      <input type="text" id="address" placeholder="Full property address">
-    </div>
-  </div>
-
-  <div class="form-divider">Rental Preferences</div>
-  <div class="form-row">
-    <div class="form-group">
-      <label>Target Rent (RM/month)</label>
-      <input type="text" id="targetRent" placeholder="e.g. 2,500">
-    </div>
-    <div class="form-group">
-      <label>Available From</label>
-      <input type="date" id="availFrom">
-    </div>
-  </div>
-  <div class="form-group">
-    <label>Minimum Lease</label>
-    <div class="radio-group">
-      <label><input type="radio" name="minLease" value="6 months"> 6 months</label>
-      <label><input type="radio" name="minLease" value="1 year" checked> 1 year</label>
-      <label><input type="radio" name="minLease" value="2 years"> 2 years</label>
-      <label><input type="radio" name="minLease" value="Flexible"> Flexible</label>
-    </div>
-  </div>
-  <div class="form-group">
-    <label>Tenant Preference</label>
-    <div class="radio-group">
-      <label><input type="radio" name="tenantPref" value="Anyone" checked> Anyone</label>
-      <label><input type="radio" name="tenantPref" value="Working professionals"> Professionals</label>
-      <label><input type="radio" name="tenantPref" value="Families"> Families</label>
-      <label><input type="radio" name="tenantPref" value="Students"> Students</label>
-    </div>
-  </div>
-  <div class="form-group">
-    <label>Pets Allowed?</label>
-    <div class="radio-group">
-      <label><input type="radio" name="pets" value="Yes"> Yes</label>
-      <label><input type="radio" name="pets" value="No" checked> No</label>
-    </div>
-  </div>
-
-  <!-- Management options (Path B only) -->
-  <div class="mgmt-options" id="mgmtOptions">
-    <div class="form-divider">Management Options</div>
-    <div class="form-group">
-      <label>Rental Type</label>
+      <label>Property Type</label>
       <div class="radio-group">
-        <label><input type="radio" name="rentalType" value="Long-term only" checked> Long-term only</label>
-        <label><input type="radio" name="rentalType" value="Open to Airbnb/short-term"> Open to Airbnb / short-term</label>
+        <label><input type="radio" name="ll_propType" value="Condo/Apartment" checked> Condo / Apartment</label>
+        <label><input type="radio" name="ll_propType" value="Landed House"> Landed House</label>
+        <label><input type="radio" name="ll_propType" value="Room"> Room</label>
+        <label><input type="radio" name="ll_propType" value="Commercial"> Commercial</label>
       </div>
     </div>
     <div class="form-group">
-      <label>Need Property Management Services?</label>
-      <div class="radio-group">
-        <label><input type="radio" name="needMgmt" value="Yes" checked> Yes</label>
-        <label><input type="radio" name="needMgmt" value="No"> No</label>
+      <label>Property Name</label>
+      <input type="text" id="ll_propName" placeholder="e.g. R&amp;F Princess Cove">
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Unit Number</label>
+        <input type="text" id="ll_unitNum" placeholder="e.g. A-12-05">
+      </div>
+      <div class="form-group">
+        <label>Built-up Size (sqft)</label>
+        <input type="number" id="ll_builtUp" placeholder="e.g. 850">
       </div>
     </div>
-  </div>
-
-  <div class="form-divider">Contact</div>
-  <div class="form-group">
-    <label>Your Name</label>
-    <input type="text" id="contactName" placeholder="Full name">
-  </div>
-  <div class="form-row">
-    <div class="form-group">
-      <label>Phone (WhatsApp)</label>
-      <input type="tel" id="contactPhone" placeholder="+65 or +60">
+    <div class="form-row">
+      <div class="form-group">
+        <label>Bedrooms</label>
+        <select id="ll_beds"><option>Studio</option><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5+</option></select>
+      </div>
+      <div class="form-group">
+        <label>Bathrooms</label>
+        <select id="ll_baths"><option>1</option><option selected>2</option><option>3</option><option>4+</option></select>
+      </div>
     </div>
     <div class="form-group">
-      <label>Email</label>
-      <input type="email" id="contactEmail" placeholder="your@email.com">
+      <label>Furnished Status</label>
+      <div class="radio-group">
+        <label><input type="radio" name="ll_furnished" value="Unfurnished"> Unfurnished</label>
+        <label><input type="radio" name="ll_furnished" value="Partially Furnished" checked> Partially</label>
+        <label><input type="radio" name="ll_furnished" value="Fully Furnished"> Fully Furnished</label>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label>Are you the owner or authorized agent?</label>
-    <div class="radio-group">
-      <label><input type="radio" name="ownerType" value="Owner" checked> Owner</label>
-      <label><input type="radio" name="ownerType" value="Authorized Agent"> Authorized Agent</label>
+
+    <div class="form-divider">Location</div>
+    <div class="form-group">
+      <label>State</label>
+      <div class="radio-group">
+        <label><input type="radio" name="ll_state" value="Johor" checked> Johor</label>
+        <label><input type="radio" name="ll_state" value="Kuala Lumpur"> Kuala Lumpur</label>
+        <label><input type="radio" name="ll_state" value="Penang"> Penang</label>
+        <label><input type="radio" name="ll_state" value="Other"> Other</label>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Area / Township</label>
+        <input type="text" id="ll_area" placeholder="e.g. Bukit Chagar">
+      </div>
+      <div class="form-group">
+        <label>Full Address</label>
+        <input type="text" id="ll_address" placeholder="Full property address">
+      </div>
+    </div>
+
+    <div class="form-divider">Rental Preferences</div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Target Rent (RM/month)</label>
+        <input type="text" id="ll_rent" placeholder="e.g. 2,500">
+      </div>
+      <div class="form-group">
+        <label>Available From</label>
+        <input type="date" id="ll_availDate">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Minimum Lease</label>
+      <div class="radio-group">
+        <label><input type="radio" name="ll_minLease" value="6 months"> 6 months</label>
+        <label><input type="radio" name="ll_minLease" value="1 year" checked> 1 year</label>
+        <label><input type="radio" name="ll_minLease" value="2 years"> 2 years</label>
+        <label><input type="radio" name="ll_minLease" value="Flexible"> Flexible</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Tenant Preference</label>
+      <div class="radio-group">
+        <label><input type="radio" name="ll_tenantPref" value="Anyone" checked> Anyone</label>
+        <label><input type="radio" name="ll_tenantPref" value="Working professionals"> Professionals</label>
+        <label><input type="radio" name="ll_tenantPref" value="Families"> Families</label>
+        <label><input type="radio" name="ll_tenantPref" value="Students"> Students</label>
+        <label><input type="radio" name="ll_tenantPref" value="Corporate"> Corporate</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Pets Allowed?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="ll_pets" value="Yes"> Yes</label>
+        <label><input type="radio" name="ll_pets" value="No" checked> No</label>
+      </div>
+    </div>
+
+    <!-- Management options (Sub B only) -->
+    <div class="mgmt-fields" id="mgmtFields">
+      <div class="form-divider">Management Options</div>
+      <div class="form-group">
+        <label>Rental Type</label>
+        <div class="radio-group">
+          <label><input type="radio" name="ll_rentalType" value="Long-term only" checked> Long-term only</label>
+          <label><input type="radio" name="ll_rentalType" value="Open to Airbnb/short-term"> Open to Airbnb / short-term</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Need Property Management Services?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="ll_needMgmt" value="Yes" checked> Yes</label>
+          <label><input type="radio" name="ll_needMgmt" value="No"> No</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-divider">Contact</div>
+    <div class="form-group">
+      <label>Your Name</label>
+      <input type="text" id="ll_name" placeholder="Full name">
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Phone (WhatsApp)</label>
+        <input type="tel" id="ll_phone" placeholder="+65 or +60">
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="ll_email" placeholder="your@email.com">
+      </div>
+    </div>
+
+    <div class="btn-row" style="justify-content:center">
+      <button class="btn btn-success" style="max-width:320px" onclick="submitLandlord()">Submit Rental Request</button>
     </div>
   </div>
 
-  <div class="btn-center">
-    <button class="btn btn-success" onclick="submitRental()">Submit Rental Request</button>
+  <!-- LANDLORD THANK YOU -->
+  <div class="thank-you" id="landlordThankYou">
+    <div class="thank-check">&#x2705;</div>
+    <h2>Request Submitted!</h2>
+    <p>Our rental team will review your property details and contact you within 24 hours.</p>
+    <a href="https://wa.me/60197058001?text=Hi%2C%20I%20just%20submitted%20a%20rental%20listing%20request." target="_blank" class="wa-btn">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+      Chat on WhatsApp
+    </a>
   </div>
 </div>
 
-<!-- THANK YOU -->
-<div class="thank-you" id="thankYou">
-  <div class="check">&#x2705;</div>
-  <h2>Request Submitted!</h2>
-  <p>Our rental team will review your property details and contact you within 24 hours.</p>
-  <a href="https://wa.me/60197058001?text=Hi%2C%20I%20just%20submitted%20a%20rental%20request%20for%20my%20property." target="_blank" class="wa-btn">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-    Chat on WhatsApp
-  </a>
+<!-- ============================================================ -->
+<!-- TENANT FLOW -->
+<!-- ============================================================ -->
+<div class="flow-container" id="tenantFlow">
+  <div class="flow-back" onclick="goBack()">&#x2190; Back to selection</div>
+
+  <div class="section-header">
+    <h2>Tell us what you’re looking for</h2>
+    <p>We’ll match you with suitable properties within 24 hours.</p>
+  </div>
+
+  <div class="stepper">
+    <div class="step-pill active" data-step="t1"><span class="step-num">1</span> Preferences</div>
+    <div class="step-pill" data-step="t2"><span class="step-num">2</span> Move-in</div>
+    <div class="step-pill" data-step="t3"><span class="step-num">3</span> Contact</div>
+  </div>
+
+  <!-- STEP 1: Preferences -->
+  <div class="form-step active" id="t-step-1">
+    <div class="form-group">
+      <label>Property Type</label>
+      <div class="radio-group">
+        <label><input type="radio" name="t_propType" value="Condo" checked> Condo</label>
+        <label><input type="radio" name="t_propType" value="Landed"> Landed</label>
+        <label><input type="radio" name="t_propType" value="Room"> Room</label>
+        <label><input type="radio" name="t_propType" value="Any"> Any</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Location</label>
+      <div class="radio-group">
+        <label><input type="radio" name="t_location" value="Johor Bahru" checked> Johor Bahru</label>
+        <label><input type="radio" name="t_location" value="Kuala Lumpur"> KL</label>
+        <label><input type="radio" name="t_location" value="Penang"> Penang</label>
+        <label><input type="radio" name="t_location" value="Other"> Other</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Preferred Area <span class="hint">(optional)</span></label>
+      <input type="text" id="t_area" placeholder="e.g. Bukit Chagar, Danga Bay">
+    </div>
+    <div class="form-group">
+      <label>Budget Range (RM/month)</label>
+      <div class="radio-group">
+        <label><input type="radio" name="t_budget" value="Below RM1,500"> Below RM1,500</label>
+        <label><input type="radio" name="t_budget" value="RM1,500-2,500" checked> RM1,500 - 2,500</label>
+        <label><input type="radio" name="t_budget" value="RM2,500-4,000"> RM2,500 - 4,000</label>
+        <label><input type="radio" name="t_budget" value="RM4,000+"> RM4,000+</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Bedrooms Needed</label>
+      <div class="radio-group">
+        <label><input type="radio" name="t_beds" value="Studio"> Studio</label>
+        <label><input type="radio" name="t_beds" value="1"> 1</label>
+        <label><input type="radio" name="t_beds" value="2" checked> 2</label>
+        <label><input type="radio" name="t_beds" value="3"> 3</label>
+        <label><input type="radio" name="t_beds" value="4+"> 4+</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Furnished Preference</label>
+      <div class="radio-group">
+        <label><input type="radio" name="t_furnished" value="Unfurnished"> Unfurnished</label>
+        <label><input type="radio" name="t_furnished" value="Partially"> Partially</label>
+        <label><input type="radio" name="t_furnished" value="Fully Furnished"> Fully</label>
+        <label><input type="radio" name="t_furnished" value="Any" checked> Any</label>
+      </div>
+    </div>
+    <div class="btn-row"><div class="btn btn-outline" style="visibility:hidden">Back</div><div class="btn btn-primary" onclick="goTenantStep(2)">Next &#x2192;</div></div>
+  </div>
+
+  <!-- STEP 2: Move-in Details -->
+  <div class="form-step" id="t-step-2">
+    <div class="form-group">
+      <label>Move-in Date</label>
+      <div class="radio-group">
+        <label><input type="radio" name="t_moveIn" value="Immediately" checked> Immediately</label>
+        <label><input type="radio" name="t_moveIn" value="Within 1 month"> Within 1 month</label>
+        <label><input type="radio" name="t_moveIn" value="Within 3 months"> Within 3 months</label>
+        <label><input type="radio" name="t_moveIn" value="Flexible"> Flexible</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Lease Length</label>
+      <div class="radio-group">
+        <label><input type="radio" name="t_lease" value="6 months"> 6 months</label>
+        <label><input type="radio" name="t_lease" value="1 year" checked> 1 year</label>
+        <label><input type="radio" name="t_lease" value="2 years"> 2 years</label>
+        <label><input type="radio" name="t_lease" value="Flexible"> Flexible</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Who will be staying?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="t_staying" value="Individual" checked> Individual</label>
+        <label><input type="radio" name="t_staying" value="Couple"> Couple</label>
+        <label><input type="radio" name="t_staying" value="Family"> Family</label>
+        <label><input type="radio" name="t_staying" value="Sharing with others"> Sharing</label>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Pets?</label>
+      <div class="radio-group">
+        <label><input type="radio" name="t_pets" value="Yes"> Yes</label>
+        <label><input type="radio" name="t_pets" value="No" checked> No</label>
+      </div>
+    </div>
+    <div class="btn-row"><div class="btn btn-outline" onclick="goTenantStep(1)">&#x2190; Back</div><div class="btn btn-primary" onclick="goTenantStep(3)">Next &#x2192;</div></div>
+  </div>
+
+  <!-- STEP 3: Contact -->
+  <div class="form-step" id="t-step-3">
+    <div class="form-group">
+      <label>Your Name</label>
+      <input type="text" id="t_name" placeholder="Full name">
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Phone (WhatsApp)</label>
+        <input type="tel" id="t_phone" placeholder="+65 or +60">
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" id="t_email" placeholder="your@email.com">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Nationality <span class="hint">(for MM2H / visa context)</span></label>
+      <input type="text" id="t_nationality" placeholder="e.g. Singaporean, Malaysian, British">
+    </div>
+    <div class="form-group">
+      <label>Any Special Requirements? <span class="hint">(optional)</span></label>
+      <textarea id="t_special" placeholder="e.g. ground floor preferred, near MRT, pet-friendly building..."></textarea>
+    </div>
+    <div class="btn-row"><div class="btn btn-outline" onclick="goTenantStep(2)">&#x2190; Back</div><div class="btn btn-success" onclick="submitTenant()">Submit Request</div></div>
+  </div>
+
+  <!-- TENANT THANK YOU -->
+  <div class="thank-you" id="tenantThankYou">
+    <div class="thank-check">&#x2705;</div>
+    <h2>Thanks!</h2>
+    <p>We’ll match you with suitable properties within 24 hours. Our team will reach out via your preferred contact method.</p>
+    <a href="https://wa.me/60197058001?text=Hi%2C%20I%20just%20submitted%20a%20rental%20search%20request." target="_blank" class="wa-btn">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+      Chat on WhatsApp
+    </a>
+  </div>
 </div>
 
-<div class="sidebar-cta" id="sidebarCta">
+<!-- BOTTOM CTA -->
+<div class="bottom-cta" id="bottomCta">
   <p>Prefer to talk? WhatsApp us directly.</p>
-  <a href="https://wa.me/60197058001?text=Hi%2C%20I%20want%20to%20rent%20out%20my%20property" target="_blank" class="wa-btn">
+  <a href="https://wa.me/60197058001" target="_blank" class="wa-btn">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
     WhatsApp Us
   </a>
 </div>
 
 <script>
-var selectedPath='';
+/* ============================================================
+   PATH SELECTION
+   ============================================================ */
+var currentPath='';
 function selectPath(p){
-  selectedPath=p;
-  document.getElementById('pathA').classList.toggle('selected',p==='A');
-  document.getElementById('pathB').classList.toggle('selected',p==='B');
-  document.getElementById('rentalForm').classList.add('visible');
-  document.getElementById('mgmtOptions').classList.toggle('visible',p==='B');
-  document.getElementById('formTitle').textContent=p==='A'?'Tenant Sourcing Request':'Full Management Request';
+  currentPath=p;
+  document.getElementById('cardOwner').classList.toggle('selected',p==='owner');
+  document.getElementById('cardTenant').classList.toggle('selected',p==='tenant');
+  // Hide path section with smooth transition
   setTimeout(function(){
-    document.getElementById('rentalForm').scrollIntoView({behavior:'smooth',block:'start'});
-  },200);
+    document.getElementById('pathSection').style.display='none';
+    if(p==='owner'){
+      document.getElementById('landlordFlow').classList.add('visible');
+      document.getElementById('tenantFlow').classList.remove('visible');
+    } else {
+      document.getElementById('tenantFlow').classList.add('visible');
+      document.getElementById('landlordFlow').classList.remove('visible');
+    }
+    window.scrollTo({top:document.querySelector('.hero').offsetHeight+64,behavior:'smooth'});
+  },150);
 }
 
-function getRadio(name){
-  var el=document.querySelector('input[name="'+name+'"]:checked');
-  return el?el.value:'';
+function goBack(){
+  document.getElementById('landlordFlow').classList.remove('visible');
+  document.getElementById('tenantFlow').classList.remove('visible');
+  document.getElementById('pathSection').style.display='';
+  document.getElementById('cardOwner').classList.remove('selected');
+  document.getElementById('cardTenant').classList.remove('selected');
+  currentPath='';
+  window.scrollTo({top:document.querySelector('.hero').offsetHeight+64,behavior:'smooth'});
 }
 
-function submitRental(){
-  // Placeholder: send to API/webhook in production
-  document.getElementById('rentalForm').style.display='none';
-  document.getElementById('pathSection').style.display='none';
-  document.getElementById('sidebarCta').style.display='none';
-  document.getElementById('thankYou').style.display='block';
-  window.scrollTo({top:0,behavior:'smooth'});
+/* ============================================================
+   LANDLORD FLOW
+   ============================================================ */
+var landlordSub='';
+function selectLandlordSub(s){
+  landlordSub=s;
+  document.getElementById('subA').classList.toggle('selected',s==='A');
+  document.getElementById('subB').classList.toggle('selected',s==='B');
+  document.getElementById('landlordForm').style.display='block';
+  document.getElementById('mgmtFields').classList.toggle('visible',s==='B');
+  document.getElementById('landlordForm').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function submitLandlord(){
+  document.getElementById('landlordSubSelect').style.display='none';
+  document.getElementById('landlordForm').style.display='none';
+  document.querySelector('#landlordFlow .flow-back').style.display='none';
+  document.querySelector('#landlordFlow .section-header').style.display='none';
+  document.getElementById('landlordThankYou').style.display='block';
+  window.scrollTo({top:document.querySelector('.hero').offsetHeight+64,behavior:'smooth'});
+}
+
+/* ============================================================
+   TENANT FLOW
+   ============================================================ */
+var tenantStep=1;
+function goTenantStep(n){
+  document.getElementById('t-step-'+tenantStep).classList.remove('active');
+  document.getElementById('t-step-'+n).classList.add('active');
+  document.querySelectorAll('.step-pill').forEach(function(d){
+    var s=parseInt(d.dataset.step.replace('t',''));
+    d.classList.remove('active','done');
+    if(s===n) d.classList.add('active');
+    else if(s<n) d.classList.add('done');
+  });
+  tenantStep=n;
+  document.querySelector('#tenantFlow .section-header').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function submitTenant(){
+  document.querySelectorAll('#tenantFlow .stepper, #tenantFlow .form-step, #tenantFlow .section-header, #tenantFlow .flow-back').forEach(function(el){el.style.display='none'});
+  document.getElementById('tenantThankYou').style.display='block';
+  window.scrollTo({top:document.querySelector('.hero').offsetHeight+64,behavior:'smooth'});
 }
 </script>
 
