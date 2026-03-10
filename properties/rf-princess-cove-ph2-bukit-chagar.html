@@ -90,7 +90,26 @@ html{scroll-behavior:smooth}body{font-family:Inter,system-ui,-apple-system,sans-
   .related-grid{grid-template-columns:repeat(2,1fr)}
   .nav-links a:not(.nav-cta){display:none}
   .enq-form .fr{grid-template-columns:1fr}
-}</style>
+  .vt-container .vt-preview .vt-play{width:60px;height:60px}
+}
+/* VIRTUAL TOUR */
+.vt-container{position:relative;aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;background:#000;margin-bottom:16px}
+.vt-preview{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%)}
+.vt-preview::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6) 0%,transparent 50%)}
+.vt-play{position:relative;z-index:2;width:80px;height:80px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 30px rgba(201,169,98,0.4);transition:transform var(--transition)}
+.vt-play:hover{transform:scale(1.08)}
+.vt-play svg{margin-left:4px}
+.vt-label{position:relative;z-index:2;margin-top:16px;text-align:center;color:#fff}
+.vt-label p{font-size:18px;font-weight:700}
+.vt-label span{font-size:13px;opacity:0.7}
+.vt-badge{position:relative;z-index:2;margin-top:20px;display:flex;align-items:center;gap:6px;background:rgba(255,255,255,0.1);backdrop-filter:blur(8px);padding:8px 14px;border-radius:8px}
+.vt-badge span{font-size:12px;color:rgba(255,255,255,0.7)}
+.vt-loading{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%)}
+.vt-spinner{width:48px;height:48px;border:4px solid rgba(255,255,255,0.15);border-top-color:#fff;border-radius:50%;animation:vtspin 0.8s linear infinite}
+@keyframes vtspin{to{transform:rotate(360deg)}}
+.vt-loading p{color:#fff;font-size:14px;font-weight:500;margin-top:12px}
+.vt-iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vt-footer{display:flex;align-items:center;justify-content:center;gap:6px;padding:8px;background:#f9fafb;border-radius:0 0 var(--radius) var(--radius);font-size:12px;color:#6b7280;margin-top:-4px}</style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"RealEstateListing","name":"R&amp;F Princess Cove Ph2","description":"Completed ready","url":"https://straitsadvisory.group/properties/rf-princess-cove-ph2-bukit-chagar.html","address":{"@type":"PostalAddress","addressLocality":"Bukit Chagar","addressRegion":"Johor","addressCountry":"MY"},"offers":{"@type":"Offer","price":"500000","priceCurrency":"MYR"}}</script>
 </head>
 <body>
@@ -145,6 +164,47 @@ html{scroll-behavior:smooth}body{font-family:Inter,system-ui,-apple-system,sans-
   <h3 style="font-size:15px;font-weight:700;color:var(--navy);margin:20px 0 8px">About the Developer</h3>
   <p>R&amp;F Properties is an established property developer with a track record of delivering quality residential projects across Malaysia. Known for innovative design and timely completion.</p>
 </div>
+
+<!-- VIRTUAL TOUR -->
+<div class="section">
+  <h2>360° Virtual Tour</h2>
+  <div class="vt-container" id="vtContainer">
+    <!-- Preview state (tap to load) -->
+    <div class="vt-preview" id="vtPreview" onclick="loadTour()">
+      <div class="vt-play">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+      <div class="vt-label">
+        <p>Start Virtual Tour</p>
+        <span>Tap to explore in 360°</span>
+      </div>
+      <div class="vt-badge">
+        <span>✦ Tour loads on tap to save data &amp; battery</span>
+      </div>
+    </div>
+  </div>
+  <div class="vt-footer">🏛️ <span>Presented by Straits Advisory</span></div>
+</div>
+
+<script>
+function loadTour(){
+  var container = document.getElementById('vtContainer');
+  var preview = document.getElementById('vtPreview');
+  // Show loading state
+  preview.innerHTML = '<div class="vt-loading"><div class="vt-spinner"></div><p>Loading tour...</p></div>';
+  // Load iframe after brief delay for UX feedback
+  setTimeout(function(){
+    preview.style.display = 'none';
+    var iframe = document.createElement('iframe');
+    iframe.className = 'vt-iframe';
+    iframe.src = 'https://www.actsugi.com/rfprincesscovejb/';
+    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; xr-spatial-tracking';
+    iframe.allowFullscreen = true;
+    iframe.loading = 'lazy';
+    container.appendChild(iframe);
+  }, 800);
+}
+</script>
 
 <!-- 2. UNIT TYPES -->
 <div class="section">
