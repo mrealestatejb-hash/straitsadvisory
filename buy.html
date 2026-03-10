@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Buy Property - Straits Advisory</title>
-<meta name="description" content="Browse 45 handpicked property developments across Johor Bahru. Find your ideal Malaysia investment.">
+<meta name="description" content="Browse handpicked property developments across Johor Bahru. Find your ideal Malaysia investment.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><rect width='28' height='28' rx='6' fill='%23c9a962'/><path d='M7 14h14M14 7v14' stroke='white' stroke-width='2.5' stroke-linecap='round'/></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -67,43 +67,34 @@ a{text-decoration:none;color:inherit}
 .card-distance{display:flex;align-items:center;gap:4px}
 .card-feature{display:flex;align-items:center;gap:4px;color:var(--gold);font-weight:600}
 
-/* ============================================ */
-/* SIDEBAR OVERLAY                              */
-/* ============================================ */
+/* SIDEBAR OVERLAY */
 .sidebar-overlay{position:fixed;inset:0;z-index:200;background:rgba(0,0,0,0.5);opacity:0;pointer-events:none;transition:opacity 0.3s ease}
 .sidebar-overlay.open{opacity:1;pointer-events:auto}
 
 .sidebar{position:fixed;top:0;right:0;bottom:0;z-index:201;width:420px;max-width:90vw;background:#fff;transform:translateX(100%);transition:transform 0.35s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;box-shadow:-8px 0 30px rgba(0,0,0,0.15)}
 .sidebar.open{transform:translateX(0)}
 
-/* Sidebar header/close */
 .sb-close{position:absolute;top:12px;right:12px;z-index:5;width:36px;height:36px;border-radius:50%;border:none;background:rgba(255,255,255,0.9);backdrop-filter:blur(8px);cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;color:#374151;transition:all var(--transition);box-shadow:0 2px 8px rgba(0,0,0,0.15)}
 .sb-close:hover{background:#fff;color:var(--navy)}
 
-/* Sidebar hero image */
 .sb-hero{position:relative;min-height:200px;display:flex;align-items:flex-end;padding:20px}
 .sb-hero-content{position:relative;z-index:2;color:#fff}
 .sb-hero h2{font-size:22px;font-weight:800;line-height:1.2;margin-bottom:2px;text-shadow:0 1px 4px rgba(0,0,0,0.5)}
 .sb-hero .sb-dev{font-size:13px;color:rgba(255,255,255,0.85);font-weight:500}
 
-/* Sidebar scroll body */
 .sb-body{flex:1;overflow-y:auto;padding:20px;-webkit-overflow-scrolling:touch}
 
-/* Location */
 .sb-location{display:flex;align-items:center;gap:6px;font-size:13px;color:#6b7280;margin-bottom:16px}
 
-/* Price */
 .sb-price-block{margin-bottom:16px}
 .sb-price-main{font-size:24px;font-weight:800;color:var(--navy)}
 .sb-price-alt{font-size:14px;color:#6b7280;margin-left:8px}
 
-/* Tags */
 .sb-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
 .sb-tag{padding:4px 12px;border-radius:50px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;border:1px solid #e5e7eb;color:#374151;background:#f9fafb}
 .sb-tag.gold{background:var(--gold);color:#fff;border-color:var(--gold)}
 .sb-tag.green{background:#059669;color:#fff;border-color:#059669}
 
-/* Stats grid */
 .sb-stats{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid #e5e7eb;border-radius:var(--radius);overflow:hidden;margin-bottom:20px}
 .sb-stat{padding:12px;text-align:center;border-bottom:1px solid #e5e7eb}
 .sb-stat:nth-child(odd){border-right:1px solid #e5e7eb}
@@ -111,11 +102,9 @@ a{text-decoration:none;color:inherit}
 .sb-stat-val{font-size:16px;font-weight:700;color:var(--navy)}
 .sb-stat-label{font-size:10px;color:#9ca3af;text-transform:uppercase;letter-spacing:0.5px;margin-top:2px}
 
-/* About section */
 .sb-about-title{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:8px}
 .sb-about-text{font-size:13px;color:#6b7280;line-height:1.6}
 
-/* Bottom buttons */
 .sb-footer{padding:16px 20px;border-top:1px solid #e5e7eb;display:flex;gap:10px;background:#fff}
 .sb-btn-details{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;padding:12px 16px;border-radius:8px;background:#fff;color:var(--navy);font-size:14px;font-weight:600;border:2px solid var(--navy);transition:all var(--transition);text-decoration:none;cursor:pointer}
 .sb-btn-details:hover{background:var(--navy);color:#fff}
@@ -154,11 +143,11 @@ a{text-decoration:none;color:inherit}
 
 <section class="hero">
   <h1>Find Your <span>Malaysia Property</span></h1>
-  <p>45 handpicked developments across Johor Bahru, Kuala Lumpur &amp; Penang</p>
+  <p>Handpicked developments across Johor Bahru</p>
   <div class="hero-stats">
-    <span>45 Properties</span>
-    <span>3 Regions</span>
-    <span>Freehold &amp; Leasehold</span>
+    <span>1 Property</span>
+    <span>Freehold</span>
+    <span>Completed</span>
   </div>
 </section>
 
@@ -166,277 +155,35 @@ a{text-decoration:none;color:inherit}
   <select id="filter-area" onchange="filterProperties()">
     <option value="">All Areas</option>
     <option value="bukit-chagar">Bukit Chagar</option>
-    <option value="bukit-senyum">Bukit Senyum</option>
-    <option value="city-center">City Center</option>
-    <option value="danga-bay">Danga Bay</option>
-    <option value="southkey">Southkey</option>
-    <option value="ponderosa">Ponderosa</option>
-    <option value="perling">Perling</option>
-    <option value="iskandar-puteri">Iskandar Puteri</option>
-    <option value="forest-city">Forest City</option>
-    <option value="puteri-harbour">Puteri Harbour</option>
-    <option value="senibong-cove">Senibong Cove</option>
-    <option value="austin">Austin</option>
-    <option value="pasir-gudang">Pasir Gudang</option>
-    <option value="gelang-patah">Gelang Patah</option>
-    <option value="others">Others</option>
   </select>
   <select id="filter-price" onchange="filterProperties()">
     <option value="">All Prices</option>
-    <option value="below300">Below RM300k</option>
-    <option value="300-500">RM300k - 500k</option>
     <option value="500-1m">RM500k - 1M</option>
-    <option value="1m-plus">RM1M+</option>
   </select>
   <select id="filter-status" onchange="filterProperties()">
     <option value="">All Status</option>
-    <option value="new">New Launch</option>
     <option value="completed">Completed</option>
   </select>
   <select id="filter-tenure" onchange="filterProperties()">
     <option value="">All Tenure</option>
     <option value="freehold">Freehold</option>
-    <option value="leasehold">Leasehold</option>
   </select>
   <select id="filter-distance" onchange="filterProperties()">
     <option value="">Distance to CIQ</option>
-    <option value="under1">&lt;1km</option>
     <option value="1-5">1 - 5km</option>
-    <option value="5-10">5 - 10km</option>
-    <option value="10plus">10km+</option>
   </select>
   <input type="text" id="filter-search" placeholder="Search property name..." oninput="filterProperties()">
   <button class="clear-btn" onclick="clearFilters()">Clear Filters</button>
 </div>
 
-<div class="results-bar"><span id="results-count" class="results-count">Showing 45 of 45 properties</span></div>
+<div class="results-bar"><span id="results-count" class="results-count">Showing 1 of 1 properties</span></div>
 <div class="no-results" id="no-results">No properties match your filters. Try adjusting your criteria.</div>
 
 <div class="property-grid">
-<div class="property-card" data-area="bukit-chagar" data-price="500-1m" data-status="new" data-tenure="freehold" data-distance="under1" data-name="ctc skyone" data-slug="ctc-skyone-bukit-chagar" data-dev="CTC Holdings" data-loc="Bukit Chagar" data-pd="RM5xxk" data-sgd="S$149K" data-beds="2-3" data-baths="2-3" data-sqft="800 - 1,400 sqft" data-yield="5.5 - 7.0%" data-rts="300m" data-co="2030 Q2" data-feature="300m to RTS" data-about="CTC Skyone is a brand-new freehold development by CTC Holdings in Bukit Chagar, Johor. Located 300m from CIQ, priced from RM5xxk. Key highlight: 300m to RTS." data-grad="linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)" data-emoji="🏢" data-status-label="New Launch" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20CTC%20Skyone%20at%20Bukit%20Chagar.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)"><span class="card-emoji">🏢</span><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">CTC Skyone</h3><p class="card-location">Bukit Chagar</p><p class="card-price">From RM5xxk</p>
-    <div class="card-meta"><span class="card-distance">📍 300m to CIQ</span><span class="card-feature">✦ 300m to RTS</span></div>
-  </div></div>
-<div class="property-card" data-area="bukit-chagar" data-price="500-1m" data-status="new" data-tenure="freehold" data-distance="under1" data-name="majestic gensphere" data-slug="majestic-gensphere-bukit-chagar" data-dev="Majestic Development" data-loc="Bukit Chagar" data-pd="RM6xxk" data-sgd="S$179K" data-beds="2-3" data-baths="2-3" data-sqft="800 - 1,400 sqft" data-yield="5.5 - 7.0%" data-rts="440m" data-co="2030 Q1" data-feature="440m to CIQ" data-about="Majestic Gensphere is a brand-new freehold development by Majestic Development in Bukit Chagar, Johor. Located 440m from CIQ, priced from RM6xxk. Key highlight: 440m to CIQ." data-grad="linear-gradient(135deg, #1a1a2e 0%, #2b2d42 50%, #4a4e69 100%)" data-emoji="🏗️" data-status-label="New Launch" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20Majestic%20Gensphere%20at%20Bukit%20Chagar.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #1a1a2e 0%, #2b2d42 50%, #4a4e69 100%)"><span class="card-emoji">🏗️</span><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">Majestic Gensphere</h3><p class="card-location">Bukit Chagar</p><p class="card-price">From RM6xxk</p>
-    <div class="card-meta"><span class="card-distance">📍 440m to CIQ</span><span class="card-feature">✦ 440m to CIQ</span></div>
-  </div></div>
-<div class="property-card" data-area="bukit-chagar" data-price="500-1m" data-status="new" data-tenure="freehold" data-distance="under1" data-name="exsim causewayz" data-slug="exsim-causewayz-bukit-chagar" data-dev="Exsim Group" data-loc="Bukit Chagar" data-pd="RM5xxk" data-sgd="S$149K" data-beds="2-3" data-baths="2-3" data-sqft="800 - 1,400 sqft" data-yield="5.5 - 7.0%" data-rts="600m" data-co="2030 Q1" data-feature="600m to CIQ" data-about="Exsim Causewayz is a brand-new freehold development by Exsim Group in Bukit Chagar, Johor. Located 600m from CIQ, priced from RM5xxk. Key highlight: 600m to CIQ." data-grad="linear-gradient(135deg, #1a1a2e 0%, #1d3557 50%, #457b9d 100%)" data-emoji="🏠" data-status-label="New Launch" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20Exsim%20Causewayz%20at%20Bukit%20Chagar.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #1a1a2e 0%, #1d3557 50%, #457b9d 100%)"><span class="card-emoji">🏠</span><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">Exsim Causewayz</h3><p class="card-location">Bukit Chagar</p><p class="card-price">From RM5xxk</p>
-    <div class="card-meta"><span class="card-distance">📍 600m to CIQ</span><span class="card-feature">✦ 600m to CIQ</span></div>
-  </div></div>
-<div class="property-card" data-area="bukit-chagar" data-price="500-1m" data-status="new" data-tenure="freehold" data-distance="under1" data-name="summer suites" data-slug="summer-suites-bukit-chagar" data-dev="Premium Developer" data-loc="Bukit Chagar" data-pd="RM5xxk" data-sgd="S$149K" data-beds="2-3" data-baths="2-3" data-sqft="800 - 1,400 sqft" data-yield="5.5 - 7.0%" data-rts="900m" data-co="2029" data-feature="Near CIQ &amp; RTS" data-about="Summer Suites is a brand-new freehold development by Premium Developer in Bukit Chagar, Johor. Located 900m from CIQ, priced from RM5xxk. Key highlight: Near CIQ &amp;amp; RTS." data-grad="linear-gradient(135deg, #0f3460 0%, #16213e 50%, #1a1a2e 100%)" data-emoji="🏙️" data-status-label="New Launch" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20Summer%20Suites%20at%20Bukit%20Chagar.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #0f3460 0%, #16213e 50%, #1a1a2e 100%)"><span class="card-emoji">🏙️</span><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">Summer Suites</h3><p class="card-location">Bukit Chagar</p><p class="card-price">From RM5xxk</p>
-    <div class="card-meta"><span class="card-distance">📍 900m to CIQ</span><span class="card-feature">✦ Near CIQ &amp; RTS</span></div>
-  </div></div>
-<div class="property-card" data-area="bukit-chagar" data-price="500-1m" data-status="completed" data-tenure="freehold" data-distance="1-5" data-name="r&f princess cove ph2" data-slug="rf-princess-cove-ph2-bukit-chagar" data-dev="R&amp;F Properties" data-loc="Bukit Chagar" data-pd="RM5xxk" data-sgd="S$149K" data-beds="2-3" data-baths="2-3" data-sqft="800 - 1,400 sqft" data-yield="5.5 - 7.0%" data-rts="1km" data-co="Ready" data-feature="Completed ready" data-about="R&amp;amp;F Princess Cove Ph2 is a completed freehold development by R&amp;amp;F Properties in Bukit Chagar, Johor. Located 1km from CIQ, priced from RM5xxk. Key highlight: Completed ready." data-grad="linear-gradient(135deg, #1a1a2e 0%, #22223b 50%, #4a4e69 100%)" data-emoji="🏘️" data-status-label="Completed" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20R%26F%20Princess%20Cove%20Ph2%20at%20Bukit%20Chagar.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #1a1a2e 0%, #22223b 50%, #4a4e69 100%)"><span class="card-emoji">🏘️</span><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Freehold</span></div></div>
+<div class="property-card" data-area="bukit-chagar" data-price="500-1m" data-status="completed" data-tenure="freehold" data-distance="1-5" data-name="r&amp;f princess cove ph2" data-slug="rf-princess-cove-ph2-bukit-chagar" data-dev="R&amp;F Properties" data-loc="Bukit Chagar" data-pd="RM5xxk" data-sgd="S$149K" data-beds="2-3" data-baths="2-3" data-sqft="800 - 1,400 sqft" data-yield="5.5 - 7.0%" data-rts="1km" data-co="Ready" data-feature="Completed ready" data-about="R&amp;F Princess Cove Ph2 is a completed freehold development by R&amp;F Properties in Bukit Chagar, Johor. Located 1km from CIQ, priced from RM5xxk. Key highlight: Completed ready." data-grad="linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)" data-emoji="🏢" data-status-label="Completed" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20R%26F%20Princess%20Cove%20Ph2%20at%20Bukit%20Chagar.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
+  <div class="card-image" style="background:linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)"><span class="card-emoji">🏢</span><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Freehold</span></div></div>
   <div class="card-body"><h3 class="card-title">R&amp;F Princess Cove Ph2</h3><p class="card-location">Bukit Chagar</p><p class="card-price">From RM5xxk</p>
     <div class="card-meta"><span class="card-distance">📍 1km to CIQ</span><span class="card-feature">✦ Completed ready</span></div>
-  </div></div>
-<div class="property-card" data-area="bukit-chagar" data-price="300-500" data-status="new" data-tenure="freehold" data-distance="1-5" data-name="r&f princess cove ph3" data-slug="rf-princess-cove-ph3-bukit-chagar" data-dev="R&amp;F Properties" data-loc="Bukit Chagar" data-pd="RM4xxk" data-sgd="S$119K" data-beds="1-3" data-baths="1-2" data-sqft="650 - 1,100 sqft" data-yield="5.5 - 7.0%" data-rts="1km" data-co="2028" data-feature="1km to CIQ" data-about="R&amp;amp;F Princess Cove Ph3 is a brand-new freehold development by R&amp;amp;F Properties in Bukit Chagar, Johor. Located 1km from CIQ, priced from RM4xxk. Key highlight: 1km to CIQ." data-grad="linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)" data-emoji="🏢" data-status-label="New Launch" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20R%26F%20Princess%20Cove%20Ph3%20at%20Bukit%20Chagar.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)"><span class="card-emoji">🏢</span><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">R&amp;F Princess Cove Ph3</h3><p class="card-location">Bukit Chagar</p><p class="card-price">From RM4xxk</p>
-    <div class="card-meta"><span class="card-distance">📍 1km to CIQ</span><span class="card-feature">✦ 1km to CIQ</span></div>
-  </div></div>
-<div class="property-card" data-area="bukit-senyum" data-price="1m-plus" data-status="new" data-tenure="freehold" data-distance="1-5" data-name="the arden one" data-slug="the-arden-one-bukit-senyum" data-dev="Arden Development" data-loc="Bukit Senyum" data-pd="RM1mil" data-sgd="S$298K" data-beds="3-4" data-baths="2-3" data-sqft="1,200 - 2,500 sqft" data-yield="5.5 - 7.0%" data-rts="1km" data-co="2029" data-feature="Premium location" data-about="The Arden One is a brand-new freehold development by Arden Development in Bukit Senyum, Johor. Located 1km from CIQ, priced from RM1mil. Key highlight: Premium location." data-grad="linear-gradient(135deg, #1a1a2e 0%, #2b2d42 50%, #4a4e69 100%)" data-emoji="🏗️" data-status-label="New Launch" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20The%20Arden%20One%20at%20Bukit%20Senyum.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #1a1a2e 0%, #2b2d42 50%, #4a4e69 100%)"><span class="card-emoji">🏗️</span><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">The Arden One</h3><p class="card-location">Bukit Senyum</p><p class="card-price">From RM1mil</p>
-    <div class="card-meta"><span class="card-distance">📍 1km to CIQ</span><span class="card-feature">✦ Premium location</span></div>
-  </div></div>
-<div class="property-card" data-area="bukit-senyum" data-price="1m-plus" data-status="completed" data-tenure="freehold" data-distance="1-5" data-name="the astaka one" data-slug="the-astaka-one-bukit-senyum" data-dev="Astaka Holdings" data-loc="Bukit Senyum" data-pd="RM2mil++" data-sgd="S$597K" data-beds="4-5" data-baths="3-5" data-sqft="1,800 - 4,500 sqft" data-yield="5.5 - 7.0%" data-rts="1km" data-co="Ready" data-feature="Tallest in JB" data-about="The Astaka One is a completed freehold development by Astaka Holdings in Bukit Senyum, Johor. Located 1km from CIQ, priced from RM2mil++. Key highlight: Tallest in JB." data-grad="linear-gradient(135deg, #1a1a2e 0%, #1d3557 50%, #457b9d 100%)" data-emoji="🏠" data-status-label="Completed" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20The%20Astaka%20One%20at%20Bukit%20Senyum.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #1a1a2e 0%, #1d3557 50%, #457b9d 100%)"><span class="card-emoji">🏠</span><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Freehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">The Astaka One</h3><p class="card-location">Bukit Senyum</p><p class="card-price">From RM2mil++</p>
-    <div class="card-meta"><span class="card-distance">📍 1km to CIQ</span><span class="card-feature">✦ Tallest in JB</span></div>
-  </div></div>
-<div class="property-card" data-area="city-center" data-price="300-500" data-status="new" data-tenure="freehold" data-distance="1-5" data-name="paragon signature suites" data-slug="paragon-signature-suites-city-center" data-dev="Paragon Development" data-loc="City Center" data-pd="RM4xxk" data-sgd="S$119K" data-beds="1-3" data-baths="1-2" data-sqft="650 - 1,100 sqft" data-yield="5.0 - 6.5%" data-rts="2km" data-co="2029" data-feature="484 units only" data-about="Paragon Signature Suites is a brand-new freehold development by Paragon Development in City Center, Johor. Located 2km from CIQ, priced from RM4xxk. Key highlight: 484 units only." data-grad="linear-gradient(135deg, #0f3460 0%, #16213e 50%, #1a1a2e 100%)" data-emoji="🏙️" data-status-label="New Launch" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20Paragon%20Signature%20Suites%20at%20City%20Center.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #0f3460 0%, #16213e 50%, #1a1a2e 100%)"><span class="card-emoji">🏙️</span><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">Paragon Signature Suites</h3><p class="card-location">City Center</p><p class="card-price">From RM4xxk</p>
-    <div class="card-meta"><span class="card-distance">📍 2km to CIQ</span><span class="card-feature">✦ 484 units only</span></div>
-  </div></div>
-<div class="property-card" data-area="city-center" data-price="300-500" data-status="new" data-tenure="freehold" data-distance="1-5" data-name="m grand minori" data-slug="m-grand-minori-city-center" data-dev="Mah Sing Group" data-loc="City Center" data-pd="RM3xxk" data-sgd="S$89K" data-beds="1-3" data-baths="1-2" data-sqft="650 - 1,100 sqft" data-yield="5.0 - 6.5%" data-rts="3km" data-co="2028" data-feature="Mah Sing · Japanese design" data-about="M Grand Minori is a brand-new freehold development by Mah Sing Group in City Center, Johor. Located 3km from CIQ, priced from RM3xxk. Key highlight: Mah Sing · Japanese design." data-grad="linear-gradient(135deg, #1a1a2e 0%, #22223b 50%, #4a4e69 100%)" data-emoji="🏘️" data-status-label="New Launch" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20M%20Grand%20Minori%20at%20City%20Center.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #1a1a2e 0%, #22223b 50%, #4a4e69 100%)"><span class="card-emoji">🏘️</span><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">M Grand Minori</h3><p class="card-location">City Center</p><p class="card-price">From RM3xxk</p>
-    <div class="card-meta"><span class="card-distance">📍 3km to CIQ</span><span class="card-feature">✦ Mah Sing · Japanese design</span></div>
-  </div></div>
-<div class="property-card" data-area="city-center" data-price="300-500" data-status="new" data-tenure="freehold" data-distance="1-5" data-name="maxim the address" data-slug="maxim-the-address-city-center" data-dev="Maxim Development" data-loc="City Center" data-pd="RM3xxk" data-sgd="S$89K" data-beds="1-3" data-baths="1-2" data-sqft="650 - 1,100 sqft" data-yield="5.0 - 6.5%" data-rts="3km" data-co="2028" data-feature="City center living" data-about="Maxim The Address is a brand-new freehold development by Maxim Development in City Center, Johor. Located 3km from CIQ, priced from RM3xxk. Key highlight: City center living." data-grad="linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)" data-emoji="🏢" data-status-label="New Launch" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20Maxim%20The%20Address%20at%20City%20Center.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)"><span class="card-emoji">🏢</span><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">Maxim The Address</h3><p class="card-location">City Center</p><p class="card-price">From RM3xxk</p>
-    <div class="card-meta"><span class="card-distance">📍 3km to CIQ</span><span class="card-feature">✦ City center living</span></div>
-  </div></div>
-<div class="property-card" data-area="city-center" data-price="500-1m" data-status="new" data-tenure="freehold" data-distance="1-5" data-name="avenue mbw city" data-slug="avenue-mbw-city" data-dev="MBW Group" data-loc="City Center" data-pd="RM5xxk" data-sgd="S$149K" data-beds="2-3" data-baths="2-3" data-sqft="800 - 1,400 sqft" data-yield="5.0 - 6.5%" data-rts="3km" data-co="2029" data-feature="MBW Township" data-about="Avenue MBW City is a brand-new freehold development by MBW Group in City Center, Johor. Located 3km from CIQ, priced from RM5xxk. Key highlight: MBW Township." data-grad="linear-gradient(135deg, #1a1a2e 0%, #2b2d42 50%, #4a4e69 100%)" data-emoji="🏗️" data-status-label="New Launch" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20Avenue%20MBW%20City%20at%20City%20Center.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #1a1a2e 0%, #2b2d42 50%, #4a4e69 100%)"><span class="card-emoji">🏗️</span><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">Avenue MBW City</h3><p class="card-location">City Center</p><p class="card-price">From RM5xxk</p>
-    <div class="card-meta"><span class="card-distance">📍 3km to CIQ</span><span class="card-feature">✦ MBW Township</span></div>
-  </div></div>
-<div class="property-card" data-area="city-center" data-price="500-1m" data-status="new" data-tenure="freehold" data-distance="1-5" data-name="veranda mbw city" data-slug="veranda-mbw-city" data-dev="MBW Group" data-loc="City Center" data-pd="RM5xxk" data-sgd="S$149K" data-beds="2-3" data-baths="2-3" data-sqft="800 - 1,400 sqft" data-yield="5.0 - 6.5%" data-rts="3km" data-co="2029" data-feature="MBW Township" data-about="Veranda MBW City is a brand-new freehold development by MBW Group in City Center, Johor. Located 3km from CIQ, priced from RM5xxk. Key highlight: MBW Township." data-grad="linear-gradient(135deg, #1a1a2e 0%, #1d3557 50%, #457b9d 100%)" data-emoji="🏠" data-status-label="New Launch" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20Veranda%20MBW%20City%20at%20City%20Center.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #1a1a2e 0%, #1d3557 50%, #457b9d 100%)"><span class="card-emoji">🏠</span><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">Veranda MBW City</h3><p class="card-location">City Center</p><p class="card-price">From RM5xxk</p>
-    <div class="card-meta"><span class="card-distance">📍 3km to CIQ</span><span class="card-feature">✦ MBW Township</span></div>
-  </div></div>
-<div class="property-card" data-area="city-center" data-price="300-500" data-status="new" data-tenure="freehold" data-distance="1-5" data-name="trellis mbw city" data-slug="trellis-mbw-city" data-dev="MBW Group" data-loc="City Center" data-pd="RM3xxk" data-sgd="S$89K" data-beds="1-3" data-baths="1-2" data-sqft="650 - 1,100 sqft" data-yield="5.0 - 6.5%" data-rts="3km" data-co="2028" data-feature="MBW Township" data-about="Trellis MBW City is a brand-new freehold development by MBW Group in City Center, Johor. Located 3km from CIQ, priced from RM3xxk. Key highlight: MBW Township." data-grad="linear-gradient(135deg, #0f3460 0%, #16213e 50%, #1a1a2e 100%)" data-emoji="🏙️" data-status-label="New Launch" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20Trellis%20MBW%20City%20at%20City%20Center.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #0f3460 0%, #16213e 50%, #1a1a2e 100%)"><span class="card-emoji">🏙️</span><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">Trellis MBW City</h3><p class="card-location">City Center</p><p class="card-price">From RM3xxk</p>
-    <div class="card-meta"><span class="card-distance">📍 3km to CIQ</span><span class="card-feature">✦ MBW Township</span></div>
-  </div></div>
-<div class="property-card" data-area="city-center" data-price="500-1m" data-status="new" data-tenure="freehold" data-distance="1-5" data-name="skypark kepler" data-slug="skypark-kepler-city-center" data-dev="Skypark Development" data-loc="City Center" data-pd="RM5xxk" data-sgd="S$149K" data-beds="2-3" data-baths="2-3" data-sqft="800 - 1,400 sqft" data-yield="5.0 - 6.5%" data-rts="3km" data-co="2029" data-feature="Only branded residence in JB" data-about="Skypark Kepler is a brand-new freehold development by Skypark Development in City Center, Johor. Located 3km from CIQ, priced from RM5xxk. Key highlight: Only branded residence in JB." data-grad="linear-gradient(135deg, #1a1a2e 0%, #22223b 50%, #4a4e69 100%)" data-emoji="🏘️" data-status-label="New Launch" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20Skypark%20Kepler%20at%20City%20Center.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #1a1a2e 0%, #22223b 50%, #4a4e69 100%)"><span class="card-emoji">🏘️</span><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">Skypark Kepler</h3><p class="card-location">City Center</p><p class="card-price">From RM5xxk</p>
-    <div class="card-meta"><span class="card-distance">📍 3km to CIQ</span><span class="card-feature">✦ Only branded residence in JB</span></div>
-  </div></div>
-<div class="property-card" data-area="city-center" data-price="300-500" data-status="new" data-tenure="freehold" data-distance="1-5" data-name="sunway majestic ara soho" data-slug="sunway-majestic-ara-soho" data-dev="Sunway Group" data-loc="City Center" data-pd="RM3xxk" data-sgd="S$89K" data-beds="1-3" data-baths="1-2" data-sqft="650 - 1,100 sqft" data-yield="5.0 - 6.5%" data-rts="3km" data-co="2028" data-feature="Sunway · SOHO units" data-about="Sunway Majestic Ara SOHO is a brand-new freehold development by Sunway Group in City Center, Johor. Located 3km from CIQ, priced from RM3xxk. Key highlight: Sunway · SOHO units." data-grad="linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)" data-emoji="🏢" data-status-label="New Launch" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20Sunway%20Majestic%20Ara%20SOHO%20at%20City%20Center.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)"><span class="card-emoji">🏢</span><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">Sunway Majestic Ara SOHO</h3><p class="card-location">City Center</p><p class="card-price">From RM3xxk</p>
-    <div class="card-meta"><span class="card-distance">📍 3km to CIQ</span><span class="card-feature">✦ Sunway · SOHO units</span></div>
-  </div></div>
-<div class="property-card" data-area="city-center" data-price="300-500" data-status="new" data-tenure="freehold" data-distance="1-5" data-name="skyline one sentosa" data-slug="skyline-one-sentosa" data-dev="Skyline Development" data-loc="City Center" data-pd="RM4xxk" data-sgd="S$119K" data-beds="1-3" data-baths="1-2" data-sqft="650 - 1,100 sqft" data-yield="5.0 - 6.5%" data-rts="4km" data-co="2029" data-feature="Skyline views" data-about="Skyline One Sentosa is a brand-new freehold development by Skyline Development in City Center, Johor. Located 4km from CIQ, priced from RM4xxk. Key highlight: Skyline views." data-grad="linear-gradient(135deg, #1a1a2e 0%, #2b2d42 50%, #4a4e69 100%)" data-emoji="🏗️" data-status-label="New Launch" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20Skyline%20One%20Sentosa%20at%20City%20Center.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #1a1a2e 0%, #2b2d42 50%, #4a4e69 100%)"><span class="card-emoji">🏗️</span><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">Skyline One Sentosa</h3><p class="card-location">City Center</p><p class="card-price">From RM4xxk</p>
-    <div class="card-meta"><span class="card-distance">📍 4km to CIQ</span><span class="card-feature">✦ Skyline views</span></div>
-  </div></div>
-<div class="property-card" data-area="city-center" data-price="300-500" data-status="new" data-tenure="freehold" data-distance="5-10" data-name="paragon gateway" data-slug="paragon-gateway-city-center" data-dev="Paragon Development" data-loc="City Center" data-pd="RM4xxk" data-sgd="S$119K" data-beds="1-3" data-baths="1-2" data-sqft="650 - 1,100 sqft" data-yield="4.5 - 6.0%" data-rts="5.5km" data-co="2029" data-feature="Gateway location" data-about="Paragon Gateway is a brand-new freehold development by Paragon Development in City Center, Johor. Located 5.5km from CIQ, priced from RM4xxk. Key highlight: Gateway location." data-grad="linear-gradient(135deg, #1a1a2e 0%, #1d3557 50%, #457b9d 100%)" data-emoji="🏠" data-status-label="New Launch" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20Paragon%20Gateway%20at%20City%20Center.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #1a1a2e 0%, #1d3557 50%, #457b9d 100%)"><span class="card-emoji">🏠</span><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">Paragon Gateway</h3><p class="card-location">City Center</p><p class="card-price">From RM4xxk</p>
-    <div class="card-meta"><span class="card-distance">📍 5.5km to CIQ</span><span class="card-feature">✦ Gateway location</span></div>
-  </div></div>
-<div class="property-card" data-area="danga-bay" data-price="300-500" data-status="new" data-tenure="freehold" data-distance="5-10" data-name="country garden danga bay" data-slug="country-garden-danga-bay" data-dev="Country Garden" data-loc="Danga Bay" data-pd="RM4xxk" data-sgd="S$119K" data-beds="1-3" data-baths="1-2" data-sqft="650 - 1,100 sqft" data-yield="4.5 - 6.0%" data-rts="6km" data-co="2028" data-feature="Seafront living" data-about="Country Garden Danga Bay is a brand-new freehold development by Country Garden in Danga Bay, Johor. Located 6km from CIQ, priced from RM4xxk. Key highlight: Seafront living." data-grad="linear-gradient(135deg, #0f3460 0%, #16213e 50%, #1a1a2e 100%)" data-emoji="🏙️" data-status-label="New Launch" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20Country%20Garden%20Danga%20Bay%20at%20Danga%20Bay.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #0f3460 0%, #16213e 50%, #1a1a2e 100%)"><span class="card-emoji">🏙️</span><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">Country Garden Danga Bay</h3><p class="card-location">Danga Bay</p><p class="card-price">From RM4xxk</p>
-    <div class="card-meta"><span class="card-distance">📍 6km to CIQ</span><span class="card-feature">✦ Seafront living</span></div>
-  </div></div>
-<div class="property-card" data-area="danga-bay" data-price="500-1m" data-status="completed" data-tenure="freehold" data-distance="5-10" data-name="marina residence" data-slug="marina-residence-danga-bay" data-dev="Marina Developer" data-loc="Danga Bay" data-pd="RM6xxk" data-sgd="S$179K" data-beds="2-3" data-baths="2-3" data-sqft="800 - 1,400 sqft" data-yield="4.5 - 6.0%" data-rts="7km" data-co="Ready" data-feature="Marina views" data-about="Marina Residence is a completed freehold development by Marina Developer in Danga Bay, Johor. Located 7km from CIQ, priced from RM6xxk. Key highlight: Marina views." data-grad="linear-gradient(135deg, #1a1a2e 0%, #22223b 50%, #4a4e69 100%)" data-emoji="🏘️" data-status-label="Completed" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20Marina%20Residence%20at%20Danga%20Bay.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #1a1a2e 0%, #22223b 50%, #4a4e69 100%)"><span class="card-emoji">🏘️</span><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Freehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">Marina Residence</h3><p class="card-location">Danga Bay</p><p class="card-price">From RM6xxk</p>
-    <div class="card-meta"><span class="card-distance">📍 7km to CIQ</span><span class="card-feature">✦ Marina views</span></div>
-  </div></div>
-<div class="property-card" data-area="danga-bay" data-price="300-500" data-status="new" data-tenure="freehold" data-distance="5-10" data-name="mbw bay danga bay" data-slug="mbw-bay-danga-bay" data-dev="MBW Group" data-loc="Danga Bay" data-pd="RM4xxk" data-sgd="S$119K" data-beds="1-3" data-baths="1-2" data-sqft="650 - 1,100 sqft" data-yield="4.5 - 6.0%" data-rts="7km" data-co="2029" data-feature="Seafront" data-about="MBW Bay Danga Bay is a brand-new freehold development by MBW Group in Danga Bay, Johor. Located 7km from CIQ, priced from RM4xxk. Key highlight: Seafront." data-grad="linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)" data-emoji="🏢" data-status-label="New Launch" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20MBW%20Bay%20Danga%20Bay%20at%20Danga%20Bay.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)"><span class="card-emoji">🏢</span><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">MBW Bay Danga Bay</h3><p class="card-location">Danga Bay</p><p class="card-price">From RM4xxk</p>
-    <div class="card-meta"><span class="card-distance">📍 7km to CIQ</span><span class="card-feature">✦ Seafront</span></div>
-  </div></div>
-<div class="property-card" data-area="danga-bay" data-price="300-500" data-status="new" data-tenure="freehold" data-distance="5-10" data-name="paragon calia" data-slug="paragon-calia-danga-bay" data-dev="Paragon Development" data-loc="Danga Bay" data-pd="RM4xxk" data-sgd="S$119K" data-beds="1-3" data-baths="1-2" data-sqft="650 - 1,100 sqft" data-yield="4.5 - 6.0%" data-rts="7km" data-co="2029" data-feature="Danga Bay living" data-about="Paragon Calia is a brand-new freehold development by Paragon Development in Danga Bay, Johor. Located 7km from CIQ, priced from RM4xxk. Key highlight: Danga Bay living." data-grad="linear-gradient(135deg, #1a1a2e 0%, #2b2d42 50%, #4a4e69 100%)" data-emoji="🏗️" data-status-label="New Launch" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20Paragon%20Calia%20at%20Danga%20Bay.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #1a1a2e 0%, #2b2d42 50%, #4a4e69 100%)"><span class="card-emoji">🏗️</span><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">Paragon Calia</h3><p class="card-location">Danga Bay</p><p class="card-price">From RM4xxk</p>
-    <div class="card-meta"><span class="card-distance">📍 7km to CIQ</span><span class="card-feature">✦ Danga Bay living</span></div>
-  </div></div>
-<div class="property-card" data-area="southkey" data-price="300-500" data-status="new" data-tenure="freehold" data-distance="5-10" data-name="nadi residence" data-slug="nadi-residence-southkey" data-dev="Nadi Development" data-loc="Southkey" data-pd="RM3xxk" data-sgd="S$89K" data-beds="1-3" data-baths="1-2" data-sqft="650 - 1,100 sqft" data-yield="4.5 - 6.0%" data-rts="7km" data-co="2028" data-feature="Near Midvalley" data-about="Nadi Residence is a brand-new freehold development by Nadi Development in Southkey, Johor. Located 7km from CIQ, priced from RM3xxk. Key highlight: Near Midvalley." data-grad="linear-gradient(135deg, #1a1a2e 0%, #1d3557 50%, #457b9d 100%)" data-emoji="🏠" data-status-label="New Launch" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20Nadi%20Residence%20at%20Southkey.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #1a1a2e 0%, #1d3557 50%, #457b9d 100%)"><span class="card-emoji">🏠</span><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">Nadi Residence</h3><p class="card-location">Southkey</p><p class="card-price">From RM3xxk</p>
-    <div class="card-meta"><span class="card-distance">📍 7km to CIQ</span><span class="card-feature">✦ Near Midvalley</span></div>
-  </div></div>
-<div class="property-card" data-area="southkey" data-price="300-500" data-status="new" data-tenure="leasehold" data-distance="5-10" data-name="parkland by the river" data-slug="parkland-by-the-river-southkey" data-dev="Parkland Developer" data-loc="Southkey" data-pd="RM3xxk" data-sgd="S$89K" data-beds="1-3" data-baths="1-2" data-sqft="650 - 1,100 sqft" data-yield="4.5 - 6.0%" data-rts="9km" data-co="2028" data-feature="Riverfront" data-about="Parkland by the River is a brand-new leasehold development by Parkland Developer in Southkey, Johor. Located 9km from CIQ, priced from RM3xxk. Key highlight: Riverfront." data-grad="linear-gradient(135deg, #0f3460 0%, #16213e 50%, #1a1a2e 100%)" data-emoji="🏙️" data-status-label="New Launch" data-tenure-label="Leasehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20Parkland%20by%20the%20River%20at%20Southkey.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #0f3460 0%, #16213e 50%, #1a1a2e 100%)"><span class="card-emoji">🏙️</span><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Leasehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">Parkland by the River</h3><p class="card-location">Southkey</p><p class="card-price">From RM3xxk</p>
-    <div class="card-meta"><span class="card-distance">📍 9km to CIQ</span><span class="card-feature">✦ Riverfront</span></div>
-  </div></div>
-<div class="property-card" data-area="ponderosa" data-price="300-500" data-status="new" data-tenure="freehold" data-distance="10plus" data-name="ponderosa regency" data-slug="ponderosa-regency" data-dev="Ponderosa Group" data-loc="Ponderosa" data-pd="RM3xxk" data-sgd="S$89K" data-beds="1-3" data-baths="1-2" data-sqft="650 - 1,100 sqft" data-yield="4.0 - 5.5%" data-rts="11km" data-co="2028" data-feature="Pet friendly" data-about="Ponderosa Regency is a brand-new freehold development by Ponderosa Group in Ponderosa, Johor. Located 11km from CIQ, priced from RM3xxk. Key highlight: Pet friendly." data-grad="linear-gradient(135deg, #1a1a2e 0%, #22223b 50%, #4a4e69 100%)" data-emoji="🏘️" data-status-label="New Launch" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20Ponderosa%20Regency%20at%20Ponderosa.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #1a1a2e 0%, #22223b 50%, #4a4e69 100%)"><span class="card-emoji">🏘️</span><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">Ponderosa Regency</h3><p class="card-location">Ponderosa</p><p class="card-price">From RM3xxk</p>
-    <div class="card-meta"><span class="card-distance">📍 11km to CIQ</span><span class="card-feature">✦ Pet friendly</span></div>
-  </div></div>
-<div class="property-card" data-area="southkey" data-price="below300" data-status="new" data-tenure="freehold" data-distance="10plus" data-name="central park country garden" data-slug="central-park-country-garden" data-dev="Country Garden" data-loc="Southkey" data-pd="RM2xxk" data-sgd="S$59K" data-beds="Studio-2" data-baths="1-2" data-sqft="450 - 850 sqft" data-yield="4.0 - 5.5%" data-rts="12km" data-co="2027" data-feature="Most affordable" data-about="Central Park Country Garden is a brand-new freehold development by Country Garden in Southkey, Johor. Located 12km from CIQ, priced from RM2xxk. Key highlight: Most affordable." data-grad="linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)" data-emoji="🏢" data-status-label="New Launch" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20Central%20Park%20Country%20Garden%20at%20Southkey.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)"><span class="card-emoji">🏢</span><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">Central Park Country Garden</h3><p class="card-location">Southkey</p><p class="card-price">From RM2xxk</p>
-    <div class="card-meta"><span class="card-distance">📍 12km to CIQ</span><span class="card-feature">✦ Most affordable</span></div>
-  </div></div>
-<div class="property-card" data-area="perling" data-price="300-500" data-status="new" data-tenure="freehold" data-distance="10plus" data-name="the straits view duo" data-slug="the-straits-view-duo" data-dev="Straits Developer" data-loc="Perling" data-pd="RM3xxk" data-sgd="S$89K" data-beds="1-3" data-baths="1-2" data-sqft="650 - 1,100 sqft" data-yield="4.0 - 5.5%" data-rts="15km" data-co="2028" data-feature="Straits view" data-about="The Straits View Duo is a brand-new freehold development by Straits Developer in Perling, Johor. Located 15km from CIQ, priced from RM3xxk. Key highlight: Straits view." data-grad="linear-gradient(135deg, #1a1a2e 0%, #2b2d42 50%, #4a4e69 100%)" data-emoji="🏗️" data-status-label="New Launch" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20The%20Straits%20View%20Duo%20at%20Perling.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #1a1a2e 0%, #2b2d42 50%, #4a4e69 100%)"><span class="card-emoji">🏗️</span><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">The Straits View Duo</h3><p class="card-location">Perling</p><p class="card-price">From RM3xxk</p>
-    <div class="card-meta"><span class="card-distance">📍 15km to CIQ</span><span class="card-feature">✦ Straits view</span></div>
-  </div></div>
-<div class="property-card" data-area="iskandar-puteri" data-price="1m-plus" data-status="new" data-tenure="freehold" data-distance="10plus" data-name="ascent park" data-slug="ascent-park-iskandar-puteri" data-dev="Ascent Developer" data-loc="Iskandar Puteri" data-pd="RM1mil" data-sgd="S$298K" data-beds="3-4" data-baths="2-3" data-sqft="1,200 - 2,500 sqft" data-yield="4.0 - 5.5%" data-rts="20km" data-co="2029" data-feature="Near international schools" data-about="Ascent Park is a brand-new freehold development by Ascent Developer in Iskandar Puteri, Johor. Located 20km from CIQ, priced from RM1mil. Key highlight: Near international schools." data-grad="linear-gradient(135deg, #1a1a2e 0%, #1d3557 50%, #457b9d 100%)" data-emoji="🏠" data-status-label="New Launch" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20Ascent%20Park%20at%20Iskandar%20Puteri.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #1a1a2e 0%, #1d3557 50%, #457b9d 100%)"><span class="card-emoji">🏠</span><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">Ascent Park</h3><p class="card-location">Iskandar Puteri</p><p class="card-price">From RM1mil</p>
-    <div class="card-meta"><span class="card-distance">📍 20km to CIQ</span><span class="card-feature">✦ Near international schools</span></div>
-  </div></div>
-<div class="property-card" data-area="iskandar-puteri" data-price="300-500" data-status="completed" data-tenure="freehold" data-distance="10plus" data-name="elysia park" data-slug="elysia-park-iskandar-puteri" data-dev="Elysia Development" data-loc="Iskandar Puteri" data-pd="RM4xxk" data-sgd="S$119K" data-beds="1-3" data-baths="1-2" data-sqft="650 - 1,100 sqft" data-yield="4.0 - 5.5%" data-rts="22km" data-co="Ready" data-feature="Near Legoland" data-about="Elysia Park is a completed freehold development by Elysia Development in Iskandar Puteri, Johor. Located 22km from CIQ, priced from RM4xxk. Key highlight: Near Legoland." data-grad="linear-gradient(135deg, #0f3460 0%, #16213e 50%, #1a1a2e 100%)" data-emoji="🏙️" data-status-label="Completed" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20Elysia%20Park%20at%20Iskandar%20Puteri.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #0f3460 0%, #16213e 50%, #1a1a2e 100%)"><span class="card-emoji">🏙️</span><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Freehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">Elysia Park</h3><p class="card-location">Iskandar Puteri</p><p class="card-price">From RM4xxk</p>
-    <div class="card-meta"><span class="card-distance">📍 22km to CIQ</span><span class="card-feature">✦ Near Legoland</span></div>
-  </div></div>
-<div class="property-card" data-area="iskandar-puteri" data-price="1m-plus" data-status="new" data-tenure="freehold" data-distance="10plus" data-name="suria hill" data-slug="suria-hill-iskandar-puteri" data-dev="Suria Development" data-loc="Iskandar Puteri" data-pd="RM2.6mil" data-sgd="S$776K" data-beds="4-5" data-baths="3-5" data-sqft="1,800 - 4,500 sqft" data-yield="4.0 - 5.5%" data-rts="22km" data-co="2029" data-feature="Compact bungalow" data-about="Suria Hill is a brand-new freehold development by Suria Development in Iskandar Puteri, Johor. Located 22km from CIQ, priced from RM2.6mil. Key highlight: Compact bungalow." data-grad="linear-gradient(135deg, #1a1a2e 0%, #22223b 50%, #4a4e69 100%)" data-emoji="🏘️" data-status-label="New Launch" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20Suria%20Hill%20at%20Iskandar%20Puteri.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #1a1a2e 0%, #22223b 50%, #4a4e69 100%)"><span class="card-emoji">🏘️</span><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">Suria Hill</h3><p class="card-location">Iskandar Puteri</p><p class="card-price">From RM2.6mil</p>
-    <div class="card-meta"><span class="card-distance">📍 22km to CIQ</span><span class="card-feature">✦ Compact bungalow</span></div>
-  </div></div>
-<div class="property-card" data-area="iskandar-puteri" data-price="300-500" data-status="completed" data-tenure="freehold" data-distance="10plus" data-name="the m macrolink" data-slug="the-m-macrolink-iskandar-puteri" data-dev="Macrolink Group" data-loc="Iskandar Puteri" data-pd="RM4xxk" data-sgd="S$119K" data-beds="1-3" data-baths="1-2" data-sqft="650 - 1,100 sqft" data-yield="4.0 - 5.5%" data-rts="22km" data-co="Ready" data-feature="Near Legoland" data-about="The M Macrolink is a completed freehold development by Macrolink Group in Iskandar Puteri, Johor. Located 22km from CIQ, priced from RM4xxk. Key highlight: Near Legoland." data-grad="linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)" data-emoji="🏢" data-status-label="Completed" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20The%20M%20Macrolink%20at%20Iskandar%20Puteri.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)"><span class="card-emoji">🏢</span><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Freehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">The M Macrolink</h3><p class="card-location">Iskandar Puteri</p><p class="card-price">From RM4xxk</p>
-    <div class="card-meta"><span class="card-distance">📍 22km to CIQ</span><span class="card-feature">✦ Near Legoland</span></div>
-  </div></div>
-<div class="property-card" data-area="forest-city" data-price="500-1m" data-status="new" data-tenure="freehold" data-distance="10plus" data-name="carnelian tower" data-slug="carnelian-tower-forest-city" data-dev="Country Garden" data-loc="Forest City (SFZ)" data-pd="RM6xxk" data-sgd="S$179K" data-beds="2-3" data-baths="2-3" data-sqft="800 - 1,400 sqft" data-yield="4.0 - 5.5%" data-rts="30km" data-co="2029" data-feature="Special Financial Zone" data-about="Carnelian Tower is a brand-new freehold development by Country Garden in Forest City (SFZ), Johor. Located 30km from CIQ, priced from RM6xxk. Key highlight: Special Financial Zone." data-grad="linear-gradient(135deg, #1a1a2e 0%, #2b2d42 50%, #4a4e69 100%)" data-emoji="🏗️" data-status-label="New Launch" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20Carnelian%20Tower%20at%20Forest%20City%20%28SFZ%29.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #1a1a2e 0%, #2b2d42 50%, #4a4e69 100%)"><span class="card-emoji">🏗️</span><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">Carnelian Tower</h3><p class="card-location">Forest City (SFZ)</p><p class="card-price">From RM6xxk</p>
-    <div class="card-meta"><span class="card-distance">📍 30km to CIQ</span><span class="card-feature">✦ Special Financial Zone</span></div>
-  </div></div>
-<div class="property-card" data-area="forest-city" data-price="1m-plus" data-status="new" data-tenure="freehold" data-distance="10plus" data-name="golf villa" data-slug="golf-villa-forest-city" data-dev="Country Garden" data-loc="Forest City (SFZ)" data-pd="RM1mil" data-sgd="S$298K" data-beds="3-4" data-baths="2-3" data-sqft="1,200 - 2,500 sqft" data-yield="4.0 - 5.5%" data-rts="30km" data-co="2029" data-feature="Golf course landed" data-about="Golf Villa is a brand-new freehold development by Country Garden in Forest City (SFZ), Johor. Located 30km from CIQ, priced from RM1mil. Key highlight: Golf course landed." data-grad="linear-gradient(135deg, #1a1a2e 0%, #1d3557 50%, #457b9d 100%)" data-emoji="🏠" data-status-label="New Launch" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20Golf%20Villa%20at%20Forest%20City%20%28SFZ%29.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #1a1a2e 0%, #1d3557 50%, #457b9d 100%)"><span class="card-emoji">🏠</span><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">Golf Villa</h3><p class="card-location">Forest City (SFZ)</p><p class="card-price">From RM1mil</p>
-    <div class="card-meta"><span class="card-distance">📍 30km to CIQ</span><span class="card-feature">✦ Golf course landed</span></div>
-  </div></div>
-<div class="property-card" data-area="forest-city" data-price="1m-plus" data-status="new" data-tenure="freehold" data-distance="10plus" data-name="nigella park" data-slug="nigella-park-forest-city" data-dev="Country Garden" data-loc="Forest City (SFZ)" data-pd="RM4mil++" data-sgd="S$1.2M" data-beds="4-5" data-baths="3-5" data-sqft="1,800 - 4,500 sqft" data-yield="4.0 - 5.5%" data-rts="30km" data-co="2030" data-feature="Penthouse" data-about="Nigella Park is a brand-new freehold development by Country Garden in Forest City (SFZ), Johor. Located 30km from CIQ, priced from RM4mil++. Key highlight: Penthouse." data-grad="linear-gradient(135deg, #0f3460 0%, #16213e 50%, #1a1a2e 100%)" data-emoji="🏙️" data-status-label="New Launch" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20Nigella%20Park%20at%20Forest%20City%20%28SFZ%29.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #0f3460 0%, #16213e 50%, #1a1a2e 100%)"><span class="card-emoji">🏙️</span><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">Nigella Park</h3><p class="card-location">Forest City (SFZ)</p><p class="card-price">From RM4mil++</p>
-    <div class="card-meta"><span class="card-distance">📍 30km to CIQ</span><span class="card-feature">✦ Penthouse</span></div>
-  </div></div>
-<div class="property-card" data-area="puteri-harbour" data-price="1m-plus" data-status="completed" data-tenure="freehold" data-distance="10plus" data-name="southern marina" data-slug="southern-marina-puteri-harbour" data-dev="Southern Developer" data-loc="Puteri Harbour" data-pd="RM1.1mil" data-sgd="S$328K" data-beds="3-4" data-baths="2-3" data-sqft="1,200 - 2,500 sqft" data-yield="4.0 - 5.5%" data-rts="25km" data-co="Ready" data-feature="Seaview" data-about="Southern Marina is a completed freehold development by Southern Developer in Puteri Harbour, Johor. Located 25km from CIQ, priced from RM1.1mil. Key highlight: Seaview." data-grad="linear-gradient(135deg, #1a1a2e 0%, #22223b 50%, #4a4e69 100%)" data-emoji="🏘️" data-status-label="Completed" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20Southern%20Marina%20at%20Puteri%20Harbour.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #1a1a2e 0%, #22223b 50%, #4a4e69 100%)"><span class="card-emoji">🏘️</span><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Freehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">Southern Marina</h3><p class="card-location">Puteri Harbour</p><p class="card-price">From RM1.1mil</p>
-    <div class="card-meta"><span class="card-distance">📍 25km to CIQ</span><span class="card-feature">✦ Seaview</span></div>
-  </div></div>
-<div class="property-card" data-area="puteri-harbour" data-price="500-1m" data-status="completed" data-tenure="freehold" data-distance="10plus" data-name="puteri cove residences" data-slug="puteri-cove-residences" data-dev="Puteri Cove Developer" data-loc="Puteri Harbour" data-pd="RM8xxk" data-sgd="S$238K" data-beds="2-3" data-baths="2-3" data-sqft="800 - 1,400 sqft" data-yield="4.0 - 5.5%" data-rts="25km" data-co="Ready" data-feature="Seaview" data-about="Puteri Cove Residences is a completed freehold development by Puteri Cove Developer in Puteri Harbour, Johor. Located 25km from CIQ, priced from RM8xxk. Key highlight: Seaview." data-grad="linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)" data-emoji="🏢" data-status-label="Completed" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20Puteri%20Cove%20Residences%20at%20Puteri%20Harbour.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)"><span class="card-emoji">🏢</span><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Freehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">Puteri Cove Residences</h3><p class="card-location">Puteri Harbour</p><p class="card-price">From RM8xxk</p>
-    <div class="card-meta"><span class="card-distance">📍 25km to CIQ</span><span class="card-feature">✦ Seaview</span></div>
-  </div></div>
-<div class="property-card" data-area="senibong-cove" data-price="1m-plus" data-status="new" data-tenure="freehold" data-distance="10plus" data-name="senibong kews" data-slug="senibong-kews" data-dev="Senibong Developer" data-loc="Senibong Cove" data-pd="RM1.5mil" data-sgd="S$447K" data-beds="3-4" data-baths="2-3" data-sqft="1,200 - 2,500 sqft" data-yield="4.0 - 5.5%" data-rts="15km" data-co="2029" data-feature="Near 2nd Link" data-about="Senibong Kews is a brand-new freehold development by Senibong Developer in Senibong Cove, Johor. Located 15km from CIQ, priced from RM1.5mil. Key highlight: Near 2nd Link." data-grad="linear-gradient(135deg, #1a1a2e 0%, #2b2d42 50%, #4a4e69 100%)" data-emoji="🏗️" data-status-label="New Launch" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20Senibong%20Kews%20at%20Senibong%20Cove.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #1a1a2e 0%, #2b2d42 50%, #4a4e69 100%)"><span class="card-emoji">🏗️</span><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">Senibong Kews</h3><p class="card-location">Senibong Cove</p><p class="card-price">From RM1.5mil</p>
-    <div class="card-meta"><span class="card-distance">📍 15km to CIQ</span><span class="card-feature">✦ Near 2nd Link</span></div>
-  </div></div>
-<div class="property-card" data-area="senibong-cove" data-price="1m-plus" data-status="new" data-tenure="freehold" data-distance="10plus" data-name="isola coast" data-slug="isola-coast-senibong-cove" data-dev="Isola Developer" data-loc="Senibong Cove" data-pd="RM2.4mil" data-sgd="S$716K" data-beds="4-5" data-baths="3-5" data-sqft="1,800 - 4,500 sqft" data-yield="4.0 - 5.5%" data-rts="15km" data-co="2030" data-feature="High-end waterfront landed" data-about="Isola Coast is a brand-new freehold development by Isola Developer in Senibong Cove, Johor. Located 15km from CIQ, priced from RM2.4mil. Key highlight: High-end waterfront landed." data-grad="linear-gradient(135deg, #1a1a2e 0%, #1d3557 50%, #457b9d 100%)" data-emoji="🏠" data-status-label="New Launch" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20Isola%20Coast%20at%20Senibong%20Cove.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #1a1a2e 0%, #1d3557 50%, #457b9d 100%)"><span class="card-emoji">🏠</span><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">Isola Coast</h3><p class="card-location">Senibong Cove</p><p class="card-price">From RM2.4mil</p>
-    <div class="card-meta"><span class="card-distance">📍 15km to CIQ</span><span class="card-feature">✦ High-end waterfront landed</span></div>
-  </div></div>
-<div class="property-card" data-area="austin" data-price="300-500" data-status="new" data-tenure="freehold" data-distance="10plus" data-name="topaz crest austin" data-slug="topaz-crest-austin" data-dev="Topaz Development" data-loc="Austin" data-pd="RM3xxk" data-sgd="S$89K" data-beds="1-3" data-baths="1-2" data-sqft="650 - 1,100 sqft" data-yield="4.0 - 5.5%" data-rts="10km" data-co="2028" data-feature="Austin area" data-about="Topaz Crest Austin is a brand-new freehold development by Topaz Development in Austin, Johor. Located 10km from CIQ, priced from RM3xxk. Key highlight: Austin area." data-grad="linear-gradient(135deg, #0f3460 0%, #16213e 50%, #1a1a2e 100%)" data-emoji="🏙️" data-status-label="New Launch" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20Topaz%20Crest%20Austin%20at%20Austin.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #0f3460 0%, #16213e 50%, #1a1a2e 100%)"><span class="card-emoji">🏙️</span><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">Topaz Crest Austin</h3><p class="card-location">Austin</p><p class="card-price">From RM3xxk</p>
-    <div class="card-meta"><span class="card-distance">📍 10km to CIQ</span><span class="card-feature">✦ Austin area</span></div>
-  </div></div>
-<div class="property-card" data-area="austin" data-price="300-500" data-status="new" data-tenure="freehold" data-distance="10plus" data-name="daya 1 residences" data-slug="daya-1-residences-austin" data-dev="Daya Development" data-loc="Austin" data-pd="RM3xxk" data-sgd="S$89K" data-beds="1-3" data-baths="1-2" data-sqft="650 - 1,100 sqft" data-yield="4.0 - 5.5%" data-rts="10km" data-co="2028" data-feature="Affordable entry" data-about="Daya 1 Residences is a brand-new freehold development by Daya Development in Austin, Johor. Located 10km from CIQ, priced from RM3xxk. Key highlight: Affordable entry." data-grad="linear-gradient(135deg, #1a1a2e 0%, #22223b 50%, #4a4e69 100%)" data-emoji="🏘️" data-status-label="New Launch" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20Daya%201%20Residences%20at%20Austin.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #1a1a2e 0%, #22223b 50%, #4a4e69 100%)"><span class="card-emoji">🏘️</span><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">Daya 1 Residences</h3><p class="card-location">Austin</p><p class="card-price">From RM3xxk</p>
-    <div class="card-meta"><span class="card-distance">📍 10km to CIQ</span><span class="card-feature">✦ Affordable entry</span></div>
-  </div></div>
-<div class="property-card" data-area="others" data-price="below300" data-status="new" data-tenure="leasehold" data-distance="10plus" data-name="d secret garden 2" data-slug="d-secret-garden-2" data-dev="D Secret Developer" data-loc="Others" data-pd="RM2xxk" data-sgd="S$59K" data-beds="Studio-2" data-baths="1-2" data-sqft="450 - 850 sqft" data-yield="4.0 - 5.5%" data-rts="12km" data-co="2027" data-feature="Budget friendly" data-about="D Secret Garden 2 is a brand-new leasehold development by D Secret Developer in Others, Johor. Located 12km from CIQ, priced from RM2xxk. Key highlight: Budget friendly." data-grad="linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)" data-emoji="🏢" data-status-label="New Launch" data-tenure-label="Leasehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20D%20Secret%20Garden%202%20at%20Others.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)"><span class="card-emoji">🏢</span><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Leasehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">D Secret Garden 2</h3><p class="card-location">Others</p><p class="card-price">From RM2xxk</p>
-    <div class="card-meta"><span class="card-distance">📍 12km to CIQ</span><span class="card-feature">✦ Budget friendly</span></div>
-  </div></div>
-<div class="property-card" data-area="pasir-gudang" data-price="500-1m" data-status="new" data-tenure="freehold" data-distance="10plus" data-name="meridin east" data-slug="meridin-east-pasir-gudang" data-dev="Gamuda Land" data-loc="Pasir Gudang" data-pd="RM5xxk" data-sgd="S$149K" data-beds="2-3" data-baths="2-3" data-sqft="800 - 1,400 sqft" data-yield="4.0 - 5.5%" data-rts="20km" data-co="2028" data-feature="New township" data-about="Meridin East is a brand-new freehold development by Gamuda Land in Pasir Gudang, Johor. Located 20km from CIQ, priced from RM5xxk. Key highlight: New township." data-grad="linear-gradient(135deg, #1a1a2e 0%, #2b2d42 50%, #4a4e69 100%)" data-emoji="🏗️" data-status-label="New Launch" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20Meridin%20East%20at%20Pasir%20Gudang.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #1a1a2e 0%, #2b2d42 50%, #4a4e69 100%)"><span class="card-emoji">🏗️</span><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">Meridin East</h3><p class="card-location">Pasir Gudang</p><p class="card-price">From RM5xxk</p>
-    <div class="card-meta"><span class="card-distance">📍 20km to CIQ</span><span class="card-feature">✦ New township</span></div>
-  </div></div>
-<div class="property-card" data-area="pasir-gudang" data-price="500-1m" data-status="new" data-tenure="freehold" data-distance="10plus" data-name="lanna eco tropics" data-slug="lanna-eco-tropics-pasir-gudang" data-dev="Eco World" data-loc="Pasir Gudang" data-pd="RM5xxk" data-sgd="S$149K" data-beds="2-3" data-baths="2-3" data-sqft="800 - 1,400 sqft" data-yield="4.0 - 5.5%" data-rts="20km" data-co="2028" data-feature="Eco World" data-about="Lanna Eco Tropics is a brand-new freehold development by Eco World in Pasir Gudang, Johor. Located 20km from CIQ, priced from RM5xxk. Key highlight: Eco World." data-grad="linear-gradient(135deg, #1a1a2e 0%, #1d3557 50%, #457b9d 100%)" data-emoji="🏠" data-status-label="New Launch" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20Lanna%20Eco%20Tropics%20at%20Pasir%20Gudang.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #1a1a2e 0%, #1d3557 50%, #457b9d 100%)"><span class="card-emoji">🏠</span><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">Lanna Eco Tropics</h3><p class="card-location">Pasir Gudang</p><p class="card-price">From RM5xxk</p>
-    <div class="card-meta"><span class="card-distance">📍 20km to CIQ</span><span class="card-feature">✦ Eco World</span></div>
-  </div></div>
-<div class="property-card" data-area="gelang-patah" data-price="500-1m" data-status="new" data-tenure="freehold" data-distance="10plus" data-name="fraser heights" data-slug="fraser-heights-gelang-patah" data-dev="Fraser Developer" data-loc="Gelang Patah" data-pd="RM6xxk" data-sgd="S$179K" data-beds="2-3" data-baths="2-3" data-sqft="800 - 1,400 sqft" data-yield="4.0 - 5.5%" data-rts="15km" data-co="2029" data-feature="Near 2nd Link" data-about="Fraser Heights is a brand-new freehold development by Fraser Developer in Gelang Patah, Johor. Located 15km from CIQ, priced from RM6xxk. Key highlight: Near 2nd Link." data-grad="linear-gradient(135deg, #0f3460 0%, #16213e 50%, #1a1a2e 100%)" data-emoji="🏙️" data-status-label="New Launch" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20Fraser%20Heights%20at%20Gelang%20Patah.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #0f3460 0%, #16213e 50%, #1a1a2e 100%)"><span class="card-emoji">🏙️</span><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">Fraser Heights</h3><p class="card-location">Gelang Patah</p><p class="card-price">From RM6xxk</p>
-    <div class="card-meta"><span class="card-distance">📍 15km to CIQ</span><span class="card-feature">✦ Near 2nd Link</span></div>
-  </div></div>
-<div class="property-card" data-area="gelang-patah" data-price="500-1m" data-status="new" data-tenure="freehold" data-distance="10plus" data-name="bee development" data-slug="bee-development-gelang-patah" data-dev="Bee Group" data-loc="Gelang Patah" data-pd="RM900k" data-sgd="S$268K" data-beds="2-3" data-baths="2-3" data-sqft="800 - 1,400 sqft" data-yield="4.0 - 5.5%" data-rts="15km" data-co="2029" data-feature="Near 2nd Link" data-about="Bee Development is a brand-new freehold development by Bee Group in Gelang Patah, Johor. Located 15km from CIQ, priced from RM900k. Key highlight: Near 2nd Link." data-grad="linear-gradient(135deg, #1a1a2e 0%, #22223b 50%, #4a4e69 100%)" data-emoji="🏘️" data-status-label="New Launch" data-tenure-label="Freehold" data-wa="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20Bee%20Development%20at%20Gelang%20Patah.%20Could%20you%20share%20more%20details%3F" onclick="openSidebar(this)">
-  <div class="card-image" style="background:linear-gradient(135deg, #1a1a2e 0%, #22223b 50%, #4a4e69 100%)"><span class="card-emoji">🏘️</span><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
-  <div class="card-body"><h3 class="card-title">Bee Development</h3><p class="card-location">Gelang Patah</p><p class="card-price">From RM900k</p>
-    <div class="card-meta"><span class="card-distance">📍 15km to CIQ</span><span class="card-feature">✦ Near 2nd Link</span></div>
   </div></div>
 </div>
 
@@ -471,18 +218,14 @@ a{text-decoration:none;color:inherit}
 function openSidebar(card){
   var sb = document.getElementById('sidebar');
   var ov = document.getElementById('sidebarOverlay');
-  // Populate sidebar
   var d = card.dataset;
   document.getElementById('sbHero').style.background = d.grad;
-  document.getElementById('sbName').textContent = d.name.split(' ').map(function(w){return w.charAt(0).toUpperCase()+w.slice(1)}).join(' ');
-  // Actually use the real name from the card title
   document.getElementById('sbName').textContent = card.querySelector('.card-title').textContent;
   document.getElementById('sbDev').textContent = 'by ' + d.dev;
   document.getElementById('sbLoc').innerHTML = '&#x1f4cd; ' + d.loc + ', Johor';
   document.getElementById('sbPrice').textContent = 'From ' + d.pd;
   document.getElementById('sbPriceAlt').textContent = '\u2248 ' + d.sgd + ' SGD';
 
-  // Tags
   var tags = '';
   tags += '<span class="sb-tag">Condominium</span>';
   if(d.statusLabel === 'Completed') tags += '<span class="sb-tag green">Completed</span>';
@@ -493,7 +236,6 @@ function openSidebar(card){
   else tags += '<span class="sb-tag green">Move-in Ready</span>';
   document.getElementById('sbTags').innerHTML = tags;
 
-  // Stats
   var stats = '';
   stats += '<div class="sb-stat"><div class="sb-stat-val">' + d.beds + '</div><div class="sb-stat-label">Bedrooms</div></div>';
   stats += '<div class="sb-stat"><div class="sb-stat-val">' + d.baths + '</div><div class="sb-stat-label">Bathrooms</div></div>';
@@ -503,19 +245,13 @@ function openSidebar(card){
   stats += '<div class="sb-stat"><div class="sb-stat-val">' + d.co + '</div><div class="sb-stat-label">Completion</div></div>';
   document.getElementById('sbStats').innerHTML = stats;
 
-  // About
   document.getElementById('sbAbout').textContent = d.about;
-
-  // Bottom buttons
   document.getElementById('sbBtnDetails').href = 'properties/' + d.slug + '.html';
   document.getElementById('sbBtnWa').href = d.wa;
 
-  // Open
   sb.classList.add('open');
   ov.classList.add('open');
   document.body.style.overflow = 'hidden';
-
-  // Scroll sidebar body to top
   sb.querySelector('.sb-body').scrollTop = 0;
 }
 
@@ -525,7 +261,6 @@ function closeSidebar(){
   document.body.style.overflow = '';
 }
 
-// Close on Escape
 document.addEventListener('keydown', function(e){
   if(e.key === 'Escape') closeSidebar();
 });
