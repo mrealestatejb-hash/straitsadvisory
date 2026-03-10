@@ -175,7 +175,22 @@ html{scroll-behavior:smooth}body{font-family:Inter,system-ui,-apple-system,sans-
 <!-- 4. LOCATION -->
 <div class="section">
   <h2>Location &amp; Connectivity</h2>
-  <iframe class="map-embed" src="https://maps.google.com/maps?q=Bukit+Chagar+Johor+Bahru&z=14&output=embed" loading="lazy" allowfullscreen></iframe>
+  <div id="map" class="map-embed"></div>
+  <link href="https://unpkg.com/maplibre-gl@4.1.2/dist/maplibre-gl.css" rel="stylesheet">
+  <script src="https://unpkg.com/maplibre-gl@4.1.2/dist/maplibre-gl.js"></script>
+  <script>
+  (function(){
+    var map = new maplibregl.Map({
+      container:'map',
+      style:'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
+      center:[103.7644,1.4600],
+      zoom:14,
+      attributionControl:false
+    });
+    new maplibregl.Marker({color:'#c9a962'}).setLngLat([103.7644,1.4600]).setPopup(new maplibregl.Popup().setHTML('<strong>R&amp;F Princess Cove Ph2</strong><br>Bukit Chagar, Johor')).addTo(map);
+    map.addControl(new maplibregl.NavigationControl(),'top-right');
+  })();
+  </script>
   <div class="dist-grid">
     <div class="dist-item"><span class="dist-icon">🛂</span><div class="dist-info"><div class="dist-name">CIQ / RTS Link</div><div class="dist-val">1km</div></div></div>
     <div class="dist-item"><span class="dist-icon">🛍️</span><div class="dist-info"><div class="dist-name">City Square Mall</div><div class="dist-val">500m</div></div></div>
