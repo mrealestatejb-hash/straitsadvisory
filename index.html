@@ -73,22 +73,6 @@ a{text-decoration:none;color:inherit}
   transition:var(--transition);box-shadow:0 4px 20px rgba(37,211,102,.35)}
 .hero-wa-btn:hover{background:#20bd5a;transform:translateY(-2px);box-shadow:0 6px 28px rgba(37,211,102,.45)}
 .hero-wa-btn svg{width:22px;height:22px}
-/* Location dots */
-.hero-dots{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;
-  display:flex;gap:10px;align-items:center}
-.hero-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.35);
-  cursor:pointer;transition:var(--transition);position:relative}
-.hero-dot.active{background:#fff;width:12px;height:12px}
-.hero-dot-label{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);
-  font-size:11px;color:rgba(255,255,255,.7);white-space:nowrap;opacity:0;
-  transition:opacity .3s;pointer-events:none;font-weight:500;letter-spacing:.3px}
-.hero-dot.active .hero-dot-label{opacity:1}
-/* Scroll indicator */
-.hero-scroll{position:absolute;bottom:70px;left:50%;transform:translateX(-50%);z-index:2;
-  display:flex;flex-direction:column;align-items:center;gap:6px;opacity:.6}
-.hero-scroll-line{width:1px;height:32px;background:linear-gradient(180deg,transparent,#fff);
-  animation:scrollPulse 2s infinite}
-@keyframes scrollPulse{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
 @keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.4}}
 
 /* SEARCH + FILTERS */
@@ -298,11 +282,6 @@ a{text-decoration:none;color:inherit}
       Get Started on WhatsApp
     </a>
   </div>
-  <div class="hero-dots" id="heroDots">
-    <div class="hero-dot active" data-index="0"><span class="hero-dot-label">Kuala Lumpur</span></div>
-    <div class="hero-dot" data-index="1"><span class="hero-dot-label">Puteri Harbour</span></div>
-  </div>
-  <div class="hero-scroll"><div class="hero-scroll-line"></div></div>
 </section>
 
 <!-- ABOUT SECTION DIVIDER -->
@@ -646,34 +625,20 @@ document.getElementById('sortSelect').addEventListener('change', (e) => {
 
 // ─── VIDEO HERO CROSSFADE ───
 const videos = [document.getElementById('vid0'), document.getElementById('vid1')];
-const dots = document.querySelectorAll('.hero-dot');
 let currentVid = 0;
-let heroInterval;
 
 function switchVideo(index) {
   if (index === currentVid) return;
   videos[currentVid].classList.remove('active');
-  dots[currentVid].classList.remove('active');
   currentVid = index;
   videos[currentVid].currentTime = 0;
   videos[currentVid].play();
   videos[currentVid].classList.add('active');
-  dots[currentVid].classList.add('active');
 }
 
-function startHeroCycle() {
-  clearInterval(heroInterval);
-  heroInterval = setInterval(() => {
-    switchVideo((currentVid + 1) % videos.length);
-  }, 5000);
-}
-
-dots.forEach(dot => {
-  dot.addEventListener('click', () => {
-    switchVideo(parseInt(dot.dataset.index));
-    startHeroCycle(); // Reset timer on manual switch
-  });
-});
+setInterval(() => {
+  switchVideo((currentVid + 1) % videos.length);
+}, 5000);
 
 startHeroCycle();
 
