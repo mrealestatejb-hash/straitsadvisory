@@ -1,0 +1,52 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "RTS Link",
+        "description": "Johor Bahru - Singapore Rapid Transit System Link",
+        "status": "Under Construction",
+        "expectedCompletion": "2026"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [103.7644, 1.4469],
+          [103.7650, 1.4450],
+          [103.7660, 1.4420],
+          [103.7680, 1.4380],
+          [103.7700, 1.4340],
+          [103.7720, 1.4300],
+          [103.7740, 1.4260],
+          [103.7760, 1.4220],
+          [103.7645, 1.4500]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Bukit Chagar Station",
+        "type": "station",
+        "country": "Malaysia"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.7644, 1.4469]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Woodlands North Station",
+        "type": "station",
+        "country": "Singapore"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.7645, 1.4500]
+      }
+    }
+  ]
+}

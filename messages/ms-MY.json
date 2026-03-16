@@ -1,0 +1,72 @@
+{
+  "common": {
+    "viewProperties": "Lihat Hartanah",
+    "bookViewing": "Tempah Lawatan",
+    "whatsappUs": "WhatsApp Kami",
+    "learnMore": "Ketahui Lebih Lanjut"
+  },
+  "home": {
+    "hero": {
+      "title": "Kehidupan Singapura, Harga Johor",
+      "subtitle": "R&F Princess Cove dari S$180K. Pemilikan kekal mewah tepi laut, 5 minit ke RTS.",
+      "badge": "RTS Link 2026",
+      "cta1": "Lihat Hartanah",
+      "cta2": "Kalkulator Bajet"
+    },
+    "comparison": {
+      "title": "S$1.5J di Singapura vs JB",
+      "singapore": "Singapura",
+      "johorBahru": "Johor Bahru",
+      "betterValue": "Nilai Lebih Baik"
+    },
+    "stats": {
+      "propertiesSold": "Hartanah Terjual",
+      "rating": "Penilaian",
+      "capitalGain": "Keuntungan Modal Purata",
+      "yield": "Hasil Purata"
+    },
+    "featured": {
+      "title": "Koleksi R&F Princess Cove",
+      "subtitle": "Pembangunan kediaman tertinggi di Asia Tenggara - Dari S$180,000",
+      "viewAll": "Lihat Semua Fasa"
+    },
+    "cta": {
+      "title": "Bersedia untuk Meneroka Hartanah JB?",
+      "whatsapp": "WhatsApp Kami",
+      "chat": "Mulakan Penilaian"
+    }
+  },
+  "properties": {
+    "title": "Hartanah",
+    "filters": "Penapis",
+    "sortBy": "Susun mengikut",
+    "noResults": "Tiada hartanah dijumpai"
+  },
+  "property": {
+    "yield": "{value} hasil",
+    "rtsDistance": "{distance} ke RTS",
+    "freehold": "Hak Milik Kekal",
+    "leasehold": "Pajakan {years} tahun",
+    "beds": "{count} Bilik",
+    "baths": "{count} Bilik Air",
+    "virtualTour": "Lawatan Maya",
+    "bookViewing": "Tempah Lawatan"
+  },
+  "calculator": {
+    "title": "Kalkulator Koridor",
+    "subtitle": "Lihat apa yang bajet Singapura anda boleh beli di JB",
+    "budget": "Bajet Anda (SGD)"
+  },
+  "about": {
+    "title": "Tentang Kami",
+    "mission": "Misi Kami"
+  },
+  "chat": {
+    "welcome": "Hai! Saya di sini untuk membantu anda mencari hartanah JB yang sempurna.",
+    "q1": "Apa yang membawa anda ke sini?",
+    "q2": "Julat bajet anda?",
+    "q3": "Kawasan pilihan?",
+    "q4": "Garis masa anda?",
+    "q5": "Bagaimana untuk meneruskan?"
+  }
+}

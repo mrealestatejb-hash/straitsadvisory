@@ -1,0 +1,102 @@
+{
+  "common": {
+    "viewProperties": "查看房产",
+    "bookViewing": "预约看房",
+    "whatsappUs": "WhatsApp联系",
+    "learnMore": "了解更多"
+  },
+  "home": {
+    "hero": {
+      "title": "新加坡生活，新山价格",
+      "subtitle": "富力公主湾低至S$18万。永久产权豪华海滨生活，5分钟到RTS轻轨。",
+      "badge": "RTS轻轨2026",
+      "cta1": "探索房产",
+      "cta2": "预算计算器"
+    },
+    "stats": {
+      "propertiesSold": "已售房产",
+      "rating": "客户评分",
+      "capitalGain": "平均资本增值",
+      "yield": "平均租金回报"
+    },
+    "comparison": {
+      "title": "S$150万：新加坡 vs 新山",
+      "singapore": "新加坡",
+      "johorBahru": "新山",
+      "betterValue": "更超值",
+      "sgProperty": "3房式组屋",
+      "sgSize": "800平方英尺",
+      "sgTenure": "99年租赁",
+      "sgYield": "2.5%回报",
+      "jbProperty": "豪华公寓",
+      "jbSize": "2,000平方英尺",
+      "jbTenure": "永久产权",
+      "jbYield": "6-8%回报"
+    },
+    "featured": {
+      "title": "富力公主湾系列",
+      "subtitle": "东南亚最高住宅开发项目 - 低至S$180,000",
+      "viewAll": "查看所有期数"
+    },
+    "testimonials": {
+      "title": "客户评价"
+    },
+    "cta": {
+      "title": "准备好探索新山房产了吗？",
+      "subtitle": "根据您的偏好获取个性化推荐",
+      "whatsapp": "WhatsApp联系",
+      "chat": "开始评估"
+    }
+  },
+  "properties": {
+    "title": "房产列表",
+    "filters": "筛选",
+    "sortBy": "排序",
+    "noResults": "未找到房产"
+  },
+  "property": {
+    "yield": "{value} 收益率",
+    "rtsDistance": "距RTS {distance}",
+    "freehold": "永久产权",
+    "leasehold": "{years}年租赁",
+    "beds": "{count} 卧室",
+    "baths": "{count} 浴室",
+    "virtualTour": "虚拟导览",
+    "bookViewing": "预约看房"
+  },
+  "calculator": {
+    "title": "走廊计算器",
+    "subtitle": "看看您的新加坡预算在新山能买什么",
+    "budget": "您的预算 (SGD)"
+  },
+  "about": {
+    "title": "关于我们",
+    "mission": "我们的使命"
+  },
+  "chat": {
+    "welcome": "您好！我在这里帮助您找到完美的新山房产。",
+    "q1": "您今天来这里的目的是什么？",
+    "q1o1": "投资机会",
+    "q1o2": "寻找住宅",
+    "q1o3": "只是了解一下",
+    "q2": "您的预算范围是多少？",
+    "q2o1": "S$30万以下",
+    "q2o2": "S$30万 - S$50万",
+    "q2o3": "S$50万 - S$80万",
+    "q2o4": "S$80万以上",
+    "q3": "首选区域？",
+    "q3o1": "靠近RTS站",
+    "q3o2": "海滨生活",
+    "q3o3": "市中心",
+    "q3o4": "无偏好",
+    "q4": "您的时间安排？",
+    "q4o1": "3个月内",
+    "q4o2": "6个月内",
+    "q4o3": "12个月内",
+    "q4o4": "只是研究",
+    "q5": "您希望如何继续？",
+    "q5o1": "预约电话咨询",
+    "q5o2": "查看匹配房产",
+    "q5o3": "获取WhatsApp更新"
+  }
+}

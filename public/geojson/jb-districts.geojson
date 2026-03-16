@@ -1,0 +1,105 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Bukit Chagar",
+        "description": "RTS Station Area - Premium transit-oriented development zone",
+        "rtsDistance": "0-500m"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [103.7600, 1.4500],
+            [103.7700, 1.4500],
+            [103.7700, 1.4420],
+            [103.7600, 1.4420],
+            [103.7600, 1.4500]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Danga Bay",
+        "description": "Waterfront living with sea views and lifestyle amenities",
+        "rtsDistance": "2-3km"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [103.7200, 1.4600],
+            [103.7400, 1.4600],
+            [103.7400, 1.4450],
+            [103.7200, 1.4450],
+            [103.7200, 1.4600]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "City Centre",
+        "description": "JB Central - Urban core with shopping and entertainment",
+        "rtsDistance": "1-2km"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [103.7550, 1.4650],
+            [103.7750, 1.4650],
+            [103.7750, 1.4550],
+            [103.7550, 1.4550],
+            [103.7550, 1.4650]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Tanjung Puteri",
+        "description": "Established residential area with mature amenities",
+        "rtsDistance": "3-5km"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [103.7800, 1.4800],
+            [103.8000, 1.4800],
+            [103.8000, 1.4650],
+            [103.7800, 1.4650],
+            [103.7800, 1.4800]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Medini Iskandar",
+        "description": "Modern township with tax incentives and international schools",
+        "rtsDistance": "5-8km"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [103.6300, 1.4200],
+            [103.6600, 1.4200],
+            [103.6600, 1.4000],
+            [103.6300, 1.4000],
+            [103.6300, 1.4200]
+          ]
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "common": {
+    "viewProperties": "View Properties",
+    "bookViewing": "Book Viewing",
+    "whatsappUs": "WhatsApp Us",
+    "learnMore": "Learn More"
+  },
+  "home": {
+    "hero": {
+      "title": "Singapore Living, Johor Prices",
+      "subtitle": "R&F Princess Cove from S$180K. Freehold luxury waterfront living, 5 mins to RTS.",
+      "badge": "RTS Link 2026",
+      "cta1": "Explore Properties",
+      "cta2": "Budget Calculator"
+    },
+    "stats": {
+      "propertiesSold": "Properties Sold",
+      "rating": "Client Rating",
+      "capitalGain": "Avg Capital Gain",
+      "yield": "Avg Rental Yield"
+    },
+    "comparison": {
+      "title": "S$1.5M: Singapore vs JB",
+      "singapore": "Singapore",
+      "johorBahru": "Johor Bahru",
+      "betterValue": "Better Value",
+      "sgProperty": "3-Room HDB",
+      "sgSize": "800 sqft",
+      "sgTenure": "99-year lease",
+      "sgYield": "2.5% yield",
+      "jbProperty": "Luxury Condo",
+      "jbSize": "2,000 sqft",
+      "jbTenure": "Freehold",
+      "jbYield": "6-8% yield"
+    },
+    "featured": {
+      "title": "R&F Princess Cove Collection",
+      "subtitle": "Southeast Asia's tallest residential development - From S$180,000",
+      "viewAll": "View All Phases"
+    },
+    "testimonials": {
+      "title": "What Our Clients Say"
+    },
+    "cta": {
+      "title": "Ready to Explore JB Property?",
+      "subtitle": "Get personalized recommendations based on your preferences",
+      "whatsapp": "WhatsApp Us",
+      "chat": "Start Assessment"
+    }
+  },
+  "properties": {
+    "title": "Properties",
+    "filters": "Filters",
+    "sortBy": "Sort by",
+    "noResults": "No properties found"
+  },
+  "property": {
+    "yield": "{value} yield",
+    "rtsDistance": "{distance} to RTS",
+    "freehold": "Freehold",
+    "leasehold": "{years}-year lease",
+    "beds": "{count} Beds",
+    "baths": "{count} Baths",
+    "virtualTour": "Virtual Tour",
+    "bookViewing": "Book Viewing"
+  },
+  "calculator": {
+    "title": "Corridor Calculator",
+    "subtitle": "See what your Singapore budget buys in JB",
+    "budget": "Your Budget (SGD)"
+  },
+  "about": {
+    "title": "About Us",
+    "mission": "Our Mission"
+  },
+  "chat": {
+    "welcome": "Hi! I'm here to help you find your perfect JB property.",
+    "q1": "What brings you here today?",
+    "q1o1": "Investment opportunity",
+    "q1o2": "Looking for a home",
+    "q1o3": "Just exploring",
+    "q2": "What's your budget range?",
+    "q2o1": "Under S$300K",
+    "q2o2": "S$300K - S$500K",
+    "q2o3": "S$500K - S$800K",
+    "q2o4": "Above S$800K",
+    "q3": "Preferred area?",
+    "q3o1": "Near RTS Station",
+    "q3o2": "Waterfront Living",
+    "q3o3": "City Centre",
+    "q3o4": "No preference",
+    "q4": "What's your timeline?",
+    "q4o1": "Within 3 months",
+    "q4o2": "Within 6 months",
+    "q4o3": "Within 12 months",
+    "q4o4": "Just researching",
+    "q5": "How would you like to proceed?",
+    "q5o1": "Schedule a call",
+    "q5o2": "View matching properties",
+    "q5o3": "Get WhatsApp updates"
+  }
+}
