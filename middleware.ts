@@ -1,12 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
-import createIntlMiddleware from 'next-intl/middleware';
-import { locales, defaultLocale } from './lib/i18n';
 
-const intlMiddleware = createIntlMiddleware({
-  locales,
-  defaultLocale,
-  localeDetection: true,
-});
+const locales = ['en-SG', 'zh-SG', 'ms-MY'];
+const defaultLocale = 'en-SG';
 
 // Routes that require authentication (checked via session cookie)
 const protectedRoutes = ['/clients', '/agent', '/admin'];
@@ -32,8 +27,29 @@ export default async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // All other routes go through i18n middleware
-  return intlMiddleware(request);
+  // Check if pathname already has a locale prefix
+  const pathnameHasLocale = locales.some(
+    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
+  );
+
+  if (pathnameHasLocale) {
+    return NextResponse.next();
+  }
+
+  // Detect locale from Accept-Language header
+  const acceptLanguage = request.headers.get('accept-language') || '';
+  let detectedLocale = defaultLocale;
+
+  if (acceptLanguage.includes('zh')) {
+    detectedLocale = 'zh-SG';
+  } else if (acceptLanguage.includes('ms')) {
+    detectedLocale = 'ms-MY';
+  }
+
+  // Redirect to locale-prefixed path
+  const newUrl = new URL(`/${detectedLocale}${pathname}`, request.url);
+  newUrl.search = request.nextUrl.search;
+  return NextResponse.redirect(newUrl);
 }
 
 export const config = {
