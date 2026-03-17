@@ -30,7 +30,7 @@
     "lenis": "^1.3.18",
     "lucide-react": "^0.577.0",
     "maplibre-gl": "^5.20.1",
-    "next": "16.1.4",
+    "next": "^15.5.13",
     "next-auth": "^5.0.0-beta.30",
     "next-intl": "^4.8.3",
     "next-sanity": "^12.1.1",
@@ -51,7 +51,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "16.1.4",
+    "eslint-config-next": "^15.5.13",
     "prisma": "^6.19.2",
     "tailwindcss": "^4",
     "typescript": "^5"
