@@ -1,8 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-// Use Node.js runtime to avoid __dirname Edge Runtime error
-export const runtime = 'nodejs';
-
 const locales = ['en-SG', 'zh-SG', 'ms-MY'];
 const defaultLocale = 'en-SG';
 
