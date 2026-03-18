@@ -5,7 +5,7 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import { Providers } from '@/app/providers';
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
-import { ChatBot } from '@/components/ChatBot';
+// import { ChatBot } from '@/components/ChatBot';
 import { Toaster } from '@/components/ui/sonner';
 import { locales } from '@/lib/i18n';
 import '@/app/globals.css';
@@ -51,7 +51,7 @@ export default async function LocaleLayout({
               {children}
             </div>
             <Footer />
-            <ChatBot />
+            {/* <ChatBot /> */}
             <Toaster />
           </Providers>
         </NextIntlClientProvider>

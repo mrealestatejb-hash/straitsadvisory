@@ -2,514 +2,191 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { useLocale, useTranslations } from 'next-intl';
-import { motion, AnimatePresence } from 'framer-motion';
-import {
-  ChevronDown,
-  Home,
-  TrendingUp,
-  Star,
-  Percent,
-  MessageCircle,
-  ArrowRight,
-  Quote,
-} from 'lucide-react';
-import { TextReveal } from '@/components/animations/TextReveal';
+import { useLocale } from 'next-intl';
+import { motion } from 'framer-motion';
+import { Search, Phone } from 'lucide-react';
 import { ScrollReveal } from '@/components/animations/ScrollReveal';
 import { PropertyCard } from '@/components/PropertyCard';
-import { RTSCountdown } from '@/components/RTSCountdown';
-import { FAQ } from '@/components/sections/FAQ';
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
 import { getFeaturedProperties } from '@/lib/properties';
 
-// Get featured properties from lib
 const featuredProperties = getFeaturedProperties();
 
-// Sample testimonials
-const testimonials = [
-  {
-    id: 1,
-    quote:
-      "The team at Straits Advisory made our R&F Princess Cove purchase seamless. We're now earning 7% yield on our investment.",
-    name: 'David Tan',
-    role: 'Investor',
-    property: 'R&F Princess Cove Phase 1',
-  },
-  {
-    id: 2,
-    quote:
-      "Living in JB with a 5-minute commute to Singapore was the best decision. Our 1100sqft condo at Princess Cove cost less than a 3-room HDB.",
-    name: 'Sarah Lim',
-    role: 'Homeowner',
-    property: 'R&F Princess Cove Phase 2',
-  },
-  {
-    id: 3,
-    quote:
-      'Professional service from start to finish. They helped us navigate the entire process including legal and financing for our Seine Region unit.',
-    name: 'Michael Wong',
-    role: 'First-time Buyer',
-    property: 'R&F Princess Cove Phase 2',
-  },
+const heroSlides = [
+  { video: '/videos/kl-aerial.mp4', label: 'Kuala Lumpur' },
+  { video: '/videos/jb-harbour.mp4', label: 'Puteri Harbour' },
 ];
-
-// Stats data
-const stats = [
-  { value: 500, suffix: '+', label: 'propertiesSold', icon: Home },
-  { value: 4.9, suffix: '★', label: 'rating', icon: Star },
-  { value: 18, suffix: '%', label: 'capitalGain', icon: TrendingUp },
-  { value: 6.2, suffix: '%', label: 'yield', icon: Percent },
-];
-
-function AnimatedCounter({
-  value,
-  suffix,
-}: {
-  value: number;
-  suffix: string;
-}) {
-  const [count, setCount] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
-  const [hasAnimated, setHasAnimated] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasAnimated) {
-          setHasAnimated(true);
-          const duration = 2000;
-          const steps = 60;
-          const increment = value / steps;
-          let current = 0;
-
-          const timer = setInterval(() => {
-            current += increment;
-            if (current >= value) {
-              setCount(value);
-              clearInterval(timer);
-            } else {
-              setCount(Math.floor(current * 10) / 10);
-            }
-          }, duration / steps);
-        }
-      },
-      { threshold: 0.5 }
-    );
-
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [value, hasAnimated]);
-
-  return (
-    <span ref={ref}>
-      {count}
-      {suffix}
-    </span>
-  );
-}
 
 export default function HomePage() {
   const locale = useLocale();
-  const t = useTranslations('home');
-  const tCommon = useTranslations('common');
-  const [activeTestimonial, setActiveTestimonial] = useState(0);
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [activeFilter, setActiveFilter] = useState('All');
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
-  // Auto-rotate testimonials
+  // Auto-rotate hero videos
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
+      setActiveSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 8000);
     return () => clearInterval(interval);
   }, []);
 
+  const filters = ['All', 'Freehold', 'Seafront', 'Under Construction', 'Completed'];
+
   return (
-    <main className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
-        {/* Video Background - Desktop only */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster="/images/hero-poster.jpg"
-          preload="auto"
-          className="hidden md:block absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/videos/hero-bg.mp4" type="video/mp4" />
-        </video>
+    <main className="min-h-screen bg-white">
+      {/* Video Hero */}
+      <section className="relative w-full h-screen min-h-[600px] overflow-hidden bg-black">
+        {heroSlides.map((slide, i) => (
+          <video
+            key={i}
+            ref={(el) => { videoRefs.current[i] = el; }}
+            src={slide.video}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1500ms] ${
+              i === activeSlide ? 'opacity-100' : 'opacity-0'
+            }`}
+          />
+        ))}
 
-        {/* Static Image - Mobile only (saves bandwidth) */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/images/hero-poster.jpg"
-          alt="Hero background"
-          className="md:hidden absolute inset-0 w-full h-full object-cover"
-        />
-
-        {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60" />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/25 to-black/55 z-[1]" />
 
         {/* Content */}
-        <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
-          {/* RTS Countdown Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
+        <div className="relative z-[2] h-full flex flex-col items-center justify-center text-center px-[clamp(20px,5vw,60px)]">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="mb-8"
+            transition={{ duration: 0.8 }}
+            className="text-[clamp(36px,7vw,72px)] font-[800] tracking-[-0.03em] leading-[1.08] mb-5 text-white"
           >
-            <RTSCountdown />
-          </motion.div>
+            Bridging Markets.
+            <br />
+            <span className="text-[#c9a962]">Building Futures.</span>
+          </motion.h1>
 
-          {/* Headline */}
-          <TextReveal className="text-5xl md:text-7xl font-bold tracking-tight mb-6" immediate delay={0.3}>
-            {t('hero.title')}
-          </TextReveal>
-
-          {/* Subtitle */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-            className="text-xl md:text-2xl text-white/80 mb-10 max-w-2xl mx-auto"
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className="text-[clamp(15px,2vw,20px)] text-white/75 max-w-[540px] leading-relaxed mb-9"
           >
-            {t('hero.subtitle')}
+            Your trusted gateway to Johor Bahru property investment.
           </motion.p>
 
-          {/* CTAs */}
-          <motion.div
+          <motion.a
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            transition={{ delay: 0.5, duration: 0.8 }}
+            href="https://wa.me/60169928899"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2.5 bg-[#25d366] text-white px-9 py-4 rounded-full text-[17px] font-semibold shadow-[0_4px_20px_rgba(37,211,102,0.35)] hover:bg-[#20bd5a] hover:-translate-y-0.5 hover:shadow-[0_6px_28px_rgba(37,211,102,0.45)] transition-all duration-300"
           >
-            <Button size="lg" asChild className="text-lg px-8">
-              <Link href={`/${locale}/properties`}>
-                {t('hero.cta1')}
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Link>
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              asChild
-              className="text-lg px-8 bg-white/10 border-white/30 hover:bg-white/20"
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            Get Started on WhatsApp
+          </motion.a>
+        </div>
+
+        {/* Slide Dots */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-[2] flex items-center gap-3">
+          {heroSlides.map((slide, i) => (
+            <button
+              key={i}
+              onClick={() => setActiveSlide(i)}
+              className="flex items-center gap-2"
             >
-              <Link href={`/${locale}/calculator`}>{t('hero.cta2')}</Link>
-            </Button>
-          </motion.div>
+              <span
+                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                  i === activeSlide ? 'bg-white scale-110' : 'bg-white/40'
+                }`}
+              />
+              {i === activeSlide && (
+                <span className="text-white/70 text-xs font-medium">{slide.label}</span>
+              )}
+            </button>
+          ))}
+        </div>
+      </section>
+
+      {/* Search & Filters */}
+      <section className="sticky top-0 z-40 bg-white/85 backdrop-blur-xl border-b border-gray-200 py-4 px-[clamp(16px,4vw,48px)]">
+        <div className="max-w-[1400px] mx-auto flex gap-3 items-center flex-wrap">
+          <div className="flex-1 min-w-[200px] relative">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-[18px] h-[18px] text-gray-400" />
+            <input
+              type="text"
+              placeholder="Search by name, area, or district..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full py-2.5 pl-10 pr-4 border border-gray-300 rounded-xl text-[15px] bg-white outline-none focus:border-[#007aff] focus:ring-[3px] focus:ring-[#007aff]/15 transition-all"
+            />
+          </div>
+          <div className="flex gap-2 overflow-x-auto scrollbar-hide">
+            {filters.map((filter) => (
+              <button
+                key={filter}
+                onClick={() => setActiveFilter(filter)}
+                className={`px-[18px] py-2 rounded-full text-sm font-medium whitespace-nowrap border transition-all ${
+                  activeFilter === filter
+                    ? 'bg-[#007aff] text-white border-[#007aff]'
+                    : 'bg-white text-gray-500 border-gray-300 hover:border-[#007aff] hover:text-[#007aff]'
+                }`}
+              >
+                {filter}
+              </button>
+            ))}
+          </div>
+        </div>
+        <p className="text-sm text-gray-400 mt-2 max-w-[1400px] mx-auto">
+          {featuredProperties.length} properties available
+        </p>
+      </section>
+
+      {/* Property Grid */}
+      <section className="max-w-[1400px] mx-auto px-[clamp(16px,4vw,48px)] py-6 pb-20">
+        <div className="grid grid-cols-[repeat(auto-fill,minmax(340px,1fr))] gap-6">
+          {featuredProperties.map((property, index) => (
+            <ScrollReveal key={property.id} delay={index * 0.1}>
+              <PropertyCard property={property} />
+            </ScrollReveal>
+          ))}
         </div>
 
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        >
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ repeat: Infinity, duration: 1.5 }}
+        <div className="text-center mt-12">
+          <Link
+            href={`/${locale}/properties`}
+            className="inline-flex items-center gap-2 px-8 py-3 rounded-xl border border-gray-300 text-gray-600 font-medium hover:border-[#007aff] hover:text-[#007aff] transition-all"
           >
-            <ChevronDown className="w-8 h-8 text-white/60" />
-          </motion.div>
-        </motion.div>
-      </section>
-
-      {/* About Section */}
-      <section className="py-20" style={{ backgroundColor: '#f5f5f5' }}>
-        <div className="container mx-auto px-4">
-          <div className="max-w-[800px] mx-auto text-center">
-            <ScrollReveal>
-              <h2
-                className="uppercase font-[800] mb-5"
-                style={{
-                  color: '#1a1a2e',
-                  fontSize: '36px',
-                  letterSpacing: '2px',
-                }}
-              >
-                Straits Advisory
-              </h2>
-            </ScrollReveal>
-            <ScrollReveal delay={0.1}>
-              <p
-                className="uppercase font-semibold mb-8"
-                style={{
-                  color: '#1a1a2e',
-                  fontSize: '14px',
-                  letterSpacing: '3px',
-                }}
-              >
-                Technology Meets Expertise
-              </p>
-            </ScrollReveal>
-            <ScrollReveal delay={0.2}>
-              <p
-                className="mx-auto"
-                style={{
-                  color: '#374151',
-                  fontSize: '16px',
-                  lineHeight: 1.8,
-                  maxWidth: '750px',
-                }}
-              >
-                As Malaysia&apos;s most technologically advanced property consultancy, we bring together decades of experience enhanced by cutting-edge AI, real-time analytics and proprietary technology. We serve our clients with transparency and precision, no pressure tactics, just data-driven guidance tailored to your goals.
-              </p>
-            </ScrollReveal>
-          </div>
+            View All Properties
+          </Link>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-20 bg-muted">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <ScrollReveal key={stat.label} delay={index * 0.1}>
-                <div className="text-center">
-                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 mb-4">
-                    <stat.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <p className="text-4xl md:text-5xl font-bold">
-                    <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-                  </p>
-                  <p className="text-muted-foreground mt-2">
-                    {t(`stats.${stat.label}`)}
-                  </p>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Value Comparison Section */}
-      <section className="py-24">
-        <div className="container mx-auto px-4">
-          <ScrollReveal>
-            <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">
-              {t('comparison.title')}
-            </h2>
-          </ScrollReveal>
-
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {/* Singapore Card */}
-            <ScrollReveal direction="left">
-              <Card className="p-8 h-full">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center">
-                    <span className="text-lg">🇸🇬</span>
-                  </div>
-                  <h3 className="text-2xl font-bold">
-                    {t('comparison.singapore')}
-                  </h3>
-                </div>
-                <ul className="space-y-4">
-                  <li className="flex justify-between py-3 border-b">
-                    <span className="text-muted-foreground">Property</span>
-                    <span className="font-medium">
-                      {t('comparison.sgProperty')}
-                    </span>
-                  </li>
-                  <li className="flex justify-between py-3 border-b">
-                    <span className="text-muted-foreground">Size</span>
-                    <span className="font-medium">{t('comparison.sgSize')}</span>
-                  </li>
-                  <li className="flex justify-between py-3 border-b">
-                    <span className="text-muted-foreground">Tenure</span>
-                    <span className="font-medium">
-                      {t('comparison.sgTenure')}
-                    </span>
-                  </li>
-                  <li className="flex justify-between py-3">
-                    <span className="text-muted-foreground">Yield</span>
-                    <span className="font-medium">
-                      {t('comparison.sgYield')}
-                    </span>
-                  </li>
-                </ul>
-              </Card>
-            </ScrollReveal>
-
-            {/* JB Card */}
-            <ScrollReveal direction="right">
-              <Card className="p-8 h-full border-primary relative overflow-hidden">
-                <div className="absolute top-4 right-4">
-                  <span className="px-3 py-1 bg-primary text-primary-foreground text-xs font-semibold rounded-full">
-                    {t('comparison.betterValue')}
-                  </span>
-                </div>
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
-                    <span className="text-lg">🇲🇾</span>
-                  </div>
-                  <h3 className="text-2xl font-bold">
-                    {t('comparison.johorBahru')}
-                  </h3>
-                </div>
-                <ul className="space-y-4">
-                  <li className="flex justify-between py-3 border-b">
-                    <span className="text-muted-foreground">Property</span>
-                    <span className="font-medium text-primary">
-                      {t('comparison.jbProperty')}
-                    </span>
-                  </li>
-                  <li className="flex justify-between py-3 border-b">
-                    <span className="text-muted-foreground">Size</span>
-                    <span className="font-medium text-primary">
-                      {t('comparison.jbSize')}
-                    </span>
-                  </li>
-                  <li className="flex justify-between py-3 border-b">
-                    <span className="text-muted-foreground">Tenure</span>
-                    <span className="font-medium text-primary">
-                      {t('comparison.jbTenure')}
-                    </span>
-                  </li>
-                  <li className="flex justify-between py-3">
-                    <span className="text-muted-foreground">Yield</span>
-                    <span className="font-medium text-primary">
-                      {t('comparison.jbYield')}
-                    </span>
-                  </li>
-                </ul>
-              </Card>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Properties Section */}
-      <section className="py-24 bg-muted">
-        <div className="container mx-auto px-4">
-          <ScrollReveal>
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-5xl font-bold mb-4">
-                {t('featured.title')}
-              </h2>
-              <p className="text-xl text-muted-foreground">
-                {t('featured.subtitle')}
-              </p>
-            </div>
-          </ScrollReveal>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredProperties.map((property, index) => (
-              <ScrollReveal key={property.id} delay={index * 0.1}>
-                <PropertyCard property={property} />
-              </ScrollReveal>
-            ))}
-          </div>
-
-          <ScrollReveal>
-            <div className="text-center mt-12">
-              <Button size="lg" variant="outline" asChild>
-                <Link href={`/${locale}/properties`}>
-                  {t('featured.viewAll')}
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
-              </Button>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="py-24">
-        <div className="container mx-auto px-4">
-          <ScrollReveal>
-            <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">
-              {t('testimonials.title')}
-            </h2>
-          </ScrollReveal>
-
-          <div className="max-w-3xl mx-auto">
-            <div className="relative min-h-[300px] flex items-center justify-center">
-              <AnimatePresence mode="popLayout">
-                {testimonials[activeTestimonial] && (
-                  <motion.div
-                    key={activeTestimonial}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.5 }}
-                    className="text-center absolute inset-0 flex flex-col items-center justify-center"
-                  >
-                    <Quote className="w-12 h-12 text-primary/20 mx-auto mb-6" />
-                    <p className="text-xl md:text-2xl mb-8 italic">
-                      &ldquo;{testimonials[activeTestimonial].quote}&rdquo;
-                    </p>
-                    <div>
-                      <p className="font-semibold text-lg">
-                        {testimonials[activeTestimonial].name}
-                      </p>
-                      <p className="text-muted-foreground">
-                        {testimonials[activeTestimonial].role} •{' '}
-                        {testimonials[activeTestimonial].property}
-                      </p>
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
-            {/* Dot indicators */}
-            <div className="flex justify-center gap-2 mt-8">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActiveTestimonial(index)}
-                  className={`w-2.5 h-2.5 rounded-full transition-colors ${
-                    index === activeTestimonial
-                      ? 'bg-primary'
-                      : 'bg-primary/20 hover:bg-primary/40'
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <FAQ />
-
-      {/* CTA Section */}
-      <section className="py-24 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-4">
-          <ScrollReveal>
-            <div className="text-center max-w-2xl mx-auto">
-              <h2 className="text-3xl md:text-5xl font-bold mb-6">
-                {t('cta.title')}
-              </h2>
-              <p className="text-xl opacity-90 mb-10">{t('cta.subtitle')}</p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button
-                  size="lg"
-                  variant="secondary"
-                  className="text-lg px-8"
-                  onClick={() =>
-                    window.open('https://wa.me/6591234567', '_blank')
-                  }
-                >
-                  <MessageCircle className="mr-2 w-5 h-5" />
-                  {t('cta.whatsapp')}
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="text-lg px-8 border-primary-foreground/30 hover:bg-primary-foreground/10 text-primary-foreground"
-                >
-                  Start Assessment
-                </Button>
-              </div>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
+      {/* Floating Action Buttons */}
+      <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+        <a
+          href="tel:+60169928899"
+          className="w-14 h-14 rounded-full bg-[#007aff] text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
+        >
+          <Phone className="w-6 h-6" />
+        </a>
+        <a
+          href="https://wa.me/60169928899"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-14 h-14 rounded-full bg-[#25d366] text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+        </a>
+      </div>
     </main>
   );
 }
