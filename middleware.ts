@@ -1,15 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const locales = ['en-SG', 'zh-SG', 'ms-MY'];
-const defaultLocale = 'en-SG';
-
 // Routes that require authentication (checked via session cookie)
 const protectedRoutes = ['/clients', '/agent', '/admin'];
-// Routes that bypass i18n (auth-related)
+// Auth-related routes (no special handling needed beyond protection)
 const authRoutes = ['/login', '/pending', '/clients', '/agent', '/admin'];
 
 export default async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+
+  // Block old Next.js i18n routes — redirect to homepage
+  if (pathname.startsWith('/en-SG') || pathname.startsWith('/zh-SG') || pathname.startsWith('/ms-MY')) {
+    return NextResponse.redirect(new URL('/', request.url));
+  }
 
   // Static old site pages — serve from public/
   const staticPages = ['/', '/buy', '/sell', '/rent', '/services', '/why-work-with-us'];
@@ -18,7 +20,7 @@ export default async function middleware(request: NextRequest) {
     return NextResponse.rewrite(new URL(target, request.url));
   }
 
-  // Skip i18n for auth routes — they don't need localization
+  // Auth routes
   if (authRoutes.some((route) => pathname.startsWith(route))) {
     // For protected routes, check if user has a session cookie
     if (protectedRoutes.some((route) => pathname.startsWith(route))) {
@@ -34,29 +36,7 @@ export default async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // Check if pathname already has a locale prefix
-  const pathnameHasLocale = locales.some(
-    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
-  );
-
-  if (pathnameHasLocale) {
-    return NextResponse.next();
-  }
-
-  // Detect locale from Accept-Language header
-  const acceptLanguage = request.headers.get('accept-language') || '';
-  let detectedLocale = defaultLocale;
-
-  if (acceptLanguage.includes('zh')) {
-    detectedLocale = 'zh-SG';
-  } else if (acceptLanguage.includes('ms')) {
-    detectedLocale = 'ms-MY';
-  }
-
-  // Redirect to locale-prefixed path
-  const newUrl = new URL(`/${detectedLocale}${pathname}`, request.url);
-  newUrl.search = request.nextUrl.search;
-  return NextResponse.redirect(newUrl);
+  return NextResponse.next();
 }
 
 export const config = {
