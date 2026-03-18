@@ -11,6 +11,11 @@ const authRoutes = ['/login', '/pending', '/clients', '/agent', '/admin'];
 export default async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // Root path → serve old static homepage
+  if (pathname === '/') {
+    return NextResponse.rewrite(new URL('/index.html', request.url));
+  }
+
   // Skip i18n for auth routes — they don't need localization
   if (authRoutes.some((route) => pathname.startsWith(route))) {
     // For protected routes, check if user has a session cookie
