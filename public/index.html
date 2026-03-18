@@ -381,10 +381,36 @@ a{text-decoration:none;color:inherit}
 </footer>
 
 <script>
-// ─── PROPERTY DATA (synced with buy.html) ───
-const properties = [
-  {id:1,name:"R&F Princess Cove Ph2",developer:"R&F Properties",location:"Bukit Chagar, JB",area:"JB CBD",type:"condo",status:"completed",tenure:"freehold",price:149000,priceMax:400000,beds:"2-3",baths:"2-3",size:"800-1400",yield:6.5,rtsDistance:"1 km",lat:1.4615,lng:103.7700,features:["seafront"],gradient:"linear-gradient(135deg,#1a1a2e,#16213e,#0f3460)",desc:"R&F Princess Cove Ph2 is a completed freehold development by R&F Properties in Bukit Chagar, Johor. Located 1km from CIQ, priced from RM5xxk. Fully completed and ready to move in.",amenities:["Infinity Pool","Sky Garden","Gym","Tennis Court","Retail Mall","24hr Security","BBQ Area","Children's Playground"]}
-];
+// ─── PROPERTY DATA (fetched from API, fallback to empty) ───
+let properties = [];
+
+// Fetch properties from API on load
+fetch('/api/properties').then(r => r.json()).then(data => {
+  properties = (data.properties || []).map((p, i) => ({
+    id: i + 1,
+    name: p.name,
+    developer: p.developer,
+    location: p.location,
+    area: p.area,
+    type: p.type,
+    status: p.status,
+    tenure: p.tenure,
+    price: Math.round(p.priceRM / 3.35),
+    priceMax: p.priceMaxRM ? Math.round(p.priceMaxRM / 3.35) : null,
+    beds: p.beds,
+    baths: p.baths,
+    size: p.size,
+    yield: p.yieldPercent || 0,
+    rtsDistance: p.rtsDistance || '',
+    lat: p.lat || 0,
+    lng: p.lng || 0,
+    features: p.features || [],
+    gradient: p.gradient || 'linear-gradient(135deg,#1a1a2e,#16213e,#0f3460)',
+    desc: p.description || '',
+    amenities: p.amenities || [],
+  }));
+  renderCards();
+}).catch(() => { renderCards(); });
 
 // ─── GLOBALS ───
 let activeFilter = 'all';

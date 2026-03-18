@@ -55,3 +55,33 @@ model VerificationToken {
 
   @@unique([identifier, token])
 }
+
+model Property {
+  id           String   @id @default(cuid())
+  name         String
+  slug         String   @unique
+  developer    String
+  location     String
+  area         String
+  type         String   @default("condo") // condo, landed
+  status       String   @default("completed") // completed, new-launch, construction
+  tenure       String   @default("freehold") // freehold, leasehold
+  priceRM      Int      // Price in RM (e.g. 500000)
+  priceMaxRM   Int?     // Max price range in RM
+  beds         String   // e.g. "2-3"
+  baths        String   // e.g. "2-3"
+  size         String   // e.g. "800-1400"
+  yieldPercent Float?   // e.g. 6.5
+  rtsDistance   String?  // e.g. "1 km"
+  description  String?  @db.Text
+  amenities    Json?    // ["Pool","Gym",...]
+  features     Json?    // ["seafront",...]
+  tourUrl      String?
+  whatsappUrl  String?
+  gradient     String?  // CSS gradient for card
+  lat          Float?
+  lng          Float?
+  published    Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
