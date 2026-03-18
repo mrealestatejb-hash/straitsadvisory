@@ -8,6 +8,12 @@ const authRoutes = ['/login', '/pending', '/clients', '/agent', '/admin'];
 export default async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // Redirect .html URLs to clean paths (e.g. /index.html → /, /buy.html → /buy)
+  if (pathname.endsWith('.html')) {
+    const clean = pathname === '/index.html' ? '/' : pathname.replace(/\.html$/, '');
+    return NextResponse.redirect(new URL(clean, request.url));
+  }
+
   // Block old Next.js i18n routes — redirect to homepage
   if (pathname.startsWith('/en-SG') || pathname.startsWith('/zh-SG') || pathname.startsWith('/ms-MY')) {
     return NextResponse.redirect(new URL('/', request.url));
@@ -40,5 +46,5 @@ export default async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!api|_next|studio|.*\\..*).*)'],
+  matcher: ['/((?!api|_next|studio|.*\\..*).*)','/(index\\.html)','/(buy\\.html)','/(sell\\.html)','/(rent\\.html)','/(services\\.html)','/(why-work-with-us\\.html)'],
 };
