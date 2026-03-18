@@ -1,26 +1,186 @@
 'use client';
 
 import { signIn } from 'next-auth/react';
+import { useState } from 'react';
 
 export default function LoginPage() {
+  const [isRegister, setIsRegister] = useState(false);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const handleCredentialsSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError('');
+    setSuccess('');
+    setLoading(true);
+
+    if (isRegister) {
+      if (password !== confirmPassword) {
+        setError('Passwords do not match');
+        setLoading(false);
+        return;
+      }
+
+      try {
+        const res = await fetch('/api/auth/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, email, password }),
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+          setError(data.error || 'Registration failed');
+          setLoading(false);
+          return;
+        }
+
+        setSuccess('Account created! Signing you in...');
+        // Auto sign-in after registration
+        const result = await signIn('credentials', {
+          email,
+          password,
+          callbackUrl: '/login/redirect',
+          redirect: false,
+        });
+
+        if (result?.error) {
+          setSuccess('Account created! Please sign in.');
+          setIsRegister(false);
+          setPassword('');
+          setConfirmPassword('');
+        } else {
+          window.location.href = '/login/redirect';
+        }
+      } catch {
+        setError('Something went wrong. Please try again.');
+      }
+    } else {
+      const result = await signIn('credentials', {
+        email,
+        password,
+        callbackUrl: '/login/redirect',
+        redirect: false,
+      });
+
+      if (result?.error) {
+        setError('Invalid email or password');
+      } else {
+        window.location.href = '/login/redirect';
+      }
+    }
+
+    setLoading(false);
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
       <div className="w-full max-w-md mx-4">
         <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 shadow-2xl">
           {/* Logo / Branding */}
-          <div className="text-center mb-8">
+          <div className="text-center mb-6">
             <h1 className="text-2xl font-bold text-white tracking-tight">
               Straits Advisory
             </h1>
             <p className="text-sm text-slate-400 mt-2">
-              Sign in to access your dashboard
+              {isRegister
+                ? 'Create your account'
+                : 'Sign in to access your dashboard'}
             </p>
+          </div>
+
+          {/* Email/Password Form */}
+          <form onSubmit={handleCredentialsSubmit} className="space-y-3">
+            {isRegister && (
+              <input
+                type="text"
+                placeholder="Full name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-white/25 transition-colors text-sm"
+              />
+            )}
+            <input
+              type="email"
+              placeholder="Email address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-white/25 transition-colors text-sm"
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              minLength={8}
+              className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-white/25 transition-colors text-sm"
+            />
+            {isRegister && (
+              <input
+                type="password"
+                placeholder="Confirm password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
+                minLength={8}
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-white/25 transition-colors text-sm"
+              />
+            )}
+
+            {error && (
+              <p className="text-red-400 text-xs text-center">{error}</p>
+            )}
+            {success && (
+              <p className="text-emerald-400 text-xs text-center">{success}</p>
+            )}
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full bg-white hover:bg-slate-50 text-slate-900 font-medium py-3 px-4 rounded-xl transition-colors duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+            >
+              {loading
+                ? 'Please wait...'
+                : isRegister
+                  ? 'Create Account'
+                  : 'Sign In'}
+            </button>
+          </form>
+
+          {/* Toggle Sign In / Register */}
+          <p className="text-xs text-slate-500 text-center mt-4">
+            {isRegister ? 'Already have an account?' : "Don't have an account?"}{' '}
+            <button
+              onClick={() => {
+                setIsRegister(!isRegister);
+                setError('');
+                setSuccess('');
+              }}
+              className="text-white hover:underline cursor-pointer"
+            >
+              {isRegister ? 'Sign in' : 'Create one'}
+            </button>
+          </p>
+
+          {/* Divider */}
+          <div className="flex items-center gap-3 my-5">
+            <div className="flex-1 h-px bg-white/10" />
+            <span className="text-xs text-slate-500">or</span>
+            <div className="flex-1 h-px bg-white/10" />
           </div>
 
           {/* Google Sign In */}
           <button
             onClick={() => signIn('google', { callbackUrl: '/login/redirect' })}
-            className="w-full flex items-center justify-center gap-3 bg-white hover:bg-slate-50 text-slate-900 font-medium py-3 px-4 rounded-xl transition-colors duration-200 cursor-pointer"
+            className="w-full flex items-center justify-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium py-3 px-4 rounded-xl transition-colors duration-200 cursor-pointer text-sm"
           >
             <svg className="w-5 h-5" viewBox="0 0 24 24">
               <path

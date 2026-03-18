@@ -1,39 +1,73 @@
 import NextAuth from 'next-auth';
 import Google from 'next-auth/providers/google';
+import Credentials from 'next-auth/providers/credentials';
 import { PrismaAdapter } from '@auth/prisma-adapter';
 import { prisma } from '@/lib/prisma';
+import bcrypt from 'bcryptjs';
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   adapter: PrismaAdapter(prisma),
-  providers: [Google],
+  session: { strategy: 'jwt' },
+  providers: [
+    Google,
+    Credentials({
+      name: 'credentials',
+      credentials: {
+        email: { label: 'Email', type: 'email' },
+        password: { label: 'Password', type: 'password' },
+      },
+      async authorize(credentials) {
+        if (!credentials?.email || !credentials?.password) return null;
+
+        const user = await prisma.user.findUnique({
+          where: { email: credentials.email as string },
+        });
+
+        if (!user || !user.password) return null;
+
+        const isValid = await bcrypt.compare(
+          credentials.password as string,
+          user.password
+        );
+
+        if (!isValid) return null;
+
+        return {
+          id: user.id,
+          name: user.name,
+          email: user.email,
+          image: user.image,
+        };
+      },
+    }),
+  ],
   pages: {
     signIn: '/login',
   },
   callbacks: {
     async signIn({ user }) {
       if (!user.email) return false;
-
-      // Check if this is the very first user — make them admin
-      const userCount = await prisma.user.count();
-      if (userCount === 0) {
-        // Will be created by the adapter, we update after
-        return true;
-      }
-
       return true;
     },
-    async session({ session, user }) {
-      // Fetch the full user to get role and approved status
-      const dbUser = await prisma.user.findUnique({
-        where: { id: user.id },
-      });
-
-      if (dbUser) {
-        session.user.id = dbUser.id;
-        session.user.role = dbUser.role;
-        session.user.approved = dbUser.approved;
+    async jwt({ token, user }) {
+      if (user) {
+        const dbUser = await prisma.user.findUnique({
+          where: { id: user.id },
+        });
+        if (dbUser) {
+          token.id = dbUser.id;
+          token.role = dbUser.role;
+          token.approved = dbUser.approved;
+        }
       }
-
+      return token;
+    },
+    async session({ session, token }) {
+      if (token) {
+        session.user.id = token.id as string;
+        session.user.role = token.role as string;
+        session.user.approved = token.approved as boolean;
+      }
       return session;
     },
   },

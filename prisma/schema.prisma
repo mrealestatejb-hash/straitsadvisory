@@ -13,6 +13,7 @@ model User {
   email         String?   @unique
   emailVerified DateTime?
   image         String?
+  password      String?
   role          String    @default("PENDING") // PENDING, CLIENT, AGENT, ADMIN
   approved      Boolean   @default(false)
   accounts      Account[]
