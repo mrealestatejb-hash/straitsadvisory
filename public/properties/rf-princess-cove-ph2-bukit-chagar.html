@@ -7,113 +7,265 @@
 <meta name="description" content="R&amp;F Princess Cove Ph2 - RM5xxk Freehold in Bukit Chagar. Completed ready. 1km to CIQ. Straits Advisory.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><rect width='28' height='28' rx='6' fill='%23c9a962'/><path d='M7 14h14M14 7v14' stroke='white' stroke-width='2.5' stroke-linecap='round'/></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--navy:#1a1a2e;--gold:#c9a962;--radius:12px;--transition:0.25s cubic-bezier(.4,0,.2,1)}
-html{scroll-behavior:smooth}body{font-family:Inter,system-ui,-apple-system,sans-serif;color:#1a1a2e;background:#fff;-webkit-font-smoothing:antialiased}a{text-decoration:none;color:inherit}
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,5vw,60px);height:64px;background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,0.06)}
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#1a1a2e;--gold:#c9a962;--radius:12px;--transition:0.25s cubic-bezier(.4,0,.2,1);--green:#25d366;--sidebar-w:380px;--max-w:1200px}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;color:#1a1a2e;background:#fff;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,5vw,60px);height:64px;background:rgba(255,255,255,0.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,0,0,0.06)}
 .nav-logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px;color:var(--navy)}.nav-logo svg{width:28px;height:28px}
 .nav-links{display:flex;align-items:center;gap:28px;font-size:14px;font-weight:500}.nav-links a{color:#555;transition:color var(--transition)}.nav-links a:hover{color:var(--navy)}
 .nav-cta{background:var(--navy);color:#fff!important;padding:8px 20px;border-radius:50px;font-size:13px;transition:all var(--transition)}.nav-cta:hover{background:var(--gold)}
-.hero-gallery{margin-top:64px;display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:200px 200px;gap:4px;max-height:404px;overflow:hidden}
-.hero-gallery .gi{display:flex;align-items:center;justify-content:center;font-size:48px;opacity:0.3}.gi:first-child{grid-row:1/3}
-.hero-info{padding:32px clamp(20px,5vw,60px);border-bottom:1px solid #e5e7eb}
-.hero-info .badges{display:flex;gap:8px;margin-bottom:12px}.badge{padding:4px 12px;border-radius:50px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px}
-.badge-gold{background:var(--gold);color:#fff}.badge-green{background:#059669;color:#fff}.badge-outline{border:1px solid #d1d5db;color:#6b7280}
-.hero-info h1{font-size:clamp(24px,4vw,36px);font-weight:800;color:var(--navy);margin-bottom:4px}
-.hero-info .dev{font-size:14px;color:var(--gold);font-weight:600;margin-bottom:8px}
-.hero-info .loc{font-size:14px;color:#6b7280;display:flex;align-items:center;gap:4px;margin-bottom:12px}
-.hero-info .prices{display:flex;gap:16px;align-items:baseline}.price-main{font-size:28px;font-weight:800;color:var(--navy)}.price-alt{font-size:16px;color:#6b7280}
-.stats-bar{display:flex;flex-wrap:wrap;gap:0;border-bottom:1px solid #e5e7eb}
-.stat-item{flex:1;min-width:140px;padding:16px 20px;text-align:center;border-right:1px solid #e5e7eb}
-.stat-item:last-child{border-right:none}.stat-val{font-size:18px;font-weight:700;color:var(--navy)}.stat-label{font-size:11px;color:#9ca3af;text-transform:uppercase;letter-spacing:0.5px;margin-top:2px}
-.sticky-cta{position:sticky;top:64px;z-index:90;background:#fff;border-bottom:1px solid #e5e7eb;padding:12px clamp(20px,5vw,60px);display:flex;gap:10px;align-items:center}
-.cta-wa{display:flex;align-items:center;gap:6px;padding:10px 20px;border-radius:8px;background:#25d366;color:#fff;font-size:13px;font-weight:600;transition:all var(--transition);border:none;cursor:pointer}
-.cta-wa:hover{background:#1ebe5d}.cta-call{padding:10px 20px;border-radius:8px;background:var(--navy);color:#fff;font-size:13px;font-weight:600;transition:all var(--transition);border:none;cursor:pointer}
-.cta-call:hover{background:var(--gold)}.cta-brochure{padding:10px 20px;border-radius:8px;background:#f3f4f6;color:#374151;font-size:13px;font-weight:600;border:1px solid #d1d5db;cursor:pointer;transition:all var(--transition)}
-.cta-brochure:hover{background:#e5e7eb}
-.content{max-width:900px;margin:0 auto;padding:0 clamp(20px,5vw,60px)}
-.section{padding:48px 0;border-bottom:1px solid #f3f4f6}
+
+/* GALLERY */
+.gallery{margin-top:64px;display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:220px 220px;gap:4px;position:relative;overflow:hidden;cursor:pointer}
+.gallery .gi{display:flex;align-items:center;justify-content:center;font-size:56px;position:relative;overflow:hidden;transition:opacity var(--transition)}
+.gallery .gi:hover{opacity:0.9}
+.gi:first-child{grid-row:1/3;font-size:72px}
+.gallery .gi-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:inherit}
+.photo-count{position:absolute;bottom:16px;right:16px;z-index:5;background:rgba(0,0,0,0.7);backdrop-filter:blur(8px);color:#fff;padding:8px 16px;border-radius:8px;font-size:13px;font-weight:600;display:flex;align-items:center;gap:6px;cursor:pointer;border:none;transition:background var(--transition)}
+.photo-count:hover{background:rgba(0,0,0,0.85)}
+.photo-count svg{width:16px;height:16px}
+
+/* BREADCRUMB */
+.breadcrumb{padding:16px clamp(20px,5vw,60px);font-size:13px;color:#6b7280;border-bottom:1px solid #f3f4f6}
+.breadcrumb a{color:#6b7280;transition:color var(--transition)}.breadcrumb a:hover{color:var(--navy)}
+.breadcrumb span{margin:0 6px;color:#d1d5db}
+
+/* HERO SECTION */
+.hero{padding:28px clamp(20px,5vw,60px) 0;max-width:var(--max-w);margin:0 auto}
+.hero h1{font-size:clamp(26px,4vw,34px);font-weight:800;color:var(--navy);line-height:1.15;margin-bottom:4px}
+.hero .subtitle{font-size:15px;color:var(--gold);font-weight:500;margin-bottom:10px;font-style:italic}
+.hero .location{font-size:14px;color:#6b7280;display:flex;align-items:center;gap:6px;margin-bottom:14px}
+.hero .location svg{width:16px;height:16px;color:#9ca3af}
+.hero-badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.badge{padding:5px 14px;border-radius:50px;font-size:12px;font-weight:600;letter-spacing:0.3px}
+.badge-green{background:#ecfdf5;color:#059669;border:1px solid #a7f3d0}
+.badge-outline{background:#f9fafb;color:#6b7280;border:1px solid #e5e7eb}
+.badge-gold{background:#fef9ee;color:#92702a;border:1px solid #f5dfa3}
+.hero-price{margin-bottom:8px}
+.hero-price .price-main{font-size:30px;font-weight:800;color:var(--navy)}
+.hero-price .price-alt{font-size:15px;color:#6b7280;margin-left:10px;font-weight:500}
+
+/* TWO COLUMN LAYOUT */
+.two-col{max-width:var(--max-w);margin:0 auto;padding:0 clamp(20px,5vw,60px);display:grid;grid-template-columns:1fr var(--sidebar-w);gap:40px;align-items:start;padding-top:32px;padding-bottom:60px}
+.main-col{min-width:0}
+
+/* SIDEBAR */
+.sidebar{position:sticky;top:80px}
+.sidebar-card{border:1px solid #e5e7eb;border-radius:var(--radius);padding:24px;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
+.sidebar-dev{display:flex;align-items:center;gap:14px;margin-bottom:20px}
+.sidebar-dev-logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--navy),#2d2d5e);display:flex;align-items:center;justify-content:center;font-size:22px;color:#fff;font-weight:800;flex-shrink:0}
+.sidebar-dev-info h3{font-size:16px;font-weight:700;color:var(--navy)}
+.sidebar-dev-info p{font-size:12px;color:#6b7280;margin-top:2px}
+.sidebar-wa{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:13px 20px;border-radius:10px;background:var(--green);color:#fff;font-size:15px;font-weight:700;border:none;cursor:pointer;transition:all var(--transition);margin-bottom:10px}
+.sidebar-wa:hover{background:#1ebe5d;transform:translateY(-1px);box-shadow:0 4px 12px rgba(37,211,102,0.3)}
+.sidebar-wa svg{width:20px;height:20px;flex-shrink:0}
+.sidebar-register{display:flex;align-items:center;justify-content:center;width:100%;padding:12px 20px;border-radius:10px;background:#fff;color:var(--navy);font-size:14px;font-weight:600;border:2px solid var(--navy);cursor:pointer;transition:all var(--transition);margin-bottom:16px}
+.sidebar-register:hover{background:var(--navy);color:#fff}
+.sidebar-contact{font-size:12px;color:#9ca3af;text-align:center;line-height:1.5}
+.sidebar-contact a{color:var(--navy);font-weight:600}
+
+/* SECTION STYLES */
+.section{padding:32px 0;border-bottom:1px solid #f3f4f6}
 .section:last-child{border:none}
-.section h2{font-size:22px;font-weight:800;color:var(--navy);margin-bottom:20px}
-.section p{font-size:15px;color:#374151;line-height:1.7;margin-bottom:12px}
-.highlights{list-style:none;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.highlights li{display:flex;align-items:center;gap:8px;font-size:14px;padding:8px 0;color:#374151}
-.highlights li::before{content:'\2713';color:#059669;font-weight:700;width:20px;height:20px;border-radius:50%;background:rgba(5,150,105,0.1);display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0}
-.unit-table{width:100%;border-collapse:collapse;font-size:14px}
-.unit-table th{text-align:left;padding:10px 12px;background:#f9fafb;border-bottom:2px solid #e5e7eb;font-size:12px;text-transform:uppercase;letter-spacing:0.5px;color:#6b7280}
-.unit-table td{padding:10px 12px;border-bottom:1px solid #f3f4f6;color:#374151}
-.fac-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.fac-item{display:flex;align-items:center;gap:8px;padding:12px;border-radius:8px;background:#f9fafb;font-size:13px;color:#374151}
-.fac-icon{font-size:20px}
-.map-embed{width:100%;height:300px;border:0;border-radius:var(--radius);margin-bottom:20px}
-.dist-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.dist-item{display:flex;align-items:center;gap:10px;padding:12px;border-radius:8px;border:1px solid #e5e7eb}
-.dist-icon{font-size:20px}.dist-info .dist-name{font-size:13px;font-weight:600;color:var(--navy)}.dist-info .dist-val{font-size:12px;color:#6b7280}
-.pay-timeline{display:flex;flex-direction:column;gap:16px}
-.pay-step{display:flex;gap:16px;align-items:flex-start}.pay-num{width:32px;height:32px;border-radius:50%;background:var(--gold);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0}
-.pay-step p{font-size:13px;color:#6b7280;margin-top:4px}
-.inv-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.inv-card{padding:20px;border-radius:var(--radius);border:1px solid #e5e7eb}
-.inv-card h3{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:12px}
-.inv-row{display:flex;justify-content:space-between;padding:6px 0;font-size:13px;border-bottom:1px solid #f3f4f6}
-.inv-row:last-child{border:none;font-weight:700;color:var(--navy)}
-.inv-row .lbl{color:#6b7280}
-.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.why-card{padding:20px;border-radius:var(--radius);border:1px solid #e5e7eb}
-.why-card h4{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:6px}
-.why-card p{font-size:13px;color:#6b7280;line-height:1.5;margin:0}
-.related-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.rel-card{border:1px solid #e5e7eb;border-radius:var(--radius);overflow:hidden;transition:all var(--transition)}
+.section-title{font-size:20px;font-weight:800;color:var(--navy);margin-bottom:18px}
+.section p{font-size:15px;color:#374151;line-height:1.7}
+
+/* KEY INFO ROW */
+.key-info{display:flex;flex-wrap:wrap;gap:0;border:1px solid #e5e7eb;border-radius:var(--radius);overflow:hidden;margin-bottom:8px}
+.key-info-item{flex:1;min-width:100px;padding:16px 12px;text-align:center;border-right:1px solid #e5e7eb;display:flex;flex-direction:column;align-items:center;gap:4px}
+.key-info-item:last-child{border-right:none}
+.key-info-item svg{width:22px;height:22px;color:#6b7280;margin-bottom:2px}
+.key-info-val{font-size:16px;font-weight:700;color:var(--navy)}
+.key-info-label{font-size:11px;color:#9ca3af;text-transform:uppercase;letter-spacing:0.4px}
+
+/* WHY RECOMMEND */
+.recommend-intro{font-size:15px;color:#374151;line-height:1.6;margin-bottom:16px}
+.check-list{list-style:none;padding:0;margin:0}
+.check-list li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:#374151;padding:8px 0;line-height:1.5}
+.check-list li svg{width:20px;height:20px;flex-shrink:0;color:#059669;margin-top:1px}
+
+/* ABOUT EXPANDABLE */
+.about-text{max-height:120px;overflow:hidden;transition:max-height 0.4s ease;position:relative}
+.about-text.expanded{max-height:1000px}
+.about-text::after{content:'';position:absolute;bottom:0;left:0;right:0;height:60px;background:linear-gradient(transparent,#fff);pointer-events:none;transition:opacity 0.3s}
+.about-text.expanded::after{opacity:0}
+.see-more-btn{background:none;border:none;color:var(--gold);font-weight:600;font-size:14px;cursor:pointer;padding:8px 0;font-family:inherit;transition:color var(--transition)}
+.see-more-btn:hover{color:var(--navy)}
+
+/* DETAILS TABLE */
+.details-table{width:100%}
+.details-table tr{border-bottom:1px solid #f3f4f6}
+.details-table td{padding:12px 0;font-size:14px;vertical-align:top}
+.details-table td:first-child{color:#6b7280;width:45%;font-weight:500}
+.details-table td:last-child{color:var(--navy);font-weight:600}
+
+/* UNIT TABS */
+.unit-tabs{display:flex;gap:0;margin-bottom:20px;border-bottom:2px solid #e5e7eb}
+.unit-tab{padding:10px 20px;font-size:14px;font-weight:600;color:#6b7280;cursor:pointer;border:none;background:none;border-bottom:2px solid transparent;margin-bottom:-2px;font-family:inherit;transition:all var(--transition)}
+.unit-tab:hover{color:var(--navy)}
+.unit-tab.active{color:var(--navy);border-bottom-color:var(--gold)}
+.unit-panel{display:none}
+.unit-panel.active{display:block}
+.unit-card{border:1px solid #e5e7eb;border-radius:var(--radius);padding:20px;margin-bottom:12px}
+.unit-card-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.unit-card-row:last-child{margin-bottom:0}
+.unit-card .type-label{font-size:14px;font-weight:600;color:var(--navy)}
+.unit-card .type-val{font-size:14px;color:#6b7280}
+.unit-card .type-price{font-size:18px;font-weight:800;color:var(--navy)}
+.floor-plan-card{border:2px dashed #e5e7eb;border-radius:var(--radius);padding:32px;text-align:center;margin-top:16px}
+.floor-plan-card svg{width:64px;height:64px;color:#d1d5db;margin:0 auto 12px}
+.floor-plan-card p{font-size:14px;color:#6b7280;margin-bottom:14px}
+.floor-plan-btn{display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:8px;background:var(--navy);color:#fff;font-size:13px;font-weight:600;border:none;cursor:pointer;transition:all var(--transition);font-family:inherit}
+.floor-plan-btn:hover{background:var(--gold)}
+
+/* BROCHURE CARD */
+.brochure-card{border:1px solid #e5e7eb;border-radius:var(--radius);padding:24px;display:flex;align-items:center;gap:20px;background:linear-gradient(135deg,#fefce8 0%,#fff 100%)}
+.brochure-icon{width:56px;height:56px;border-radius:12px;background:var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.brochure-icon svg{width:28px;height:28px;color:#fff}
+.brochure-info h4{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.brochure-info p{font-size:13px;color:#6b7280;margin-bottom:10px}
+.brochure-download{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--gold);transition:color var(--transition)}
+.brochure-download:hover{color:var(--navy)}
+
+/* FACILITIES */
+.fac-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.fac-item{display:flex;flex-direction:column;align-items:center;gap:6px;padding:16px 8px;border-radius:10px;background:#f9fafb;border:1px solid #f3f4f6;text-align:center;transition:all var(--transition)}
+.fac-item:hover{border-color:#e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+.fac-icon{font-size:24px}
+.fac-label{font-size:12px;color:#374151;font-weight:500;line-height:1.3}
+
+/* NEARBY TABS */
+.nearby-tabs{display:flex;gap:0;overflow-x:auto;margin-bottom:16px;border-bottom:2px solid #e5e7eb;-webkit-overflow-scrolling:touch}
+.nearby-tab{padding:10px 16px;font-size:13px;font-weight:600;color:#6b7280;cursor:pointer;border:none;background:none;border-bottom:2px solid transparent;margin-bottom:-2px;white-space:nowrap;font-family:inherit;transition:all var(--transition)}
+.nearby-tab:hover{color:var(--navy)}
+.nearby-tab.active{color:var(--navy);border-bottom-color:var(--gold)}
+.nearby-panel{display:none}
+.nearby-panel.active{display:block}
+.nearby-list{list-style:none;padding:0}
+.nearby-item{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid #f3f4f6}
+.nearby-item:last-child{border-bottom:none}
+.nearby-item-left{display:flex;align-items:center;gap:10px}
+.nearby-item-left .ni-icon{width:36px;height:36px;border-radius:8px;background:#f3f4f6;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.nearby-item-left .ni-name{font-size:14px;font-weight:500;color:var(--navy)}
+.nearby-item-left .ni-type{font-size:12px;color:#9ca3af}
+.nearby-dist{font-size:13px;font-weight:600;color:#6b7280;white-space:nowrap}
+
+/* MAP */
+.map-container{width:100%;height:280px;border-radius:var(--radius);overflow:hidden;margin-bottom:16px;border:1px solid #e5e7eb}
+
+/* MORTGAGE CALCULATOR */
+.mortgage-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
+.mortgage-field label{display:block;font-size:12px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:0.3px;margin-bottom:6px}
+.mortgage-field input,.mortgage-field select{width:100%;padding:10px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:inherit;font-size:14px;color:var(--navy);font-weight:500;transition:border-color var(--transition)}
+.mortgage-field input:focus,.mortgage-field select:focus{outline:none;border-color:var(--gold)}
+.mortgage-result{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:var(--radius);padding:20px;text-align:center}
+.mortgage-result .mr-label{font-size:13px;color:#6b7280;margin-bottom:4px}
+.mortgage-result .mr-amount{font-size:32px;font-weight:800;color:#059669}
+.mortgage-result .mr-sub{font-size:12px;color:#9ca3af;margin-top:4px}
+.upfront-costs{margin-top:16px}
+.upfront-costs h4{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:10px}
+.upfront-row{display:flex;justify-content:space-between;padding:8px 0;font-size:13px;border-bottom:1px solid #f3f4f6}
+.upfront-row:last-child{border-bottom:none;font-weight:700;color:var(--navy);padding-top:12px;border-top:2px solid #e5e7eb}
+.upfront-row .ur-label{color:#6b7280}
+
+/* VIRTUAL TOUR */
+.vt-container{position:relative;aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;background:#000;margin-bottom:8px}
+.vt-preview{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%)}
+.vt-preview::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6) 0%,transparent 50%)}
+.vt-play{position:relative;z-index:2;width:72px;height:72px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 30px rgba(201,169,98,0.4);transition:transform var(--transition)}
+.vt-play:hover{transform:scale(1.08)}
+.vt-play svg{margin-left:4px}
+.vt-label{position:relative;z-index:2;margin-top:14px;text-align:center;color:#fff}
+.vt-label p{font-size:17px;font-weight:700}
+.vt-label span{font-size:13px;opacity:0.7}
+.vt-badge{position:relative;z-index:2;margin-top:16px;display:flex;align-items:center;gap:6px;background:rgba(255,255,255,0.1);backdrop-filter:blur(8px);padding:6px 12px;border-radius:8px}
+.vt-badge span{font-size:12px;color:rgba(255,255,255,0.7)}
+.vt-loading{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%)}
+.vt-spinner{width:44px;height:44px;border:4px solid rgba(255,255,255,0.15);border-top-color:#fff;border-radius:50%;animation:vtspin 0.8s linear infinite}
+@keyframes vtspin{to{transform:rotate(360deg)}}
+.vt-loading p{color:#fff;font-size:14px;font-weight:500;margin-top:12px}
+.vt-iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vt-footer{display:flex;align-items:center;justify-content:center;gap:6px;padding:6px;font-size:12px;color:#9ca3af}
+
+/* FULL WIDTH SECTIONS */
+.full-width-section{max-width:var(--max-w);margin:0 auto;padding:48px clamp(20px,5vw,60px)}
+
+/* RELATED */
+.related-section{background:#f9fafb;border-top:1px solid #e5e7eb;padding:48px clamp(20px,5vw,60px)}
+.related-section h2{font-size:22px;font-weight:800;color:var(--navy);margin-bottom:20px;max-width:var(--max-w);margin-left:auto;margin-right:auto}
+.related-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:var(--max-w);margin:0 auto}
+.rel-card{border:1px solid #e5e7eb;border-radius:var(--radius);overflow:hidden;transition:all var(--transition);background:#fff}
 .rel-card:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,0.08)}
-.rel-img{height:120px;display:flex;align-items:center;justify-content:center;font-size:32px;opacity:0.3}
-.rel-body{padding:12px}.rel-body h4{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:2px}.rel-body .rel-loc{font-size:12px;color:#6b7280;margin-bottom:6px}
+.rel-img{height:140px;display:flex;align-items:center;justify-content:center;font-size:36px;opacity:0.3}
+.rel-body{padding:14px}
+.rel-body h4{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:2px}
+.rel-body .rel-loc{font-size:12px;color:#6b7280;margin-bottom:6px}
 .rel-body .rel-price{font-size:16px;font-weight:800;color:var(--navy)}
-.enquiry{background:#f9fafb;padding:48px clamp(20px,5vw,60px);text-align:center}
+
+/* ENQUIRY */
+.enquiry{background:#fff;padding:48px clamp(20px,5vw,60px);text-align:center;border-top:1px solid #e5e7eb}
 .enquiry h2{font-size:22px;font-weight:800;color:var(--navy);margin-bottom:8px}
 .enquiry>p{font-size:14px;color:#6b7280;margin-bottom:24px}
 .enq-form{max-width:560px;margin:0 auto;text-align:left}
-.enq-form .fg{margin-bottom:14px}.enq-form label{display:block;font-size:13px;font-weight:600;color:var(--navy);margin-bottom:4px}
+.enq-form .fg{margin-bottom:14px}
+.enq-form label{display:block;font-size:13px;font-weight:600;color:var(--navy);margin-bottom:4px}
 .enq-form input,.enq-form select,.enq-form textarea{width:100%;padding:10px 14px;border:1px solid #d1d5db;border-radius:8px;font-family:inherit;font-size:14px;color:#374151}
 .enq-form input:focus,.enq-form select:focus,.enq-form textarea:focus{outline:none;border-color:var(--gold)}
 .enq-form textarea{min-height:60px;resize:vertical}
 .enq-form .fr{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.enq-submit{display:block;width:100%;padding:12px;border:none;border-radius:8px;background:var(--navy);color:#fff;font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;margin-top:16px;transition:all var(--transition)}
+.enq-submit{display:block;width:100%;padding:13px;border:none;border-radius:8px;background:var(--navy);color:#fff;font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;margin-top:16px;transition:all var(--transition)}
 .enq-submit:hover{background:var(--gold)}
 .enq-thanks{display:none;text-align:center;padding:40px 0}
 .enq-thanks .ck{font-size:48px;margin-bottom:12px}
-@media(max-width:768px){
-  .hero-gallery{grid-template-columns:1fr;grid-template-rows:250px}.hero-gallery .gi:not(:first-child){display:none}
-  .stats-bar{flex-direction:column}.stat-item{border-right:none;border-bottom:1px solid #e5e7eb}
-  .sticky-cta{flex-wrap:wrap;gap:8px}.sticky-cta button,.sticky-cta a{flex:1;text-align:center;justify-content:center}
-  .highlights,.inv-grid,.why-grid,.dist-grid{grid-template-columns:1fr}
-  .fac-grid{grid-template-columns:repeat(2,1fr)}
-  .related-grid{grid-template-columns:repeat(2,1fr)}
-  .nav-links a:not(.nav-cta){display:none}
-  .enq-form .fr{grid-template-columns:1fr}
-  .vt-container .vt-preview .vt-play{width:60px;height:60px}
+
+/* FOOTER */
+.site-footer{background:var(--navy);color:rgba(255,255,255,0.5);padding:24px clamp(20px,5vw,60px);text-align:center;font-size:12px}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .two-col{grid-template-columns:1fr;--sidebar-w:100%}
+  .sidebar{position:relative;top:0;order:-1}
+  .sidebar-card{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+  .sidebar-dev{flex:1;min-width:200px;margin-bottom:0}
+  .sidebar-wa{flex:1;min-width:160px;margin-bottom:0}
+  .sidebar-register{flex:1;min-width:160px;margin-bottom:0}
+  .sidebar-contact{flex-basis:100%;margin-top:4px}
 }
-/* VIRTUAL TOUR */
-.vt-container{position:relative;aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;background:#000;margin-bottom:16px}
-.vt-preview{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%)}
-.vt-preview::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.6) 0%,transparent 50%)}
-.vt-play{position:relative;z-index:2;width:80px;height:80px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 30px rgba(201,169,98,0.4);transition:transform var(--transition)}
-.vt-play:hover{transform:scale(1.08)}
-.vt-play svg{margin-left:4px}
-.vt-label{position:relative;z-index:2;margin-top:16px;text-align:center;color:#fff}
-.vt-label p{font-size:18px;font-weight:700}
-.vt-label span{font-size:13px;opacity:0.7}
-.vt-badge{position:relative;z-index:2;margin-top:20px;display:flex;align-items:center;gap:6px;background:rgba(255,255,255,0.1);backdrop-filter:blur(8px);padding:8px 14px;border-radius:8px}
-.vt-badge span{font-size:12px;color:rgba(255,255,255,0.7)}
-.vt-loading{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%)}
-.vt-spinner{width:48px;height:48px;border:4px solid rgba(255,255,255,0.15);border-top-color:#fff;border-radius:50%;animation:vtspin 0.8s linear infinite}
-@keyframes vtspin{to{transform:rotate(360deg)}}
-.vt-loading p{color:#fff;font-size:14px;font-weight:500;margin-top:12px}
-.vt-iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.vt-footer{display:flex;align-items:center;justify-content:center;gap:6px;padding:8px;background:#f9fafb;border-radius:0 0 var(--radius) var(--radius);font-size:12px;color:#6b7280;margin-top:-4px}</style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"RealEstateListing","name":"R&amp;F Princess Cove Ph2","description":"Completed ready","url":"https://straitsadvisory.group/properties/rf-princess-cove-ph2-bukit-chagar.html","address":{"@type":"PostalAddress","addressLocality":"Bukit Chagar","addressRegion":"Johor","addressCountry":"MY"},"offers":{"@type":"Offer","price":"500000","priceCurrency":"MYR"}}</script>
+@media(max-width:768px){
+  .gallery{grid-template-columns:1fr;grid-template-rows:280px}
+  .gallery .gi:not(:first-child){display:none}
+  .nav-links a:not(.nav-cta){display:none}
+  .hero h1{font-size:24px}
+  .key-info{grid-template-columns:repeat(2,1fr)}
+  .key-info-item{border-bottom:1px solid #e5e7eb}
+  .fac-grid{grid-template-columns:repeat(3,1fr)}
+  .mortgage-grid{grid-template-columns:1fr}
+  .related-grid{grid-template-columns:repeat(2,1fr)}
+  .enq-form .fr{grid-template-columns:1fr}
+  .nearby-tabs{gap:0}
+  .brochure-card{flex-direction:column;text-align:center}
+  .sidebar-card{flex-direction:column}
+  .sidebar-dev{min-width:100%}
+  .sidebar-wa,.sidebar-register{min-width:100%}
+}
+@media(max-width:480px){
+  .fac-grid{grid-template-columns:repeat(2,1fr)}
+  .related-grid{grid-template-columns:1fr}
+  .key-info{flex-direction:column}
+  .key-info-item{border-right:none}
+}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"RealEstateListing","name":"R&F Princess Cove Ph2","description":"Completed freehold executive condominium in Bukit Chagar, Johor. 1km to CIQ/RTS Link.","url":"https://straitsadvisory.group/properties/rf-princess-cove-ph2-bukit-chagar.html","address":{"@type":"PostalAddress","addressLocality":"Bukit Chagar","addressRegion":"Johor","addressCountry":"MY"},"offers":{"@type":"Offer","price":"500000","priceCurrency":"MYR"}}</script>
 </head>
 <body>
 
+<!-- NAV -->
 <nav class="nav">
   <a href="../index.html" class="nav-logo"><svg viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="#c9a962"/><path d="M7 14h14M14 7v14" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg> Straits Advisory</a>
   <div class="nav-links">
@@ -122,77 +274,465 @@ html{scroll-behavior:smooth}body{font-family:Inter,system-ui,-apple-system,sans-
   </div>
 </nav>
 
-<!-- HERO GALLERY -->
-<div class="hero-gallery">
-  <div class="gi" style="background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%)">🏢</div>
-  <div class="gi" style="background:linear-gradient(135deg,#1a1a2e 0%,#2b2d42 50%,#4a4e69 100%)">🏗️</div>
-  <div class="gi" style="background:linear-gradient(135deg,#0f3460 0%,#16213e 50%,#1a1a2e 100%)">🏠</div>
-  <div class="gi" style="background:linear-gradient(135deg,#1a1a2e 0%,#1d3557 50%,#457b9d 100%)">🏙️</div>
+<!-- IMAGE GALLERY -->
+<div class="gallery">
+  <div class="gi" style="background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%)">
+    <span class="gi-overlay">🏢</span>
+  </div>
+  <div class="gi" style="background:linear-gradient(135deg,#1a1a2e 0%,#2b2d42 50%,#4a4e69 100%)">
+    <span class="gi-overlay">🏗️</span>
+  </div>
+  <div class="gi" style="background:linear-gradient(135deg,#0f3460 0%,#16213e 50%,#1a1a2e 100%)">
+    <span class="gi-overlay">🏠</span>
+  </div>
+  <div class="gi" style="background:linear-gradient(135deg,#1a1a2e 0%,#1d3557 50%,#457b9d 100%)">
+    <span class="gi-overlay">🏙️</span>
+  </div>
+  <div class="gi" style="background:linear-gradient(135deg,#16213e 0%,#0f3460 50%,#1a1a2e 100%)">
+    <span class="gi-overlay">🌆</span>
+  </div>
+  <button class="photo-count">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+    5 Photos
+  </button>
 </div>
 
-<!-- HERO INFO -->
-<div class="hero-info">
-  <div class="badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Freehold</span></div>
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="../index.html">Straits Advisory</a>
+  <span>&rsaquo;</span>
+  <a href="../buy.html">Buy</a>
+  <span>&rsaquo;</span>
+  <a href="../buy.html">Bukit Chagar</a>
+  <span>&rsaquo;</span>
+  R&amp;F Princess Cove Ph2
+</div>
+
+<!-- HERO SECTION -->
+<div class="hero">
   <h1>R&amp;F Princess Cove Ph2</h1>
-  <p class="dev">by R&amp;F Properties</p>
-  <p class="loc">📍 Bukit Chagar, Johor</p>
-  <div class="prices">
+  <p class="subtitle">Shaped by R&amp;F Properties, Crafted for Harmony</p>
+  <p class="location">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    Bukit Chagar, Johor
+  </p>
+  <div class="hero-badges">
+    <span class="badge badge-green">Freehold</span>
+    <span class="badge badge-green">Completed</span>
+    <span class="badge badge-gold">1km to CIQ</span>
+  </div>
+  <div class="hero-price">
     <span class="price-main">From RM5xxk</span>
-    <span class="price-alt">≈ S$149K SGD</span>
+    <span class="price-alt">&asymp; S$149K SGD</span>
   </div>
 </div>
 
-<!-- QUICK STATS -->
-<div class="stats-bar">
-  <div class="stat-item"><div class="stat-val">2-3</div><div class="stat-label">Bedrooms</div></div>
-  <div class="stat-item"><div class="stat-val">2-3</div><div class="stat-label">Bathrooms</div></div>
-  <div class="stat-item"><div class="stat-val">800 - 1,400</div><div class="stat-label">Size (sqft)</div></div>
-  <div class="stat-item"><div class="stat-val">5.5 - 7.0%</div><div class="stat-label">Est. Yield</div></div>
-  <div class="stat-item"><div class="stat-val">1km</div><div class="stat-label">To CIQ/RTS</div></div>
-  <div class="stat-item"><div class="stat-val">Ready</div><div class="stat-label">Completion</div></div>
-</div>
+<!-- TWO COLUMN LAYOUT -->
+<div class="two-col">
 
+  <!-- LEFT COLUMN (Main Content) -->
+  <div class="main-col">
 
-<div class="content">
-
-<!-- 1. ABOUT -->
-<div class="section">
-  <h2>About This Property</h2>
-  <p>R&amp;F Princess Cove Ph2 is a completed freehold development by R&amp;F Properties in Bukit Chagar, Johor. Located just 1km from CIQ, this property is priced from RM5xxk. This property is completed and ready for immediate occupation. Key highlight: Completed ready.</p>
-  <h3 style="font-size:15px;font-weight:700;color:var(--navy);margin:20px 0 12px">Key Highlights</h3>
-  <ul class="highlights"><li>Completed ready</li><li>Freehold tenure</li><li>1km to CIQ/RTS</li><li>Developer: R&amp;F Properties</li><li>Ready for immediate move-in</li><li>Est. yield: 5.5 - 7.0%</li></ul>
-  <h3 style="font-size:15px;font-weight:700;color:var(--navy);margin:20px 0 8px">About the Developer</h3>
-  <p>R&amp;F Properties is an established property developer with a track record of delivering quality residential projects across Malaysia. Known for innovative design and timely completion.</p>
-</div>
-
-<!-- VIRTUAL TOUR -->
-<div class="section">
-  <h2>360° Virtual Tour</h2>
-  <div class="vt-container" id="vtContainer">
-    <!-- Preview state (tap to load) -->
-    <div class="vt-preview" id="vtPreview" onclick="loadTour()">
-      <div class="vt-play">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
-      </div>
-      <div class="vt-label">
-        <p>Start Virtual Tour</p>
-        <span>Tap to explore in 360°</span>
-      </div>
-      <div class="vt-badge">
-        <span>✦ Tour loads on tap to save data &amp; battery</span>
+    <!-- 1. Key Info Icons Row -->
+    <div class="section" style="padding-top:0">
+      <div class="key-info">
+        <div class="key-info-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7v11a2 2 0 002 2h14a2 2 0 002-2V7"/><path d="M21 7H3l2-4h14l2 4z"/><path d="M12 20V7"/></svg>
+          <span class="key-info-val">2-3</span>
+          <span class="key-info-label">Beds</span>
+        </div>
+        <div class="key-info-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16a1 1 0 011 1v3a2 2 0 01-2 2H5a2 2 0 01-2-2v-3a1 1 0 011-1z"/><path d="M6 12V5a2 2 0 012-2h0a2 2 0 012 2v7"/><path d="M6 19v2M18 19v2"/></svg>
+          <span class="key-info-val">2-3</span>
+          <span class="key-info-label">Baths</span>
+        </div>
+        <div class="key-info-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
+          <span class="key-info-val">800-1,400</span>
+          <span class="key-info-label">Sqft</span>
+        </div>
+        <div class="key-info-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="10"/></svg>
+          <span class="key-info-val">5.5-7.0%</span>
+          <span class="key-info-label">Yield</span>
+        </div>
       </div>
     </div>
+
+    <!-- 2. Why We Recommend -->
+    <div class="section">
+      <h2 class="section-title">Why we recommend R&amp;F Princess Cove Ph2</h2>
+      <p class="recommend-intro">New Executive Condominium with over 70 condominium facilities in the heart of Bukit Chagar, Johor.</p>
+      <ul class="check-list">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+          1km walk to CIQ / RTS Link Station &mdash; seamless connectivity to Singapore
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+          Freehold tenure &mdash; investment protected for generations
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+          Completed and ready for immediate move-in
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+          Strong rental yield of 5.5 - 7.0% with growing demand from Singapore spillover
+        </li>
+      </ul>
+    </div>
+
+    <!-- 3. About This Property -->
+    <div class="section">
+      <h2 class="section-title">About this property</h2>
+      <div class="about-text" id="aboutText">
+        <p>R&amp;F Princess Cove Ph2 is a completed freehold executive condominium developed by R&amp;F Properties in Bukit Chagar, Johor. Strategically positioned just 1km from the CIQ checkpoint and the upcoming RTS Link station, it offers unparalleled connectivity to Singapore.</p>
+        <p style="margin-top:12px">The development features over 70 facilities including multiple swimming pools, a fully-equipped gymnasium, landscaped gardens, children's playgrounds, BBQ areas, and 24-hour security. Units range from 800 to 1,400 sqft with 2 to 3 bedrooms, catering to both owner-occupiers and investors.</p>
+        <p style="margin-top:12px">With freehold tenure and a starting price from RM5xxk (approximately S$149K SGD), R&amp;F Princess Cove Ph2 represents exceptional value for Singapore buyers looking to invest in the Johor Bahru property market. The development is completed and ready for immediate occupation, eliminating construction risk.</p>
+        <p style="margin-top:12px">R&amp;F Properties is an established developer with a proven track record of delivering quality residential projects. Their commitment to innovative design and premium finishes is evident throughout Princess Cove Ph2.</p>
+      </div>
+      <button class="see-more-btn" id="seeMoreBtn" onclick="toggleAbout()">See more &darr;</button>
+    </div>
+
+    <!-- 4. Property Details Table -->
+    <div class="section">
+      <h2 class="section-title">Property details</h2>
+      <table class="details-table" id="detailsTable">
+        <tr><td>Property Type</td><td>Executive Condominium for Sale</td></tr>
+        <tr><td>Tenure</td><td>Freehold</td></tr>
+        <tr><td>Completion</td><td>Completed</td></tr>
+        <tr><td>Total Area</td><td>800 - 1,400 sqft</td></tr>
+        <tr><td>Bedrooms</td><td>2 - 3</td></tr>
+        <tr><td>Bathrooms</td><td>2 - 3</td></tr>
+        <tr><td>Status</td><td>Ready for Occupation</td></tr>
+        <tr class="detail-extra" style="display:none"><td>Developer</td><td>R&amp;F Properties</td></tr>
+        <tr class="detail-extra" style="display:none"><td>District</td><td>Bukit Chagar</td></tr>
+        <tr class="detail-extra" style="display:none"><td>Distance to CIQ</td><td>1km</td></tr>
+        <tr class="detail-extra" style="display:none"><td>Est. Gross Yield</td><td>5.5 - 7.0%</td></tr>
+        <tr class="detail-extra" style="display:none"><td>Price PSF</td><td>~RM 555</td></tr>
+      </table>
+      <button class="see-more-btn" id="detailsBtn" onclick="toggleDetails()">See all details &darr;</button>
+    </div>
+
+    <!-- 5. Available Unit Types -->
+    <div class="section">
+      <h2 class="section-title">Available Unit Types</h2>
+      <div class="unit-tabs">
+        <button class="unit-tab active" onclick="switchUnit(this, 'unit2bed')">2 Bedroom</button>
+        <button class="unit-tab" onclick="switchUnit(this, 'unit3bed')">3 Bedroom</button>
+      </div>
+      <div class="unit-panel active" id="unit2bed">
+        <div class="unit-card">
+          <div class="unit-card-row">
+            <span class="type-label">Type B &mdash; 2 Bedroom</span>
+          </div>
+          <div class="unit-card-row">
+            <span class="type-val">Floor Area: 950 - 1,200 sqft</span>
+          </div>
+          <div class="unit-card-row">
+            <span class="type-val">2 Bedrooms &bull; 2 Bathrooms</span>
+          </div>
+          <div class="unit-card-row" style="margin-top:8px">
+            <span class="type-price">From RM 5xxk</span>
+            <span class="type-val">&asymp; S$149K</span>
+          </div>
+        </div>
+      </div>
+      <div class="unit-panel" id="unit3bed">
+        <div class="unit-card">
+          <div class="unit-card-row">
+            <span class="type-label">Type C &mdash; 3 Bedroom</span>
+          </div>
+          <div class="unit-card-row">
+            <span class="type-val">Floor Area: 1,200 - 1,500 sqft</span>
+          </div>
+          <div class="unit-card-row">
+            <span class="type-val">3 Bedrooms &bull; 3 Bathrooms</span>
+          </div>
+          <div class="unit-card-row" style="margin-top:8px">
+            <span class="type-price">From RM 650K</span>
+            <span class="type-val">&asymp; S$194K</span>
+          </div>
+        </div>
+      </div>
+      <!-- Floor Plan Request -->
+      <div class="floor-plan-card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M2 8h20M8 2v20M14 8v6h8"/></svg>
+        <p>Request detailed floor plans for your preferred unit type</p>
+        <a href="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20R%26F%20Princess%20Cove%20Ph2%20floor%20plans.%20Could%20you%20share%20them%3F" target="_blank" class="floor-plan-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z"/></svg>
+          Request Floor Plan
+        </a>
+      </div>
+    </div>
+
+    <!-- 6. Developer Brochure -->
+    <div class="section">
+      <h2 class="section-title">Developer Brochure</h2>
+      <div class="brochure-card">
+        <div class="brochure-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M12 18v-6"/><path d="M9 15l3 3 3-3"/></svg>
+        </div>
+        <div class="brochure-info">
+          <h4>R&amp;F Princess Cove Ph2 Brochure</h4>
+          <p>Download the full brochure with layout plans, pricing, and development details.</p>
+          <a href="https://wa.me/60197058001?text=Hi%2C%20I%27d%20like%20to%20download%20the%20R%26F%20Princess%20Cove%20Ph2%20brochure." target="_blank" class="brochure-download">
+            Request Brochure &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. Facilities -->
+    <div class="section">
+      <h2 class="section-title">Common Facilities</h2>
+      <div class="fac-grid">
+        <div class="fac-item"><span class="fac-icon">🏊</span><span class="fac-label">Swimming Pool</span></div>
+        <div class="fac-item"><span class="fac-icon">🏋️</span><span class="fac-label">Gymnasium</span></div>
+        <div class="fac-item"><span class="fac-icon">🛡️</span><span class="fac-label">24-Hour Security</span></div>
+        <div class="fac-item"><span class="fac-icon">🚗</span><span class="fac-label">Covered Parking</span></div>
+        <div class="fac-item"><span class="fac-icon">🌳</span><span class="fac-label">Landscaped Gardens</span></div>
+        <div class="fac-item"><span class="fac-icon">🎠</span><span class="fac-label">Playground</span></div>
+        <div class="fac-item"><span class="fac-icon">🍖</span><span class="fac-label">BBQ Area</span></div>
+        <div class="fac-item"><span class="fac-icon">🏛️</span><span class="fac-label">Function Hall</span></div>
+        <div class="fac-item"><span class="fac-icon">🎾</span><span class="fac-label">Tennis Court</span></div>
+        <div class="fac-item"><span class="fac-icon">🧘</span><span class="fac-label">Yoga Deck</span></div>
+        <div class="fac-item"><span class="fac-icon">🏃</span><span class="fac-label">Jogging Track</span></div>
+        <div class="fac-item"><span class="fac-icon">☕</span><span class="fac-label">Reading Lounge</span></div>
+      </div>
+    </div>
+
+    <!-- 8. What's Nearby -->
+    <div class="section">
+      <h2 class="section-title">What's nearby</h2>
+      <div id="nearbyMap" class="map-container"></div>
+      <link href="https://unpkg.com/maplibre-gl@4.1.2/dist/maplibre-gl.css" rel="stylesheet">
+      <script src="https://unpkg.com/maplibre-gl@4.1.2/dist/maplibre-gl.js"></script>
+      <div class="nearby-tabs">
+        <button class="nearby-tab active" onclick="switchNearby(this, 'nearbyTransit')">Transit</button>
+        <button class="nearby-tab" onclick="switchNearby(this, 'nearbyBus')">Bus</button>
+        <button class="nearby-tab" onclick="switchNearby(this, 'nearbySchools')">Schools</button>
+        <button class="nearby-tab" onclick="switchNearby(this, 'nearbyClinic')">Clinics</button>
+        <button class="nearby-tab" onclick="switchNearby(this, 'nearbyShops')">Shopping</button>
+      </div>
+      <div class="nearby-panel active" id="nearbyTransit">
+        <ul class="nearby-list">
+          <li class="nearby-item">
+            <div class="nearby-item-left"><div class="ni-icon">🚄</div><div><div class="ni-name">CIQ / RTS Link Station</div><div class="ni-type">Rail Transit</div></div></div>
+            <span class="nearby-dist">1.0 km</span>
+          </li>
+          <li class="nearby-item">
+            <div class="nearby-item-left"><div class="ni-icon">🚆</div><div><div class="ni-name">JB Sentral</div><div class="ni-type">KTM Station</div></div></div>
+            <span class="nearby-dist">1.2 km</span>
+          </li>
+          <li class="nearby-item">
+            <div class="nearby-item-left"><div class="ni-icon">🇸🇬</div><div><div class="ni-name">Singapore (via CIQ)</div><div class="ni-type">International</div></div></div>
+            <span class="nearby-dist">15 min</span>
+          </li>
+        </ul>
+      </div>
+      <div class="nearby-panel" id="nearbyBus">
+        <ul class="nearby-list">
+          <li class="nearby-item">
+            <div class="nearby-item-left"><div class="ni-icon">🚌</div><div><div class="ni-name">Kotaraya Bus Terminal</div><div class="ni-type">Bus Terminal</div></div></div>
+            <span class="nearby-dist">800m</span>
+          </li>
+          <li class="nearby-item">
+            <div class="nearby-item-left"><div class="ni-icon">🚌</div><div><div class="ni-name">Larkin Sentral</div><div class="ni-type">Bus Terminal</div></div></div>
+            <span class="nearby-dist">5 km</span>
+          </li>
+        </ul>
+      </div>
+      <div class="nearby-panel" id="nearbySchools">
+        <ul class="nearby-list">
+          <li class="nearby-item">
+            <div class="nearby-item-left"><div class="ni-icon">🎓</div><div><div class="ni-name">Foon Yew High School</div><div class="ni-type">Secondary School</div></div></div>
+            <span class="nearby-dist">1.5 km</span>
+          </li>
+          <li class="nearby-item">
+            <div class="nearby-item-left"><div class="ni-icon">🎓</div><div><div class="ni-name">Sultan Ibrahim Primary School</div><div class="ni-type">Primary School</div></div></div>
+            <span class="nearby-dist">2.0 km</span>
+          </li>
+        </ul>
+      </div>
+      <div class="nearby-panel" id="nearbyClinic">
+        <ul class="nearby-list">
+          <li class="nearby-item">
+            <div class="nearby-item-left"><div class="ni-icon">🏥</div><div><div class="ni-name">KPJ Johor Specialist Hospital</div><div class="ni-type">Private Hospital</div></div></div>
+            <span class="nearby-dist">3.0 km</span>
+          </li>
+          <li class="nearby-item">
+            <div class="nearby-item-left"><div class="ni-icon">🏥</div><div><div class="ni-name">Klinik Kesihatan Bandar</div><div class="ni-type">Government Clinic</div></div></div>
+            <span class="nearby-dist">1.8 km</span>
+          </li>
+        </ul>
+      </div>
+      <div class="nearby-panel" id="nearbyShops">
+        <ul class="nearby-list">
+          <li class="nearby-item">
+            <div class="nearby-item-left"><div class="ni-icon">🛍️</div><div><div class="ni-name">City Square Mall</div><div class="ni-type">Shopping Mall</div></div></div>
+            <span class="nearby-dist">500m</span>
+          </li>
+          <li class="nearby-item">
+            <div class="nearby-item-left"><div class="ni-icon">🛍️</div><div><div class="ni-name">KSL City Mall</div><div class="ni-type">Shopping Mall</div></div></div>
+            <span class="nearby-dist">3.5 km</span>
+          </li>
+          <li class="nearby-item">
+            <div class="nearby-item-left"><div class="ni-icon">🏪</div><div><div class="ni-name">KOMTAR JBCC</div><div class="ni-type">Shopping Mall</div></div></div>
+            <span class="nearby-dist">1.0 km</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Virtual Tour -->
+    <div class="section">
+      <h2 class="section-title">360&deg; Virtual Tour</h2>
+      <div class="vt-container" id="vtContainer">
+        <div class="vt-preview" id="vtPreview" onclick="loadTour()">
+          <div class="vt-play">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <div class="vt-label">
+            <p>Start Virtual Tour</p>
+            <span>Tap to explore in 360&deg;</span>
+          </div>
+          <div class="vt-badge">
+            <span>&#10022; Tour loads on tap to save data &amp; battery</span>
+          </div>
+        </div>
+      </div>
+      <div class="vt-footer">&#127963;&#65039; Presented by Straits Advisory</div>
+    </div>
+
+    <!-- 9. Estimated Mortgage -->
+    <div class="section">
+      <h2 class="section-title">Estimated Mortgage</h2>
+      <div class="mortgage-grid">
+        <div class="mortgage-field">
+          <label>Property Price (RM)</label>
+          <input type="text" id="mortPrice" value="500,000" oninput="calcMortgage()">
+        </div>
+        <div class="mortgage-field">
+          <label>Down Payment (%)</label>
+          <input type="number" id="mortDown" value="10" min="0" max="50" oninput="calcMortgage()">
+        </div>
+        <div class="mortgage-field">
+          <label>Loan Tenure (Years)</label>
+          <select id="mortTenure" onchange="calcMortgage()">
+            <option value="25">25 years</option>
+            <option value="30" selected>30 years</option>
+            <option value="35">35 years</option>
+          </select>
+        </div>
+        <div class="mortgage-field">
+          <label>Interest Rate (%)</label>
+          <input type="number" id="mortRate" value="4.5" min="1" max="15" step="0.1" oninput="calcMortgage()">
+        </div>
+      </div>
+      <div class="mortgage-result">
+        <div class="mr-label">Estimated Monthly Payment</div>
+        <div class="mr-amount" id="mortResult">RM 2,281</div>
+        <div class="mr-sub">Based on <span id="mortLoanAmt">RM 450,000</span> loan at <span id="mortRateDisp">4.5</span>% over <span id="mortTenureDisp">30</span> years</div>
+      </div>
+      <div class="upfront-costs">
+        <h4>Upfront Costs Estimate</h4>
+        <div class="upfront-row"><span class="ur-label">Down Payment (10%)</span><span id="upfrontDown">RM 50,000</span></div>
+        <div class="upfront-row"><span class="ur-label">Stamp Duty</span><span id="upfrontStamp">RM 9,000</span></div>
+        <div class="upfront-row"><span class="ur-label">Legal Fees (est.)</span><span id="upfrontLegal">RM 5,350</span></div>
+        <div class="upfront-row"><span class="ur-label">Total Upfront</span><span id="upfrontTotal">RM 64,350</span></div>
+      </div>
+    </div>
+
+  </div><!-- /main-col -->
+
+  <!-- RIGHT COLUMN (Sticky Sidebar) -->
+  <div class="sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-dev">
+        <div class="sidebar-dev-logo">R&amp;F</div>
+        <div class="sidebar-dev-info">
+          <h3>R&amp;F Properties</h3>
+          <p>Licensed Developer</p>
+        </div>
+      </div>
+      <a href="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20R%26F%20Princess%20Cove%20Ph2%20at%20Bukit%20Chagar.%20Could%20you%20share%20more%20details%3F" target="_blank" class="sidebar-wa">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z"/></svg>
+        WhatsApp
+      </a>
+      <button class="sidebar-register" onclick="document.getElementById('enqForm').scrollIntoView({behavior:'smooth'})">Register Interest</button>
+      <p class="sidebar-contact">
+        Contact the developer at<br>
+        <a href="tel:+60197058001">+60 19-705 8001</a>
+      </p>
+    </div>
+  </div><!-- /sidebar -->
+
+</div><!-- /two-col -->
+
+<!-- SIMILAR PROPERTIES (Full Width) -->
+<div class="related-section">
+  <h2>Similar Properties You Might Like</h2>
+  <div class="related-grid">
+    <a href="ctc-skyone-bukit-chagar.html" class="rel-card">
+      <div class="rel-img" style="background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%)">🏢</div>
+      <div class="rel-body"><h4>CTC Skyone</h4><p class="rel-loc">Bukit Chagar</p><p class="rel-price">From RM5xxk</p></div>
+    </a>
+    <a href="majestic-gensphere-bukit-chagar.html" class="rel-card">
+      <div class="rel-img" style="background:linear-gradient(135deg,#1a1a2e 0%,#2b2d42 50%,#4a4e69 100%)">🏢</div>
+      <div class="rel-body"><h4>Majestic Gensphere</h4><p class="rel-loc">Bukit Chagar</p><p class="rel-price">From RM6xxk</p></div>
+    </a>
+    <a href="exsim-causewayz-bukit-chagar.html" class="rel-card">
+      <div class="rel-img" style="background:linear-gradient(135deg,#0f3460 0%,#16213e 50%,#1a1a2e 100%)">🏢</div>
+      <div class="rel-body"><h4>Exsim Causewayz</h4><p class="rel-loc">Bukit Chagar</p><p class="rel-price">From RM5xxk</p></div>
+    </a>
+    <a href="summer-suites-bukit-chagar.html" class="rel-card">
+      <div class="rel-img" style="background:linear-gradient(135deg,#1a1a2e 0%,#1d3557 50%,#457b9d 100%)">🏢</div>
+      <div class="rel-body"><h4>Summer Suites</h4><p class="rel-loc">Bukit Chagar</p><p class="rel-price">From RM5xxk</p></div>
+    </a>
   </div>
-  <div class="vt-footer">🏛️ <span>Presented by Straits Advisory</span></div>
 </div>
 
+<!-- ENQUIRY FORM -->
+<div class="enquiry" id="enquirySection">
+  <h2>Interested in R&amp;F Princess Cove Ph2?</h2>
+  <p>Leave your details and we'll get back to you within 24 hours.</p>
+  <div class="enq-form" id="enqForm">
+    <div class="fr">
+      <div class="fg"><label>Name</label><input type="text" id="eq_name" placeholder="Full name"></div>
+      <div class="fg"><label>Phone (WhatsApp)</label><input type="tel" id="eq_phone" placeholder="+65 or +60"></div>
+    </div>
+    <div class="fg"><label>Email</label><input type="email" id="eq_email" placeholder="your@email.com"></div>
+    <div class="fg"><label>Message</label><textarea id="eq_msg">I'm interested in R&amp;F Princess Cove Ph2. Please share more details.</textarea></div>
+    <div class="fg"><label>Preferred Contact</label>
+      <select id="eq_method"><option>WhatsApp</option><option>Call</option><option>Email</option></select>
+    </div>
+    <button class="enq-submit" onclick="submitEnquiry()">Send Enquiry</button>
+  </div>
+  <div class="enq-thanks" id="enqThanks">
+    <div class="ck">&#9989;</div>
+    <h2 style="font-size:22px;margin-bottom:8px">Thank You!</h2>
+    <p>We'll contact you within 24 hours about R&amp;F Princess Cove Ph2.</p>
+    <a href="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20R%26F%20Princess%20Cove%20Ph2%20at%20Bukit%20Chagar.%20Could%20you%20share%20more%20details%3F" target="_blank" class="sidebar-wa" style="display:inline-flex;margin-top:12px;width:auto;padding:12px 28px">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z"/></svg>
+      Chat on WhatsApp
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="site-footer">
+  &copy; 2026 Straits Advisory. All rights reserved.
+</div>
+
+<!-- SCRIPTS -->
 <script>
+// Virtual Tour
 function loadTour(){
   var container = document.getElementById('vtContainer');
   var preview = document.getElementById('vtPreview');
-  // Show loading state
   preview.innerHTML = '<div class="vt-loading"><div class="vt-spinner"></div><p>Loading tour...</p></div>';
-  // Load iframe after brief delay for UX feedback
   setTimeout(function(){
     preview.style.display = 'none';
     var iframe = document.createElement('iframe');
@@ -204,152 +744,110 @@ function loadTour(){
     container.appendChild(iframe);
   }, 800);
 }
-</script>
 
-<!-- 2. UNIT TYPES -->
-<div class="section">
-  <h2>Unit Types &amp; Pricing</h2>
-  <table class="unit-table">
-    <thead><tr><th>Type</th><th>Size</th><th>Bedrooms</th><th>Price From</th></tr></thead>
-    <tbody><tr><td>Type A</td><td>750 - 900 sqft</td><td>1+1 Bed</td><td><strong>From RM350K</strong></td></tr>
-<tr><td>Type B</td><td>950 - 1,200 sqft</td><td>2 Bed</td><td><strong>From RM5xxk</strong></td></tr>
-<tr><td>Type C</td><td>1,200 - 1,500 sqft</td><td>3 Bed</td><td><strong>From RM650K</strong></td></tr>
-</tbody>
-  </table>
-</div>
+// About expand/collapse
+function toggleAbout(){
+  var el = document.getElementById('aboutText');
+  var btn = document.getElementById('seeMoreBtn');
+  el.classList.toggle('expanded');
+  btn.textContent = el.classList.contains('expanded') ? 'See less \u2191' : 'See more \u2193';
+}
 
-<!-- 3. FACILITIES -->
-<div class="section">
-  <h2>Facilities &amp; Amenities</h2>
-  <div class="fac-grid"><div class="fac-item"><span class="fac-icon">🏊</span><span>Swimming Pool</span></div>
-<div class="fac-item"><span class="fac-icon">🏋️</span><span>Gymnasium</span></div>
-<div class="fac-item"><span class="fac-icon">🛡️</span><span>24-Hour Security</span></div>
-<div class="fac-item"><span class="fac-icon">🚗</span><span>Covered Parking</span></div>
-<div class="fac-item"><span class="fac-icon">🌳</span><span>Landscaped Gardens</span></div>
-<div class="fac-item"><span class="fac-icon">🎠</span><span>Children\'s Playground</span></div>
-<div class="fac-item"><span class="fac-icon">🍖</span><span>BBQ Area</span></div>
-<div class="fac-item"><span class="fac-icon">🏛️</span><span>Multipurpose Hall</span></div>
-</div>
-</div>
+// Details expand/collapse
+function toggleDetails(){
+  var rows = document.querySelectorAll('.detail-extra');
+  var btn = document.getElementById('detailsBtn');
+  var isHidden = rows[0].style.display === 'none';
+  rows.forEach(function(r){ r.style.display = isHidden ? 'table-row' : 'none'; });
+  btn.textContent = isHidden ? 'See fewer details \u2191' : 'See all details \u2193';
+}
 
-<!-- 4. LOCATION -->
-<div class="section">
-  <h2>Location &amp; Connectivity</h2>
-  <div id="map" class="map-embed"></div>
-  <link href="https://unpkg.com/maplibre-gl@4.1.2/dist/maplibre-gl.css" rel="stylesheet">
-  <script src="https://unpkg.com/maplibre-gl@4.1.2/dist/maplibre-gl.js"></script>
-  <script>
-  (function(){
+// Unit type tabs
+function switchUnit(tab, panelId){
+  document.querySelectorAll('.unit-tab').forEach(function(t){ t.classList.remove('active'); });
+  document.querySelectorAll('.unit-panel').forEach(function(p){ p.classList.remove('active'); });
+  tab.classList.add('active');
+  document.getElementById(panelId).classList.add('active');
+}
+
+// Nearby tabs
+function switchNearby(tab, panelId){
+  document.querySelectorAll('.nearby-tab').forEach(function(t){ t.classList.remove('active'); });
+  document.querySelectorAll('.nearby-panel').forEach(function(p){ p.classList.remove('active'); });
+  tab.classList.add('active');
+  document.getElementById(panelId).classList.add('active');
+}
+
+// Mortgage calculator
+function calcMortgage(){
+  var priceStr = document.getElementById('mortPrice').value.replace(/[^0-9]/g,'');
+  var price = parseFloat(priceStr) || 500000;
+  var downPct = parseFloat(document.getElementById('mortDown').value) || 10;
+  var tenure = parseInt(document.getElementById('mortTenure').value) || 30;
+  var rate = parseFloat(document.getElementById('mortRate').value) || 4.5;
+
+  var downAmt = price * (downPct / 100);
+  var loan = price - downAmt;
+  var monthlyRate = (rate / 100) / 12;
+  var numPayments = tenure * 12;
+  var monthly = 0;
+  if(monthlyRate > 0){
+    monthly = loan * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / (Math.pow(1 + monthlyRate, numPayments) - 1);
+  } else {
+    monthly = loan / numPayments;
+  }
+
+  // Stamp duty calc (simplified Malaysian schedule)
+  var stamp = 0;
+  if(price <= 100000){ stamp = price * 0.01; }
+  else if(price <= 500000){ stamp = 1000 + (price - 100000) * 0.02; }
+  else { stamp = 1000 + 8000 + (price - 500000) * 0.03; }
+
+  var legal = Math.max(500, price * 0.0107);
+
+  document.getElementById('mortResult').textContent = 'RM ' + Math.round(monthly).toLocaleString();
+  document.getElementById('mortLoanAmt').textContent = 'RM ' + Math.round(loan).toLocaleString();
+  document.getElementById('mortRateDisp').textContent = rate;
+  document.getElementById('mortTenureDisp').textContent = tenure;
+  document.getElementById('upfrontDown').textContent = 'RM ' + Math.round(downAmt).toLocaleString();
+  document.getElementById('upfrontStamp').textContent = 'RM ' + Math.round(stamp).toLocaleString();
+  document.getElementById('upfrontLegal').textContent = 'RM ' + Math.round(legal).toLocaleString();
+  document.getElementById('upfrontTotal').textContent = 'RM ' + Math.round(downAmt + stamp + legal).toLocaleString();
+}
+
+// Enquiry form
+function submitEnquiry(){
+  document.getElementById('enqForm').style.display = 'none';
+  document.getElementById('enqThanks').style.display = 'block';
+}
+
+// MapLibre init
+document.addEventListener('DOMContentLoaded', function(){
+  // Wait for maplibre to load
+  function initMap(){
+    if(typeof maplibregl === 'undefined'){
+      setTimeout(initMap, 200);
+      return;
+    }
     var map = new maplibregl.Map({
-      container:'map',
+      container:'nearbyMap',
       style:'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
       center:[103.7644,1.4600],
       zoom:14,
       attributionControl:false
     });
-    new maplibregl.Marker({color:'#c9a962'}).setLngLat([103.7644,1.4600]).setPopup(new maplibregl.Popup().setHTML('<strong>R&amp;F Princess Cove Ph2</strong><br>Bukit Chagar, Johor')).addTo(map);
+    new maplibregl.Marker({color:'#c9a962'})
+      .setLngLat([103.7644,1.4600])
+      .setPopup(new maplibregl.Popup({offset:25}).setHTML('<strong>R&F Princess Cove Ph2</strong><br>Bukit Chagar, Johor'))
+      .addTo(map);
     map.addControl(new maplibregl.NavigationControl(),'top-right');
-  })();
-  </script>
-  <div class="dist-grid">
-    <div class="dist-item"><span class="dist-icon">🛂</span><div class="dist-info"><div class="dist-name">CIQ / RTS Link</div><div class="dist-val">1km</div></div></div>
-    <div class="dist-item"><span class="dist-icon">🛍️</span><div class="dist-info"><div class="dist-name">City Square Mall</div><div class="dist-val">500m</div></div></div>
-    <div class="dist-item"><span class="dist-icon">🎓</span><div class="dist-info"><div class="dist-name">Foon Yew High School</div><div class="dist-val">1.5km</div></div></div>
-    <div class="dist-item"><span class="dist-icon">🏥</span><div class="dist-info"><div class="dist-name">KPJ Johor Specialist Hospital</div><div class="dist-val">3km</div></div></div>
-    <div class="dist-item"><span class="dist-icon">🇸🇬</span><div class="dist-info"><div class="dist-name">Singapore</div><div class="dist-val">15 min via CIQ</div></div></div>
-  </div>
-</div>
+  }
+  initMap();
 
-<!-- 5. FLOOR PLANS -->
-<div class="section">
-  <h2>Floor Plans</h2>
-  <p style="color:#6b7280">Floor plan images will be available soon. Contact us for the latest layout options and unit availability.</p>
-  <a href="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20R%26F%20Princess%20Cove%20Ph2%20at%20Bukit%20Chagar.%20Could%20you%20share%20more%20details%3F" target="_blank" class="cta-wa" style="display:inline-flex;margin-top:12px"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z"/></svg> Request Floor Plans</a>
-</div>
-
-<!-- 6. PAYMENT SCHEDULE -->
-<div class="section">
-  <h2>Payment Schedule</h2>
-  <p style="color:#6b7280">This property is completed and ready for immediate occupation. Standard purchase terms apply.</p>
-</div>
-
-<!-- 7. INVESTMENT ANALYSIS -->
-<div class="section">
-  <h2>Investment Analysis</h2>
-  <div class="inv-grid">
-    <div class="inv-card">
-      <h3>Purchase Costs Breakdown</h3>
-      <div class="inv-row"><span class="lbl">Property Price</span><span>RM 500,000</span></div>
-      <div class="inv-row"><span class="lbl">Stamp Duty</span><span>RM 9,000</span></div>
-      <div class="inv-row"><span class="lbl">Legal Fees (est.)</span><span>RM 5,350</span></div>
-      <div class="inv-row"><span class="lbl">Total Investment</span><span>RM 514,350</span></div>
-    </div>
-    <div class="inv-card">
-      <h3>Rental Yield Estimate</h3>
-      <div class="inv-row"><span class="lbl">Est. Monthly Rent</span><span>RM 2,500</span></div>
-      <div class="inv-row"><span class="lbl">Annual Rental</span><span>RM 30,000</span></div>
-      <div class="inv-row"><span class="lbl">Gross Yield</span><span>5.5 - 7.0%</span></div>
-      <div class="inv-row"><span class="lbl">Price PSF</span><span>RM 555</span></div>
-    </div>
-  </div>
-</div>
-
-<!-- 8. WHY THIS PROPERTY -->
-<div class="section">
-  <h2>Why R&amp;F Princess Cove Ph2</h2>
-  <div class="why-grid"><div class="why-card"><h4>Walking Distance to CIQ/RTS</h4><p>Just 1km to the CIQ checkpoint and upcoming RTS Link station. Unbeatable connectivity to Singapore.</p></div>
-<div class="why-card"><h4>Freehold Ownership</h4><p>Freehold tenure means your investment is protected for generations. No lease expiry concerns.</p></div>
-<div class="why-card"><h4>Ready to Move In</h4><p>Completed property with no construction risk. Start earning rental income immediately.</p></div>
-<div class="why-card"><h4>Strong Rental Demand</h4><p>Estimated gross yield of 5.5 - 7.0% driven by Singapore spillover demand and growing JB economy.</p></div>
-</div>
-</div>
-
-</div><!-- /content -->
-
-<!-- RELATED -->
-<div style="padding:48px clamp(20px,5vw,60px);background:#f9fafb;border-top:1px solid #e5e7eb">
-  <h2 style="font-size:22px;font-weight:800;color:var(--navy);margin-bottom:20px">Similar Properties You Might Like</h2>
-  <div class="related-grid"><a href="ctc-skyone-bukit-chagar.html" class="rel-card">
-<div class="rel-img" style="background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%)">🏢</div>
-<div class="rel-body"><h4>CTC Skyone</h4><p class="rel-loc">Bukit Chagar</p><p class="rel-price">From RM5xxk</p></div></a>
-<a href="majestic-gensphere-bukit-chagar.html" class="rel-card">
-<div class="rel-img" style="background:linear-gradient(135deg,#1a1a2e 0%,#2b2d42 50%,#4a4e69 100%)">🏢</div>
-<div class="rel-body"><h4>Majestic Gensphere</h4><p class="rel-loc">Bukit Chagar</p><p class="rel-price">From RM6xxk</p></div></a>
-<a href="exsim-causewayz-bukit-chagar.html" class="rel-card">
-<div class="rel-img" style="background:linear-gradient(135deg,#0f3460 0%,#16213e 50%,#1a1a2e 100%)">🏢</div>
-<div class="rel-body"><h4>Exsim Causewayz</h4><p class="rel-loc">Bukit Chagar</p><p class="rel-price">From RM5xxk</p></div></a>
-<a href="summer-suites-bukit-chagar.html" class="rel-card">
-<div class="rel-img" style="background:linear-gradient(135deg,#1a1a2e 0%,#1d3557 50%,#457b9d 100%)">🏢</div>
-<div class="rel-body"><h4>Summer Suites</h4><p class="rel-loc">Bukit Chagar</p><p class="rel-price">From RM5xxk</p></div></a>
-</div>
-</div>
-
-<!-- ENQUIRY FORM -->
-<div class="enquiry">
-  <h2>Interested in R&amp;F Princess Cove Ph2?</h2>
-  <p>Leave your details and we’ll get back to you within 24 hours.</p>
-  <div class="enq-form" id="enqForm">
-    <div class="fr">
-      <div class="fg"><label>Name</label><input type="text" id="eq_name" placeholder="Full name"></div>
-      <div class="fg"><label>Phone (WhatsApp)</label><input type="tel" id="eq_phone" placeholder="+65 or +60"></div>
-    </div>
-    <div class="fg"><label>Email</label><input type="email" id="eq_email" placeholder="your@email.com"></div>
-    <div class="fg"><label>Message</label><textarea id="eq_msg">I’m interested in R&amp;F Princess Cove Ph2. Please share more details.</textarea></div>
-    <div class="fg"><label>Preferred Contact</label>
-      <select id="eq_method"><option>WhatsApp</option><option>Call</option><option>Email</option></select>
-    </div>
-    <button class="enq-submit" onclick="submitEnquiry()">Send Enquiry</button>
-  </div>
-  <div class="enq-thanks" id="enqThanks">
-    <div class="ck">✅</div>
-    <h2 style="font-size:22px;margin-bottom:8px">Thank You!</h2>
-    <p>We’ll contact you within 24 hours about R&amp;F Princess Cove Ph2.</p>
-    <a href="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20R%26F%20Princess%20Cove%20Ph2%20at%20Bukit%20Chagar.%20Could%20you%20share%20more%20details%3F" target="_blank" class="cta-wa" style="display:inline-flex;margin-top:12px"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z"/></svg> Chat on WhatsApp</a>
-  </div>
-</div>
-
-<script>
-function submitEnquiry(){document.getElementById("enqForm").style.display="none";document.getElementById("enqThanks").style.display="block"}
+  // Init mortgage calc
+  calcMortgage();
+});
 </script>
+
 </body>
 </html>
