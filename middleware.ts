@@ -11,9 +11,11 @@ const authRoutes = ['/login', '/pending', '/clients', '/agent', '/admin'];
 export default async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // Root path → serve old static homepage
-  if (pathname === '/') {
-    return NextResponse.rewrite(new URL('/index.html', request.url));
+  // Static old site pages — serve from public/
+  const staticPages = ['/', '/buy', '/sell', '/rent', '/services', '/why-work-with-us'];
+  if (staticPages.includes(pathname) || pathname.startsWith('/properties/')) {
+    const target = pathname === '/' ? '/index.html' : `${pathname}.html`;
+    return NextResponse.rewrite(new URL(target, request.url));
   }
 
   // Skip i18n for auth routes — they don't need localization
