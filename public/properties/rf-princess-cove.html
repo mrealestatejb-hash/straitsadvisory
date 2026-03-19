@@ -556,6 +556,7 @@ img{display:block;max-width:100%}
 var phases = {
   overview: {
     price: 'From RM350K',
+    priceRange: 'RM350,000 — RM2,000,000',
     priceSGD: '\u2248 S$104K SGD',
     status: 'Mixed (Completed + New Launch)',
     statusBadgeClass: 'badge-outline',
@@ -572,6 +573,7 @@ var phases = {
   },
   phase1: {
     price: 'From RM380K',
+    priceRange: 'RM380,000 — RM850,000',
     priceSGD: '\u2248 S$113K SGD',
     status: 'Completed',
     statusBadgeClass: 'badge-green',
@@ -588,6 +590,7 @@ var phases = {
   },
   phase2: {
     price: 'From RM5xxk',
+    priceRange: 'RM500,000 — RM1,500,000',
     priceSGD: '\u2248 S$149K SGD',
     status: 'Completed',
     statusBadgeClass: 'badge-green',
@@ -604,6 +607,7 @@ var phases = {
   },
   phase3: {
     price: 'From RM4xxk',
+    priceRange: 'RM400,000 — RM1,200,000',
     priceSGD: '\u2248 S$119K SGD',
     status: 'Under Construction',
     statusBadgeClass: 'badge-outline',
@@ -620,6 +624,7 @@ var phases = {
   },
   phase4: {
     price: 'Price On Enquiry',
+    priceRange: 'Price On Enquiry',
     priceSGD: 'Contact for pricing',
     status: 'New Launch',
     statusBadgeClass: 'badge-gold',
@@ -680,19 +685,12 @@ function switchPhase(phaseKey, tabEl) {
   }
 
   // Update hero price
-  document.getElementById('heroPrice').innerHTML = '<span class="price-main">' + data.price + '</span><span class="price-alt">' + data.priceSGD + '</span>';
+  document.getElementById('heroPriceMain').textContent = data.priceRange || data.price;
 
-  // Update hero badges
-  var badgesHtml = '<span class="badge badge-green">' + data.tenure + '</span>';
-  badgesHtml += '<span class="badge ' + data.statusBadgeClass + '">' + data.status + '</span>';
-  badgesHtml += '<span class="badge badge-gold">1km to CIQ</span>';
-  document.getElementById('heroBadges').innerHTML = badgesHtml;
-
-  // Update key info
-  document.getElementById('kiBeds').textContent = data.beds;
-  document.getElementById('kiBaths').textContent = data.baths;
-  document.getElementById('kiSize').textContent = data.size;
-  document.getElementById('kiYield').textContent = data.yield;
+  // Update key info (Lease Title, Status, Foreigners, Min Entry)
+  document.getElementById('kiBeds').textContent = data.tenure;
+  document.getElementById('kiBaths').textContent = data.status;
+  document.getElementById('kiYield').textContent = data.price;
 
   // Update about text
   document.getElementById('aboutContent').textContent = data.about;
@@ -961,13 +959,13 @@ document.addEventListener('DOMContentLoaded', function() {
     nearbyMap = new maplibregl.Map({
       container: 'nearbyMap',
       style: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
-      center: [103.7644, 1.4600],
+      center: [103.7694, 1.4588],
       zoom: 14,
       attributionControl: false
     });
     // Property marker (gold)
     new maplibregl.Marker({ color: '#c9a962' })
-      .setLngLat([103.7644, 1.4600])
+      .setLngLat([103.7694, 1.4588])
       .setPopup(new maplibregl.Popup({ offset: 25 }).setHTML('<strong>R&F Princess Cove</strong><br>Bukit Chagar, Johor'))
       .addTo(nearbyMap);
     nearbyMap.addControl(new maplibregl.NavigationControl(), 'top-right');
