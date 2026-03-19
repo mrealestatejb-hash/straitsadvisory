@@ -590,12 +590,12 @@ document.addEventListener('DOMContentLoaded', function(){
     nearbyMap = new maplibregl.Map({
       container:'nearbyMap',
       style:'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
-      center:[103.7694,1.4588],
+      center:[103.7211,1.4786],
       zoom:14,
       attributionControl:false
     });
     new maplibregl.Marker({color:'#c9a962'})
-      .setLngLat([103.7694,1.4588])
+      .setLngLat([103.7211,1.4786])
       .setPopup(new maplibregl.Popup({offset:25}).setHTML('<strong>Skypark Kepler Lido Waterfront Boulevard</strong><br>Lido Waterfront Boulevard, Johor'))
       .addTo(nearbyMap);
     nearbyMap.addControl(new maplibregl.NavigationControl(),'top-right');

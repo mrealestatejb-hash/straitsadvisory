@@ -589,12 +589,12 @@ document.addEventListener('DOMContentLoaded', function(){
     nearbyMap = new maplibregl.Map({
       container:'nearbyMap',
       style:'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
-      center:[103.7694,1.4588],
+      center:[103.6562,1.4121],
       zoom:14,
       attributionControl:false
     });
     new maplibregl.Marker({color:'#c9a962'})
-      .setLngLat([103.7694,1.4588])
+      .setLngLat([103.6562,1.4121])
       .setPopup(new maplibregl.Popup({offset:25}).setHTML('<strong>Puteri Cove Residences Puteri Harbour</strong><br>Puteri Harbour, Johor'))
       .addTo(nearbyMap);
     nearbyMap.addControl(new maplibregl.NavigationControl(),'top-right');
