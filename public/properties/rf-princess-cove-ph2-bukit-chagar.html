@@ -415,55 +415,14 @@ img{display:block;max-width:100%}
       <button class="see-more-btn" id="detailsBtn" onclick="toggleDetails()">See all details &darr;</button>
     </div>
 
-    <!-- 5. Available Unit Types -->
+    <!-- 5. Available Layouts -->
     <div class="section">
-      <h2 class="section-title">Available Unit Types</h2>
-      <div class="unit-tabs">
-        <button class="unit-tab active" onclick="switchUnit(this, 'unit2bed')">2 Bedroom</button>
-        <button class="unit-tab" onclick="switchUnit(this, 'unit3bed')">3 Bedroom</button>
-      </div>
-      <div class="unit-panel active" id="unit2bed">
-        <div class="unit-card">
-          <div class="unit-card-row">
-            <span class="type-label">Type B &mdash; 2 Bedroom</span>
-          </div>
-          <div class="unit-card-row">
-            <span class="type-val">Floor Area: 950 - 1,200 sqft</span>
-          </div>
-          <div class="unit-card-row">
-            <span class="type-val">2 Bedrooms &bull; 2 Bathrooms</span>
-          </div>
-          <div class="unit-card-row" style="margin-top:8px">
-            <span class="type-price">From RM 5xxk</span>
-            <span class="type-val">&asymp; S$149K</span>
-          </div>
-        </div>
-      </div>
-      <div class="unit-panel" id="unit3bed">
-        <div class="unit-card">
-          <div class="unit-card-row">
-            <span class="type-label">Type C &mdash; 3 Bedroom</span>
-          </div>
-          <div class="unit-card-row">
-            <span class="type-val">Floor Area: 1,200 - 1,500 sqft</span>
-          </div>
-          <div class="unit-card-row">
-            <span class="type-val">3 Bedrooms &bull; 3 Bathrooms</span>
-          </div>
-          <div class="unit-card-row" style="margin-top:8px">
-            <span class="type-price">From RM 650K</span>
-            <span class="type-val">&asymp; S$194K</span>
-          </div>
-        </div>
-      </div>
-      <!-- Floor Plan Request -->
-      <div class="floor-plan-card">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M2 8h20M8 2v20M14 8v6h8"/></svg>
-        <p>Request detailed floor plans for your preferred unit type</p>
-        <a href="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20R%26F%20Princess%20Cove%20Ph2%20floor%20plans.%20Could%20you%20share%20them%3F" target="_blank" class="floor-plan-btn">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z"/></svg>
-          Request Floor Plan
-        </a>
+      <h2 class="section-title">Available Layouts</h2>
+      <div class="fac-grid">
+        <div class="fac-item"><span class="fac-icon">🛏️</span><span class="fac-label">Studio</span></div>
+        <div class="fac-item"><span class="fac-icon">🏠</span><span class="fac-label">1 Bedroom</span></div>
+        <div class="fac-item" style="border-color:var(--gold);background:#fef9ee"><span class="fac-icon">🏡</span><span class="fac-label" style="font-weight:700;color:var(--navy)">2 Bedroom</span></div>
+        <div class="fac-item" style="border-color:var(--gold);background:#fef9ee"><span class="fac-icon">🏘️</span><span class="fac-label" style="font-weight:700;color:var(--navy)">3 Bedroom</span></div>
       </div>
     </div>
 
