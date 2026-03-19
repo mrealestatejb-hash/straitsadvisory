@@ -606,12 +606,19 @@ function convertAndDisplay(currency) {
   if (minEntry) minEntry.textContent = formatPrice(min, currency);
 }
 
-// Detect country via free geo API, fallback to MYR
-fetch('https://ipapi.co/json/').then(function(r){return r.json()}).then(function(d){
-  var cc = d.country_code || 'MY';
-  var cur = countryToCurrency[cc] || 'MYR';
-  convertAndDisplay(cur);
-}).catch(function(){ convertAndDisplay('MYR'); });
+// Fetch live rates then detect country
+fetch('https://api.exchangerate-api.com/v4/latest/MYR').then(function(r){return r.json()}).then(function(d){
+  if(d && d.rates){
+    Object.keys(rates).forEach(function(k){ if(d.rates[k]) rates[k] = d.rates[k]; });
+  }
+}).catch(function(){}).finally(function(){
+  // Detect country via free geo API, fallback to MYR
+  fetch('https://ipapi.co/json/').then(function(r){return r.json()}).then(function(d){
+    var cc = d.country_code || 'MY';
+    var cur = countryToCurrency[cc] || 'MYR';
+    convertAndDisplay(cur);
+  }).catch(function(){ convertAndDisplay('MYR'); });
+});
 
 // Virtual Tour
 function loadTour(){
