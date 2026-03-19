@@ -143,47 +143,23 @@ a{text-decoration:none;color:inherit}
 
 <section class="hero">
   <h1>Find Your <span>Malaysia Property</span></h1>
-  <p>Handpicked developments across Johor Bahru</p>
+  <p>Handpicked developments across Malaysia</p>
   <div class="hero-stats">
-    <span>44 Properties</span>
-    <span>Freehold</span>
-    <span>Completed &amp; New Launch</span>
+    <span>53+ Properties</span>
+    <span>3 Cities</span>
+    <span>Freehold &amp; Leasehold</span>
   </div>
 </section>
 
 <div class="filter-bar">
+  <select id="filter-city" onchange="updateAreaFilter();filterProperties()" style="font-weight:600;border-color:var(--gold)">
+    <option value="">All Cities</option>
+    <option value="johor-bahru">Johor Bahru</option>
+    <option value="kuala-lumpur">Kuala Lumpur</option>
+    <option value="penang">Penang</option>
+  </select>
   <select id="filter-area" onchange="filterProperties()">
     <option value="">All Areas</option>
-    <option value="bayu-puteri">Bayu Puteri</option>
-    <option value="bukit-chagar">Bukit Chagar</option>
-    <option value="bukit-senyum">Bukit Senyum</option>
-    <option value="country-garden">Country Garden</option>
-    <option value="crest-austin">Crest Austin</option>
-    <option value="danga-bay">Danga Bay</option>
-    <option value="eco-tropics-pasir-gudang">Eco Tropics Pasir Gudang</option>
-    <option value="forest-city">Forest City</option>
-    <option value="forest-city-iskandar-puteri">Forest City Iskandar Puteri</option>
-    <option value="gelang-patah">Gelang Patah</option>
-    <option value="iskandar-puteri">Iskandar Puteri</option>
-    <option value="jalan-yahya-awal">Jalan Yahya Awal</option>
-    <option value="jln-abdul-samad">Jln Abdul Samad</option>
-    <option value="leisure-farm">Leisure Farm</option>
-    <option value="lido-waterfront-boulevard">Lido Waterfront Boulevard</option>
-    <option value="mbw-city">Mbw City</option>
-    <option value="medini-iskandar-puteri">Medini Iskandar Puteri</option>
-    <option value="nusajaya">Nusajaya</option>
-    <option value="pasir-gudang">Pasir Gudang</option>
-    <option value="permas-jaya">Permas Jaya</option>
-    <option value="princess-cove">Princess Cove</option>
-    <option value="puteri-harbour">Puteri Harbour</option>
-    <option value="senibong-cove">Senibong Cove</option>
-    <option value="southkey">Southkey</option>
-    <option value="taman-daya">Taman Daya</option>
-    <option value="taman-kempas-indah">Taman Kempas Indah</option>
-    <option value="taman-pelangi">Taman Pelangi</option>
-    <option value="taman-ponderosa">Taman Ponderosa</option>
-    <option value="taman-sentosa">Taman Sentosa</option>
-    <option value="taman-suria">Taman Suria</option>
   </select>
   <select id="filter-price" onchange="filterProperties()">
     <option value="">All Prices</option>
@@ -205,274 +181,332 @@ a{text-decoration:none;color:inherit}
   <button class="clear-btn" onclick="clearFilters()">Clear Filters</button>
 </div>
 
-<div class="results-bar"><span id="results-count" class="results-count">Showing 44 of 44 properties</span></div>
+<div class="results-bar"><span id="results-count" class="results-count">Showing 53 of 53 properties</span></div>
 <div class="no-results" id="no-results">No properties match your filters. Try adjusting your criteria.</div>
 
 <div class="property-grid">
 
-<a href="properties/ctc-skyone-bukit-chagar.html" class="property-card" data-area="bukit-chagar" data-status="completed" data-tenure="freehold" data-name="ctc skyone bukit chagar" style="text-decoration:none;color:inherit">
+<a href="properties/ctc-skyone-bukit-chagar.html" class="property-card" data-city="johor-bahru" data-area="bukit-chagar" data-status="completed" data-tenure="freehold" data-name="ctc skyone bukit chagar" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://ctcskyonebukitchagar.com/wp-content/uploads/2026/02/Gallery-2-1024x822.jpg') center/cover"><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Freehold</span></div></div>
   <div class="card-body"><h3 class="card-title">CTC Skyone Bukit Chagar</h3><p class="card-location">Bukit Chagar</p><p class="card-price">From RM580,000</p>
     <div class="card-meta"><span class="card-distance">📍 Bukit Chagar</span><span class="card-feature">✦ Completed</span></div>
   </div></a>
 
-<a href="properties/majestic-gensphere-bukit-chagar.html" class="property-card" data-area="bukit-chagar" data-status="completed" data-tenure="freehold" data-name="majestic gensphere bukit chagar" style="text-decoration:none;color:inherit">
+<a href="properties/majestic-gensphere-bukit-chagar.html" class="property-card" data-city="johor-bahru" data-area="bukit-chagar" data-status="completed" data-tenure="freehold" data-name="majestic gensphere bukit chagar" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://gensphere.com.my/images/section-one/section-one-banner.png') center/cover"><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Freehold</span></div></div>
   <div class="card-body"><h3 class="card-title">Majestic Gensphere Bukit Chagar</h3><p class="card-location">Bukit Chagar</p><p class="card-price">From RM530,000</p>
     <div class="card-meta"><span class="card-distance">📍 Bukit Chagar</span><span class="card-feature">✦ Completed</span></div>
   </div></a>
 
-<a href="properties/exsim-causewayz-bukit-chagar.html" class="property-card" data-area="bukit-chagar" data-status="completed" data-tenure="freehold" data-name="exsim causewayz bukit chagar" style="text-decoration:none;color:inherit">
+<a href="properties/exsim-causewayz-bukit-chagar.html" class="property-card" data-city="johor-bahru" data-area="bukit-chagar" data-status="completed" data-tenure="freehold" data-name="exsim causewayz bukit chagar" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://exsim-causewayzsquare.com/wp-content/uploads/2025/06/Screenshot-2025-06-12-at-4.29.53-PM-min.png') center/cover"><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Freehold</span></div></div>
   <div class="card-body"><h3 class="card-title">Exsim Causewayz Bukit Chagar</h3><p class="card-location">Bukit Chagar</p><p class="card-price">Price on Request</p>
     <div class="card-meta"><span class="card-distance">📍 Bukit Chagar</span><span class="card-feature">✦ Completed</span></div>
   </div></a>
 
-<a href="properties/summer-suites-bukit-chagar.html" class="property-card" data-area="bukit-chagar" data-status="new-launch" data-tenure="freehold" data-name="summer suites bukit chagar" style="text-decoration:none;color:inherit">
+<a href="properties/summer-suites-bukit-chagar.html" class="property-card" data-city="johor-bahru" data-area="bukit-chagar" data-status="new-launch" data-tenure="freehold" data-name="summer suites bukit chagar" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://summersuitesjbciq.com/m1/wp-content/uploads/2025/06/summersuites-facade.webp') center/cover"><div class="card-badges"><span class="badge badge-green">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
   <div class="card-body"><h3 class="card-title">Summer Suites Bukit Chagar</h3><p class="card-location">Bukit Chagar</p><p class="card-price">From RM600k</p>
     <div class="card-meta"><span class="card-distance">📍 Bukit Chagar</span><span class="card-feature">✦ New Launch</span></div>
   </div></a>
 
 
-<a href="properties/the-arden-one-bukit-senyum.html" class="property-card" data-area="bukit-senyum" data-status="completed" data-tenure="freehold" data-name="the arden one bukit senyum" style="text-decoration:none;color:inherit">
+<a href="properties/the-arden-one-bukit-senyum.html" class="property-card" data-city="johor-bahru" data-area="bukit-senyum" data-status="completed" data-tenure="freehold" data-name="the arden one bukit senyum" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://arden-obs.com/assets/arden_images/bg2img.png') center/cover"><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Freehold</span></div></div>
   <div class="card-body"><h3 class="card-title">The Arden One Bukit Senyum</h3><p class="card-location">Bukit Senyum</p><p class="card-price">From RM1mil</p>
     <div class="card-meta"><span class="card-distance">📍 Bukit Senyum</span><span class="card-feature">✦ Completed</span></div>
   </div></a>
 
-<a href="properties/the-astaka-one-bukit-senyum.html" class="property-card" data-area="bukit-senyum" data-status="completed" data-tenure="freehold" data-name="the astaka one bukit senyum" style="text-decoration:none;color:inherit">
+<a href="properties/the-astaka-one-bukit-senyum.html" class="property-card" data-city="johor-bahru" data-area="bukit-senyum" data-status="completed" data-tenure="freehold" data-name="the astaka one bukit senyum" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://astaka.com.my/wp-content/uploads/2024/04/slide1.png') center/cover"><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Freehold</span></div></div>
   <div class="card-body"><h3 class="card-title">The Astaka One Bukit Senyum</h3><p class="card-location">Bukit Senyum</p><p class="card-price">From RM2.5mil</p>
     <div class="card-meta"><span class="card-distance">📍 Bukit Senyum</span><span class="card-feature">✦ Completed</span></div>
   </div></a>
 
-<a href="properties/paragon-signature-suites-jln-abdul-samad.html" class="property-card" data-area="jln-abdul-samad" data-status="completed" data-tenure="freehold" data-name="paragon signature suites jln abdul samad" style="text-decoration:none;color:inherit">
+<a href="properties/paragon-signature-suites-jln-abdul-samad.html" class="property-card" data-city="johor-bahru" data-area="jln-abdul-samad" data-status="completed" data-tenure="freehold" data-name="paragon signature suites jln abdul samad" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://paragonsignaturesuites.com.my/wp-content/uploads/2024/09/home-bk1-scaled.webp') center/cover"><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Freehold</span></div></div>
   <div class="card-body"><h3 class="card-title">Paragon Signature Suites Jln Abdul Samad</h3><p class="card-location">Jln Abdul Samad</p><p class="card-price">From RM450k</p>
     <div class="card-meta"><span class="card-distance">📍 Jln Abdul Samad</span><span class="card-feature">✦ Completed</span></div>
   </div></a>
 
-<a href="properties/m-grand-minori-taman-pelangi.html" class="property-card" data-area="taman-pelangi" data-status="completed" data-tenure="freehold" data-name="m grand minori taman pelangi" style="text-decoration:none;color:inherit">
+<a href="properties/m-grand-minori-taman-pelangi.html" class="property-card" data-city="johor-bahru" data-area="taman-pelangi" data-status="completed" data-tenure="freehold" data-name="m grand minori taman pelangi" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://m-grandminori.com.my/wp-content/uploads/2025/08/MGM-Share.png') center/cover"><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Freehold</span></div></div>
   <div class="card-body"><h3 class="card-title">M Grand Minori Taman Pelangi</h3><p class="card-location">Taman Pelangi</p><p class="card-price">Price on Request</p>
     <div class="card-meta"><span class="card-distance">📍 Taman Pelangi</span><span class="card-feature">✦ Completed</span></div>
   </div></a>
 
-<a href="properties/maxim-the-address-taman-pelangi.html" class="property-card" data-area="taman-pelangi" data-status="completed" data-tenure="freehold" data-name="maxim the address taman pelangi" style="text-decoration:none;color:inherit">
+<a href="properties/maxim-the-address-taman-pelangi.html" class="property-card" data-city="johor-bahru" data-area="taman-pelangi" data-status="completed" data-tenure="freehold" data-name="maxim the address taman pelangi" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://maximpelangi.dms-team.com/wp-content/uploads/2025/07/Maxim-Pelangi-The-Address.png') center/cover"><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Freehold</span></div></div>
   <div class="card-body"><h3 class="card-title">Maxim The Address Taman Pelangi</h3><p class="card-location">Taman Pelangi</p><p class="card-price">Price on Request</p>
     <div class="card-meta"><span class="card-distance">📍 Taman Pelangi</span><span class="card-feature">✦ Completed</span></div>
   </div></a>
 
-<a href="properties/skypark-kepler-lido-waterfront-boulevard.html" class="property-card" data-area="lido-waterfront-boulevard" data-status="new-launch" data-tenure="freehold" data-name="skypark kepler lido waterfront boulevard" style="text-decoration:none;color:inherit">
+<a href="properties/skypark-kepler-lido-waterfront-boulevard.html" class="property-card" data-city="johor-bahru" data-area="lido-waterfront-boulevard" data-status="new-launch" data-tenure="freehold" data-name="skypark kepler lido waterfront boulevard" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://www.mysgprop.com/wp-content/uploads/2024/10/Lido-Waterfront-Masterplan-5.jpeg') center/cover"><div class="card-badges"><span class="badge badge-green">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
   <div class="card-body"><h3 class="card-title">Skypark Kepler Lido Waterfront Boulevard</h3><p class="card-location">Lido Waterfront Boulevard</p><p class="card-price">Price on Request</p>
     <div class="card-meta"><span class="card-distance">📍 Lido Waterfront Boulevard</span><span class="card-feature">✦ New Launch</span></div>
   </div></a>
 
-<a href="properties/sunway-majestic-ara-soho.html" class="property-card" data-area="jalan-yahya-awal" data-status="new-launch" data-tenure="freehold" data-name="sunway majestic ara soho" style="text-decoration:none;color:inherit">
+<a href="properties/sunway-majestic-ara-soho.html" class="property-card" data-city="johor-bahru" data-area="jalan-yahya-awal" data-status="new-launch" data-tenure="freehold" data-name="sunway majestic ara soho" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://assets.sunwayproperty.com/2025/07/05_SunwayMajectic_OverallFacade_HR.jpg') center/cover"><div class="card-badges"><span class="badge badge-green">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
   <div class="card-body"><h3 class="card-title">Sunway Majestic Ara SOHO</h3><p class="card-location">Jalan Yahya Awal</p><p class="card-price">Price on Request</p>
     <div class="card-meta"><span class="card-distance">📍 Jalan Yahya Awal</span><span class="card-feature">✦ New Launch</span></div>
   </div></a>
 
-<a href="properties/skyline-one-sentosa-taman-sentosa.html" class="property-card" data-area="taman-sentosa" data-status="completed" data-tenure="freehold" data-name="skyline one sentosa taman sentosa" style="text-decoration:none;color:inherit">
+<a href="properties/skyline-one-sentosa-taman-sentosa.html" class="property-card" data-city="johor-bahru" data-area="taman-sentosa" data-status="completed" data-tenure="freehold" data-name="skyline one sentosa taman sentosa" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop') center/cover"><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Freehold</span></div></div>
   <div class="card-body"><h3 class="card-title">Skyline One Sentosa Taman Sentosa</h3><p class="card-location">Taman Sentosa</p><p class="card-price">Price on Request</p>
     <div class="card-meta"><span class="card-distance">📍 Taman Sentosa</span><span class="card-feature">✦ Completed</span></div>
   </div></a>
 
-<a href="properties/paragon-gateway-taman-suria.html" class="property-card" data-area="taman-suria" data-status="new-launch" data-tenure="freehold" data-name="paragon gateway taman suria" style="text-decoration:none;color:inherit">
+<a href="properties/paragon-gateway-taman-suria.html" class="property-card" data-city="johor-bahru" data-area="taman-suria" data-status="new-launch" data-tenure="freehold" data-name="paragon gateway taman suria" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://paragongateway.com.my/wp-content/uploads/2023/07/Paragon-Gateway-Web-Design3.png') center/cover"><div class="card-badges"><span class="badge badge-green">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
   <div class="card-body"><h3 class="card-title">Paragon Gateway Taman Suria</h3><p class="card-location">Taman Suria</p><p class="card-price">Price on Request</p>
     <div class="card-meta"><span class="card-distance">📍 Taman Suria</span><span class="card-feature">✦ New Launch</span></div>
   </div></a>
 
-<a href="properties/country-garden-danga-bay.html" class="property-card" data-area="danga-bay" data-status="completed" data-tenure="freehold" data-name="country garden danga bay" style="text-decoration:none;color:inherit">
+<a href="properties/country-garden-danga-bay.html" class="property-card" data-city="johor-bahru" data-area="danga-bay" data-status="completed" data-tenure="freehold" data-name="country garden danga bay" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://www.mysgprop.com/wp-content/uploads/2014/12/12.jpg') center/cover"><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Freehold</span></div></div>
   <div class="card-body"><h3 class="card-title">Country Garden Danga Bay</h3><p class="card-location">Danga Bay</p><p class="card-price">Price on Request</p>
     <div class="card-meta"><span class="card-distance">📍 Danga Bay</span><span class="card-feature">✦ Completed</span></div>
   </div></a>
 
-<a href="properties/mbw-bay-danga-bay.html" class="property-card" data-area="danga-bay" data-status="new-launch" data-tenure="freehold" data-name="mbw bay danga bay" style="text-decoration:none;color:inherit">
+<a href="properties/mbw-bay-danga-bay.html" class="property-card" data-city="johor-bahru" data-area="danga-bay" data-status="new-launch" data-tenure="freehold" data-name="mbw bay danga bay" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://www.mbworld.com.my/wp-content/uploads/2025/04/mbwbay-slider1.webp') center/cover"><div class="card-badges"><span class="badge badge-green">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
   <div class="card-body"><h3 class="card-title">MBW Bay Danga Bay</h3><p class="card-location">Danga Bay</p><p class="card-price">Price on Request</p>
     <div class="card-meta"><span class="card-distance">📍 Danga Bay</span><span class="card-feature">✦ New Launch</span></div>
   </div></a>
 
-<a href="properties/paragon-calia-danga-bay.html" class="property-card" data-area="danga-bay" data-status="new-launch" data-tenure="freehold" data-name="paragon calia danga bay" style="text-decoration:none;color:inherit">
+<a href="properties/paragon-calia-danga-bay.html" class="property-card" data-city="johor-bahru" data-area="danga-bay" data-status="new-launch" data-tenure="freehold" data-name="paragon calia danga bay" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://caliaresidences.com.my/wp-content/uploads/2025/09/calia-residences-condo-design.webp') center/cover"><div class="card-badges"><span class="badge badge-green">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
   <div class="card-body"><h3 class="card-title">Paragon Calia Danga Bay</h3><p class="card-location">Danga Bay</p><p class="card-price">Price on Request</p>
     <div class="card-meta"><span class="card-distance">📍 Danga Bay</span><span class="card-feature">✦ New Launch</span></div>
   </div></a>
 
-<a href="properties/parkland-by-the-river-permas.html" class="property-card" data-area="permas-jaya" data-status="new-launch" data-tenure="freehold" data-name="parkland by the river permas" style="text-decoration:none;color:inherit">
+<a href="properties/parkland-by-the-river-permas.html" class="property-card" data-city="johor-bahru" data-area="permas-jaya" data-status="new-launch" data-tenure="freehold" data-name="parkland by the river permas" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://parkland-permas.com/wp-content/uploads/2025/07/Parkland-Permas-Photo.jpg') center/cover"><div class="card-badges"><span class="badge badge-green">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
   <div class="card-body"><h3 class="card-title">Parkland by the river Permas</h3><p class="card-location">Permas Jaya</p><p class="card-price">Price on Request</p>
     <div class="card-meta"><span class="card-distance">📍 Permas Jaya</span><span class="card-feature">✦ New Launch</span></div>
   </div></a>
 
-<a href="properties/the-straits-view-duo-permas-jaya.html" class="property-card" data-area="permas-jaya" data-status="new-launch" data-tenure="freehold" data-name="the straits view duo permas jaya" style="text-decoration:none;color:inherit">
+<a href="properties/the-straits-view-duo-permas-jaya.html" class="property-card" data-city="johor-bahru" data-area="permas-jaya" data-status="new-launch" data-tenure="freehold" data-name="the straits view duo permas jaya" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://straitsviewduo.com/wp-content/uploads/2025/08/Untitled-design-22.jpg') center/cover"><div class="card-badges"><span class="badge badge-green">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
   <div class="card-body"><h3 class="card-title">The Straits View Duo Permas Jaya</h3><p class="card-location">Permas Jaya</p><p class="card-price">Price on Request</p>
     <div class="card-meta"><span class="card-distance">📍 Permas Jaya</span><span class="card-feature">✦ New Launch</span></div>
   </div></a>
 
-<a href="properties/ponderosa-regency.html" class="property-card" data-area="taman-ponderosa" data-status="new-launch" data-tenure="freehold" data-name="ponderosa regency" style="text-decoration:none;color:inherit">
+<a href="properties/ponderosa-regency.html" class="property-card" data-city="johor-bahru" data-area="taman-ponderosa" data-status="new-launch" data-tenure="freehold" data-name="ponderosa regency" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://www.johorprojects.com/wp-content/uploads/2025/05/PonderosaRegency1-1024x1024.jpg') center/cover"><div class="card-badges"><span class="badge badge-green">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
   <div class="card-body"><h3 class="card-title">Ponderosa Regency</h3><p class="card-location">Taman Ponderosa</p><p class="card-price">Price on Request</p>
     <div class="card-meta"><span class="card-distance">📍 Taman Ponderosa</span><span class="card-feature">✦ New Launch</span></div>
   </div></a>
 
-<a href="properties/elysia-park-medini.html" class="property-card" data-area="medini-iskandar-puteri" data-status="completed" data-tenure="leasehold" data-name="elysia park medini" style="text-decoration:none;color:inherit">
+<a href="properties/elysia-park-medini.html" class="property-card" data-city="johor-bahru" data-area="medini-iskandar-puteri" data-status="completed" data-tenure="leasehold" data-name="elysia park medini" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://propnex-omgliving.com/wp-content/uploads/2026/01/Elysia-Park-Residence.jpg') center/cover"><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Leasehold</span></div></div>
   <div class="card-body"><h3 class="card-title">Elysia Park Medini</h3><p class="card-location">Medini Iskandar Puteri</p><p class="card-price">Price on Request</p>
     <div class="card-meta"><span class="card-distance">📍 Medini Iskandar Puteri</span><span class="card-feature">✦ Completed</span></div>
   </div></a>
 
-<a href="properties/the-m-macrolink-medini.html" class="property-card" data-area="medini-iskandar-puteri" data-status="completed" data-tenure="leasehold" data-name="the m macrolink medini" style="text-decoration:none;color:inherit">
+<a href="properties/the-m-macrolink-medini.html" class="property-card" data-city="johor-bahru" data-area="medini-iskandar-puteri" data-status="completed" data-tenure="leasehold" data-name="the m macrolink medini" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://the-m-macrolink.com/wp-content/uploads/2025/01/01.jpg') center/cover"><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Leasehold</span></div></div>
   <div class="card-body"><h3 class="card-title">The M Macrolink Medini</h3><p class="card-location">Medini Iskandar Puteri</p><p class="card-price">Price on Request</p>
     <div class="card-meta"><span class="card-distance">📍 Medini Iskandar Puteri</span><span class="card-feature">✦ Completed</span></div>
   </div></a>
 
-<a href="properties/southern-marina-puteri-harbour.html" class="property-card" data-area="puteri-harbour" data-status="completed" data-tenure="freehold" data-name="southern marina puteri harbour" style="text-decoration:none;color:inherit">
+<a href="properties/southern-marina-puteri-harbour.html" class="property-card" data-city="johor-bahru" data-area="puteri-harbour" data-status="completed" data-tenure="freehold" data-name="southern marina puteri harbour" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://ppbproperties.com.my/wp-content/uploads/2023/02/southernmarina-banner.jpg') center/cover"><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Freehold</span></div></div>
   <div class="card-body"><h3 class="card-title">Southern Marina Puteri Harbour</h3><p class="card-location">Puteri Harbour</p><p class="card-price">Price on Request</p>
     <div class="card-meta"><span class="card-distance">📍 Puteri Harbour</span><span class="card-feature">✦ Completed</span></div>
   </div></a>
 
-<a href="properties/puteri-cove-residences-puteri-harbour.html" class="property-card" data-area="puteri-harbour" data-status="completed" data-tenure="freehold" data-name="puteri cove residences puteri harbour" style="text-decoration:none;color:inherit">
+<a href="properties/puteri-cove-residences-puteri-harbour.html" class="property-card" data-city="johor-bahru" data-area="puteri-harbour" data-status="completed" data-tenure="freehold" data-name="puteri cove residences puteri harbour" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://nry.com.my/wp-content/uploads/2019/10/PCR_slider1.jpg') center/cover"><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Freehold</span></div></div>
   <div class="card-body"><h3 class="card-title">Puteri Cove Residences Puteri Harbour</h3><p class="card-location">Puteri Harbour</p><p class="card-price">Price on Request</p>
     <div class="card-meta"><span class="card-distance">📍 Puteri Harbour</span><span class="card-feature">✦ Completed</span></div>
   </div></a>
 
-<a href="properties/nadi-residence-southkey.html" class="property-card" data-area="southkey" data-status="new-launch" data-tenure="leasehold" data-name="nadi residence southkey" style="text-decoration:none;color:inherit">
+<a href="properties/nadi-residence-southkey.html" class="property-card" data-city="johor-bahru" data-area="southkey" data-status="new-launch" data-tenure="leasehold" data-name="nadi residence southkey" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://nadiresidences.com/wp-content/uploads/2025/07/SOUTHKEY_NADI_BROCHURE_LOW-RES-1_organized.pdf-1200-x-630-px.jpg') center/cover"><div class="card-badges"><span class="badge badge-green">New Launch</span><span class="badge badge-outline">Leasehold</span></div></div>
   <div class="card-body"><h3 class="card-title">Nadi Residence Southkey</h3><p class="card-location">Southkey</p><p class="card-price">Price on Request</p>
     <div class="card-meta"><span class="card-distance">📍 Southkey</span><span class="card-feature">✦ New Launch</span></div>
   </div></a>
 
-<a href="properties/suria-hill-iskandar-puteri.html" class="property-card" data-area="iskandar-puteri" data-status="new-launch" data-tenure="freehold" data-name="suria hill iskandar puteri" style="text-decoration:none;color:inherit">
+<a href="properties/suria-hill-iskandar-puteri.html" class="property-card" data-city="johor-bahru" data-area="iskandar-puteri" data-status="new-launch" data-tenure="freehold" data-name="suria hill iskandar puteri" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://www.suriahills.com.my/data/editor/home/banner.png') center/cover"><div class="card-badges"><span class="badge badge-green">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
   <div class="card-body"><h3 class="card-title">Suria Hill Iskandar Puteri</h3><p class="card-location">Iskandar Puteri</p><p class="card-price">Price on Request</p>
     <div class="card-meta"><span class="card-distance">📍 Iskandar Puteri</span><span class="card-feature">✦ New Launch</span></div>
   </div></a>
 
-<a href="properties/nigella-park-forest-city-sfz.html" class="property-card" data-area="forest-city-iskandar-puteri" data-status="completed" data-tenure="freehold" data-name="nigella park forest city (sfz)" style="text-decoration:none;color:inherit">
+<a href="properties/nigella-park-forest-city-sfz.html" class="property-card" data-city="johor-bahru" data-area="forest-city-iskandar-puteri" data-status="completed" data-tenure="freehold" data-name="nigella park forest city (sfz)" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://forest-city-sez-johor.com/wp-content/uploads/2025/08/bg_header-2048x821-1.jpeg') center/cover"><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Freehold</span></div></div>
   <div class="card-body"><h3 class="card-title">Nigella Park Forest City (SFZ)</h3><p class="card-location">Forest City Iskandar Puteri</p><p class="card-price">Price on Request</p>
     <div class="card-meta"><span class="card-distance">📍 Forest City Iskandar Puteri</span><span class="card-feature">✦ Completed</span></div>
   </div></a>
 
-<a href="properties/golf-villa-forest-city-sfz.html" class="property-card" data-area="forest-city-iskandar-puteri" data-status="completed" data-tenure="freehold" data-name="golf villa forest city (sfz)" style="text-decoration:none;color:inherit">
+<a href="properties/golf-villa-forest-city-sfz.html" class="property-card" data-city="johor-bahru" data-area="forest-city-iskandar-puteri" data-status="completed" data-tenure="freehold" data-name="golf villa forest city (sfz)" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://johorforestcity.com/wp-content/uploads/2025/03/banenr99.png') center/cover"><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Freehold</span></div></div>
   <div class="card-body"><h3 class="card-title">Golf Villa Forest City (SFZ)</h3><p class="card-location">Forest City Iskandar Puteri</p><p class="card-price">Price on Request</p>
     <div class="card-meta"><span class="card-distance">📍 Forest City Iskandar Puteri</span><span class="card-feature">✦ Completed</span></div>
   </div></a>
 
-<a href="properties/avenue-mbw-city.html" class="property-card" data-area="mbw-city" data-status="completed" data-tenure="leasehold" data-name="avenue mbw city" style="text-decoration:none;color:inherit">
+<a href="properties/avenue-mbw-city.html" class="property-card" data-city="johor-bahru" data-area="mbw-city" data-status="completed" data-tenure="leasehold" data-name="avenue mbw city" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://www.mbworld.com.my/wp-content/uploads/2025/04/avenueresidences-slider1.webp') center/cover"><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Leasehold</span></div></div>
   <div class="card-body"><h3 class="card-title">Avenue MBW City</h3><p class="card-location">MBW City</p><p class="card-price">Price on Request</p>
     <div class="card-meta"><span class="card-distance">📍 MBW City</span><span class="card-feature">✦ Completed</span></div>
   </div></a>
 
-<a href="properties/veranda-mbw-city.html" class="property-card" data-area="mbw-city" data-status="completed" data-tenure="leasehold" data-name="veranda mbw city" style="text-decoration:none;color:inherit">
+<a href="properties/veranda-mbw-city.html" class="property-card" data-city="johor-bahru" data-area="mbw-city" data-status="completed" data-tenure="leasehold" data-name="veranda mbw city" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://www.mbworld.com.my/wp-content/uploads/2025/05/verandaresidencesp2-slider2-scaled.webp') center/cover"><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Leasehold</span></div></div>
   <div class="card-body"><h3 class="card-title">Veranda MBW City</h3><p class="card-location">MBW City</p><p class="card-price">Price on Request</p>
     <div class="card-meta"><span class="card-distance">📍 MBW City</span><span class="card-feature">✦ Completed</span></div>
   </div></a>
 
-<a href="properties/trellis-mbw-city.html" class="property-card" data-area="mbw-city" data-status="completed" data-tenure="leasehold" data-name="trellis mbw city" style="text-decoration:none;color:inherit">
+<a href="properties/trellis-mbw-city.html" class="property-card" data-city="johor-bahru" data-area="mbw-city" data-status="completed" data-tenure="leasehold" data-name="trellis mbw city" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://www.mbworld.com.my/wp-content/uploads/2023/07/trellis-slider1.webp') center/cover"><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Leasehold</span></div></div>
   <div class="card-body"><h3 class="card-title">Trellis MBW City</h3><p class="card-location">MBW City</p><p class="card-price">Price on Request</p>
     <div class="card-meta"><span class="card-distance">📍 MBW City</span><span class="card-feature">✦ Completed</span></div>
   </div></a>
 
-<a href="properties/marina-residence-bayu-puteri.html" class="property-card" data-area="bayu-puteri" data-status="completed" data-tenure="leasehold" data-name="marina residence bayu puteri" style="text-decoration:none;color:inherit">
+<a href="properties/marina-residence-bayu-puteri.html" class="property-card" data-city="johor-bahru" data-area="bayu-puteri" data-status="completed" data-tenure="leasehold" data-name="marina residence bayu puteri" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://cdn.irumah.co/photos/618508/Marina_Residence_12.png') center/cover"><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Leasehold</span></div></div>
   <div class="card-body"><h3 class="card-title">Marina Residence Bayu Puteri</h3><p class="card-location">Bayu Puteri</p><p class="card-price">Price on Request</p>
     <div class="card-meta"><span class="card-distance">📍 Bayu Puteri</span><span class="card-feature">✦ Completed</span></div>
   </div></a>
 
-<a href="properties/central-park-country-garden.html" class="property-card" data-area="country-garden" data-status="completed" data-tenure="leasehold" data-name="central park country garden" style="text-decoration:none;color:inherit">
+<a href="properties/central-park-country-garden.html" class="property-card" data-city="johor-bahru" data-area="country-garden" data-status="completed" data-tenure="leasehold" data-name="central park country garden" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://dangabaycondo.com/assets/images/custom/header_bg.jpg') center/cover"><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Leasehold</span></div></div>
   <div class="card-body"><h3 class="card-title">Central Park Country Garden</h3><p class="card-location">Country Garden</p><p class="card-price">Price on Request</p>
     <div class="card-meta"><span class="card-distance">📍 Country Garden</span><span class="card-feature">✦ Completed</span></div>
   </div></a>
 
-<a href="properties/ascent-park-iskandar-puteri.html" class="property-card" data-area="iskandar-puteri" data-status="completed" data-tenure="leasehold" data-name="ascent park iskandar puteri" style="text-decoration:none;color:inherit">
+<a href="properties/ascent-park-iskandar-puteri.html" class="property-card" data-city="johor-bahru" data-area="iskandar-puteri" data-status="completed" data-tenure="leasehold" data-name="ascent park iskandar puteri" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://ascentparkjb.com/wp-content/uploads/2025/10/Ascent-Park-Iskandar-Puteri-JB-1024x570.png') center/cover"><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Leasehold</span></div></div>
   <div class="card-body"><h3 class="card-title">Ascent Park Iskandar Puteri</h3><p class="card-location">Iskandar Puteri</p><p class="card-price">Price on Request</p>
     <div class="card-meta"><span class="card-distance">📍 Iskandar Puteri</span><span class="card-feature">✦ Completed</span></div>
   </div></a>
 
-<a href="properties/carnelian-tower-forest-city-sfz.html" class="property-card" data-area="forest-city" data-status="completed" data-tenure="leasehold" data-name="carnelian tower forest city (sfz)" style="text-decoration:none;color:inherit">
+<a href="properties/carnelian-tower-forest-city-sfz.html" class="property-card" data-city="johor-bahru" data-area="forest-city" data-status="completed" data-tenure="leasehold" data-name="carnelian tower forest city (sfz)" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://cdn1.npcdn.net/images/c76985d4e9efdc533666f5a7144b9f11_1735892434.webp') center/cover"><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Leasehold</span></div></div>
   <div class="card-body"><h3 class="card-title">Carnelian Tower Forest City (SFZ)</h3><p class="card-location">Forest City</p><p class="card-price">Price on Request</p>
     <div class="card-meta"><span class="card-distance">📍 Forest City</span><span class="card-feature">✦ Completed</span></div>
   </div></a>
 
-<a href="properties/meridin-east.html" class="property-card" data-area="pasir-gudang" data-status="completed" data-tenure="leasehold" data-name="meridin east" style="text-decoration:none;color:inherit">
+<a href="properties/meridin-east.html" class="property-card" data-city="johor-bahru" data-area="pasir-gudang" data-status="completed" data-tenure="leasehold" data-name="meridin east" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://meridin-east.com.my/wp-content/uploads/2022/06/MicrosoftTeams-image-19.jpg') center/cover"><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Leasehold</span></div></div>
   <div class="card-body"><h3 class="card-title">Meridin East</h3><p class="card-location">Pasir Gudang</p><p class="card-price">Price on Request</p>
     <div class="card-meta"><span class="card-distance">📍 Pasir Gudang</span><span class="card-feature">✦ Completed</span></div>
   </div></a>
 
-<a href="properties/senibong-kews.html" class="property-card" data-area="senibong-cove" data-status="completed" data-tenure="leasehold" data-name="senibong kews" style="text-decoration:none;color:inherit">
+<a href="properties/senibong-kews.html" class="property-card" data-city="johor-bahru" data-area="senibong-cove" data-status="completed" data-tenure="leasehold" data-name="senibong kews" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://www.thekews.com.my/img/pages/home/hero/poster.jpg') center/cover"><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Leasehold</span></div></div>
   <div class="card-body"><h3 class="card-title">Senibong Kews</h3><p class="card-location">Senibong Cove</p><p class="card-price">Price on Request</p>
     <div class="card-meta"><span class="card-distance">📍 Senibong Cove</span><span class="card-feature">✦ Completed</span></div>
   </div></a>
 
-<a href="properties/topaz-crest-austin.html" class="property-card" data-area="crest-austin" data-status="completed" data-tenure="leasehold" data-name="topaz crest austin" style="text-decoration:none;color:inherit">
+<a href="properties/topaz-crest-austin.html" class="property-card" data-city="johor-bahru" data-area="crest-austin" data-status="completed" data-tenure="leasehold" data-name="topaz crest austin" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://www.crestataustin.com.my/img/pages/home/features/feature-1/s.jpg') center/cover"><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Leasehold</span></div></div>
   <div class="card-body"><h3 class="card-title">Topaz Crest Austin</h3><p class="card-location">Crest Austin</p><p class="card-price">Price on Request</p>
     <div class="card-meta"><span class="card-distance">📍 Crest Austin</span><span class="card-feature">✦ Completed</span></div>
   </div></a>
 
-<a href="properties/bayou-residences-leisure-farm.html" class="property-card" data-area="leisure-farm" data-status="completed" data-tenure="leasehold" data-name="bayou residences leisure farm" style="text-decoration:none;color:inherit">
+<a href="properties/bayou-residences-leisure-farm.html" class="property-card" data-city="johor-bahru" data-area="leisure-farm" data-status="completed" data-tenure="leasehold" data-name="bayou residences leisure farm" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://www.leisurefarm.com.my/wp-content/uploads/2020/04/garden-home-1.jpg') center/cover"><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Leasehold</span></div></div>
   <div class="card-body"><h3 class="card-title">Bayou Residences Leisure Farm</h3><p class="card-location">Leisure Farm</p><p class="card-price">Price on Request</p>
     <div class="card-meta"><span class="card-distance">📍 Leisure Farm</span><span class="card-feature">✦ Completed</span></div>
   </div></a>
 
-<a href="properties/daya-1-residences-taman-daya.html" class="property-card" data-area="taman-daya" data-status="completed" data-tenure="leasehold" data-name="daya 1 residences taman daya" style="text-decoration:none;color:inherit">
+<a href="properties/daya-1-residences-taman-daya.html" class="property-card" data-city="johor-bahru" data-area="taman-daya" data-status="completed" data-tenure="leasehold" data-name="daya 1 residences taman daya" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://media.edgeprop.my/s3fs-public/editorial/my/2025/August/28/Daya%20CP.png') center/cover"><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Leasehold</span></div></div>
   <div class="card-body"><h3 class="card-title">Daya 1 Residences Taman Daya</h3><p class="card-location">Taman Daya</p><p class="card-price">Price on Request</p>
     <div class="card-meta"><span class="card-distance">📍 Taman Daya</span><span class="card-feature">✦ Completed</span></div>
   </div></a>
 
-<a href="properties/d-secret-garden-2-taman-kempas-indah.html" class="property-card" data-area="taman-kempas-indah" data-status="completed" data-tenure="leasehold" data-name="d secret garden 2 taman kempas indah" style="text-decoration:none;color:inherit">
+<a href="properties/d-secret-garden-2-taman-kempas-indah.html" class="property-card" data-city="johor-bahru" data-area="taman-kempas-indah" data-status="completed" data-tenure="leasehold" data-name="d secret garden 2 taman kempas indah" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://dsecretgarden2.com/wp-content/uploads/2025/04/ksl_2022-11-23291-1024x614.jpg') center/cover"><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Leasehold</span></div></div>
   <div class="card-body"><h3 class="card-title">D Secret Garden 2 Taman Kempas Indah</h3><p class="card-location">Taman Kempas Indah</p><p class="card-price">Price on Request</p>
     <div class="card-meta"><span class="card-distance">📍 Taman Kempas Indah</span><span class="card-feature">✦ Completed</span></div>
   </div></a>
 
-<a href="properties/lanna-eco-tropics.html" class="property-card" data-area="eco-tropics-pasir-gudang" data-status="completed" data-tenure="leasehold" data-name="lanna eco tropics" style="text-decoration:none;color:inherit">
+<a href="properties/lanna-eco-tropics.html" class="property-card" data-city="johor-bahru" data-area="eco-tropics-pasir-gudang" data-status="completed" data-tenure="leasehold" data-name="lanna eco tropics" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&h=600&fit=crop') center/cover"><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Leasehold</span></div></div>
   <div class="card-body"><h3 class="card-title">Lanna Eco Tropics</h3><p class="card-location">Eco Tropics Pasir Gudang</p><p class="card-price">Price on Request</p>
     <div class="card-meta"><span class="card-distance">📍 Eco Tropics Pasir Gudang</span><span class="card-feature">✦ Completed</span></div>
   </div></a>
 
-<a href="properties/bee-development-nusajaya.html" class="property-card" data-area="nusajaya" data-status="completed" data-tenure="leasehold" data-name="bee development nusajaya" style="text-decoration:none;color:inherit">
+<a href="properties/bee-development-nusajaya.html" class="property-card" data-city="johor-bahru" data-area="nusajaya" data-status="completed" data-tenure="leasehold" data-name="bee development nusajaya" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&h=600&fit=crop') center/cover"><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Leasehold</span></div></div>
   <div class="card-body"><h3 class="card-title">Bee Development Nusajaya</h3><p class="card-location">Nusajaya</p><p class="card-price">Price on Request</p>
     <div class="card-meta"><span class="card-distance">📍 Nusajaya</span><span class="card-feature">✦ Completed</span></div>
   </div></a>
 
-<a href="properties/fraser-heights-gelang-patah.html" class="property-card" data-area="gelang-patah" data-status="completed" data-tenure="leasehold" data-name="fraser heights gelang patah" style="text-decoration:none;color:inherit">
+<a href="properties/fraser-heights-gelang-patah.html" class="property-card" data-city="johor-bahru" data-area="gelang-patah" data-status="completed" data-tenure="leasehold" data-name="fraser heights gelang patah" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://www.johorprojects.com/wp-content/uploads/2025/06/FraserHeights1-1024x576.jpeg') center/cover"><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Leasehold</span></div></div>
   <div class="card-body"><h3 class="card-title">Fraser Heights Gelang Patah</h3><p class="card-location">Gelang Patah</p><p class="card-price">Price on Request</p>
     <div class="card-meta"><span class="card-distance">📍 Gelang Patah</span><span class="card-feature">✦ Completed</span></div>
   </div></a>
 
-<a href="properties/isola-coast-senibong-cove.html" class="property-card" data-area="senibong-cove" data-status="completed" data-tenure="leasehold" data-name="isola coast senibong cove" style="text-decoration:none;color:inherit">
+<a href="properties/isola-coast-senibong-cove.html" class="property-card" data-city="johor-bahru" data-area="senibong-cove" data-status="completed" data-tenure="leasehold" data-name="isola coast senibong cove" style="text-decoration:none;color:inherit">
   <div class="card-image" style="background:url('https://cdn1.npcdn.net/npimg/ddd72c9e381ee92b4ee2bf7ad039d4fe_1758047760.webp') center/cover"><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Leasehold</span></div></div>
   <div class="card-body"><h3 class="card-title">Isola Coast Senibong Cove</h3><p class="card-location">Senibong Cove</p><p class="card-price">Price on Request</p>
     <div class="card-meta"><span class="card-distance">📍 Senibong Cove</span><span class="card-feature">✦ Completed</span></div>
+  </div></a>
+
+<!-- KUALA LUMPUR PROPERTIES -->
+
+<a href="#" class="property-card" data-city="kuala-lumpur" data-area="klcc" data-status="new-launch" data-tenure="leasehold" data-name="the exchange 106 klcc" style="text-decoration:none;color:inherit">
+  <div class="card-image" style="background:url('https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=600&h=400&fit=crop') center/cover"><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Leasehold</span></div></div>
+  <div class="card-body"><h3 class="card-title">The Exchange 106 KLCC</h3><p class="card-location">KLCC, Kuala Lumpur</p><p class="card-price">From RM1,200,000</p>
+    <div class="card-meta"><span class="card-distance">📍 KLCC</span><span class="card-feature">✦ New Launch</span></div>
+  </div></a>
+
+<a href="#" class="property-card" data-city="kuala-lumpur" data-area="mont-kiara" data-status="completed" data-tenure="freehold" data-name="arcoris mont kiara" style="text-decoration:none;color:inherit">
+  <div class="card-image" style="background:url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&h=400&fit=crop') center/cover"><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Freehold</span></div></div>
+  <div class="card-body"><h3 class="card-title">Arcoris Mont Kiara</h3><p class="card-location">Mont Kiara, Kuala Lumpur</p><p class="card-price">From RM980,000</p>
+    <div class="card-meta"><span class="card-distance">📍 Mont Kiara</span><span class="card-feature">✦ Completed</span></div>
+  </div></a>
+
+<a href="#" class="property-card" data-city="kuala-lumpur" data-area="bangsar-south" data-status="new-launch" data-tenure="leasehold" data-name="the horizon bangsar south" style="text-decoration:none;color:inherit">
+  <div class="card-image" style="background:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop') center/cover"><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Leasehold</span></div></div>
+  <div class="card-body"><h3 class="card-title">The Horizon Bangsar South</h3><p class="card-location">Bangsar South, Kuala Lumpur</p><p class="card-price">From RM850,000</p>
+    <div class="card-meta"><span class="card-distance">📍 Bangsar South</span><span class="card-feature">✦ New Launch</span></div>
+  </div></a>
+
+<a href="#" class="property-card" data-city="kuala-lumpur" data-area="bukit-bintang" data-status="new-launch" data-tenure="freehold" data-name="pavilion suites bukit bintang" style="text-decoration:none;color:inherit">
+  <div class="card-image" style="background:url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop') center/cover"><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
+  <div class="card-body"><h3 class="card-title">Pavilion Suites Bukit Bintang</h3><p class="card-location">Bukit Bintang, Kuala Lumpur</p><p class="card-price">From RM1,500,000</p>
+    <div class="card-meta"><span class="card-distance">📍 Bukit Bintang</span><span class="card-feature">✦ New Launch</span></div>
+  </div></a>
+
+<a href="#" class="property-card" data-city="kuala-lumpur" data-area="dutamas" data-status="completed" data-tenure="leasehold" data-name="nadi bangsar dutamas" style="text-decoration:none;color:inherit">
+  <div class="card-image" style="background:url('https://images.unsplash.com/photo-1567684014761-b65e2e59b9eb?w=600&h=400&fit=crop') center/cover"><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Leasehold</span></div></div>
+  <div class="card-body"><h3 class="card-title">Nadi Bangsar Dutamas</h3><p class="card-location">Dutamas, Kuala Lumpur</p><p class="card-price">From RM720,000</p>
+    <div class="card-meta"><span class="card-distance">📍 Dutamas</span><span class="card-feature">✦ Completed</span></div>
+  </div></a>
+
+<!-- PENANG PROPERTIES -->
+
+<a href="#" class="property-card" data-city="penang" data-area="gurney-drive" data-status="new-launch" data-tenure="freehold" data-name="the gurney residences gurney drive" style="text-decoration:none;color:inherit">
+  <div class="card-image" style="background:url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=400&fit=crop') center/cover"><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
+  <div class="card-body"><h3 class="card-title">The Gurney Residences</h3><p class="card-location">Gurney Drive, Penang</p><p class="card-price">From RM1,100,000</p>
+    <div class="card-meta"><span class="card-distance">📍 Gurney Drive</span><span class="card-feature">✦ New Launch</span></div>
+  </div></a>
+
+<a href="#" class="property-card" data-city="penang" data-area="tanjung-tokong" data-status="completed" data-tenure="freehold" data-name="the tamarind tanjung tokong" style="text-decoration:none;color:inherit">
+  <div class="card-image" style="background:url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&h=400&fit=crop') center/cover"><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Freehold</span></div></div>
+  <div class="card-body"><h3 class="card-title">The Tamarind Tanjung Tokong</h3><p class="card-location">Tanjung Tokong, Penang</p><p class="card-price">From RM780,000</p>
+    <div class="card-meta"><span class="card-distance">📍 Tanjung Tokong</span><span class="card-feature">✦ Completed</span></div>
+  </div></a>
+
+<a href="#" class="property-card" data-city="penang" data-area="batu-ferringhi" data-status="new-launch" data-tenure="freehold" data-name="angsana beachfront batu ferringhi" style="text-decoration:none;color:inherit">
+  <div class="card-image" style="background:url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&h=400&fit=crop') center/cover"><div class="card-badges"><span class="badge badge-gold">New Launch</span><span class="badge badge-outline">Freehold</span></div></div>
+  <div class="card-body"><h3 class="card-title">Angsana Beachfront Batu Ferringhi</h3><p class="card-location">Batu Ferringhi, Penang</p><p class="card-price">From RM950,000</p>
+    <div class="card-meta"><span class="card-distance">📍 Batu Ferringhi</span><span class="card-feature">✦ New Launch</span></div>
+  </div></a>
+
+<a href="#" class="property-card" data-city="penang" data-area="george-town" data-status="completed" data-tenure="leasehold" data-name="the light waterfront george town" style="text-decoration:none;color:inherit">
+  <div class="card-image" style="background:url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=600&h=400&fit=crop') center/cover"><div class="card-badges"><span class="badge badge-green">Completed</span><span class="badge badge-outline">Leasehold</span></div></div>
+  <div class="card-body"><h3 class="card-title">The Light Waterfront George Town</h3><p class="card-location">George Town, Penang</p><p class="card-price">From RM650,000</p>
+    <div class="card-meta"><span class="card-distance">📍 George Town</span><span class="card-feature">✦ Completed</span></div>
   </div></a>
 
 </div>
@@ -555,7 +589,50 @@ document.addEventListener('keydown', function(e){
   if(e.key === 'Escape') closeSidebar();
 });
 
+var areasByCity={
+  '':[],
+  'johor-bahru':[
+    {v:'bayu-puteri',l:'Bayu Puteri'},{v:'bukit-chagar',l:'Bukit Chagar'},{v:'bukit-senyum',l:'Bukit Senyum'},
+    {v:'country-garden',l:'Country Garden'},{v:'crest-austin',l:'Crest Austin'},{v:'danga-bay',l:'Danga Bay'},
+    {v:'eco-tropics-pasir-gudang',l:'Eco Tropics'},{v:'forest-city',l:'Forest City'},
+    {v:'forest-city-iskandar-puteri',l:'Forest City Iskandar Puteri'},{v:'gelang-patah',l:'Gelang Patah'},
+    {v:'iskandar-puteri',l:'Iskandar Puteri'},{v:'jalan-yahya-awal',l:'Jalan Yahya Awal'},
+    {v:'jln-abdul-samad',l:'Jln Abdul Samad'},{v:'leisure-farm',l:'Leisure Farm'},
+    {v:'lido-waterfront-boulevard',l:'Lido Waterfront'},{v:'mbw-city',l:'MBW City'},
+    {v:'medini-iskandar-puteri',l:'Medini'},{v:'nusajaya',l:'Nusajaya'},
+    {v:'pasir-gudang',l:'Pasir Gudang'},{v:'permas-jaya',l:'Permas Jaya'},
+    {v:'puteri-harbour',l:'Puteri Harbour'},{v:'senibong-cove',l:'Senibong Cove'},
+    {v:'southkey',l:'Southkey'},{v:'taman-daya',l:'Taman Daya'},
+    {v:'taman-kempas-indah',l:'Taman Kempas Indah'},{v:'taman-pelangi',l:'Taman Pelangi'},
+    {v:'taman-ponderosa',l:'Taman Ponderosa'},{v:'taman-sentosa',l:'Taman Sentosa'},
+    {v:'taman-suria',l:'Taman Suria'}
+  ],
+  'kuala-lumpur':[
+    {v:'klcc',l:'KLCC'},{v:'mont-kiara',l:'Mont Kiara'},{v:'bangsar-south',l:'Bangsar South'},
+    {v:'bukit-bintang',l:'Bukit Bintang'},{v:'dutamas',l:'Dutamas'}
+  ],
+  'penang':[
+    {v:'gurney-drive',l:'Gurney Drive'},{v:'tanjung-tokong',l:'Tanjung Tokong'},
+    {v:'batu-ferringhi',l:'Batu Ferringhi'},{v:'george-town',l:'George Town'}
+  ]
+};
+
+function updateAreaFilter(){
+  var city=document.getElementById('filter-city').value;
+  var sel=document.getElementById('filter-area');
+  sel.innerHTML='<option value="">All Areas</option>';
+  var areas=city?areasByCity[city]||[]:Object.values(areasByCity).flat();
+  areas.forEach(function(a){
+    sel.innerHTML+='<option value="'+a.v+'">'+a.l+'</option>';
+  });
+  sel.value='';
+}
+
+// Initialize area filter on load
+updateAreaFilter();
+
 function filterProperties(){
+  var city=document.getElementById('filter-city').value;
   var a=document.getElementById('filter-area').value;
   var p=document.getElementById('filter-price').value;
   var s=document.getElementById('filter-status').value;
@@ -565,19 +642,22 @@ function filterProperties(){
   var cards=document.querySelectorAll('.property-card');
   var vis=0;
   cards.forEach(function(c){
+    var mc=!city||c.dataset.city===city;
     var ma=!a||c.dataset.area===a;
     var mp=!p||c.dataset.price===p;
     var ms=!s||c.dataset.status===s;
     var mt=!t||c.dataset.tenure===t;
     var md=!d||c.dataset.distance===d;
     var mq=!q||c.dataset.name.indexOf(q)!==-1;
-    if(ma&&mp&&ms&&mt&&md&&mq){c.style.display='';vis++}
+    if(mc&&ma&&mp&&ms&&mt&&md&&mq){c.style.display='';vis++}
     else{c.style.display='none'}
   });
   document.getElementById('results-count').textContent='Showing '+vis+' of '+cards.length+' properties';
   document.getElementById('no-results').style.display=vis===0?'block':'none';
 }
 function clearFilters(){
+  document.getElementById('filter-city').value='';
+  updateAreaFilter();
   document.getElementById('filter-area').value='';
   document.getElementById('filter-price').value='';
   document.getElementById('filter-status').value='';
