@@ -451,81 +451,15 @@ img{display:block;max-width:100%}
       <div id="nearbyMap" class="map-container"></div>
       <link href="https://unpkg.com/maplibre-gl@4.1.2/dist/maplibre-gl.css" rel="stylesheet">
       <script src="https://unpkg.com/maplibre-gl@4.1.2/dist/maplibre-gl.js"></script>
+      <style>.map-marker{font-size:22px;cursor:pointer;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.35));transition:transform 0.2s;line-height:1}.map-marker:hover{transform:scale(1.4)}</style>
       <div class="nearby-tabs">
-        <button class="nearby-tab active" onclick="switchNearby(this, 'nearbyTransit')">Transit</button>
-        <button class="nearby-tab" onclick="switchNearby(this, 'nearbyBus')">Bus</button>
-        <button class="nearby-tab" onclick="switchNearby(this, 'nearbySchools')">Schools</button>
-        <button class="nearby-tab" onclick="switchNearby(this, 'nearbyClinic')">Clinics</button>
-        <button class="nearby-tab" onclick="switchNearby(this, 'nearbyShops')">Shopping</button>
+        <button class="nearby-tab active" onclick="filterNearby('transit',this)">Transit</button>
+        <button class="nearby-tab" onclick="filterNearby('bus',this)">Bus</button>
+        <button class="nearby-tab" onclick="filterNearby('schools',this)">Schools</button>
+        <button class="nearby-tab" onclick="filterNearby('clinics',this)">Clinics</button>
+        <button class="nearby-tab" onclick="filterNearby('shopping',this)">Shopping</button>
       </div>
-      <div class="nearby-panel active" id="nearbyTransit">
-        <ul class="nearby-list">
-          <li class="nearby-item">
-            <div class="nearby-item-left"><div class="ni-icon">🚄</div><div><div class="ni-name">CIQ / RTS Link Station</div><div class="ni-type">Rail Transit</div></div></div>
-            <span class="nearby-dist">1.0 km</span>
-          </li>
-          <li class="nearby-item">
-            <div class="nearby-item-left"><div class="ni-icon">🚆</div><div><div class="ni-name">JB Sentral</div><div class="ni-type">KTM Station</div></div></div>
-            <span class="nearby-dist">1.2 km</span>
-          </li>
-          <li class="nearby-item">
-            <div class="nearby-item-left"><div class="ni-icon">🇸🇬</div><div><div class="ni-name">Singapore (via CIQ)</div><div class="ni-type">International</div></div></div>
-            <span class="nearby-dist">15 min</span>
-          </li>
-        </ul>
-      </div>
-      <div class="nearby-panel" id="nearbyBus">
-        <ul class="nearby-list">
-          <li class="nearby-item">
-            <div class="nearby-item-left"><div class="ni-icon">🚌</div><div><div class="ni-name">Kotaraya Bus Terminal</div><div class="ni-type">Bus Terminal</div></div></div>
-            <span class="nearby-dist">800m</span>
-          </li>
-          <li class="nearby-item">
-            <div class="nearby-item-left"><div class="ni-icon">🚌</div><div><div class="ni-name">Larkin Sentral</div><div class="ni-type">Bus Terminal</div></div></div>
-            <span class="nearby-dist">5 km</span>
-          </li>
-        </ul>
-      </div>
-      <div class="nearby-panel" id="nearbySchools">
-        <ul class="nearby-list">
-          <li class="nearby-item">
-            <div class="nearby-item-left"><div class="ni-icon">🎓</div><div><div class="ni-name">Foon Yew High School</div><div class="ni-type">Secondary School</div></div></div>
-            <span class="nearby-dist">1.5 km</span>
-          </li>
-          <li class="nearby-item">
-            <div class="nearby-item-left"><div class="ni-icon">🎓</div><div><div class="ni-name">Sultan Ibrahim Primary School</div><div class="ni-type">Primary School</div></div></div>
-            <span class="nearby-dist">2.0 km</span>
-          </li>
-        </ul>
-      </div>
-      <div class="nearby-panel" id="nearbyClinic">
-        <ul class="nearby-list">
-          <li class="nearby-item">
-            <div class="nearby-item-left"><div class="ni-icon">🏥</div><div><div class="ni-name">KPJ Johor Specialist Hospital</div><div class="ni-type">Private Hospital</div></div></div>
-            <span class="nearby-dist">3.0 km</span>
-          </li>
-          <li class="nearby-item">
-            <div class="nearby-item-left"><div class="ni-icon">🏥</div><div><div class="ni-name">Klinik Kesihatan Bandar</div><div class="ni-type">Government Clinic</div></div></div>
-            <span class="nearby-dist">1.8 km</span>
-          </li>
-        </ul>
-      </div>
-      <div class="nearby-panel" id="nearbyShops">
-        <ul class="nearby-list">
-          <li class="nearby-item">
-            <div class="nearby-item-left"><div class="ni-icon">🛍️</div><div><div class="ni-name">City Square Mall</div><div class="ni-type">Shopping Mall</div></div></div>
-            <span class="nearby-dist">500m</span>
-          </li>
-          <li class="nearby-item">
-            <div class="nearby-item-left"><div class="ni-icon">🛍️</div><div><div class="ni-name">KSL City Mall</div><div class="ni-type">Shopping Mall</div></div></div>
-            <span class="nearby-dist">3.5 km</span>
-          </li>
-          <li class="nearby-item">
-            <div class="nearby-item-left"><div class="ni-icon">🏪</div><div><div class="ni-name">KOMTAR JBCC</div><div class="ni-type">Shopping Mall</div></div></div>
-            <span class="nearby-dist">1.0 km</span>
-          </li>
-        </ul>
-      </div>
+      <div id="nearbyList"></div>
     </div>
 
     <!-- Virtual Tour -->
@@ -705,13 +639,78 @@ function switchUnit(tab, panelId){
   document.getElementById(panelId).classList.add('active');
 }
 
-// Nearby tabs
-function switchNearby(tab, panelId){
-  document.querySelectorAll('.nearby-tab').forEach(function(t){ t.classList.remove('active'); });
-  document.querySelectorAll('.nearby-panel').forEach(function(p){ p.classList.remove('active'); });
-  tab.classList.add('active');
-  document.getElementById(panelId).classList.add('active');
+// ─── NEARBY POI DATA (within 5km of R&F Princess Cove Ph2) ───
+var nearbyPOIs = [
+  // Transit
+  {name:'CIQ / RTS Link Station',type:'Rail Transit',cat:'transit',emoji:'🚄',lng:103.7644,lat:1.4469,dist:1.0,distStr:'1.0 km'},
+  {name:'JB Sentral',type:'KTM Station',cat:'transit',emoji:'🚆',lng:103.7631,lat:1.4613,dist:1.2,distStr:'1.2 km'},
+  {name:'Woodlands CIQ (Singapore)',type:'International Border',cat:'transit',emoji:'🇸🇬',lng:103.7710,lat:1.4480,dist:2.5,distStr:'15 min'},
+  // Bus
+  {name:'Kotaraya Bus Terminal',type:'Bus Terminal',cat:'bus',emoji:'🚌',lng:103.7590,lat:1.4620,dist:0.8,distStr:'800m'},
+  {name:'JB Sentral Bus Terminal',type:'Bus Terminal',cat:'bus',emoji:'🚌',lng:103.7635,lat:1.4610,dist:1.2,distStr:'1.2 km'},
+  {name:'Taman Sentosa Bus Stop',type:'Bus Stop',cat:'bus',emoji:'🚏',lng:103.7550,lat:1.4750,dist:2.5,distStr:'2.5 km'},
+  {name:'Larkin Sentral',type:'Bus Terminal',cat:'bus',emoji:'🚌',lng:103.7440,lat:1.4830,dist:5.0,distStr:'5.0 km'},
+  // Schools
+  {name:'Foon Yew High School',type:'Secondary School',cat:'schools',emoji:'🎓',lng:103.7530,lat:1.4650,dist:1.5,distStr:'1.5 km'},
+  {name:'SK Sultan Ibrahim',type:'Primary School',cat:'schools',emoji:'🎓',lng:103.7570,lat:1.4690,dist:1.8,distStr:'1.8 km'},
+  {name:'Sultan Ibrahim Girls School',type:'Primary School',cat:'schools',emoji:'🎓',lng:103.7580,lat:1.4700,dist:2.0,distStr:'2.0 km'},
+  {name:'SMK Sultanah Aminah',type:'Secondary School',cat:'schools',emoji:'🎓',lng:103.7560,lat:1.4720,dist:2.3,distStr:'2.3 km'},
+  {name:'Fairview International School',type:'International School',cat:'schools',emoji:'🏫',lng:103.7500,lat:1.4800,dist:3.5,distStr:'3.5 km'},
+  {name:'St Joseph International School',type:'International School',cat:'schools',emoji:'🏫',lng:103.7480,lat:1.4850,dist:4.0,distStr:'4.0 km'},
+  {name:'Sunway College JB',type:'College',cat:'schools',emoji:'🎓',lng:103.7400,lat:1.4780,dist:4.5,distStr:'4.5 km'},
+  // Clinics & Hospitals
+  {name:'Klinik Kesihatan Bandar',type:'Government Clinic',cat:'clinics',emoji:'🏥',lng:103.7600,lat:1.4680,dist:1.8,distStr:'1.8 km'},
+  {name:'Hospital Sultanah Aminah',type:'Government Hospital',cat:'clinics',emoji:'🏥',lng:103.7580,lat:1.4720,dist:2.5,distStr:'2.5 km'},
+  {name:'KPJ Johor Specialist Hospital',type:'Private Hospital',cat:'clinics',emoji:'🏥',lng:103.7520,lat:1.4750,dist:3.0,distStr:'3.0 km'},
+  {name:'Klinik 1Malaysia Taman Pelangi',type:'Clinic',cat:'clinics',emoji:'⚕️',lng:103.7650,lat:1.4730,dist:3.2,distStr:'3.2 km'},
+  {name:'Columbia Asia Hospital',type:'Private Hospital',cat:'clinics',emoji:'🏥',lng:103.7450,lat:1.4800,dist:4.0,distStr:'4.0 km'},
+  {name:'Gleneagles Medini Hospital',type:'Private Hospital',cat:'clinics',emoji:'🏥',lng:103.6450,lat:1.4100,dist:4.8,distStr:'4.8 km'},
+  // Shopping
+  {name:'R&F Mall',type:'Shopping Mall',cat:'shopping',emoji:'🛍️',lng:103.7650,lat:1.4595,dist:0.2,distStr:'200m'},
+  {name:'City Square Mall',type:'Shopping Mall',cat:'shopping',emoji:'🛍️',lng:103.7620,lat:1.4610,dist:0.5,distStr:'500m'},
+  {name:'JB City Centre',type:'Commercial District',cat:'shopping',emoji:'🏬',lng:103.7610,lat:1.4620,dist:0.8,distStr:'800m'},
+  {name:'KOMTAR JBCC',type:'Shopping Mall',cat:'shopping',emoji:'🛍️',lng:103.7590,lat:1.4630,dist:1.0,distStr:'1.0 km'},
+  {name:'Paradigm Mall JB',type:'Shopping Mall',cat:'shopping',emoji:'🛍️',lng:103.7650,lat:1.4750,dist:2.8,distStr:'2.8 km'},
+  {name:'KSL City Mall',type:'Shopping Mall',cat:'shopping',emoji:'🛍️',lng:103.7570,lat:1.4750,dist:3.5,distStr:'3.5 km'},
+  {name:'Mid Valley Southkey',type:'Mega Mall',cat:'shopping',emoji:'🏬',lng:103.7800,lat:1.4720,dist:4.2,distStr:'4.2 km'},
+  {name:'Aeon Tebrau City',type:'Shopping Mall',cat:'shopping',emoji:'🛍️',lng:103.7800,lat:1.4700,dist:4.5,distStr:'4.5 km'}
+];
+
+var nearbyMarkers = [];
+var nearbyMap = null;
+var activeNearbyCategory = 'transit';
+
+function renderNearbyList(cat){
+  var items = nearbyPOIs.filter(function(p){ return p.cat === cat; }).sort(function(a,b){ return a.dist - b.dist; });
+  var html = '<ul class="nearby-list">';
+  items.forEach(function(p){
+    html += '<li class="nearby-item"><div class="nearby-item-left"><div class="ni-icon">' + p.emoji + '</div><div><div class="ni-name">' + p.name + '</div><div class="ni-type">' + p.type + '</div></div></div><span class="nearby-dist">' + p.distStr + '</span></li>';
+  });
+  html += '</ul>';
+  document.getElementById('nearbyList').innerHTML = html;
 }
+
+function filterNearby(cat, tab){
+  activeNearbyCategory = cat;
+  document.querySelectorAll('.nearby-tab').forEach(function(t){ t.classList.remove('active'); });
+  if(tab) tab.classList.add('active');
+  renderNearbyList(cat);
+  // Update markers
+  nearbyMarkers.forEach(function(m){ m.el.style.display = m.cat === cat ? '' : 'none'; });
+  // Fit bounds to visible markers
+  if(nearbyMap){
+    var visible = nearbyPOIs.filter(function(p){ return p.cat === cat; });
+    if(visible.length > 1){
+      var bounds = new maplibregl.LngLatBounds();
+      bounds.extend([103.7644,1.4600]); // property
+      visible.forEach(function(p){ bounds.extend([p.lng,p.lat]); });
+      nearbyMap.fitBounds(bounds, {padding:50,maxZoom:15,duration:600});
+    }
+  }
+}
+
+// Init nearby list on load
+renderNearbyList('transit');
 
 // Mortgage calculator
 function calcMortgage(){
@@ -756,26 +755,36 @@ function submitEnquiry(){
   document.getElementById('enqThanks').style.display = 'block';
 }
 
-// MapLibre init
+// MapLibre init with POI markers
 document.addEventListener('DOMContentLoaded', function(){
-  // Wait for maplibre to load
   function initMap(){
-    if(typeof maplibregl === 'undefined'){
-      setTimeout(initMap, 200);
-      return;
-    }
-    var map = new maplibregl.Map({
+    if(typeof maplibregl === 'undefined'){ setTimeout(initMap, 200); return; }
+    nearbyMap = new maplibregl.Map({
       container:'nearbyMap',
       style:'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
       center:[103.7644,1.4600],
       zoom:14,
       attributionControl:false
     });
+    // Property marker (gold)
     new maplibregl.Marker({color:'#c9a962'})
       .setLngLat([103.7644,1.4600])
       .setPopup(new maplibregl.Popup({offset:25}).setHTML('<strong>R&F Princess Cove Ph2</strong><br>Bukit Chagar, Johor'))
-      .addTo(map);
-    map.addControl(new maplibregl.NavigationControl(),'top-right');
+      .addTo(nearbyMap);
+    nearbyMap.addControl(new maplibregl.NavigationControl(),'top-right');
+    // Add POI emoji markers
+    nearbyPOIs.forEach(function(poi){
+      var el = document.createElement('div');
+      el.className = 'map-marker';
+      el.textContent = poi.emoji;
+      el.title = poi.name;
+      var marker = new maplibregl.Marker({element:el})
+        .setLngLat([poi.lng,poi.lat])
+        .setPopup(new maplibregl.Popup({offset:20,closeButton:false}).setHTML('<strong style="font-size:13px">' + poi.name + '</strong><br><span style="font-size:11px;color:#6b7280">' + poi.type + ' &bull; ' + poi.distStr + '</span>'))
+        .addTo(nearbyMap);
+      el.style.display = poi.cat === activeNearbyCategory ? '' : 'none';
+      nearbyMarkers.push({marker:marker, el:el, cat:poi.cat});
+    });
   }
   initMap();
 
