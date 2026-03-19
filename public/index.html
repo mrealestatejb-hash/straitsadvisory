@@ -359,13 +359,8 @@ document.addEventListener('DOMContentLoaded',function(){
       {name:'Isola Coast',loc:'Senibong Cove',price:'Price on Request',slug:'isola-coast-senibong-cove',lng:103.8220,lat:1.4510}
     ];
     listings.forEach(function(p){
-      var el=document.createElement('div');
-      el.style.cssText='width:32px;height:32px;background:#1a1a2e;border:2px solid #c9a962;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform 0.2s;box-shadow:0 2px 8px rgba(0,0,0,0.3)';
-      el.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="#c9a962"><path d="M3 13h1v7c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-7h1a1 1 0 00.7-1.7l-9-9a1 1 0 00-1.4 0l-9 9A1 1 0 003 13z"/></svg>';
-      el.onmouseenter=function(){this.style.transform='scale(1.3)'};
-      el.onmouseleave=function(){this.style.transform='scale(1)'};
-      var popup=new maplibregl.Popup({offset:20,className:'lm-popup'}).setHTML('<div class="p-name">'+p.name+'</div><div class="p-loc">📍 '+p.loc+'</div><div class="p-price">'+p.price+'</div><a class="p-link" href="properties/'+p.slug+'.html">View Details →</a>');
-      new maplibregl.Marker({element:el}).setLngLat([p.lng,p.lat]).setPopup(popup).addTo(map);
+      var popup=new maplibregl.Popup({offset:25,className:'lm-popup'}).setHTML('<div class="p-name">'+p.name+'</div><div class="p-loc">📍 '+p.loc+'</div><div class="p-price">'+p.price+'</div><a class="p-link" href="properties/'+p.slug+'.html">View Details →</a>');
+      new maplibregl.Marker({color:'#1a1a2e'}).setLngLat([p.lng,p.lat]).setPopup(popup).addTo(map);
     });
   }
   initListingsMap();
