@@ -671,18 +671,6 @@ function filterNearby(cat, tab){
   document.querySelectorAll('.nearby-tab').forEach(function(t){ t.classList.remove('active'); });
   if(tab) tab.classList.add('active');
   renderNearbyList(cat);
-  // Update markers
-  nearbyMarkers.forEach(function(m){ m.el.style.display = m.cat === cat ? '' : 'none'; });
-  // Fit bounds to visible markers
-  if(nearbyMap){
-    var visible = nearbyPOIs.filter(function(p){ return p.cat === cat; });
-    if(visible.length > 1){
-      var bounds = new maplibregl.LngLatBounds();
-      bounds.extend([103.7694,1.4588]); // property
-      visible.forEach(function(p){ bounds.extend([p.lng,p.lat]); });
-      nearbyMap.fitBounds(bounds, {padding:50,maxZoom:15,duration:600});
-    }
-  }
 }
 
 // Init nearby list on load
@@ -748,19 +736,6 @@ document.addEventListener('DOMContentLoaded', function(){
       .setPopup(new maplibregl.Popup({offset:25}).setHTML('<strong>R&F Princess Cove Ph2</strong><br>Bukit Chagar, Johor'))
       .addTo(nearbyMap);
     nearbyMap.addControl(new maplibregl.NavigationControl(),'top-right');
-    // Add POI emoji markers
-    nearbyPOIs.forEach(function(poi){
-      var el = document.createElement('div');
-      el.className = 'map-marker';
-      el.textContent = poi.emoji;
-      el.title = poi.name;
-      var marker = new maplibregl.Marker({element:el})
-        .setLngLat([poi.lng,poi.lat])
-        .setPopup(new maplibregl.Popup({offset:20,closeButton:false}).setHTML('<strong style="font-size:13px">' + poi.name + '</strong><br><span style="font-size:11px;color:#6b7280">' + poi.type + ' &bull; ' + poi.distStr + '</span>'))
-        .addTo(nearbyMap);
-      el.style.display = poi.cat === activeNearbyCategory ? '' : 'none';
-      nearbyMarkers.push({marker:marker, el:el, cat:poi.cat});
-    });
   }
   initMap();
 
