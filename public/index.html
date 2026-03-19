@@ -292,6 +292,86 @@ a{text-decoration:none;color:inherit}
     <p style="font-size:16px;color:#374151;line-height:1.8;max-width:750px;margin:0 auto;font-weight:400">As Malaysia’s most technologically advanced property consultancy, we bring together decades of experience enhanced by cutting-edge AI, real-time analytics and proprietary technology. We serve our clients with transparency and precision, no pressure tactics, just data-driven guidance tailored to your goals.</p>
   </div>
 </section>
+
+<!-- PROPERTY MAP -->
+<section style="padding:60px clamp(16px,4vw,48px);background:#fff">
+  <div style="max-width:1400px;margin:0 auto">
+    <h2 style="font-size:28px;font-weight:800;color:#1a1a2e;margin-bottom:8px;text-align:center">Explore Our Listings</h2>
+    <p style="font-size:15px;color:#6b7280;text-align:center;margin-bottom:24px">44 properties across Johor Bahru — click a pin for details</p>
+    <div id="listingsMap" style="width:100%;height:480px;border-radius:16px;overflow:hidden;border:1px solid #e5e7eb"></div>
+  </div>
+</section>
+<link href="https://unpkg.com/maplibre-gl@4.1.2/dist/maplibre-gl.css" rel="stylesheet">
+<script src="https://unpkg.com/maplibre-gl@4.1.2/dist/maplibre-gl.js"></script>
+<style>.lm-popup .maplibregl-popup-content{border-radius:12px;padding:14px 16px;box-shadow:0 4px 20px rgba(0,0,0,0.15);font-family:Inter,system-ui,sans-serif;min-width:200px}.lm-popup .p-name{font-size:15px;font-weight:700;color:#1a1a2e;margin-bottom:4px}.lm-popup .p-loc{font-size:12px;color:#6b7280;margin-bottom:8px}.lm-popup .p-price{font-size:14px;font-weight:700;color:#1a1a2e;margin-bottom:8px}.lm-popup .p-link{display:inline-block;padding:6px 14px;border-radius:6px;background:#1a1a2e;color:#fff;font-size:12px;font-weight:600;text-decoration:none;transition:background 0.2s}.lm-popup .p-link:hover{background:#c9a962}</style>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  function initListingsMap(){
+    if(typeof maplibregl==='undefined'){setTimeout(initListingsMap,200);return;}
+    var map=new maplibregl.Map({container:'listingsMap',style:'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',center:[103.72,1.46],zoom:11,attributionControl:false});
+    map.addControl(new maplibregl.NavigationControl(),'top-right');
+    var listings=[
+      {name:'R&F Princess Cove',loc:'Bukit Chagar',price:'From RM350K',slug:'rf-princess-cove',lng:103.7694,lat:1.4588},
+      {name:'R&F Princess Cove Ph2',loc:'Bukit Chagar',price:'From RM500K',slug:'rf-princess-cove-ph2-bukit-chagar',lng:103.7694,lat:1.4588},
+      {name:'CTC Skyone',loc:'Bukit Chagar',price:'From RM580K',slug:'ctc-skyone-bukit-chagar',lng:103.7680,lat:1.4610},
+      {name:'Majestic Gensphere',loc:'Bukit Chagar',price:'From RM530K',slug:'majestic-gensphere-bukit-chagar',lng:103.7670,lat:1.4620},
+      {name:'Exsim Causewayz',loc:'Bukit Chagar',price:'Price on Request',slug:'exsim-causewayz-bukit-chagar',lng:103.7660,lat:1.4630},
+      {name:'Summer Suites',loc:'Bukit Chagar',price:'From RM600K',slug:'summer-suites-bukit-chagar',lng:103.7675,lat:1.4615},
+      {name:'The Arden One',loc:'Bukit Senyum',price:'From RM1mil',slug:'the-arden-one-bukit-senyum',lng:103.7650,lat:1.4625},
+      {name:'The Astaka One',loc:'Bukit Senyum',price:'From RM2.5mil',slug:'the-astaka-one-bukit-senyum',lng:103.7645,lat:1.4620},
+      {name:'Paragon Signature Suites',loc:'Jln Abdul Samad',price:'From RM450K',slug:'paragon-signature-suites-jln-abdul-samad',lng:103.7600,lat:1.4640},
+      {name:'M Grand Minori',loc:'Taman Pelangi',price:'Price on Request',slug:'m-grand-minori-taman-pelangi',lng:103.7680,lat:1.4750},
+      {name:'Maxim The Address',loc:'Taman Pelangi',price:'Price on Request',slug:'maxim-the-address-taman-pelangi',lng:103.7690,lat:1.4760},
+      {name:'Skypark Kepler',loc:'Lido Waterfront',price:'Price on Request',slug:'skypark-kepler-lido-waterfront-boulevard',lng:103.7550,lat:1.4580},
+      {name:'Sunway Majestic Ara',loc:'Jln Yahya Awal',price:'Price on Request',slug:'sunway-majestic-ara-soho',lng:103.7570,lat:1.4700},
+      {name:'Skyline One Sentosa',loc:'Taman Sentosa',price:'Price on Request',slug:'skyline-one-sentosa-taman-sentosa',lng:103.7480,lat:1.4550},
+      {name:'Paragon Gateway',loc:'Taman Suria',price:'Price on Request',slug:'paragon-gateway-taman-suria',lng:103.7800,lat:1.4850},
+      {name:'Country Garden Danga Bay',loc:'Danga Bay',price:'Price on Request',slug:'country-garden-danga-bay',lng:103.7350,lat:1.4680},
+      {name:'MBW Bay',loc:'Danga Bay',price:'Price on Request',slug:'mbw-bay-danga-bay',lng:103.7320,lat:1.4690},
+      {name:'Paragon Calia',loc:'Danga Bay',price:'Price on Request',slug:'paragon-calia-danga-bay',lng:103.7340,lat:1.4700},
+      {name:'Parkland by the River',loc:'Permas Jaya',price:'Price on Request',slug:'parkland-by-the-river-permas',lng:103.8100,lat:1.4550},
+      {name:'Straits View Duo',loc:'Permas Jaya',price:'Price on Request',slug:'the-straits-view-duo-permas-jaya',lng:103.8120,lat:1.4540},
+      {name:'Ponderosa Regency',loc:'Taman Ponderosa',price:'Price on Request',slug:'ponderosa-regency',lng:103.7750,lat:1.4800},
+      {name:'Elysia Park',loc:'Medini',price:'Price on Request',slug:'elysia-park-medini',lng:103.6380,lat:1.4200},
+      {name:'The M Macrolink',loc:'Medini',price:'Price on Request',slug:'the-m-macrolink-medini',lng:103.6360,lat:1.4190},
+      {name:'Southern Marina',loc:'Puteri Harbour',price:'Price on Request',slug:'southern-marina-puteri-harbour',lng:103.6450,lat:1.4100},
+      {name:'Puteri Cove',loc:'Puteri Harbour',price:'Price on Request',slug:'puteri-cove-residences-puteri-harbour',lng:103.6440,lat:1.4090},
+      {name:'Nadi Residence',loc:'Southkey',price:'Price on Request',slug:'nadi-residence-southkey',lng:103.7774,lat:1.5010},
+      {name:'Suria Hill',loc:'Iskandar Puteri',price:'Price on Request',slug:'suria-hill-iskandar-puteri',lng:103.6500,lat:1.4300},
+      {name:'Nigella Park',loc:'Forest City',price:'Price on Request',slug:'nigella-park-forest-city-sfz',lng:103.6200,lat:1.3580},
+      {name:'Golf Villa',loc:'Forest City',price:'Price on Request',slug:'golf-villa-forest-city-sfz',lng:103.6180,lat:1.3560},
+      {name:'Avenue MBW City',loc:'MBW City',price:'Price on Request',slug:'avenue-mbw-city',lng:103.7400,lat:1.4720},
+      {name:'Veranda MBW City',loc:'MBW City',price:'Price on Request',slug:'veranda-mbw-city',lng:103.7410,lat:1.4730},
+      {name:'Trellis MBW City',loc:'MBW City',price:'Price on Request',slug:'trellis-mbw-city',lng:103.7420,lat:1.4710},
+      {name:'Marina Residence',loc:'Bayu Puteri',price:'Price on Request',slug:'marina-residence-bayu-puteri',lng:103.7900,lat:1.4650},
+      {name:'Central Park',loc:'Country Garden',price:'Price on Request',slug:'central-park-country-garden',lng:103.7360,lat:1.4670},
+      {name:'Ascent Park',loc:'Iskandar Puteri',price:'Price on Request',slug:'ascent-park-iskandar-puteri',lng:103.6480,lat:1.4250},
+      {name:'Carnelian Tower',loc:'Forest City',price:'Price on Request',slug:'carnelian-tower-forest-city-sfz',lng:103.6210,lat:1.3590},
+      {name:'Meridin East',loc:'Pasir Gudang',price:'Price on Request',slug:'meridin-east',lng:103.8880,lat:1.4580},
+      {name:'Senibong Kews',loc:'Senibong Cove',price:'Price on Request',slug:'senibong-kews',lng:103.8200,lat:1.4500},
+      {name:'Topaz Crest Austin',loc:'Austin',price:'Price on Request',slug:'topaz-crest-austin',lng:103.7830,lat:1.4770},
+      {name:'Bayou Residences',loc:'Leisure Farm',price:'Price on Request',slug:'bayou-residences-leisure-farm',lng:103.6100,lat:1.3800},
+      {name:'Daya 1 Residences',loc:'Taman Daya',price:'Price on Request',slug:'daya-1-residences-taman-daya',lng:103.8050,lat:1.4600},
+      {name:'D Secret Garden 2',loc:'Taman Kempas',price:'Price on Request',slug:'d-secret-garden-2-taman-kempas-indah',lng:103.7200,lat:1.5100},
+      {name:'Lanna Eco Tropics',loc:'Pasir Gudang',price:'Price on Request',slug:'lanna-eco-tropics',lng:103.8900,lat:1.4700},
+      {name:'Bee Development',loc:'Nusajaya',price:'Price on Request',slug:'bee-development-nusajaya',lng:103.6500,lat:1.4250},
+      {name:'Fraser Heights',loc:'Gelang Patah',price:'Price on Request',slug:'fraser-heights-gelang-patah',lng:103.6200,lat:1.3900},
+      {name:'Isola Coast',loc:'Senibong Cove',price:'Price on Request',slug:'isola-coast-senibong-cove',lng:103.8220,lat:1.4510}
+    ];
+    listings.forEach(function(p){
+      var el=document.createElement('div');
+      el.style.cssText='width:32px;height:32px;background:#1a1a2e;border:2px solid #c9a962;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform 0.2s;box-shadow:0 2px 8px rgba(0,0,0,0.3)';
+      el.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="#c9a962"><path d="M3 13h1v7c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-7h1a1 1 0 00.7-1.7l-9-9a1 1 0 00-1.4 0l-9 9A1 1 0 003 13z"/></svg>';
+      el.onmouseenter=function(){this.style.transform='scale(1.3)'};
+      el.onmouseleave=function(){this.style.transform='scale(1)'};
+      var popup=new maplibregl.Popup({offset:20,className:'lm-popup'}).setHTML('<div class="p-name">'+p.name+'</div><div class="p-loc">📍 '+p.loc+'</div><div class="p-price">'+p.price+'</div><a class="p-link" href="properties/'+p.slug+'.html">View Details →</a>');
+      new maplibregl.Marker({element:el}).setLngLat([p.lng,p.lat]).setPopup(popup).addTo(map);
+    });
+  }
+  initListingsMap();
+});
+</script>
+
 <!-- FILTERS -->
 <section class="filters-section" id="properties">
   <div class="search-row">
