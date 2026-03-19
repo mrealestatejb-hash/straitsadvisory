@@ -306,8 +306,7 @@ img{display:block;max-width:100%}
     Bukit Chagar, Johor
   </p>
   <div class="hero-price">
-    <span class="price-main">From RM5xxk</span>
-    <span class="price-alt">&asymp; S$149K SGD</span>
+    <span class="price-main" id="heroPrice">RM500,000 — RM1,500,000</span>
   </div>
 </div>
 
@@ -581,6 +580,39 @@ img{display:block;max-width:100%}
 
 <!-- SCRIPTS -->
 <script>
+// ─── GEO-BASED CURRENCY CONVERSION ───
+var PROPERTY_PRICE_MIN = 500000; // RM
+var PROPERTY_PRICE_MAX = 1500000; // RM
+var rates = {MYR:1, SGD:0.298, USD:0.222, CNY:1.608, GBP:0.176, AUD:0.344, HKD:1.733, INR:18.61, JPY:33.5, EUR:0.204};
+var symbols = {MYR:'RM', SGD:'S$', USD:'US$', CNY:'¥', GBP:'£', AUD:'A$', HKD:'HK$', INR:'₹', JPY:'¥', EUR:'€'};
+var countryToCurrency = {SG:'SGD',US:'USD',GB:'GBP',AU:'AUD',CN:'CNY',HK:'HKD',IN:'INR',JP:'JPY',DE:'EUR',FR:'EUR',MY:'MYR'};
+
+function formatPrice(amount, currency) {
+  var sym = symbols[currency] || currency + ' ';
+  if (amount >= 1000000) return sym + (amount/1000000).toFixed(2) + 'M';
+  if (amount >= 1000) return sym + Math.round(amount).toLocaleString();
+  return sym + amount;
+}
+
+function convertAndDisplay(currency) {
+  var rate = rates[currency] || rates.MYR;
+  var min = Math.round(PROPERTY_PRICE_MIN * rate);
+  var max = Math.round(PROPERTY_PRICE_MAX * rate);
+  var display = formatPrice(min, currency) + ' — ' + formatPrice(max, currency);
+  if (currency !== 'MYR') display += ' <span style="font-size:13px;color:#6b7280;font-weight:500">(RM' + PROPERTY_PRICE_MIN.toLocaleString() + ' — RM' + PROPERTY_PRICE_MAX.toLocaleString() + ')</span>';
+  document.getElementById('heroPrice').innerHTML = display;
+  // Also update Min. Entry in key info
+  var minEntry = document.querySelector('.key-info-item:last-child .key-info-val');
+  if (minEntry) minEntry.textContent = formatPrice(min, currency);
+}
+
+// Detect country via free geo API, fallback to MYR
+fetch('https://ipapi.co/json/').then(function(r){return r.json()}).then(function(d){
+  var cc = d.country_code || 'MY';
+  var cur = countryToCurrency[cc] || 'MYR';
+  convertAndDisplay(cur);
+}).catch(function(){ convertAndDisplay('MYR'); });
+
 // Virtual Tour
 function loadTour(){
   var container = document.getElementById('vtContainer');
