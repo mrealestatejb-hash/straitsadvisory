@@ -665,38 +665,26 @@ function switchUnit(tab, panelId){
 // ─── NEARBY POI DATA (within 5km of R&F Princess Cove Ph2) ───
 var nearbyPOIs = [
   // Transit
-  {name:'CIQ / RTS Link Station',type:'Rail Transit',cat:'transit',emoji:'🚄',lng:103.7644,lat:1.4469,dist:1.0,distStr:'1.0 km'},
-  {name:'JB Sentral',type:'KTM Station',cat:'transit',emoji:'🚆',lng:103.7631,lat:1.4613,dist:1.2,distStr:'1.2 km'},
-  {name:'Woodlands CIQ (Singapore)',type:'International Border',cat:'transit',emoji:'🇸🇬',lng:103.7710,lat:1.4480,dist:2.5,distStr:'15 min'},
+  {name:'Sultan Iskandar CIQ',type:'Immigration / RTS Link',cat:'transit',emoji:'🚄',lng:103.7670,lat:1.4654,dist:0.8,distStr:'800m'},
+  {name:'JB Sentral',type:'KTM Station',cat:'transit',emoji:'🚆',lng:103.7588,lat:1.4575,dist:1.4,distStr:'1.4 km'},
+  {name:'Woodlands Checkpoint (SG)',type:'International Border',cat:'transit',emoji:'🇸🇬',lng:103.7686,lat:1.4456,dist:1.5,distStr:'15 min'},
   // Bus
-  {name:'Kotaraya Bus Terminal',type:'Bus Terminal',cat:'bus',emoji:'🚌',lng:103.7590,lat:1.4620,dist:0.8,distStr:'800m'},
-  {name:'JB Sentral Bus Terminal',type:'Bus Terminal',cat:'bus',emoji:'🚌',lng:103.7635,lat:1.4610,dist:1.2,distStr:'1.2 km'},
-  {name:'Taman Sentosa Bus Stop',type:'Bus Stop',cat:'bus',emoji:'🚏',lng:103.7550,lat:1.4750,dist:2.5,distStr:'2.5 km'},
-  {name:'Larkin Sentral',type:'Bus Terminal',cat:'bus',emoji:'🚌',lng:103.7440,lat:1.4830,dist:5.0,distStr:'5.0 km'},
+  {name:'Kotaraya Bus Terminal',type:'Bus Terminal',cat:'bus',emoji:'🚌',lng:103.7615,lat:1.4616,dist:0.9,distStr:'900m'},
+  {name:'JB Sentral Bus Terminal',type:'Bus Terminal',cat:'bus',emoji:'🚌',lng:103.7592,lat:1.4571,dist:1.4,distStr:'1.4 km'},
+  {name:'Larkin Sentral',type:'Bus Terminal',cat:'bus',emoji:'🚌',lng:103.7426,lat:1.4957,dist:5.0,distStr:'5.0 km'},
   // Schools
-  {name:'Foon Yew High School',type:'Secondary School',cat:'schools',emoji:'🎓',lng:103.7530,lat:1.4650,dist:1.5,distStr:'1.5 km'},
-  {name:'SK Sultan Ibrahim',type:'Primary School',cat:'schools',emoji:'🎓',lng:103.7570,lat:1.4690,dist:1.8,distStr:'1.8 km'},
-  {name:'Sultan Ibrahim Girls School',type:'Primary School',cat:'schools',emoji:'🎓',lng:103.7580,lat:1.4700,dist:2.0,distStr:'2.0 km'},
-  {name:'SMK Sultanah Aminah',type:'Secondary School',cat:'schools',emoji:'🎓',lng:103.7560,lat:1.4720,dist:2.3,distStr:'2.3 km'},
-  {name:'Fairview International School',type:'International School',cat:'schools',emoji:'🏫',lng:103.7500,lat:1.4800,dist:3.5,distStr:'3.5 km'},
-  {name:'St Joseph International School',type:'International School',cat:'schools',emoji:'🏫',lng:103.7480,lat:1.4850,dist:4.0,distStr:'4.0 km'},
-  {name:'Sunway College JB',type:'College',cat:'schools',emoji:'🎓',lng:103.7400,lat:1.4780,dist:4.5,distStr:'4.5 km'},
+  {name:'Foon Yew High School',type:'Secondary School',cat:'schools',emoji:'🎓',lng:103.7787,lat:1.4688,dist:1.5,distStr:'1.5 km'},
+  {name:'Fairview International School',type:'International School',cat:'schools',emoji:'🏫',lng:103.7948,lat:1.5414,dist:10,distStr:'10 km'},
   // Clinics & Hospitals
-  {name:'Klinik Kesihatan Bandar',type:'Government Clinic',cat:'clinics',emoji:'🏥',lng:103.7600,lat:1.4680,dist:1.8,distStr:'1.8 km'},
-  {name:'Hospital Sultanah Aminah',type:'Government Hospital',cat:'clinics',emoji:'🏥',lng:103.7580,lat:1.4720,dist:2.5,distStr:'2.5 km'},
-  {name:'KPJ Johor Specialist Hospital',type:'Private Hospital',cat:'clinics',emoji:'🏥',lng:103.7520,lat:1.4750,dist:3.0,distStr:'3.0 km'},
-  {name:'Klinik 1Malaysia Taman Pelangi',type:'Clinic',cat:'clinics',emoji:'⚕️',lng:103.7650,lat:1.4730,dist:3.2,distStr:'3.2 km'},
-  {name:'Columbia Asia Hospital',type:'Private Hospital',cat:'clinics',emoji:'🏥',lng:103.7450,lat:1.4800,dist:4.0,distStr:'4.0 km'},
-  {name:'Gleneagles Medini Hospital',type:'Private Hospital',cat:'clinics',emoji:'🏥',lng:103.6450,lat:1.4100,dist:4.8,distStr:'4.8 km'},
+  {name:'Hospital Sultanah Aminah',type:'Government Hospital',cat:'clinics',emoji:'🏥',lng:103.7460,lat:1.4586,dist:2.6,distStr:'2.6 km'},
+  {name:'KPJ Johor Specialist Hospital',type:'Private Hospital',cat:'clinics',emoji:'🏥',lng:103.7414,lat:1.4761,dist:3.5,distStr:'3.5 km'},
   // Shopping
-  {name:'R&F Mall',type:'Shopping Mall',cat:'shopping',emoji:'🛍️',lng:103.7650,lat:1.4595,dist:0.2,distStr:'200m'},
-  {name:'City Square Mall',type:'Shopping Mall',cat:'shopping',emoji:'🛍️',lng:103.7620,lat:1.4610,dist:0.5,distStr:'500m'},
-  {name:'JB City Centre',type:'Commercial District',cat:'shopping',emoji:'🏬',lng:103.7610,lat:1.4620,dist:0.8,distStr:'800m'},
-  {name:'KOMTAR JBCC',type:'Shopping Mall',cat:'shopping',emoji:'🛍️',lng:103.7590,lat:1.4630,dist:1.0,distStr:'1.0 km'},
-  {name:'Paradigm Mall JB',type:'Shopping Mall',cat:'shopping',emoji:'🛍️',lng:103.7650,lat:1.4750,dist:2.8,distStr:'2.8 km'},
-  {name:'KSL City Mall',type:'Shopping Mall',cat:'shopping',emoji:'🛍️',lng:103.7570,lat:1.4750,dist:3.5,distStr:'3.5 km'},
-  {name:'Mid Valley Southkey',type:'Mega Mall',cat:'shopping',emoji:'🏬',lng:103.7800,lat:1.4720,dist:4.2,distStr:'4.2 km'},
-  {name:'Aeon Tebrau City',type:'Shopping Mall',cat:'shopping',emoji:'🛍️',lng:103.7800,lat:1.4700,dist:4.5,distStr:'4.5 km'}
+  {name:'R&F Mall',type:'Shopping Mall',cat:'shopping',emoji:'🛍️',lng:103.7690,lat:1.4592,dist:0.1,distStr:'100m'},
+  {name:'City Square JB',type:'Shopping Mall',cat:'shopping',emoji:'🛍️',lng:103.7638,lat:1.4616,dist:0.7,distStr:'700m'},
+  {name:'KOMTAR JBCC',type:'Shopping Mall',cat:'shopping',emoji:'🛍️',lng:103.7630,lat:1.4634,dist:0.9,distStr:'900m'},
+  {name:'KSL City Mall',type:'Shopping Mall',cat:'shopping',emoji:'🛍️',lng:103.7624,lat:1.4855,dist:3.2,distStr:'3.2 km'},
+  {name:'Mid Valley Southkey',type:'Mega Mall',cat:'shopping',emoji:'🏬',lng:103.7774,lat:1.5010,dist:5.0,distStr:'5.0 km'},
+  {name:'Paradigm Mall JB',type:'Shopping Mall',cat:'shopping',emoji:'🛍️',lng:103.6858,lat:1.5152,dist:10,distStr:'10 km'}
 ];
 
 var nearbyMarkers = [];
@@ -725,7 +713,7 @@ function filterNearby(cat, tab){
     var visible = nearbyPOIs.filter(function(p){ return p.cat === cat; });
     if(visible.length > 1){
       var bounds = new maplibregl.LngLatBounds();
-      bounds.extend([103.7644,1.4600]); // property
+      bounds.extend([103.7694,1.4588]); // property
       visible.forEach(function(p){ bounds.extend([p.lng,p.lat]); });
       nearbyMap.fitBounds(bounds, {padding:50,maxZoom:15,duration:600});
     }
@@ -785,13 +773,13 @@ document.addEventListener('DOMContentLoaded', function(){
     nearbyMap = new maplibregl.Map({
       container:'nearbyMap',
       style:'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
-      center:[103.7644,1.4600],
+      center:[103.7694,1.4588],
       zoom:14,
       attributionControl:false
     });
     // Property marker (gold)
     new maplibregl.Marker({color:'#c9a962'})
-      .setLngLat([103.7644,1.4600])
+      .setLngLat([103.7694,1.4588])
       .setPopup(new maplibregl.Popup({offset:25}).setHTML('<strong>R&F Princess Cove Ph2</strong><br>Bukit Chagar, Johor'))
       .addTo(nearbyMap);
     nearbyMap.addControl(new maplibregl.NavigationControl(),'top-right');
