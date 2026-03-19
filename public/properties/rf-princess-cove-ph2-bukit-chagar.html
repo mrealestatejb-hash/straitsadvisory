@@ -583,9 +583,9 @@ img{display:block;max-width:100%}
 // ─── GEO-BASED CURRENCY CONVERSION ───
 var PROPERTY_PRICE_MIN = 500000; // RM
 var PROPERTY_PRICE_MAX = 1500000; // RM
-var rates = {MYR:1, SGD:0.298, USD:0.222, CNY:1.608, GBP:0.176, AUD:0.344, HKD:1.733, INR:18.61, JPY:33.5, EUR:0.204};
-var symbols = {MYR:'RM', SGD:'S$', USD:'US$', CNY:'¥', GBP:'£', AUD:'A$', HKD:'HK$', INR:'₹', JPY:'¥', EUR:'€'};
-var countryToCurrency = {SG:'SGD',US:'USD',GB:'GBP',AU:'AUD',CN:'CNY',HK:'HKD',IN:'INR',JP:'JPY',DE:'EUR',FR:'EUR',MY:'MYR'};
+var rates = {MYR:1, SGD:0.298, USD:0.222, CNY:1.608, GBP:0.176, AUD:0.344, HKD:1.733, INR:18.61, JPY:33.5, EUR:0.204, TWD:7.18};
+var symbols = {MYR:'RM', SGD:'S$', USD:'US$', CNY:'¥', GBP:'£', AUD:'A$', HKD:'HK$', INR:'₹', JPY:'¥', EUR:'€', TWD:'NT$'};
+var countryToCurrency = {SG:'SGD',US:'USD',GB:'GBP',AU:'AUD',CN:'CNY',HK:'HKD',IN:'INR',JP:'JPY',DE:'EUR',FR:'EUR',MY:'MYR',TW:'TWD'};
 
 function formatPrice(amount, currency) {
   var sym = symbols[currency] || currency + ' ';
