@@ -651,19 +651,6 @@ var layoutEmojis = {
 };
 
 // Facility emoji map
-var facilityEmojis = {
-  'Infinity Pool': '🏊', 'Swimming Pool': '🏊', 'Rooftop Pool': '🏊', 'Children Pool': '🏊',
-  'Sky Garden': '🌳', 'Landscaped Gardens': '🌳', 'Sky Lounge': '🌆',
-  'Gym': '🏋️', 'Gymnasium': '🏋️', 'Smart Gym': '🏋️',
-  'Tennis Court': '🎾', 'Yoga Deck': '🧘',
-  'Retail Mall': '🛍️', 'Co-working Space': '💻', 'Work Pods': '💻',
-  '24hr Security': '🛡️', '24-Hour Security': '🛡️',
-  'BBQ Area': '🍖', 'BBQ Pavilion': '🍖',
-  'Playground': '🎠', 'Covered Parking': '🚗',
-  'Function Hall': '🏛️', 'Co-living Lounge': '🛋️',
-  'EV Charging': '⚡', 'Bicycle Storage': '🚲',
-  'Pet Corner': '🐾', 'Package Lockers': '📦'
-};
 
 var currentPhase = 'overview';
 var tourLoaded = false;
@@ -714,16 +701,6 @@ function switchPhase(phaseKey, tabEl) {
   // Update layouts
   renderLayouts(data.layouts);
 
-  // Update facilities
-  if (data.facilities && data.facilities.length > 0) {
-    document.getElementById('facilitiesSection').style.display = '';
-    renderFacilities(data.facilities);
-  } else {
-    // Overview: show a combined set of notable facilities
-    document.getElementById('facilitiesSection').style.display = '';
-    renderFacilities(['Infinity Pool','Sky Garden','Gym','Tennis Court','Retail Mall','24hr Security','Co-working Space','Playground']);
-  }
-
   // Update virtual tour
   var vtSection = document.getElementById('vtSection');
   if (data.tourUrl) {
@@ -767,17 +744,6 @@ function renderLayouts(layouts) {
     } else {
       html += '<div class="fac-item"><span class="fac-icon">' + emoji + '</span><span class="fac-label">' + layout + '</span></div>';
     }
-  });
-  grid.innerHTML = html;
-}
-
-// ─── RENDER FACILITIES ───
-function renderFacilities(facilities) {
-  var grid = document.getElementById('facilitiesGrid');
-  var html = '';
-  facilities.forEach(function(fac) {
-    var emoji = facilityEmojis[fac] || '🏠';
-    html += '<div class="fac-item"><span class="fac-icon">' + emoji + '</span><span class="fac-label">' + fac + '</span></div>';
   });
   grid.innerHTML = html;
 }
@@ -939,9 +905,8 @@ function submitEnquiry() {
 
 // ─── INIT ───
 document.addEventListener('DOMContentLoaded', function() {
-  // Render initial layouts and facilities for overview
+  // Render initial layouts for overview
   renderLayouts(phases.overview.layouts);
-  renderFacilities(['Infinity Pool','Sky Garden','Gym','Tennis Court','Retail Mall','24hr Security','Co-working Space','Playground']);
 
   // Check URL hash for auto-selecting phase
   var hash = window.location.hash.replace('#', '');
