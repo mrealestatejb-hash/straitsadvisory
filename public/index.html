@@ -367,61 +367,17 @@ document.addEventListener('DOMContentLoaded',function(){
 });
 </script>
 
-<!-- FILTERS -->
-<section class="filters-section" id="properties">
-  <div class="search-row">
-    <div class="search-box">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><circle cx="11" cy="11" r="8"/><path stroke-linecap="round" d="m21 21-4.35-4.35"/></svg>
-      <input type="text" id="searchInput" placeholder="Search by name, location, or developer...">
-    </div>
-    <select class="sort-select" id="sortSelect">
-      <option value="default">Sort: Featured</option>
-      <option value="price-asc">Price: Low to High</option>
-      <option value="price-desc">Price: High to Low</option>
-      <option value="yield-desc">Yield: High to Low</option>
-      <option value="size-desc">Size: Largest</option>
-    </select>
+<!-- VIEW ALL PROPERTIES CTA -->
+<section style="padding:48px clamp(16px,4vw,48px);text-align:center;background:#f9fafb;border-top:1px solid #e5e7eb;border-bottom:1px solid #e5e7eb">
+  <div style="max-width:600px;margin:0 auto">
+    <h2 style="font-size:24px;font-weight:800;color:#1a1a2e;margin-bottom:10px">Browse All 44 Properties</h2>
+    <p style="font-size:15px;color:#6b7280;margin-bottom:24px;line-height:1.6">Explore our handpicked developments across Johor Bahru with filters, search, and detailed listings.</p>
+    <a href="buy.html" style="display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:50px;background:#1a1a2e;color:#fff;font-size:16px;font-weight:600;transition:all 0.25s;text-decoration:none">
+      View All Properties
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+    </a>
   </div>
-  <div style="max-width:1400px;margin:12px auto 0">
-    <div class="filter-pills" id="filterPills">
-      <button class="pill active" data-filter="all">All</button>
-      <button class="pill" data-filter="new-launch">New Launch</button>
-      <button class="pill" data-filter="completed">Completed</button>
-      <button class="pill" data-filter="freehold">Freehold</button>
-      <button class="pill" data-filter="condo">Condo</button>
-      <button class="pill" data-filter="landed">Landed</button>
-      <button class="pill" data-filter="seafront">Seafront</button>
-    </div>
-  </div>
-  <div class="results-count" id="resultsCount"></div>
 </section>
-
-<!-- GRID -->
-<section class="grid-section">
-  <div class="property-grid" id="propertyGrid"></div>
-</section>
-
-<!-- DETAIL PANEL -->
-<div class="detail-overlay" id="detailOverlay"></div>
-<div class="detail-panel" id="detailPanel">
-  <div class="detail-close">
-    <span style="font-size:14px;font-weight:600;color:var(--text-secondary)">Property Details</span>
-    <button onclick="closeDetail()" aria-label="Close">
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" d="M6 18 18 6M6 6l12 12"/></svg>
-    </button>
-  </div>
-  <div id="detailBody"></div>
-</div>
-<div class="detail-cta" id="detailCta">
-  <a class="cta-btn cta-whatsapp" id="ctaWhatsapp" href="#" target="_blank">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.138.562 4.145 1.543 5.888L0 24l6.304-1.654A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.97 0-3.837-.53-5.445-1.455l-.39-.232-4.047 1.062 1.08-3.946-.254-.404A9.715 9.715 0 0 1 2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/></svg>
-    WhatsApp
-  </a>
-  <a class="cta-btn cta-call" id="ctaCall" href="tel:+6581234567">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"/></svg>
-    Call Agent
-  </a>
-</div>
 
 <!-- FLOATING CTAs -->
 <div class="floating-cta" id="floatingCta">
@@ -456,229 +412,6 @@ document.addEventListener('DOMContentLoaded',function(){
 </footer>
 
 <script>
-// ─── PROPERTY DATA (fetched from API, fallback to empty) ───
-let properties = [];
-
-// Fetch properties from API on load
-fetch('/api/properties').then(r => r.json()).then(data => {
-  properties = (data.properties || []).map((p, i) => ({
-    id: i + 1,
-    name: p.name,
-    developer: p.developer,
-    location: p.location,
-    area: p.area,
-    type: p.type,
-    status: p.status,
-    tenure: p.tenure,
-    price: Math.round(p.priceRM / 3.35),
-    priceMax: p.priceMaxRM ? Math.round(p.priceMaxRM / 3.35) : null,
-    beds: p.beds,
-    baths: p.baths,
-    size: p.size,
-    yield: p.yieldPercent || 0,
-    rtsDistance: p.rtsDistance || '',
-    lat: p.lat || 0,
-    lng: p.lng || 0,
-    features: p.features || [],
-    gradient: p.gradient || 'linear-gradient(135deg,#1a1a2e,#16213e,#0f3460)',
-    desc: p.description || '',
-    amenities: p.amenities || [],
-  }));
-  renderCards();
-}).catch(() => { renderCards(); });
-
-// ─── GLOBALS ───
-let activeFilter = 'all';
-let searchTerm = '';
-let sortBy = 'default';
-
-// ─── RENDER CARDS ───
-function getStatusBadge(status) {
-  const map = {'new-launch':['New Launch','badge-launch'],'completed':['Completed','badge-completed'],'construction':['Under Construction','badge-construction']};
-  const s = map[status];
-  return s ? `<span class="badge ${s[1]}">${s[0]}</span>` : '';
-}
-
-function renderCards() {
-  let filtered = properties.filter(p => {
-    if (activeFilter === 'all') return true;
-    if (activeFilter === 'new-launch') return p.status === 'new-launch';
-    if (activeFilter === 'completed') return p.status === 'completed';
-    if (activeFilter === 'freehold') return p.tenure === 'freehold';
-    if (activeFilter === 'condo') return p.type === 'condo';
-    if (activeFilter === 'landed') return p.type === 'landed';
-    if (activeFilter === 'seafront') return p.features.includes('seafront');
-    return true;
-  });
-
-  if (searchTerm) {
-    const q = searchTerm.toLowerCase();
-    filtered = filtered.filter(p =>
-      p.name.toLowerCase().includes(q) ||
-      p.location.toLowerCase().includes(q) ||
-      p.developer.toLowerCase().includes(q) ||
-      p.area.toLowerCase().includes(q)
-    );
-  }
-
-  // Sort
-  if (sortBy === 'price-asc') filtered.sort((a, b) => a.price - b.price);
-  else if (sortBy === 'price-desc') filtered.sort((a, b) => b.price - a.price);
-  else if (sortBy === 'yield-desc') filtered.sort((a, b) => b.yield - a.yield);
-  else if (sortBy === 'size-desc') filtered.sort((a, b) => parseInt(b.size) - parseInt(a.size));
-
-  const grid = document.getElementById('propertyGrid');
-  document.getElementById('resultsCount').textContent = `${filtered.length} propert${filtered.length === 1 ? 'y' : 'ies'} found`;
-
-  if (filtered.length === 0) {
-    grid.innerHTML = `<div class="empty-state">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/></svg>
-      <h3>No properties found</h3>
-      <p>Try adjusting your search or filters</p>
-    </div>`;
-    return;
-  }
-
-  grid.innerHTML = filtered.map(p => `
-    <div class="card" onclick="openDetail(${p.id})">
-      <div class="card-img">
-        <div class="img-placeholder" style="background:${p.gradient}">${p.developer}</div>
-        <div class="card-badges">
-          ${getStatusBadge(p.status)}
-          ${p.tenure === 'freehold' ? '<span class="badge badge-freehold">Freehold</span>' : ''}
-          ${p.features.includes('seafront') ? '<span class="badge badge-seafront">Seafront</span>' : ''}
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="card-title">${p.name}</div>
-        <div class="card-location">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 0 1 15 0Z"/></svg>
-          ${p.location}
-        </div>
-        <div class="card-details">
-          <div class="card-detail">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
-            ${p.beds} Bed
-          </div>
-          <div class="card-detail">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15"/></svg>
-            ${p.size} sqft
-          </div>
-          <div class="card-detail">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"/></svg>
-            ${p.rtsDistance} RTS
-          </div>
-        </div>
-        <div class="card-price">
-          <div>
-            <span class="price">S$${(p.price/1000).toFixed(0)}K</span>
-            ${p.priceMax > p.price ? `<span class="price-sub"> — S$${p.priceMax >= 1000000 ? (p.priceMax/1000000).toFixed(1)+'M' : (p.priceMax/1000).toFixed(0)+'K'}</span>` : ''}
-          </div>
-          <span class="yield">${p.yield}% yield</span>
-        </div>
-      </div>
-    </div>
-  `).join('');
-}
-
-// ─── DETAIL VIEW ───
-function openDetail(id) {
-  const p = properties.find(x => x.id === id);
-  if (!p) return;
-
-  const myrPrice = Math.round(p.price * 3.35);
-  const myrMax = Math.round(p.priceMax * 3.35);
-
-  document.getElementById('detailBody').innerHTML = `
-    <div class="detail-hero">
-      <div class="img-placeholder" style="background:${p.gradient};font-size:16px;font-weight:600">
-        <div>
-          <div style="font-size:24px;font-weight:800;margin-bottom:4px">${p.name}</div>
-          <div style="opacity:.8">${p.developer}</div>
-        </div>
-      </div>
-    </div>
-    <div class="detail-content">
-      <div class="detail-title">${p.name}</div>
-      <div class="detail-location">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 0 1 15 0Z"/></svg>
-        ${p.location}
-      </div>
-      <div class="detail-price-row">
-        <span class="detail-price">S$${p.price >= 1000000 ? (p.price/1000000).toFixed(1)+'M' : (p.price/1000).toFixed(0)+'K'} — S$${p.priceMax >= 1000000 ? (p.priceMax/1000000).toFixed(1)+'M' : (p.priceMax/1000).toFixed(0)+'K'}</span>
-        <span class="detail-price-myr">≈ RM${myrPrice >= 1000000 ? (myrPrice/1000000).toFixed(1)+'M' : (myrPrice/1000).toFixed(0)+'K'} — RM${myrMax >= 1000000 ? (myrMax/1000000).toFixed(1)+'M' : (myrMax/1000).toFixed(0)+'K'}</span>
-      </div>
-      <div class="detail-badges">
-        <span class="detail-badge">${p.type === 'condo' ? 'Condominium' : 'Landed'}</span>
-        <span class="detail-badge">${p.tenure === 'freehold' ? 'Freehold' : 'Leasehold'}</span>
-        <span class="detail-badge">${p.status === 'new-launch' ? 'New Launch' : p.status === 'completed' ? 'Completed' : 'Under Construction'}</span>
-        ${p.features.includes('seafront') ? '<span class="detail-badge">Seafront</span>' : ''}
-      </div>
-      <div class="detail-stats">
-        <div class="detail-stat"><div class="stat-value">${p.beds}</div><div class="stat-label">Bedrooms</div></div>
-        <div class="detail-stat"><div class="stat-value">${p.baths}</div><div class="stat-label">Bathrooms</div></div>
-        <div class="detail-stat"><div class="stat-value">${p.size}</div><div class="stat-label">sqft</div></div>
-        <div class="detail-stat"><div class="stat-value">${p.yield}%</div><div class="stat-label">Est. Yield</div></div>
-        <div class="detail-stat"><div class="stat-value">${p.rtsDistance}</div><div class="stat-label">To RTS</div></div>
-      </div>
-      <div class="detail-desc">
-        <h3>About This Property</h3>
-        <p>${p.desc}</p>
-      </div>
-      <div class="detail-desc">
-        <h3>Developer</h3>
-        <p>${p.developer}</p>
-      </div>
-      <div class="detail-amenities">
-        <h3>Facilities & Amenities</h3>
-        <div class="amenity-grid">
-          ${p.amenities.map(a => `<div class="amenity-item">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
-            ${a}
-          </div>`).join('')}
-        </div>
-      </div>
-    </div>
-  `;
-
-  const waMsg = encodeURIComponent(`Hi, I'm interested in ${p.name} (from S$${(p.price/1000).toFixed(0)}K). Could you share more details?`);
-  document.getElementById('ctaWhatsapp').href = `https://wa.me/6581234567?text=${waMsg}`;
-
-  document.getElementById('detailOverlay').classList.add('active');
-  document.getElementById('detailPanel').classList.add('active');
-  document.getElementById('detailCta').classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeDetail() {
-  document.getElementById('detailOverlay').classList.remove('active');
-  document.getElementById('detailPanel').classList.remove('active');
-  document.getElementById('detailCta').classList.remove('active');
-  document.body.style.overflow = '';
-}
-
-// ─── EVENT LISTENERS ───
-document.getElementById('detailOverlay').addEventListener('click', closeDetail);
-
-document.querySelectorAll('.pill').forEach(pill => {
-  pill.addEventListener('click', () => {
-    document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
-    pill.classList.add('active');
-    activeFilter = pill.dataset.filter;
-    renderCards();
-  });
-});
-
-document.getElementById('searchInput').addEventListener('input', (e) => {
-  searchTerm = e.target.value;
-  renderCards();
-});
-
-document.getElementById('sortSelect').addEventListener('change', (e) => {
-  sortBy = e.target.value;
-  renderCards();
-});
-
 // ─── VIDEO HERO CROSSFADE ───
 const videos = [document.getElementById('vid0'), document.getElementById('vid1')];
 let currentVid = 0;
@@ -695,8 +428,6 @@ function switchVideo(index) {
 setInterval(() => {
   switchVideo((currentVid + 1) % videos.length);
 }, 5000);
-
-startHeroCycle();
 
 // ─── NAV SCROLL: transparent → solid ───
 const nav = document.getElementById('mainNav');
@@ -724,7 +455,6 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ─── INIT ───
-renderCards();
 </script>
 </body>
 </html>
