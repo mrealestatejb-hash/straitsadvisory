@@ -433,7 +433,9 @@
     th: '🇹🇭'
   };
 
-  // Detect language: URL param > saved preference > device language > English
+  // Detect language: URL param > saved preference > English default
+  // Does NOT auto-detect from browser language — English is default.
+  // Users choose their language via the selector or shareable URL.
   function detectLang() {
     // Check URL ?lang= parameter first (for shareable links)
     var urlLang = null;
@@ -463,20 +465,7 @@
     var saved = localStorage.getItem('sa_lang');
     if (saved && (translations[saved] || saved === 'en')) return saved;
 
-    var nav = navigator.language || navigator.userLanguage || 'en';
-    var code = nav.split('-')[0].toLowerCase();
-
-    // Map region-specific codes
-    if (code === 'zh') {
-      // Distinguish Simplified vs Traditional Chinese by region
-      var region = nav.toUpperCase();
-      if (region.indexOf('TW') !== -1 || region.indexOf('HK') !== -1 || region.indexOf('HANT') !== -1) return 'tw';
-      return 'zh';
-    }
-    if (code === 'ms' || code === 'id') return 'ms'; // Indonesian similar to Malay
-    if (code === 'ja') return 'ja';
-    if (code === 'ko') return 'ko';
-    if (code === 'th') return 'th';
+    // Default to English — no browser language auto-detection
     return 'en';
   }
 
