@@ -70,6 +70,18 @@
       'Shopping': '购物',
       // Footer
       'All rights reserved': '版权所有',
+      // New translations
+      'about_description': '作为马来西亚最先进的房地产咨询公司，我们将数十年的经验与尖端AI、实时分析和专有技术相结合。我们以透明和精准服务客户，没有压力销售，只有量身定制的数据驱动指导。',
+      'click a pin for details': '点击标记查看详情',
+      'Browse All 90+ Properties': '浏览全部90+房产',
+      'Explore our handpicked developments across Johor Bahru, Kuala Lumpur, and Penang with filters, search, and detailed listings.': '探索我们精选的新山、吉隆坡和槟城优质项目，支持筛选、搜索和详细信息。',
+      "Singapore's trusted gateway to Johor Bahru property investment. Expert guidance from search to settlement.": '新加坡通往新山房产投资的信赖平台。从搜索到交割的专业指导。',
+      'View Details →': '查看详情 →',
+      'View Listings →': '查看房源 →',
+      'Call Us': '致电我们',
+      'Email': '电子邮件',
+      'WhatsApp': 'WhatsApp',
+      'From': '从',
     },
     tw: {
       // Nav
@@ -134,6 +146,18 @@
       'Shopping': '購物',
       // Footer
       'All rights reserved': '版權所有',
+      // New translations
+      'about_description': '作為馬來西亞最先進的房地產諮詢公司，我們將數十年的經驗與尖端AI、即時分析和專有技術相結合。我們以透明和精準服務客戶，沒有壓力銷售，只有量身定製的數據驅動指導。',
+      'click a pin for details': '點擊標記查看詳情',
+      'Browse All 90+ Properties': '瀏覽全部90+房產',
+      'Explore our handpicked developments across Johor Bahru, Kuala Lumpur, and Penang with filters, search, and detailed listings.': '探索我們精選的新山、吉隆坡和檳城優質項目，支持篩選、搜索和詳細信息。',
+      "Singapore's trusted gateway to Johor Bahru property investment. Expert guidance from search to settlement.": '新加坡通往新山房產投資的信賴平台。從搜索到交割的專業指導。',
+      'View Details →': '查看詳情 →',
+      'View Listings →': '查看房源 →',
+      'Call Us': '致電我們',
+      'Email': '電子郵件',
+      'WhatsApp': 'WhatsApp',
+      'From': '從',
     },
     ms: {
       'Buy': 'Beli',
@@ -187,6 +211,18 @@
       'Clinics': 'Klinik',
       'Shopping': 'Membeli-belah',
       'All rights reserved': 'Hak cipta terpelihara',
+      // New translations
+      'about_description': 'Sebagai firma perunding hartanah paling maju teknologi di Malaysia, kami menggabungkan pengalaman berdekad dengan AI canggih, analitik masa nyata dan teknologi proprietari. Kami berkhidmat dengan ketelusan dan ketepatan, tanpa taktik tekanan, hanya panduan berasaskan data yang disesuaikan untuk matlamat anda.',
+      'click a pin for details': 'klik pin untuk butiran',
+      'Browse All 90+ Properties': 'Layari Semua 90+ Hartanah',
+      'Explore our handpicked developments across Johor Bahru, Kuala Lumpur, and Penang with filters, search, and detailed listings.': 'Terokai pembangunan pilihan kami di Johor Bahru, Kuala Lumpur, dan Pulau Pinang dengan penapis, carian, dan senarai terperinci.',
+      "Singapore's trusted gateway to Johor Bahru property investment. Expert guidance from search to settlement.": 'Pintu gerbang Singapura yang dipercayai untuk pelaburan hartanah Johor Bahru. Panduan pakar dari carian hingga penyelesaian.',
+      'View Details →': 'Lihat Butiran →',
+      'View Listings →': 'Lihat Senarai →',
+      'Call Us': 'Hubungi Kami',
+      'Email': 'E-mel',
+      'WhatsApp': 'WhatsApp',
+      'From': 'Dari',
     },
     ja: {
       'Buy': '購入',
@@ -237,6 +273,18 @@
       'Clinics': 'クリニック',
       'Shopping': 'ショッピング',
       'All rights reserved': '全著作権所有',
+      // New translations
+      'about_description': 'マレーシアで最も技術的に進んだ不動産コンサルタントとして、数十年の経験を最先端AI、リアルタイム分析、独自技術で強化しています。透明性と正確さでお客様にサービスを提供し、プレッシャー戦術は一切なく、お客様の目標に合わせたデータ駆動型のガイダンスのみを提供します。',
+      'click a pin for details': 'ピンをクリックして詳細を表示',
+      'Browse All 90+ Properties': '全90+物件を見る',
+      'Explore our handpicked developments across Johor Bahru, Kuala Lumpur, and Penang with filters, search, and detailed listings.': 'ジョホールバル、クアラルンプール、ペナンの厳選物件をフィルター、検索、詳細リストで探索。',
+      "Singapore's trusted gateway to Johor Bahru property investment. Expert guidance from search to settlement.": 'シンガポールからジョホールバル不動産投資への信頼のゲートウェイ。検索から決済まで専門家がガイド。',
+      'View Details →': '詳細を見る →',
+      'View Listings →': '物件一覧 →',
+      'Call Us': 'お電話',
+      'Email': 'メール',
+      'WhatsApp': 'WhatsApp',
+      'From': 'から',
     },
     ko: {
       'Buy': '구매',
@@ -287,6 +335,18 @@
       'Clinics': '병원',
       'Shopping': '쇼핑',
       'All rights reserved': '모든 권리 보유',
+      // New translations
+      'about_description': '말레이시아에서 가장 기술적으로 진보한 부동산 컨설팅 회사로서, 수십 년의 경험을 최첨단 AI, 실시간 분석 및 독점 기술로 강화합니다. 투명성과 정밀함으로 고객에게 서비스를 제공하며, 압박 전술 없이 목표에 맞춘 데이터 기반 안내만을 제공합니다.',
+      'click a pin for details': '핀을 클릭하여 상세 보기',
+      'Browse All 90+ Properties': '전체 90+ 매물 보기',
+      'Explore our handpicked developments across Johor Bahru, Kuala Lumpur, and Penang with filters, search, and detailed listings.': '조호르바루, 쿠알라룸푸르, 페낭의 엄선된 프로젝트를 필터, 검색, 상세 목록으로 탐색하세요.',
+      "Singapore's trusted gateway to Johor Bahru property investment. Expert guidance from search to settlement.": '싱가포르에서 조호르바루 부동산 투자로의 신뢰할 수 있는 플랫폼. 검색부터 계약까지 전문가 안내.',
+      'View Details →': '상세 보기 →',
+      'View Listings →': '매물 보기 →',
+      'Call Us': '전화하기',
+      'Email': '이메일',
+      'WhatsApp': 'WhatsApp',
+      'From': '부터',
     },
     th: {
       'Buy': 'ซื้อ',
@@ -337,6 +397,18 @@
       'Clinics': 'คลินิก',
       'Shopping': 'ช้อปปิ้ง',
       'All rights reserved': 'สงวนลิขสิทธิ์',
+      // New translations
+      'about_description': 'ในฐานะบริษัทที่ปรึกษาอสังหาริมทรัพย์ที่ก้าวหน้าทางเทคโนโลยีที่สุดในมาเลเซีย เรารวมประสบการณ์หลายทศวรรษเข้ากับ AI ล้ำสมัย การวิเคราะห์แบบเรียลไทม์ และเทคโนโลยีเฉพาะ เราให้บริการลูกค้าด้วยความโปร่งใสและแม่นยำ ไม่มีกลยุทธ์กดดัน มีเพียงคำแนะนำที่ขับเคลื่อนด้วยข้อมูลที่ปรับแต่งตามเป้าหมายของคุณ',
+      'click a pin for details': 'คลิกที่หมุดเพื่อดูรายละเอียด',
+      'Browse All 90+ Properties': 'เรียกดูอสังหาริมทรัพย์ทั้งหมด 90+',
+      'Explore our handpicked developments across Johor Bahru, Kuala Lumpur, and Penang with filters, search, and detailed listings.': 'สำรวจโครงการคัดสรรในยะโฮร์บาห์รู กัวลาลัมเปอร์ และปีนัง พร้อมตัวกรอง การค้นหา และรายละเอียด',
+      "Singapore's trusted gateway to Johor Bahru property investment. Expert guidance from search to settlement.": 'แพลตฟอร์มที่น่าเชื่อถือจากสิงคโปร์สู่การลงทุนอสังหาริมทรัพย์ยะโฮร์บาห์รู คำแนะนำจากผู้เชี่ยวชาญตั้งแต่การค้นหาจนถึงการปิดสัญญา',
+      'View Details →': 'ดูรายละเอียด →',
+      'View Listings →': 'ดูรายการ →',
+      'Call Us': 'โทรหาเรา',
+      'Email': 'อีเมล',
+      'WhatsApp': 'WhatsApp',
+      'From': 'จาก',
     }
   };
 
