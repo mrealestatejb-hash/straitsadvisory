@@ -479,6 +479,36 @@
     }
   }
 
+  // Map language codes to OSM name fields
+  var mapLangCodes = {
+    en: 'name:en', zh: 'name:zh', tw: 'name:zh',
+    ms: 'name:ms', ja: 'name:ja', ko: 'name:ko', th: 'name:th'
+  };
+
+  // Update map tile labels to match selected language
+  function setMapLanguage(lang) {
+    var map = window.listingsMap;
+    if (!map || !map.getStyle) return;
+    var nameField = mapLangCodes[lang] || 'name:en';
+    try {
+      var style = map.getStyle();
+      if (!style || !style.layers) return;
+      style.layers.forEach(function(layer) {
+        if (layer.type === 'symbol' && layer.layout && layer.layout['text-field']) {
+          var tf = layer.layout['text-field'];
+          // Handle string format like {name} or {name:en}
+          if (typeof tf === 'string' && tf.indexOf('{name') !== -1) {
+            map.setLayoutProperty(layer.id, 'text-field', '{' + nameField + '}');
+          }
+          // Handle expression format ['get', 'name'] or ['coalesce', ...]
+          if (Array.isArray(tf)) {
+            map.setLayoutProperty(layer.id, 'text-field', ['coalesce', ['get', nameField], ['get', 'name']]);
+          }
+        }
+      });
+    } catch(e) { /* style not loaded yet */ }
+  }
+
   // Main translate function
   function translatePage(lang) {
     var dict = translations[lang];
@@ -491,6 +521,7 @@
         if (el._originalHTML) el.innerHTML = el._originalHTML;
       });
       document.documentElement.lang = 'en';
+      setMapLanguage('en');
       return;
     }
 
@@ -531,6 +562,9 @@
         opt.textContent = dict[key];
       }
     });
+
+    // Update map tile labels
+    setMapLanguage(lang);
   }
 
   // Create language selector
@@ -628,6 +662,7 @@
 
   // Expose for external use
   window.saTranslate = translatePage;
+  window.saTranslate.setMapLanguage = setMapLanguage;
 
   // Run on DOM ready
   if (document.readyState === 'loading') {

@@ -342,6 +342,9 @@ document.addEventListener('DOMContentLoaded',function(){
     if(typeof maplibregl==='undefined'){setTimeout(initListingsMap,200);return;}
     listingsMap=new maplibregl.Map({container:'listingsMap',style:'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',center:[103.72,1.46],zoom:6,attributionControl:false});
     listingsMap.addControl(new maplibregl.NavigationControl(),'top-right');
+    listingsMap.on('load',function(){
+      if(window.saTranslate){var lang=localStorage.getItem('sa_lang')||'en';if(lang!=='en')window.saTranslate.setMapLanguage(lang);}
+    });
     var listings=[
       // Johor Bahru (44 listings — GPS researched from Google Maps)
       {name:'R&F Princess Cove',loc:'Bukit Chagar',price:'From RM350K',slug:'rf-princess-cove',lng:103.7694,lat:1.4600,city:'jb'},
