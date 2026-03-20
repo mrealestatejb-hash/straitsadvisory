@@ -861,8 +861,30 @@ function updateAreaFilter(){
   sel.value='';
 }
 
+// Read ?city= URL param and auto-select city filter + update hero
+(function(){
+  var params=new URLSearchParams(window.location.search);
+  var c=params.get('city');
+  if(c){
+    var map={jb:'johor-bahru',kl:'kuala-lumpur',pg:'penang','johor-bahru':'johor-bahru','kuala-lumpur':'kuala-lumpur',penang:'penang'};
+    var names={jb:'Johor Bahru',kl:'Kuala Lumpur',pg:'Penang','johor-bahru':'Johor Bahru','kuala-lumpur':'Kuala Lumpur',penang:'Penang'};
+    var val=map[c]||'';
+    if(val){
+      document.getElementById('filter-city').value=val;
+      var name=names[c]||'';
+      if(name){
+        var h1=document.querySelector('.hero h1');
+        if(h1) h1.innerHTML='<span>'+name+'</span> <span data-i18n="Properties">Properties</span>';
+        var sub=document.querySelector('.hero p');
+        if(sub) sub.textContent='Browse all '+name+' developments';
+        document.title=name+' Properties - Straits Advisory';
+      }
+    }
+  }
+})();
 // Initialize area filter on load
 updateAreaFilter();
+filterProperties();
 
 function filterProperties(){
   var city=document.getElementById('filter-city').value;
