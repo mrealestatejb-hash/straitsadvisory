@@ -141,53 +141,53 @@ a{text-decoration:none;color:inherit}
     Straits Advisory
   </a>
   <div class="nav-links">
-    <a href="buy.html">Buy</a>
-    <a href="sell.html">Sell</a>
-    <a href="rent.html" class="active">Rent</a>
-    <a href="services.html">Services</a>
-    <a href="why-work-with-us.html">About</a>
-    <a href="https://wa.me/60197058001" class="nav-cta" target="_blank">WhatsApp Us</a>
+    <a href="buy.html" data-i18n="Buy">Buy</a>
+    <a href="sell.html" data-i18n="Sell">Sell</a>
+    <a href="rent.html" class="active" data-i18n="Rent">Rent</a>
+    <a href="services.html" data-i18n="Services">Services</a>
+    <a href="why-work-with-us.html" data-i18n="About">About</a>
+    <a href="https://wa.me/60197058001" class="nav-cta" target="_blank" data-i18n="WhatsApp Us">WhatsApp Us</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <h1>Rent <span>Made Simple</span></h1>
-  <p>Whether you’re a landlord or tenant, we’ve got you covered.</p>
+  <h1 data-i18n-html="rent_hero_title">Rent <span>Made Simple</span></h1>
+  <p data-i18n="rent_hero_subtitle">Whether you’re a landlord or tenant, we’ve got you covered.</p>
 </section>
 
 <!-- PATH SELECTION -->
 <div class="path-section" id="pathSection">
   <div class="section-header">
-    <h2>I am a...</h2>
-    <p>Choose the option that fits your situation.</p>
+    <h2 data-i18n="rent_iam">I am a...</h2>
+    <p data-i18n="rent_choose">Choose the option that fits your situation.</p>
   </div>
   <div class="path-grid">
     <!-- OWNER CARD -->
     <div class="path-card" id="cardOwner" onclick="selectPath('owner')">
       <div class="path-icon">&#x1f3e0;</div>
-      <div class="path-title">Property Owner</div>
-      <div class="path-subtitle">I have a property to rent out</div>
+      <div class="path-title" data-i18n="rent_owner_title">Property Owner</div>
+      <div class="path-subtitle" data-i18n="rent_owner_subtitle">I have a property to rent out</div>
       <ul class="path-list">
-        <li>Find quality tenants</li>
-        <li>Tenant screening &amp; verification</li>
-        <li>Lease agreement preparation</li>
-        <li>Optional: Full property management</li>
+        <li data-i18n="rent_owner_li1">Find quality tenants</li>
+        <li data-i18n="rent_owner_li2">Tenant screening &amp; verification</li>
+        <li data-i18n="rent_owner_li3">Lease agreement preparation</li>
+        <li data-i18n="rent_owner_li4">Optional: Full property management</li>
       </ul>
-      <button class="path-btn path-btn-owner" onclick="event.stopPropagation();selectPath('owner')">List My Property &#x2192;</button>
+      <button class="path-btn path-btn-owner" onclick="event.stopPropagation();selectPath('owner')" data-i18n="rent_list_property">List My Property &#x2192;</button>
     </div>
     <!-- TENANT CARD -->
     <div class="path-card" id="cardTenant" onclick="selectPath('tenant')">
       <div class="path-icon">&#x1f50d;</div>
-      <div class="path-title">Tenant</div>
-      <div class="path-subtitle">I’m looking for a place to rent</div>
+      <div class="path-title" data-i18n="rent_tenant_title">Tenant</div>
+      <div class="path-subtitle" data-i18n="rent_tenant_subtitle">I’m looking for a place to rent</div>
       <ul class="path-list">
-        <li>Access to exclusive listings</li>
-        <li>Verified properties only</li>
-        <li>No agent fees for tenants</li>
-        <li>Flexible lease options</li>
+        <li data-i18n="rent_tenant_li1">Access to exclusive listings</li>
+        <li data-i18n="rent_tenant_li2">Verified properties only</li>
+        <li data-i18n="rent_tenant_li3">No agent fees for tenants</li>
+        <li data-i18n="rent_tenant_li4">Flexible lease options</li>
       </ul>
-      <button class="path-btn path-btn-tenant" onclick="event.stopPropagation();selectPath('tenant')">Find a Rental &#x2192;</button>
+      <button class="path-btn path-btn-tenant" onclick="event.stopPropagation();selectPath(‘tenant’)" data-i18n="rent_find_rental">Find a Rental &#x2192;</button>
     </div>
   </div>
 </div>
@@ -199,8 +199,8 @@ a{text-decoration:none;color:inherit}
   <div class="flow-back" onclick="goBack()">&#x2190; Back to selection</div>
 
   <div class="section-header">
-    <h2>What do you need?</h2>
-    <p>Choose the service level that suits you.</p>
+    <h2 data-i18n="rent_whatneed">What do you need?</h2>
+    <p data-i18n="rent_choose_service">Choose the service level that suits you.</p>
   </div>
   <div class="sub-select" id="landlordSubSelect">
     <div class="sub-card" id="subA" onclick="selectLandlordSub('A')">
@@ -368,18 +368,18 @@ a{text-decoration:none;color:inherit}
     </div>
 
     <div class="btn-row" style="justify-content:center">
-      <button class="btn btn-success" style="max-width:320px" onclick="submitLandlord()">Submit Rental Request</button>
+      <button class="btn btn-success" style="max-width:320px" onclick="submitLandlord()" data-i18n="rent_submit_rental">Submit Rental Request</button>
     </div>
   </div>
 
   <!-- LANDLORD THANK YOU -->
   <div class="thank-you" id="landlordThankYou">
     <div class="thank-check">&#x2705;</div>
-    <h2>Request Submitted!</h2>
-    <p>Our rental team will review your property details and contact you within 24 hours.</p>
+    <h2 data-i18n="rent_ll_thankyou_title">Request Submitted!</h2>
+    <p data-i18n="rent_ll_thankyou_desc">Our rental team will review your property details and contact you within 24 hours.</p>
     <a href="https://wa.me/60197058001?text=Hi%2C%20I%20just%20submitted%20a%20rental%20listing%20request." target="_blank" class="wa-btn">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-      Chat on WhatsApp
+      <span data-i18n="Chat on WhatsApp">Chat on WhatsApp</span>
     </a>
   </div>
 </div>
@@ -391,8 +391,8 @@ a{text-decoration:none;color:inherit}
   <div class="flow-back" onclick="goBack()">&#x2190; Back to selection</div>
 
   <div class="section-header">
-    <h2>Tell us what you’re looking for</h2>
-    <p>We’ll match you with suitable properties within 24 hours.</p>
+    <h2 data-i18n="rent_tenant_flow_title">Tell us what you’re looking for</h2>
+    <p data-i18n="rent_tenant_flow_subtitle">We’ll match you with suitable properties within 24 hours.</p>
   </div>
 
   <div class="stepper">
@@ -519,27 +519,27 @@ a{text-decoration:none;color:inherit}
       <label>Any Special Requirements? <span class="hint">(optional)</span></label>
       <textarea id="t_special" placeholder="e.g. ground floor preferred, near MRT, pet-friendly building..."></textarea>
     </div>
-    <div class="btn-row"><div class="btn btn-outline" onclick="goTenantStep(2)">&#x2190; Back</div><div class="btn btn-success" onclick="submitTenant()">Submit Request</div></div>
+    <div class="btn-row"><div class="btn btn-outline" onclick="goTenantStep(2)">&#x2190; Back</div><div class="btn btn-success" onclick="submitTenant()" data-i18n="rent_submit_request">Submit Request</div></div>
   </div>
 
   <!-- TENANT THANK YOU -->
   <div class="thank-you" id="tenantThankYou">
     <div class="thank-check">&#x2705;</div>
-    <h2>Thanks!</h2>
-    <p>We’ll match you with suitable properties within 24 hours. Our team will reach out via your preferred contact method.</p>
+    <h2 data-i18n="rent_tenant_thankyou_title">Thanks!</h2>
+    <p data-i18n="rent_tenant_thankyou_desc">We’ll match you with suitable properties within 24 hours. Our team will reach out via your preferred contact method.</p>
     <a href="https://wa.me/60197058001?text=Hi%2C%20I%20just%20submitted%20a%20rental%20search%20request." target="_blank" class="wa-btn">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-      Chat on WhatsApp
+      <span data-i18n="Chat on WhatsApp">Chat on WhatsApp</span>
     </a>
   </div>
 </div>
 
 <!-- BOTTOM CTA -->
 <div class="bottom-cta" id="bottomCta">
-  <p>Prefer to talk? WhatsApp us directly.</p>
+  <p data-i18n="sell_prefer_talk">Prefer to talk? WhatsApp us directly.</p>
   <a href="https://wa.me/60197058001" target="_blank" class="wa-btn">
     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-    WhatsApp Us
+    <span data-i18n="WhatsApp Us">WhatsApp Us</span>
   </a>
 </div>
 
@@ -621,6 +621,7 @@ function submitTenant(){
   window.scrollTo({top:document.querySelector('.hero').offsetHeight+64,behavior:'smooth'});
 }
 </script>
+<script src="js/translate.js"></script>
 
 </body>
 </html>
