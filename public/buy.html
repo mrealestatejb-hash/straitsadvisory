@@ -132,52 +132,52 @@ a{text-decoration:none;color:inherit}
     Straits Advisory
   </a>
   <div class="nav-links">
-    <a href="buy.html" class="active">Buy</a>
-    <a href="sell.html">Sell</a>
-    <a href="rent.html">Rent</a>
-    <a href="services.html">Services</a>
-    <a href="why-work-with-us.html">About</a>
-    <a href="https://wa.me/60197058001" class="nav-cta" target="_blank">WhatsApp Us</a>
+    <a href="buy.html" class="active" data-i18n="Buy">Buy</a>
+    <a href="sell.html" data-i18n="Sell">Sell</a>
+    <a href="rent.html" data-i18n="Rent">Rent</a>
+    <a href="services.html" data-i18n="Services">Services</a>
+    <a href="why-work-with-us.html" data-i18n="About">About</a>
+    <a href="https://wa.me/60197058001" class="nav-cta" target="_blank" data-i18n="WhatsApp Us">WhatsApp Us</a>
   </div>
 </nav>
 
 <section class="hero">
-  <h1>Find Your <span>Malaysia Property</span></h1>
-  <p>Handpicked developments across Malaysia</p>
+  <h1><span data-i18n="Find Your">Find Your</span> <span data-i18n="Malaysia Property">Malaysia Property</span></h1>
+  <p data-i18n="Handpicked developments across Malaysia">Handpicked developments across Malaysia</p>
   <div class="hero-stats">
-    <span>90+ Properties</span>
-    <span>3 Cities</span>
-    <span>Freehold &amp; Leasehold</span>
+    <span>90+ <span data-i18n="Properties">Properties</span></span>
+    <span>3 <span data-i18n="Cities">Cities</span></span>
+    <span data-i18n="Freehold & Leasehold">Freehold &amp; Leasehold</span>
   </div>
 </section>
 
 <div class="filter-bar">
   <select id="filter-city" onchange="updateAreaFilter();filterProperties()" style="font-weight:600;border-color:var(--gold)">
-    <option value="">All Cities</option>
-    <option value="johor-bahru">Johor Bahru</option>
-    <option value="kuala-lumpur">Kuala Lumpur</option>
-    <option value="penang">Penang</option>
+    <option value="" data-i18n="All Cities">All Cities</option>
+    <option value="johor-bahru" data-i18n="Johor Bahru">Johor Bahru</option>
+    <option value="kuala-lumpur" data-i18n="Kuala Lumpur">Kuala Lumpur</option>
+    <option value="penang" data-i18n="Penang">Penang</option>
   </select>
   <select id="filter-area" onchange="filterProperties()">
-    <option value="">All Areas</option>
+    <option value="" data-i18n="All Areas">All Areas</option>
   </select>
   <select id="filter-price" onchange="filterProperties()">
-    <option value="">All Prices</option>
+    <option value="" data-i18n="Any Price">Any Price</option>
     <option value="500-1m">RM500k - 1M</option>
   </select>
   <select id="filter-status" onchange="filterProperties()">
-    <option value="">All Status</option>
-    <option value="completed">Completed</option>
+    <option value="" data-i18n="All Status">All Status</option>
+    <option value="completed" data-i18n="Completed">Completed</option>
   </select>
   <select id="filter-tenure" onchange="filterProperties()">
-    <option value="">All Tenure</option>
-    <option value="freehold">Freehold</option>
+    <option value="" data-i18n="All Tenure">All Tenure</option>
+    <option value="freehold" data-i18n="Freehold">Freehold</option>
   </select>
   <select id="filter-distance" onchange="filterProperties()">
-    <option value="">Distance to CIQ</option>
+    <option value="" data-i18n="Any Distance">Any Distance</option>
     <option value="1-5">1 - 5km</option>
   </select>
-  <input type="text" id="filter-search" placeholder="Search property name..." oninput="filterProperties()">
+  <input type="text" id="filter-search" placeholder="Search property name..." data-i18n-placeholder="Search by name..." oninput="filterProperties()">
   <button class="clear-btn" onclick="clearFilters()">Clear Filters</button>
 </div>
 
@@ -846,7 +846,7 @@ var areasByCity={
 function updateAreaFilter(){
   var city=document.getElementById('filter-city').value;
   var sel=document.getElementById('filter-area');
-  sel.innerHTML='<option value="">All Areas</option>';
+  sel.innerHTML='<option value="" data-i18n="All Areas">All Areas</option>';
   var areas=city?areasByCity[city]||[]:Object.values(areasByCity).flat();
   areas.forEach(function(a){
     sel.innerHTML+='<option value="'+a.v+'">'+a.l+'</option>';
@@ -893,6 +893,7 @@ function clearFilters(){
   filterProperties();
 }
 </script>
+<script src="js/translate.js"></script>
 
 </body>
 </html>
