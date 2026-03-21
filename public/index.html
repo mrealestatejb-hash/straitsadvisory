@@ -256,6 +256,8 @@ a{text-decoration:none;color:inherit}
 .cta-wa-btn{display:inline-flex;align-items:center;gap:10px;background:#25d366;color:#fff;padding:16px 36px;border-radius:50px;font-size:17px;font-weight:600;transition:all .3s ease;box-shadow:0 4px 20px rgba(37,211,102,.35);text-decoration:none}
 .cta-wa-btn:hover{background:#20bd5a;transform:translateY(-2px);box-shadow:0 6px 28px rgba(37,211,102,.45)}
 .cta-wa-btn svg{width:22px;height:22px}
+.rec-carousel::-webkit-scrollbar{display:none}
+.rec-card:hover{box-shadow:0 8px 30px rgba(0,0,0,.12);transform:translateY(-4px)}
 </style>
 </head>
 <body>
@@ -297,6 +299,53 @@ a{text-decoration:none;color:inherit}
     <h2 style="font-size:36px;font-weight:800;color:#1a1a2e;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;line-height:1.2">Straits Advisory</h2>
     <p style="font-size:14px;font-weight:600;color:#1a1a2e;letter-spacing:3px;text-transform:uppercase;margin-bottom:30px" data-i18n="Technology Meets Expertise">Technology Meets Expertise</p>
     <p style="font-size:16px;color:#374151;line-height:1.8;max-width:750px;margin:0 auto;font-weight:400" data-i18n="about_description">As Malaysia’s most technologically advanced property consultancy, we bring together decades of experience enhanced by cutting-edge AI, real-time analytics and proprietary technology. We serve our clients with transparency and precision, no pressure tactics, just data-driven guidance tailored to your goals.</p>
+  </div>
+</section>
+
+<!-- RECOMMENDED PROPERTIES CAROUSEL -->
+<section style="padding:60px 0;background:#fff;overflow:hidden">
+  <div style="max-width:1400px;margin:0 auto;padding:0 clamp(20px,5vw,60px)">
+    <h2 style="font-size:28px;font-weight:800;color:#1a1a2e;margin-bottom:8px;text-align:center" data-i18n="Recommended Properties">Recommended Properties</h2>
+    <p style="font-size:15px;color:#6b7280;text-align:center;margin-bottom:32px" data-i18n="rec_subtitle">Handpicked developments for Singapore investors</p>
+  </div>
+  <div style="position:relative">
+    <div class="rec-carousel" id="recCarousel" style="display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:0 clamp(20px,5vw,60px) 20px">
+      <a href="properties/ctc-skyone-bukit-chagar.html" class="rec-card" style="scroll-snap-align:start;flex:0 0 300px;border-radius:16px;overflow:hidden;border:1px solid #e8e8ed;transition:all .3s;text-decoration:none;color:inherit;background:#fff">
+        <div style="height:180px;background:url('https://ctcskyonebukitchagar.com/wp-content/uploads/2026/02/Gallery-2-1024x822.jpg') center/cover;position:relative"><span style="position:absolute;top:10px;left:10px;padding:4px 12px;border-radius:50px;font-size:11px;font-weight:600;background:rgba(26,26,46,.85);color:#fff;backdrop-filter:blur(8px)">Completed</span><span style="position:absolute;top:10px;right:10px;padding:4px 12px;border-radius:50px;font-size:11px;font-weight:600;background:rgba(201,169,98,.9);color:#fff">Freehold</span></div>
+        <div style="padding:16px"><h3 style="font-size:15px;font-weight:700;margin-bottom:4px">CTC Skyone</h3><p style="font-size:13px;color:#6b7280;margin-bottom:8px">Bukit Chagar, JB</p><p style="font-size:15px;font-weight:700;color:#1a1a2e">From RM580,000</p></div>
+      </a>
+      <a href="properties/summer-suites-bukit-chagar.html" class="rec-card" style="scroll-snap-align:start;flex:0 0 300px;border-radius:16px;overflow:hidden;border:1px solid #e8e8ed;transition:all .3s;text-decoration:none;color:inherit;background:#fff">
+        <div style="height:180px;background:url('https://summersuitesjbciq.com/m1/wp-content/uploads/2025/06/summersuites-facade.webp') center/cover;position:relative"><span style="position:absolute;top:10px;left:10px;padding:4px 12px;border-radius:50px;font-size:11px;font-weight:600;background:rgba(37,211,102,.85);color:#fff;backdrop-filter:blur(8px)">New Launch</span><span style="position:absolute;top:10px;right:10px;padding:4px 12px;border-radius:50px;font-size:11px;font-weight:600;background:rgba(201,169,98,.9);color:#fff">Freehold</span></div>
+        <div style="padding:16px"><h3 style="font-size:15px;font-weight:700;margin-bottom:4px">Summer Suites</h3><p style="font-size:13px;color:#6b7280;margin-bottom:8px">Bukit Chagar, JB</p><p style="font-size:15px;font-weight:700;color:#1a1a2e">From RM600,000</p></div>
+      </a>
+      <a href="properties/the-astaka-one-bukit-senyum.html" class="rec-card" style="scroll-snap-align:start;flex:0 0 300px;border-radius:16px;overflow:hidden;border:1px solid #e8e8ed;transition:all .3s;text-decoration:none;color:inherit;background:#fff">
+        <div style="height:180px;background:url('https://astaka.com.my/wp-content/uploads/2024/04/slide1.png') center/cover;position:relative"><span style="position:absolute;top:10px;left:10px;padding:4px 12px;border-radius:50px;font-size:11px;font-weight:600;background:rgba(26,26,46,.85);color:#fff;backdrop-filter:blur(8px)">Completed</span><span style="position:absolute;top:10px;right:10px;padding:4px 12px;border-radius:50px;font-size:11px;font-weight:600;background:rgba(201,169,98,.9);color:#fff">Freehold</span></div>
+        <div style="padding:16px"><h3 style="font-size:15px;font-weight:700;margin-bottom:4px">The Astaka One</h3><p style="font-size:13px;color:#6b7280;margin-bottom:8px">Bukit Senyum, JB</p><p style="font-size:15px;font-weight:700;color:#1a1a2e">From RM2,500,000</p></div>
+      </a>
+      <a href="properties/skypark-kepler-lido-waterfront-boulevard.html" class="rec-card" style="scroll-snap-align:start;flex:0 0 300px;border-radius:16px;overflow:hidden;border:1px solid #e8e8ed;transition:all .3s;text-decoration:none;color:inherit;background:#fff">
+        <div style="height:180px;background:url('https://www.mysgprop.com/wp-content/uploads/2024/10/Lido-Waterfront-Masterplan-5.jpeg') center/cover;position:relative"><span style="position:absolute;top:10px;left:10px;padding:4px 12px;border-radius:50px;font-size:11px;font-weight:600;background:rgba(37,211,102,.85);color:#fff;backdrop-filter:blur(8px)">New Launch</span><span style="position:absolute;top:10px;right:10px;padding:4px 12px;border-radius:50px;font-size:11px;font-weight:600;background:rgba(201,169,98,.9);color:#fff">Freehold</span></div>
+        <div style="padding:16px"><h3 style="font-size:15px;font-weight:700;margin-bottom:4px">Skypark Kepler</h3><p style="font-size:13px;color:#6b7280;margin-bottom:8px">Lido Waterfront, JB</p><p style="font-size:15px;font-weight:700;color:#1a1a2e">Price on Request</p></div>
+      </a>
+      <a href="properties/puteri-cove-residences-puteri-harbour.html" class="rec-card" style="scroll-snap-align:start;flex:0 0 300px;border-radius:16px;overflow:hidden;border:1px solid #e8e8ed;transition:all .3s;text-decoration:none;color:inherit;background:#fff">
+        <div style="height:180px;background:url('https://www.putericoveresidences.com/wp-content/themes/developer/assets/images/bg-hero.jpg') center/cover;position:relative"><span style="position:absolute;top:10px;left:10px;padding:4px 12px;border-radius:50px;font-size:11px;font-weight:600;background:rgba(26,26,46,.85);color:#fff;backdrop-filter:blur(8px)">Completed</span><span style="position:absolute;top:10px;right:10px;padding:4px 12px;border-radius:50px;font-size:11px;font-weight:600;background:rgba(201,169,98,.9);color:#fff">Freehold</span></div>
+        <div style="padding:16px"><h3 style="font-size:15px;font-weight:700;margin-bottom:4px">Puteri Cove Residences</h3><p style="font-size:13px;color:#6b7280;margin-bottom:8px">Puteri Harbour, JB</p><p style="font-size:15px;font-weight:700;color:#1a1a2e">Price on Request</p></div>
+      </a>
+      <a href="properties/sunway-majestic-ara-soho.html" class="rec-card" style="scroll-snap-align:start;flex:0 0 300px;border-radius:16px;overflow:hidden;border:1px solid #e8e8ed;transition:all .3s;text-decoration:none;color:inherit;background:#fff">
+        <div style="height:180px;background:url('https://sunwaymajesticjb.com/wp-content/uploads/2025/07/hero-building.webp') center/cover;position:relative"><span style="position:absolute;top:10px;left:10px;padding:4px 12px;border-radius:50px;font-size:11px;font-weight:600;background:rgba(37,211,102,.85);color:#fff;backdrop-filter:blur(8px)">New Launch</span><span style="position:absolute;top:10px;right:10px;padding:4px 12px;border-radius:50px;font-size:11px;font-weight:600;background:rgba(201,169,98,.9);color:#fff">Freehold</span></div>
+        <div style="padding:16px"><h3 style="font-size:15px;font-weight:700;margin-bottom:4px">Sunway Majestic Ara SOHO</h3><p style="font-size:13px;color:#6b7280;margin-bottom:8px">Jalan Yahya Awal, JB</p><p style="font-size:15px;font-weight:700;color:#1a1a2e">Price on Request</p></div>
+      </a>
+      <a href="properties/forest-city-sfz.html" class="rec-card" style="scroll-snap-align:start;flex:0 0 300px;border-radius:16px;overflow:hidden;border:1px solid #e8e8ed;transition:all .3s;text-decoration:none;color:inherit;background:#fff">
+        <div style="height:180px;background:url('https://www.forestcitycountrygarden.com/wp-content/uploads/2024/01/forest-city-johor-bahru.webp') center/cover;position:relative"><span style="position:absolute;top:10px;left:10px;padding:4px 12px;border-radius:50px;font-size:11px;font-weight:600;background:rgba(26,26,46,.85);color:#fff;backdrop-filter:blur(8px)">Completed</span><span style="position:absolute;top:10px;right:10px;padding:4px 12px;border-radius:50px;font-size:11px;font-weight:600;background:rgba(201,169,98,.9);color:#fff">Freehold</span></div>
+        <div style="padding:16px"><h3 style="font-size:15px;font-weight:700;margin-bottom:4px">Forest City (SFZ)</h3><p style="font-size:13px;color:#6b7280;margin-bottom:8px">Iskandar Puteri, JB</p><p style="font-size:15px;font-weight:700;color:#1a1a2e">Price on Request</p></div>
+      </a>
+      <a href="properties/majestic-gensphere-bukit-chagar.html" class="rec-card" style="scroll-snap-align:start;flex:0 0 300px;border-radius:16px;overflow:hidden;border:1px solid #e8e8ed;transition:all .3s;text-decoration:none;color:inherit;background:#fff">
+        <div style="height:180px;background:url('https://gensphere.com.my/images/section-one/section-one-banner.png') center/cover;position:relative"><span style="position:absolute;top:10px;left:10px;padding:4px 12px;border-radius:50px;font-size:11px;font-weight:600;background:rgba(26,26,46,.85);color:#fff;backdrop-filter:blur(8px)">Completed</span><span style="position:absolute;top:10px;right:10px;padding:4px 12px;border-radius:50px;font-size:11px;font-weight:600;background:rgba(201,169,98,.9);color:#fff">Freehold</span></div>
+        <div style="padding:16px"><h3 style="font-size:15px;font-weight:700;margin-bottom:4px">Majestic Gensphere</h3><p style="font-size:13px;color:#6b7280;margin-bottom:8px">Bukit Chagar, JB</p><p style="font-size:15px;font-weight:700;color:#1a1a2e">From RM530,000</p></div>
+      </a>
+    </div>
+    <!-- Carousel arrows -->
+    <button onclick="document.getElementById('recCarousel').scrollBy({left:-320,behavior:'smooth'})" style="position:absolute;left:8px;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;background:rgba(26,26,46,.85);color:#fff;border:none;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(8px);box-shadow:0 2px 8px rgba(0,0,0,.2);transition:all .3s">&#8249;</button>
+    <button onclick="document.getElementById('recCarousel').scrollBy({left:320,behavior:'smooth'})" style="position:absolute;right:8px;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;background:rgba(26,26,46,.85);color:#fff;border:none;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(8px);box-shadow:0 2px 8px rgba(0,0,0,.2);transition:all .3s">&#8250;</button>
   </div>
 </section>
 

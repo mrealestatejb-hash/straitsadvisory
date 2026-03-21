@@ -24,6 +24,9 @@
       // Landing about
       'Straits Advisory': 'Straits Advisory',
       'Technology Meets Expertise': '科技与专业的融合',
+      // Recommended properties
+      'Recommended Properties': '推荐楼盘',
+      'rec_subtitle': '为新加坡投资者精选的优质项目',
       // Landing map
       'Explore Our Listings': '浏览我们的房源',
       'Premium properties across Malaysia': '马来西亚优质房产',
@@ -220,7 +223,8 @@
       // Landing about
       'Straits Advisory': 'Straits Advisory',
       'Technology Meets Expertise': '科技與專業的融合',
-      // Landing map
+      'Recommended Properties': '推薦樓盤',
+      'rec_subtitle': '為新加坡投資者精選的優質項目',
       'Explore Our Listings': '瀏覽我們的房源',
       'Premium properties across Malaysia': '馬來西亞優質房產',
       'properties across Malaysia': '馬來西亞房產',
@@ -412,6 +416,8 @@
       'Your trusted gateway to Investing in Malaysia\'s Real Estate.': 'Pintu gerbang yang dipercayai untuk pelaburan hartanah di Malaysia.',
       'Get Started on WhatsApp': 'Mula di WhatsApp',
       'Technology Meets Expertise': 'Teknologi Bertemu Kepakaran',
+      'Recommended Properties': 'Hartanah Disyorkan',
+      'rec_subtitle': 'Projek pilihan untuk pelabur Singapura',
       'Explore Our Listings': 'Terokai Senarai Kami',
       'Premium properties across Malaysia': 'Hartanah premium di seluruh Malaysia',
       'properties across Malaysia': 'hartanah di seluruh Malaysia',
@@ -597,6 +603,8 @@
       'Your trusted gateway to Investing in Malaysia\'s Real Estate.': 'マレーシア不動産投資への信頼のゲートウェイ。',
       'Get Started on WhatsApp': 'WhatsAppで始める',
       'Technology Meets Expertise': 'テクノロジーと専門知識の融合',
+      'Recommended Properties': 'おすすめ物件',
+      'rec_subtitle': 'シンガポール投資家のための厳選プロジェクト',
       'Explore Our Listings': '物件一覧を見る',
       'Premium properties across Malaysia': 'マレーシア全域のプレミアム物件',
       'properties across Malaysia': 'マレーシアの物件',
@@ -779,6 +787,8 @@
       'Your trusted gateway to Investing in Malaysia\'s Real Estate.': '말레이시아 부동산 투자의 신뢰할 수 있는 플랫폼.',
       'Get Started on WhatsApp': 'WhatsApp으로 시작',
       'Technology Meets Expertise': '기술과 전문성의 만남',
+      'Recommended Properties': '추천 매물',
+      'rec_subtitle': '싱가포르 투자자를 위한 엄선 프로젝트',
       'Explore Our Listings': '매물 보기',
       'Premium properties across Malaysia': '말레이시아 프리미엄 부동산',
       'properties across Malaysia': '말레이시아 부동산',
@@ -961,6 +971,8 @@
       'Your trusted gateway to Investing in Malaysia\'s Real Estate.': 'แพลตฟอร์มการลงทุนอสังหาริมทรัพย์มาเลเซียที่คุณไว้วางใจ',
       'Get Started on WhatsApp': 'เริ่มต้นผ่าน WhatsApp',
       'Technology Meets Expertise': 'เทคโนโลยีพบความเชี่ยวชาญ',
+      'Recommended Properties': 'อสังหาริมทรัพย์แนะนำ',
+      'rec_subtitle': 'โครงการคัดสรรสำหรับนักลงทุนสิงคโปร์',
       'Explore Our Listings': 'สำรวจรายการของเรา',
       'Premium properties across Malaysia': 'อสังหาริมทรัพย์ระดับพรีเมียมทั่วมาเลเซีย',
       'properties across Malaysia': 'อสังหาริมทรัพย์ทั่วมาเลเซีย',
