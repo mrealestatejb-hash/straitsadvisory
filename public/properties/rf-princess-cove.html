@@ -143,6 +143,51 @@ img{display:block;max-width:100%}
 .fac-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
 .fac-item{display:flex;flex-direction:column;align-items:center;gap:6px;padding:16px 8px;border-radius:10px;background:#f9fafb;border:1px solid #f3f4f6;text-align:center;transition:all var(--transition)}
 .fac-item:hover{border-color:#e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+/* FACILITIES TABS */
+.fac-tabs{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.fac-tab{padding:10px 20px;border-radius:50px;font-size:13px;font-weight:600;color:var(--navy);border:1.5px solid #e5e7eb;background:#fff;cursor:pointer;transition:all var(--transition);font-family:inherit}
+.fac-tab:hover{border-color:var(--navy)}
+.fac-tab.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.fac-showcase{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:16px;overflow:hidden;border:1px solid #e5e7eb;background:#fff}
+.fac-hero{position:relative;min-height:300px;background:linear-gradient(135deg,#059669 0%,#047857 100%);display:flex;align-items:flex-end;padding:24px;color:#fff}
+.fac-hero-badge{position:absolute;top:16px;right:16px;padding:6px 14px;border-radius:50px;font-size:12px;font-weight:600;background:rgba(0,0,0,.35);backdrop-filter:blur(8px);color:#fff;display:flex;align-items:center;gap:6px}
+.fac-hero-label{font-size:17px;font-weight:700;text-shadow:0 1px 4px rgba(0,0,0,.3)}
+.fac-list{display:flex;flex-direction:column}
+.fac-list-item{display:flex;align-items:center;gap:14px;padding:16px 20px;border-bottom:1px solid #f3f4f6;cursor:pointer;transition:background .2s}
+.fac-list-item:last-child{border-bottom:none}
+.fac-list-item:hover{background:#f9fafb}
+.fac-list-item.active{background:#f0fdf4}
+.fac-list-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.fac-list-info h4{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:2px}
+.fac-list-info p{font-size:12px;color:#9ca3af}
+.fac-list-arrow{margin-left:auto;color:#d1d5db;font-size:16px}
+/* LAYOUT CARDS */
+.layout-list{display:flex;flex-direction:column;gap:16px}
+.layout-card{border:1px solid #e5e7eb;border-radius:14px;padding:20px 24px;background:#fff;transition:all var(--transition)}
+.layout-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.06)}
+.layout-top{display:flex;align-items:center;gap:16px;margin-bottom:14px}
+.layout-icon{width:52px;height:52px;border-radius:12px;background:#f3f4f6;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
+.layout-info{flex:1}
+.layout-info h4{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:2px;display:flex;align-items:center;gap:8px}
+.layout-info p{font-size:13px;color:#9ca3af}
+.layout-badge{display:inline-flex;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;background:#fce7f3;color:#db2777}
+.layout-price{text-align:right;flex-shrink:0}
+.layout-price .lp-main{font-size:20px;font-weight:800;color:var(--navy)}
+.layout-price .lp-psf{font-size:12px;color:#9ca3af;margin-top:2px}
+.layout-actions{display:flex;gap:12px;align-items:center;padding-top:14px;border-top:1px solid #f3f4f6}
+.layout-actions a{font-size:13px;font-weight:600;color:#059669;cursor:pointer;text-decoration:none;transition:color .2s}
+.layout-actions a:hover{color:#047857}
+.layout-actions .la-enquire{margin-left:auto;padding:10px 28px;border-radius:8px;background:#059669;color:#fff;font-size:13px;font-weight:600;text-decoration:none;transition:all .2s;display:inline-block}
+.layout-actions .la-enquire:hover{background:#047857}
+/* CONNECTIVITY CARDS */
+.connectivity-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+.connect-card{border-radius:14px;padding:20px 24px;background:#fff;border:1px solid #e5e7eb}
+.connect-card.sg{background:linear-gradient(135deg,#fff5f5,#fee2e2);border-color:#fecaca}
+.connect-card.jb{background:linear-gradient(135deg,#eff6ff,#dbeafe);border-color:#bfdbfe}
+.connect-card-header{display:flex;align-items:center;gap:8px;margin-bottom:14px;font-size:15px;font-weight:700;color:var(--navy)}
+.connect-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;font-size:14px;color:#374151}
+.connect-row:not(:last-child){border-bottom:1px solid rgba(0,0,0,.04)}
+.connect-row .cr-time{font-weight:700;color:var(--navy);white-space:nowrap}
 .fac-icon{font-size:24px}
 .fac-label{font-size:12px;color:#374151;font-weight:500;line-height:1.3}
 
@@ -255,6 +300,12 @@ img{display:block;max-width:100%}
   .related-grid{grid-template-columns:repeat(2,1fr)}
   .enq-form .fr{grid-template-columns:1fr}
   .nearby-tabs{gap:0}
+  .fac-showcase{grid-template-columns:1fr}
+  .fac-hero{min-height:200px}
+  .connectivity-grid{grid-template-columns:1fr}
+  .layout-top{flex-wrap:wrap}
+  .layout-price{text-align:left;width:100%;margin-top:4px}
+  .layout-actions{flex-wrap:wrap}
   .brochure-card{flex-direction:column;text-align:center}
   .sidebar-card{flex-direction:column}
   .sidebar-dev{min-width:100%}
@@ -386,15 +437,51 @@ img{display:block;max-width:100%}
     </div>
 
 
+    <!-- FACILITIES & AMENITIES -->
+    <div class="section" id="facilitiesSection">
+      <h2 class="section-title" data-i18n="Facilities & Amenities">Facilities &amp; Amenities</h2>
+      <div class="fac-tabs" id="facTabs">
+        <button class="fac-tab active" onclick="switchFacTab('leisure',this)" data-i18n="Leisure & Recreation">Leisure &amp; Recreation</button>
+        <button class="fac-tab" onclick="switchFacTab('fitness',this)" data-i18n="Fitness & Wellness">Fitness &amp; Wellness</button>
+        <button class="fac-tab" onclick="switchFacTab('services',this)" data-i18n="Services & Convenience">Services &amp; Convenience</button>
+      </div>
+      <div class="fac-showcase">
+        <div class="fac-hero" id="facHero">
+          <span class="fac-hero-badge" id="facHeroBadge">📷 5 photos</span>
+          <div class="fac-hero-label" id="facHeroLabel">Infinity Pool with Straits View</div>
+        </div>
+        <div class="fac-list" id="facList"></div>
+      </div>
+    </div>
+
     <!-- 5. Available Layouts -->
     <div class="section" id="layoutsSection">
-      <h2 class="section-title">Available Layouts</h2>
-      <div class="fac-grid" id="layoutsGrid"></div>
+      <h2 class="section-title" data-i18n="Available Layouts">Available Layouts</h2>
+      <div id="layoutsGrid" class="layout-list"></div>
+    </div>
+
+    <!-- CONNECTIVITY -->
+    <div class="section">
+      <h2 class="section-title" data-i18n="Connectivity">Connectivity</h2>
+      <div class="connectivity-grid">
+        <div class="connect-card sg">
+          <div class="connect-card-header">🇸🇬 To Singapore</div>
+          <div class="connect-row"><span>RTS Link to Woodlands</span><span class="cr-time">5 min</span></div>
+          <div class="connect-row"><span>CIQ Immigration</span><span class="cr-time">12 min walk</span></div>
+          <div class="connect-row"><span>Bus to SG (170/170X)</span><span class="cr-time">45-60 min</span></div>
+        </div>
+        <div class="connect-card jb">
+          <div class="connect-card-header">🇲🇾 Within JB</div>
+          <div class="connect-row"><span>JB Sentral</span><span class="cr-time">2 min drive</span></div>
+          <div class="connect-row"><span>City Square Mall</span><span class="cr-time">5 min walk</span></div>
+          <div class="connect-row"><span>Komtar JBCC</span><span class="cr-time">8 min walk</span></div>
+        </div>
+      </div>
     </div>
 
     <!-- 7. What's Nearby -->
     <div class="section">
-      <h2 class="section-title">What's nearby</h2>
+      <h2 class="section-title" data-i18n="What's Nearby">What's nearby</h2>
       <div id="nearbyMap" class="map-container"></div>
       <link href="https://unpkg.com/maplibre-gl@4.1.2/dist/maplibre-gl.css" rel="stylesheet">
       <script src="https://unpkg.com/maplibre-gl@4.1.2/dist/maplibre-gl.js"></script>
@@ -698,21 +785,115 @@ function switchPhase(phaseKey, tabEl) {
 }
 
 // ─── RENDER LAYOUTS ───
+var layoutSpecs = {
+  'Studio':     {size:'450-500',beds:'Studio',baths:'1',priceMYR:350000,psfMYR:778},
+  '1 Bedroom':  {size:'550-650',beds:'1 Bed',baths:'1',priceMYR:450000,psfMYR:750},
+  '2 Bedroom':  {size:'750-900',beds:'2 Bed',baths:'2',priceMYR:650000,psfMYR:787},
+  '3 Bedroom':  {size:'1000-1200',beds:'3 Bed',baths:'2',priceMYR:950000,psfMYR:864},
+  '4 Bedroom':  {size:'1400-1600',beds:'4 Bed',baths:'3',priceMYR:1500000,psfMYR:1000,badge:'4 left'},
+  'Penthouse':  {size:'1800-2500',beds:'4 Bed',baths:'3',priceMYR:1800000,psfMYR:900,badge:'Limited'},
+  'Dual Key':   {size:'1200-1400',beds:'2+1 Bed',baths:'2',priceMYR:850000,psfMYR:654}
+};
+var myrToSgd = 0.2985;
+
 function renderLayouts(layouts) {
   var grid = document.getElementById('layoutsGrid');
   var html = '';
+  var icons = {'Studio':'🛏️','1 Bedroom':'🏠','2 Bedroom':'🏡','3 Bedroom':'🏘️','4 Bedroom':'🏰','Penthouse':'✨','Dual Key':'🔑'};
   layouts.forEach(function(layout) {
-    var emoji = layoutEmojis[layout] || '🏠';
-    // Highlight 2-bed and 3-bed as popular
-    var isPopular = layout === '2 Bedroom' || layout === '3 Bedroom';
-    if (isPopular) {
-      html += '<div class="fac-item"><span class="fac-icon">' + emoji + '</span><span class="fac-label">' + layout + '</span></div>';
-    } else {
-      html += '<div class="fac-item"><span class="fac-icon">' + emoji + '</span><span class="fac-label">' + layout + '</span></div>';
-    }
+    var spec = layoutSpecs[layout] || {size:'TBC',beds:layout,baths:'-',priceMYR:0,psfMYR:0};
+    var icon = icons[layout] || '🏠';
+    var sgdPrice = spec.priceMYR ? 'S$' + Math.round(spec.priceMYR * myrToSgd).toLocaleString() : 'Price on Request';
+    var sgdPsf = spec.psfMYR ? 'S$' + Math.round(spec.psfMYR * myrToSgd) + '/sq ft' : '';
+    var badge = spec.badge ? '<span class="layout-badge">' + spec.badge + '</span>' : '';
+    html += '<div class="layout-card">';
+    html += '<div class="layout-top">';
+    html += '<div class="layout-icon">' + icon + '</div>';
+    html += '<div class="layout-info"><h4>' + layout + ' ' + badge + '</h4><p>' + spec.size + ' sq ft &bull; ' + spec.beds + ' &bull; ' + spec.baths + ' Bath</p></div>';
+    html += '<div class="layout-price"><div class="lp-main">' + sgdPrice + '</div><div class="lp-psf">' + sgdPsf + '</div></div>';
+    html += '</div>';
+    html += '<div class="layout-actions">';
+    html += '<a href="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20R%26F%20Princess%20Cove%20' + encodeURIComponent(layout) + '" target="_blank">View Floor Plan</a>';
+    html += '<a href="https://wa.me/60197058001?text=Hi%2C%20I%27d%20like%20a%20virtual%20tour%20of%20R%26F%20Princess%20Cove%20' + encodeURIComponent(layout) + '" target="_blank">360° Virtual Tour</a>';
+    html += '<a class="la-enquire" href="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20R%26F%20Princess%20Cove%20' + encodeURIComponent(layout) + '.%20Can%20I%20get%20more%20details%3F" target="_blank">Enquire</a>';
+    html += '</div></div>';
   });
   grid.innerHTML = html;
 }
+
+// ─── FACILITIES DATA ───
+var facilitiesData = {
+  leisure: [
+    {emoji:'🏊',name:'Infinity Pool',desc:'50m lap pool with straits view',bg:'#ecfdf5',iconBg:'#059669',heroGradient:'linear-gradient(135deg,#059669,#047857)',heroLabel:'Infinity Pool with Straits View'},
+    {emoji:'👶',name:'Kids Pool',desc:'Shallow pool & playground',bg:'#fef3c7',iconBg:'#d97706'},
+    {emoji:'🎾',name:'Tennis Court',desc:'Professional grade court',bg:'#fce7f3',iconBg:'#db2777'},
+    {emoji:'🍖',name:'BBQ Pavilion',desc:'Multiple BBQ stations',bg:'#ede9fe',iconBg:'#7c3aed'},
+    {emoji:'🏃',name:'Jogging Track',desc:'Waterfront promenade',bg:'#e0f2fe',iconBg:'#0284c7'}
+  ],
+  fitness: [
+    {emoji:'🏋️',name:'Gymnasium',desc:'Fully equipped fitness centre',bg:'#fef3c7',iconBg:'#d97706',heroGradient:'linear-gradient(135deg,#d97706,#b45309)',heroLabel:'State-of-the-Art Gymnasium'},
+    {emoji:'🧘',name:'Yoga Deck',desc:'Outdoor yoga & meditation space',bg:'#ede9fe',iconBg:'#7c3aed'},
+    {emoji:'🌿',name:'Sky Garden',desc:'Rooftop green space',bg:'#ecfdf5',iconBg:'#059669'},
+    {emoji:'🚴',name:'Bicycle Storage',desc:'Secure cycling facilities',bg:'#e0f2fe',iconBg:'#0284c7'}
+  ],
+  services: [
+    {emoji:'🔒',name:'24hr Security',desc:'CCTV & guard patrol',bg:'#e0f2fe',iconBg:'#0284c7',heroGradient:'linear-gradient(135deg,#1a1a2e,#2d2d5a)',heroLabel:'Round-the-Clock Security'},
+    {emoji:'🛒',name:'Retail Mall',desc:'R&F Mall directly connected',bg:'#ecfdf5',iconBg:'#059669'},
+    {emoji:'🅿️',name:'Covered Parking',desc:'Multi-storey car park',bg:'#fef3c7',iconBg:'#d97706'},
+    {emoji:'📦',name:'Package Lockers',desc:'Smart parcel collection',bg:'#ede9fe',iconBg:'#7c3aed'},
+    {emoji:'🏢',name:'Function Hall',desc:'Events & private dining',bg:'#fce7f3',iconBg:'#db2777'}
+  ]
+};
+
+var activeFacTab = 'leisure';
+
+function switchFacTab(cat, tabEl) {
+  activeFacTab = cat;
+  document.querySelectorAll('.fac-tab').forEach(function(t){t.classList.remove('active')});
+  if(tabEl) tabEl.classList.add('active');
+  renderFacilities(cat);
+}
+
+function renderFacilities(cat) {
+  var items = facilitiesData[cat] || [];
+  if(!items.length) return;
+
+  // Set hero to first item
+  var hero = items[0];
+  var heroEl = document.getElementById('facHero');
+  heroEl.style.background = hero.heroGradient || 'linear-gradient(135deg,#059669,#047857)';
+  document.getElementById('facHeroLabel').textContent = hero.heroLabel || hero.name;
+
+  // Render list
+  var html = '';
+  items.forEach(function(item, i) {
+    html += '<div class="fac-list-item' + (i===0?' active':'') + '" onclick="selectFacItem('+i+',\''+cat+'\')">';
+    html += '<div class="fac-list-icon" style="background:'+item.bg+'">' + item.emoji + '</div>';
+    html += '<div class="fac-list-info"><h4>' + item.name + '</h4><p>' + item.desc + '</p></div>';
+    html += '<span class="fac-list-arrow">›</span>';
+    html += '</div>';
+  });
+  document.getElementById('facList').innerHTML = html;
+}
+
+function selectFacItem(index, cat) {
+  var items = facilitiesData[cat] || [];
+  var item = items[index];
+  if(!item) return;
+
+  // Update hero
+  var heroEl = document.getElementById('facHero');
+  heroEl.style.background = item.heroGradient || 'linear-gradient(135deg,' + item.iconBg + ',' + item.iconBg + 'dd)';
+  document.getElementById('facHeroLabel').textContent = item.heroLabel || item.name;
+
+  // Update active state
+  document.querySelectorAll('.fac-list-item').forEach(function(el,i){
+    el.classList.toggle('active', i===index);
+  });
+}
+
+// Init facilities
+renderFacilities('leisure');
 
 // ─── VIRTUAL TOUR ───
 var currentTourUrl = 'https://www.actsugi.com/rfprincesscovejb/';
