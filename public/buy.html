@@ -152,7 +152,7 @@ a{text-decoration:none;color:inherit}
   <h1><span data-i18n="Find Your">Find Your</span> <span data-i18n="Malaysia Property">Malaysia Property</span></h1>
   <p data-i18n="Handpicked developments across Malaysia">Handpicked developments across Malaysia</p>
   <div class="hero-stats">
-    <span>90+ <span data-i18n="Properties">Properties</span></span>
+    <span data-i18n="Featured Properties">Featured Properties</span>
     <span>3 <span data-i18n="Cities">Cities</span></span>
     <span data-i18n="Freehold & Leasehold">Freehold &amp; Leasehold</span>
   </div>
@@ -902,7 +902,10 @@ function filterProperties(){
   var q=document.getElementById('filter-search').value.toLowerCase();
   var cards=document.querySelectorAll('.property-card');
   var vis=0;
+  // Whitelist: only show these properties (set to null to show all)
+  var whitelist=['r&f princess cove'];
   cards.forEach(function(c){
+    var inWhitelist=!whitelist||whitelist.indexOf(c.dataset.name)!==-1;
     var mc=!city||c.dataset.city===city;
     var ma=!a||c.dataset.area===a;
     var mp=!p||c.dataset.price===p;
@@ -910,7 +913,7 @@ function filterProperties(){
     var mt=!t||c.dataset.tenure===t;
     var md=!d||c.dataset.distance===d;
     var mq=!q||c.dataset.name.indexOf(q)!==-1;
-    if(mc&&ma&&mp&&ms&&mt&&md&&mq){c.style.display='';vis++}
+    if(inWhitelist&&mc&&ma&&mp&&ms&&mt&&md&&mq){c.style.display='';vis++}
     else{c.style.display='none'}
   });
   document.getElementById('results-count').textContent='Showing '+vis+' of '+cards.length+' properties';
