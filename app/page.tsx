@@ -168,10 +168,9 @@ function RecommendedProperties() {
 
 // ─── Map Section ───
 function MapSection() {
-  const [activeCity, setActiveCity] = useState<'all' | 'jb' | 'kl' | 'pg'>('all');
+  const [activeCity, setActiveCity] = useState<'jb' | 'kl' | 'pg'>('jb');
 
   const cities = [
-    { key: 'all' as const, label: 'All Cities' },
     { key: 'jb' as const, label: 'Johor Bahru' },
     { key: 'kl' as const, label: 'Kuala Lumpur' },
     { key: 'pg' as const, label: 'Penang' },
