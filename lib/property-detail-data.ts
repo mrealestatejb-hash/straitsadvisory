@@ -1,4 +1,5 @@
 import { properties, type Property } from './properties';
+import { getListingBySlug, propertyListings } from './properties-data';
 
 // Extended property data for detail pages
 export interface DetailedUnitType {
@@ -223,19 +224,58 @@ const detailDataMap: Record<string, Omit<PropertyDetailData, 'property'>> = {
   },
 };
 
+// Slug aliases for backward compatibility
+const slugAliases: Record<string, string> = {
+  'randf-princess-cove-phase-3': 'rf-princess-cove-phase-3',
+  'rf-princess-cove': 'rf-princess-cove-phase-1',
+};
+
 export function getPropertyDetailData(slug: string): PropertyDetailData | null {
-  const property = properties.find((p) => p.slug === slug);
-  if (!property) return null;
+  const resolvedSlug = slugAliases[slug] || slug;
 
-  const detailData = detailDataMap[slug] || {};
+  // Try detailed properties first
+  const property = properties.find((p) => p.slug === resolvedSlug);
+  if (property) {
+    const detailData = detailDataMap[resolvedSlug] || {};
+    return {
+      property,
+      whatsappNumber: '60197058001',
+      ...detailData,
+    };
+  }
 
-  return {
-    property,
-    whatsappNumber: '60197058001',
-    ...detailData,
-  };
+  // Fallback: create a basic Property from listings data
+  const listing = getListingBySlug(resolvedSlug) || getListingBySlug(slug);
+  if (listing) {
+    const basicProperty: Property = {
+      id: listing.slug,
+      slug: listing.slug,
+      name: listing.name,
+      area: listing.location,
+      price: { sgd: 0, myr: 0 },
+      priceRange: listing.price,
+      specs: { beds: '-', baths: '-', size: '-' },
+      yield: 0,
+      rtsDistance: listing.distance || '-',
+      tenure: listing.tenure === 'freehold' ? 'Freehold' : 'Leasehold',
+      completion: listing.status === 'completed' ? 'Completed' : listing.status === 'new-launch' ? 'New Launch' : 'Under Construction',
+      image: listing.image,
+      images: [listing.image],
+      description: `${listing.name} located in ${listing.location}. ${listing.feature}.`,
+      coordinates: [0, 0],
+    };
+    return {
+      property: basicProperty,
+      whatsappNumber: '60197058001',
+    };
+  }
+
+  return null;
 }
 
 export function getAllPropertySlugs(): string[] {
-  return properties.map((p) => p.slug);
+  const baseSlugs = properties.map((p) => p.slug);
+  const aliasSlugs = Object.keys(slugAliases);
+  const listingSlugs = propertyListings.map((p) => p.slug);
+  return [...new Set([...baseSlugs, ...aliasSlugs, ...listingSlugs])];
 }

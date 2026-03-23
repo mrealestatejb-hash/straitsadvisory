@@ -14,16 +14,14 @@ export default async function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL(clean, request.url));
   }
 
+  // Redirect old route to new route
+  if (pathname === '/why-work-with-us') {
+    return NextResponse.redirect(new URL('/about', request.url));
+  }
+
   // Block old Next.js i18n routes — redirect to homepage
   if (pathname.startsWith('/en-SG') || pathname.startsWith('/zh-SG') || pathname.startsWith('/ms-MY')) {
     return NextResponse.redirect(new URL('/', request.url));
-  }
-
-  // Static old site pages — serve from public/
-  const staticPages = ['/', '/buy', '/sell', '/rent', '/services', '/why-work-with-us'];
-  if (staticPages.includes(pathname) || pathname.startsWith('/properties/')) {
-    const target = pathname === '/' ? '/index.html' : `${pathname}.html`;
-    return NextResponse.rewrite(new URL(target, request.url));
   }
 
   // Auth routes
@@ -46,5 +44,5 @@ export default async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!api|_next|studio|.*\\..*).*)','/(index\\.html)','/(buy\\.html)','/(sell\\.html)','/(rent\\.html)','/(services\\.html)','/(why-work-with-us\\.html)'],
+  matcher: ['/((?!api|_next|studio|.*\\..*).*)'],
 };
