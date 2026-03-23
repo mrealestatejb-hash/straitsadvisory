@@ -31,6 +31,7 @@ export const propertyListings: PropertyListing[] = [
     distance: "500m to RTS",
     feature: "116-acre mega project",
     badges: ["Completed", "Freehold", "4 Phases"],
+    hidden: true,
   },
   {
     slug: 'randf-princess-cove-phase-3',
