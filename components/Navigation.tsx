@@ -1,15 +1,35 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { useLocale } from 'next-intl';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Globe, ChevronDown } from 'lucide-react';
+
+const navLinks = [
+  { href: '/buy', label: 'Buy' },
+  { href: '/sell', label: 'Sell' },
+  { href: '/rent', label: 'Rent' },
+  { href: '/services', label: 'Services' },
+  { href: '/about', label: 'About' },
+  { href: '/news', label: 'News' },
+  { href: '/compare', label: 'Compare' },
+];
+
+const languages = [
+  { code: 'en', label: 'EN' },
+  { code: 'zh-CN', label: '简体' },
+  { code: 'zh-TW', label: '繁體' },
+  { code: 'ms', label: 'BM' },
+  { code: 'ja', label: '日本語' },
+  { code: 'ko', label: '한국어' },
+  { code: 'th', label: 'ไทย' },
+];
 
 export function Navigation() {
-  const locale = useLocale();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isLangOpen, setIsLangOpen] = useState(false);
+  const [selectedLang, setSelectedLang] = useState('en');
+  const langRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -17,26 +37,31 @@ export function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
-    { href: `/${locale}/properties`, label: 'Properties' },
-    { href: `/${locale}/about`, label: 'Why Us' },
-    { href: `/${locale}/about`, label: 'About' },
-  ];
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (langRef.current && !langRef.current.contains(e.target as Node)) {
+        setIsLangOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const currentLangLabel = languages.find((l) => l.code === selectedLang)?.label || 'EN';
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/85 backdrop-blur-xl border-b border-gray-200'
-          : 'bg-transparent border-b border-transparent'
+          ? 'bg-[#1a1a2e]/95 backdrop-blur-xl shadow-lg'
+          : 'bg-[#1a1a2e]/80 backdrop-blur-md'
       }`}
     >
-      <nav className="flex items-center justify-between h-16 px-[clamp(20px,4vw,48px)]">
+      <nav className="flex items-center justify-between h-16 px-[clamp(16px,4vw,48px)] max-w-[1400px] mx-auto">
+        {/* Logo */}
         <Link
-          href={`/${locale}`}
-          className={`text-lg font-bold flex items-center gap-2.5 transition-colors duration-300 ${
-            isScrolled ? 'text-gray-900' : 'text-white'
-          }`}
+          href="/"
+          className="text-lg font-bold flex items-center gap-2.5 text-white"
         >
           <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
             <rect width="28" height="28" rx="6" fill="#c9a962" />
@@ -46,29 +71,55 @@ export function Navigation() {
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden lg:flex items-center gap-6">
           {navLinks.map((link) => (
             <Link
               key={link.label}
               href={link.href}
-              className={`text-sm font-medium transition-colors duration-300 ${
-                isScrolled
-                  ? 'text-gray-500 hover:text-gray-900'
-                  : 'text-white/80 hover:text-white'
-              }`}
+              className="text-sm font-medium text-white/80 hover:text-white transition-colors duration-200"
             >
               {link.label}
             </Link>
           ))}
+
+          {/* Language Selector */}
+          <div ref={langRef} className="relative">
+            <button
+              onClick={() => setIsLangOpen(!isLangOpen)}
+              className="flex items-center gap-1.5 text-sm text-white/80 hover:text-white transition-colors duration-200"
+            >
+              <Globe className="h-4 w-4" />
+              <span>{currentLangLabel}</span>
+              <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${isLangOpen ? 'rotate-180' : ''}`} />
+            </button>
+            {isLangOpen && (
+              <div className="absolute right-0 top-full mt-2 bg-[#1a1a2e] border border-white/10 rounded-lg shadow-xl py-1 min-w-[100px] z-50">
+                {languages.map((lang) => (
+                  <button
+                    key={lang.code}
+                    onClick={() => {
+                      setSelectedLang(lang.code);
+                      setIsLangOpen(false);
+                    }}
+                    className={`w-full text-left px-4 py-2 text-sm transition-colors duration-150 ${
+                      selectedLang === lang.code
+                        ? 'text-[#c9a962] bg-white/5'
+                        : 'text-white/70 hover:text-white hover:bg-white/5'
+                    }`}
+                  >
+                    {lang.label}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* WhatsApp CTA */}
           <a
-            href="https://wa.me/60169928899"
+            href="https://wa.me/60197058001"
             target="_blank"
             rel="noopener noreferrer"
-            className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
-              isScrolled
-                ? 'bg-[#007aff] text-white border border-[#007aff] hover:bg-[#0066d6]'
-                : 'bg-white/15 backdrop-blur-sm text-white border border-white/25 hover:bg-white/25'
-            }`}
+            className="px-5 py-2 rounded-full text-sm font-semibold bg-[#25d366] text-white hover:bg-[#20bd5a] transition-colors duration-200"
           >
             WhatsApp Us
           </a>
@@ -77,46 +128,60 @@ export function Navigation() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className={`md:hidden p-2 transition-colors ${
-            isScrolled ? 'text-gray-900' : 'text-white'
-          }`}
+          className="lg:hidden p-2 text-white"
+          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
         >
           {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </nav>
 
       {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-b overflow-hidden"
-          >
-            <div className="px-5 py-4 flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="text-lg font-medium text-gray-900 py-2"
-                >
-                  {link.label}
-                </Link>
-              ))}
-              <a
-                href="https://wa.me/60169928899"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-[#007aff] text-white text-center py-3 rounded-full font-semibold mt-2"
+      {isMenuOpen && (
+        <div className="lg:hidden bg-[#1a1a2e] border-t border-white/10 overflow-hidden">
+          <div className="px-5 py-4 flex flex-col gap-1">
+            {navLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                onClick={() => setIsMenuOpen(false)}
+                className="text-base font-medium text-white/80 hover:text-white py-3 border-b border-white/5 transition-colors duration-200"
               >
-                WhatsApp Us
-              </a>
+                {link.label}
+              </Link>
+            ))}
+
+            {/* Mobile Language Selector */}
+            <div className="py-3 border-b border-white/5">
+              <p className="text-xs text-white/40 uppercase tracking-wider mb-2">Language</p>
+              <div className="flex flex-wrap gap-2">
+                {languages.map((lang) => (
+                  <button
+                    key={lang.code}
+                    onClick={() => setSelectedLang(lang.code)}
+                    className={`px-3 py-1.5 rounded-full text-sm transition-colors duration-150 ${
+                      selectedLang === lang.code
+                        ? 'bg-[#c9a962] text-white'
+                        : 'bg-white/10 text-white/70 hover:bg-white/20'
+                    }`}
+                  >
+                    {lang.label}
+                  </button>
+                ))}
+              </div>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+
+            {/* Mobile WhatsApp CTA */}
+            <a
+              href="https://wa.me/60197058001"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#25d366] text-white text-center py-3 rounded-full font-semibold mt-3"
+            >
+              WhatsApp Us
+            </a>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
