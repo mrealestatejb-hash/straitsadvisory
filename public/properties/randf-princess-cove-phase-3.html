@@ -153,6 +153,12 @@ img{display:block;max-width:100%}
 .snav-link:hover{color:var(--navy)}
 .snav-link.active{color:var(--navy);border-bottom-color:#c41230;font-weight:600}
 
+/* UNIT TYPE TABS */
+.ut-tabs{display:flex;gap:0;border-bottom:2px solid #e5e7eb;margin-bottom:0}
+.ut-tab{padding:12px 24px;font-size:14px;font-weight:600;color:#6b7280;cursor:pointer;border:none;background:none;border-bottom:2px solid transparent;margin-bottom:-2px;font-family:inherit;transition:all .2s;white-space:nowrap}
+.ut-tab:hover{color:var(--navy)}
+.ut-tab.active{color:var(--navy);border-bottom-color:var(--navy)}
+
 /* UNIT TYPES VIEWER */
 .unit-types-viewer{display:grid;grid-template-columns:220px 1fr;gap:0;border:1px solid #e5e7eb;border-radius:var(--radius);overflow:hidden;min-height:400px}
 .ut-sidebar{border-right:1px solid #e5e7eb;max-height:500px;overflow-y:auto}
@@ -371,71 +377,38 @@ img{display:block;max-width:100%}
     <!-- UNIT TYPES -->
     <div class="section" id="unitTypes">
       <h2 class="section-title">Unit Types</h2>
+      <!-- Bedroom filter tabs -->
+      <div class="ut-tabs">
+        <button class="ut-tab active" onclick="filterBedrooms('1',this)">1 Bedroom</button>
+        <button class="ut-tab" onclick="filterBedrooms('2',this)">2 Bedrooms</button>
+        <button class="ut-tab" onclick="filterBedrooms('3',this)">3 Bedrooms</button>
+        <button class="ut-tab" onclick="filterBedrooms('4',this)">4 Bedrooms</button>
+      </div>
       <div class="unit-types-viewer">
-        <div class="ut-sidebar">
-          <div class="ut-item active" onclick="selectUnit(this,0)">
-            <div class="ut-item-name">Type A/A(M)</div>
-            <div class="ut-item-size">313 sqft</div>
-          </div>
-          <div class="ut-item" onclick="selectUnit(this,1)">
-            <div class="ut-item-name">Type B1b/B1b(M)</div>
-            <div class="ut-item-size">555 sqft</div>
-          </div>
-          <div class="ut-item" onclick="selectUnit(this,2)">
-            <div class="ut-item-name">Type B2/B2(M)</div>
-            <div class="ut-item-size">558 sqft</div>
-          </div>
-          <div class="ut-item" onclick="selectUnit(this,3)">
-            <div class="ut-item-name">Type B1/B1(M)</div>
-            <div class="ut-item-size">577 sqft</div>
-          </div>
-          <div class="ut-item" onclick="selectUnit(this,4)">
-            <div class="ut-item-name">Type B3c</div>
-            <div class="ut-item-size">593 sqft</div>
-          </div>
-          <div class="ut-item" onclick="selectUnit(this,5)">
-            <div class="ut-item-name">Type B3b/B3b(M)</div>
-            <div class="ut-item-size">593 sqft</div>
-          </div>
-          <div class="ut-item" onclick="selectUnit(this,6)">
-            <div class="ut-item-name">Type B3/B3(M)</div>
-            <div class="ut-item-size">593 sqft</div>
-          </div>
-          <div class="ut-item" onclick="selectUnit(this,7)">
-            <div class="ut-item-name">Type B3a/B3a(M)</div>
-            <div class="ut-item-size">595 sqft</div>
-          </div>
-          <div class="ut-item" onclick="selectUnit(this,8)">
-            <div class="ut-item-name">Type C1/C1(M)</div>
-            <div class="ut-item-size">850 sqft</div>
-          </div>
-          <div class="ut-item" onclick="selectUnit(this,9)">
-            <div class="ut-item-name">Type C2/C2(M)</div>
-            <div class="ut-item-size">900 sqft</div>
-          </div>
-          <div class="ut-item" onclick="selectUnit(this,10)">
-            <div class="ut-item-name">Type D/D(M)</div>
-            <div class="ut-item-size">1,200 sqft</div>
-          </div>
-          <div class="ut-item" onclick="selectUnit(this,11)">
-            <div class="ut-item-name">Type E/E(M)</div>
-            <div class="ut-item-size">1,555 sqft</div>
-          </div>
-        </div>
+        <div class="ut-sidebar" id="utSidebar"></div>
         <div class="ut-detail" id="utDetail">
           <div class="ut-detail-header">
-            <div class="ut-detail-type" id="utType">TYPE A/A(M)</div>
-            <div class="ut-detail-specs" id="utSpecs">1 &#128716; &nbsp; 1 &#128701; &nbsp; 313 sqft</div>
-            <div style="font-size:13px;color:#6b7280;margin-top:4px" id="utFurnishing">Furnishing: Unfurnished</div>
-          </div>
-          <div class="ut-detail-plan" id="utPlan">
-            <div style="padding:60px 20px;text-align:center;color:#9ca3af">
-              <div style="font-size:48px;margin-bottom:12px">&#128206;</div>
-              <p style="font-size:14px;font-weight:600">Floor Plan</p>
-              <p style="font-size:13px">Contact us for detailed floor plans</p>
+            <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
+              <div>
+                <div class="ut-detail-type" id="utType">TYPE A/A(M)</div>
+                <div class="ut-detail-specs" id="utSpecs">1 &#128716; &nbsp; 1 &#128701; &nbsp; 313 sqft</div>
+                <div style="font-size:13px;color:#6b7280;margin-top:4px" id="utFurnishing">Furnishing: Unfurnished</div>
+              </div>
+              <a href="https://wa.me/60197058001?text=Hi%2C%20I%27d%20like%20to%20request%20the%20price%20for%20R%26F%20Princess%20Cove%20Phase%203%20New%20Casa%20Suites" target="_blank" style="padding:8px 20px;border:2px solid var(--navy);border-radius:8px;font-size:13px;font-weight:600;color:var(--navy);transition:all .2s">Request Price</a>
             </div>
           </div>
+          <div class="ut-detail-plan" id="utPlan">
+            <img id="utPlanImg" src="../brochure/floorplans/1br_type_a.png" alt="Floor Plan" style="max-width:100%;max-height:420px;object-fit:contain;padding:12px">
+          </div>
         </div>
+      </div>
+      <!-- Download Brochure -->
+      <div style="margin-top:20px;padding:20px 24px;background:linear-gradient(135deg,#ecfdf5,#d1fae5);border-radius:var(--radius);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+        <div>
+          <h3 style="font-size:16px;font-weight:700;color:var(--navy)">R&amp;F Princess Cove Phase 3 &mdash; New Casa Suites Brochure</h3>
+          <p style="font-size:13px;color:#374151">Find more details in the official developer brochure.</p>
+        </div>
+        <a href="../brochure/RF-New-Casa-Suites-Brochure.pdf" download style="display:inline-flex;align-items:center;gap:8px;padding:10px 24px;background:var(--navy);color:#fff;border-radius:8px;font-size:14px;font-weight:600;transition:all .2s">&#11015; Download Brochure</a>
       </div>
     </div>
 
@@ -607,29 +580,69 @@ fetch('https://api.exchangerate-api.com/v4/latest/MYR').then(function(r){return 
   }).catch(function(){ convertAndDisplay('MYR'); });
 });
 
-// Unit Types data & selector
+// Unit Types data with floor plan images
 var unitTypes = [
-  {name:'TYPE A/A(M)',beds:1,baths:1,size:'313 sqft',furnishing:'Unfurnished'},
-  {name:'TYPE B1b/B1b(M)',beds:1,baths:1,size:'555 sqft',furnishing:'Unfurnished'},
-  {name:'TYPE B2/B2(M)',beds:1,baths:1,size:'558 sqft',furnishing:'Unfurnished'},
-  {name:'TYPE B1/B1(M)',beds:1,baths:1,size:'577 sqft',furnishing:'Unfurnished'},
-  {name:'TYPE B3c',beds:2,baths:1,size:'593 sqft',furnishing:'Unfurnished'},
-  {name:'TYPE B3b/B3b(M)',beds:2,baths:1,size:'593 sqft',furnishing:'Unfurnished'},
-  {name:'TYPE B3/B3(M)',beds:2,baths:1,size:'593 sqft',furnishing:'Unfurnished'},
-  {name:'TYPE B3a/B3a(M)',beds:2,baths:1,size:'595 sqft',furnishing:'Unfurnished'},
-  {name:'TYPE C1/C1(M)',beds:2,baths:2,size:'850 sqft',furnishing:'Unfurnished'},
-  {name:'TYPE C2/C2(M)',beds:3,baths:2,size:'900 sqft',furnishing:'Unfurnished'},
-  {name:'TYPE D/D(M)',beds:3,baths:3,size:'1,200 sqft',furnishing:'Unfurnished'},
-  {name:'TYPE E/E(M)',beds:4,baths:3,size:'1,555 sqft',furnishing:'Unfurnished'}
+  {name:'Type A/A(M)',beds:1,baths:1,size:'313 sqft',img:'1br_type_a'},
+  {name:'Type B1b/B1b(M)',beds:1,baths:1,size:'555 sqft',img:'1br_type_b1b'},
+  {name:'Type B2/B2(M)',beds:1,baths:1,size:'558 sqft',img:'1br_type_b2'},
+  {name:'Type B1/B1(M)',beds:1,baths:1,size:'577 sqft',img:'1br_type_b1'},
+  {name:'Type B3c',beds:1,baths:1,size:'593 sqft',img:'1br_type_b3c'},
+  {name:'Type B3b/B3b(M)',beds:1,baths:1,size:'593 sqft',img:'1br_type_b3b'},
+  {name:'Type B3/B3(M)',beds:1,baths:1,size:'593 sqft',img:'1br_type_b3'},
+  {name:'Type B3a/B3a(M)',beds:1,baths:1,size:'595 sqft',img:'1br_type_b3a'},
+  {name:'Type C/C(M)',beds:2,baths:2,size:'781 sqft',img:'2br_type_c'},
+  {name:'Type C1/C1(M)',beds:2,baths:2,size:'828 sqft',img:'2br_type_c1'},
+  {name:'Type C4c',beds:2,baths:2,size:'832 sqft',img:'2br_type_c4c'},
+  {name:'Type C4d',beds:2,baths:2,size:'839 sqft',img:'2br_type_c4d'},
+  {name:'Type C4a',beds:2,baths:2,size:'846 sqft',img:'2br_type_c4a'},
+  {name:'Type C4',beds:2,baths:2,size:'852 sqft',img:'2br_type_c4'},
+  {name:'Type C5',beds:2,baths:2,size:'874 sqft',img:'2br_type_c5'},
+  {name:'Type C2/C2(M)',beds:2,baths:2,size:'877 sqft',img:'2br_type_c2'},
+  {name:'Type C3/C3(M)',beds:2,baths:2,size:'894 sqft',img:'2br_type_c3'},
+  {name:'Type D1/D1(M)',beds:3,baths:2,size:'1,134 sqft',img:'3br_type_d1'},
+  {name:'Type D3/D3(M)',beds:3,baths:3,size:'1,141 sqft',img:'3br_type_d3'},
+  {name:'Type D2/D2(M)',beds:3,baths:3,size:'1,275 sqft',img:'3br_type_d2'},
+  {name:'Type E/E(M)',beds:4,baths:3,size:'1,555 sqft',img:'4br_type_e'}
 ];
+
+var currentBedFilter = '1';
+var filteredUnits = [];
+
+function filterBedrooms(beds, tabEl) {
+  currentBedFilter = beds;
+  document.querySelectorAll('.ut-tab').forEach(function(t){t.classList.remove('active')});
+  if(tabEl) tabEl.classList.add('active');
+  filteredUnits = unitTypes.filter(function(u){return String(u.beds) === beds});
+  renderUnitSidebar();
+  if(filteredUnits.length > 0) selectUnit(document.querySelector('.ut-item'), 0);
+}
+
+function renderUnitSidebar() {
+  var sidebar = document.getElementById('utSidebar');
+  var html = '';
+  filteredUnits.forEach(function(u, i) {
+    html += '<div class="ut-item' + (i===0?' active':'') + '" onclick="selectUnit(this,' + i + ')">';
+    html += '<div class="ut-item-name">' + u.name + '</div>';
+    html += '<div class="ut-item-size">' + u.size + '</div>';
+    html += '</div>';
+  });
+  sidebar.innerHTML = html;
+}
+
 function selectUnit(el, idx) {
   document.querySelectorAll('.ut-item').forEach(function(i){i.classList.remove('active')});
-  el.classList.add('active');
-  var u = unitTypes[idx];
-  document.getElementById('utType').textContent = u.name;
+  if(el) el.classList.add('active');
+  var u = filteredUnits[idx];
+  if(!u) return;
+  document.getElementById('utType').textContent = u.name.toUpperCase();
   document.getElementById('utSpecs').innerHTML = u.beds + ' \ud83d\udecf\ufe0f &nbsp; ' + u.baths + ' \ud83d\udec1 &nbsp; ' + u.size;
-  document.getElementById('utFurnishing').textContent = 'Furnishing: ' + u.furnishing;
+  document.getElementById('utFurnishing').textContent = 'Furnishing: Unfurnished';
+  document.getElementById('utPlanImg').src = '../brochure/floorplans/' + u.img + '.png';
+  document.getElementById('utPlanImg').alt = u.name + ' Floor Plan';
 }
+
+// Initialize with 1 bedroom
+filterBedrooms('1', document.querySelector('.ut-tab'));
 
 // Section nav scroll spy
 var sectionNav = document.getElementById('sectionNav');
