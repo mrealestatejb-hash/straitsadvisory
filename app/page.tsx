@@ -53,12 +53,14 @@ const RECOMMENDED = [
 function VideoHero() {
   return (
     <section className="relative w-full h-screen min-h-[600px] overflow-hidden bg-[#0a0a0a]">
+      {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
       <video
         src={HERO_VIDEO}
         muted
         autoPlay
         loop
         playsInline
+        preload="auto"
         className="absolute inset-0 w-full h-full object-cover"
       />
       {/* Gradient overlay */}
