@@ -50,7 +50,7 @@ export function FacilitiesSection({ facilities }: FacilitiesSectionProps) {
             className={`px-5 py-2.5 rounded-full text-[13px] font-semibold transition-all ${
               activeCategory === cat
                 ? 'glass-dark text-white border-none'
-                : 'glass-button text-[#1a1a2e]'
+                : 'glass-button text-[#1a3af5]'
             }`}
           >
             {categoryLabels[cat] || cat}

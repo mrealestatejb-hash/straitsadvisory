@@ -146,20 +146,20 @@ export default function ListingsMap({ activeCity }: ListingsMapProps) {
       // Add markers
       LISTINGS.forEach((p) => {
         const linkHtml = p.slug
-          ? `<a style="display:inline-block;padding:6px 14px;border-radius:6px;background:#1a1a2e;color:#fff;font-size:12px;font-weight:600;text-decoration:none;transition:background 0.2s" href="/properties/${p.slug}">View Details &rarr;</a>`
-          : `<a style="display:inline-block;padding:6px 14px;border-radius:6px;background:#1a1a2e;color:#fff;font-size:12px;font-weight:600;text-decoration:none;transition:background 0.2s" href="/buy">View Listings &rarr;</a>`;
+          ? `<a style="display:inline-block;padding:6px 14px;border-radius:6px;background:#1a3af5;color:#fff;font-size:12px;font-weight:600;text-decoration:none;transition:background 0.2s" href="/properties/${p.slug}">View Details &rarr;</a>`
+          : `<a style="display:inline-block;padding:6px 14px;border-radius:6px;background:#1a3af5;color:#fff;font-size:12px;font-weight:600;text-decoration:none;transition:background 0.2s" href="/buy">View Listings &rarr;</a>`;
 
         const popupHtml = `
           <div style="font-family:Inter,system-ui,sans-serif;min-width:200px">
-            <div style="font-size:15px;font-weight:700;color:#1a1a2e;margin-bottom:4px">${p.name}</div>
+            <div style="font-size:15px;font-weight:700;color:#1a3af5;margin-bottom:4px">${p.name}</div>
             <div style="font-size:12px;color:#6b7280;margin-bottom:8px">📍 ${p.loc}</div>
-            <div style="font-size:14px;font-weight:700;color:#1a1a2e;margin-bottom:8px">${p.price}</div>
+            <div style="font-size:14px;font-weight:700;color:#1a3af5;margin-bottom:8px">${p.price}</div>
             ${linkHtml}
           </div>
         `;
 
         const popup = new maplibregl.Popup({ offset: 25 }).setHTML(popupHtml);
-        const marker = new maplibregl.Marker({ color: '#1a1a2e' })
+        const marker = new maplibregl.Marker({ color: '#1a3af5' })
           .setLngLat([p.lng, p.lat])
           .setPopup(popup)
           .addTo(mapInstance) as maplibregl.Marker & { _cityTag?: string };

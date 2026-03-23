@@ -52,10 +52,10 @@ export function Navigation() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-3 pt-3">
       <nav
-        className={`flex items-center justify-between h-[56px] px-5 mx-auto max-w-[1400px] rounded-full transition-all duration-400 ${
+        className={`flex items-center justify-between h-[56px] px-5 mx-auto max-w-[1400px] rounded-full transition-all duration-400 backdrop-blur-xl border border-white/10 ${
           isScrolled
-            ? 'bg-[#0a0a2e] shadow-2xl shadow-black/30'
-            : 'bg-[#10103a] shadow-xl shadow-black/20'
+            ? 'bg-[#1a3af5]/85 shadow-2xl shadow-blue-900/40'
+            : 'bg-[#1a3af5]/70 shadow-xl shadow-blue-900/30'
         }`}
       >
         {/* Logo */}
@@ -96,7 +96,7 @@ export function Navigation() {
               <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${isLangOpen ? 'rotate-180' : ''}`} />
             </button>
             {isLangOpen && (
-              <div className="absolute right-0 top-full mt-2 bg-[#0a0a2e] border border-white/10 rounded-xl shadow-2xl py-1 min-w-[110px] z-50">
+              <div className="absolute right-0 top-full mt-2 bg-[#1a3af5]/90 backdrop-blur-xl border border-white/10 rounded-xl shadow-2xl py-1 min-w-[110px] z-50">
                 {languages.map((lang) => (
                   <button
                     key={lang.code}
@@ -149,7 +149,7 @@ export function Navigation() {
 
       {/* Dropdown Menu (both desktop "Menu" and mobile hamburger) */}
       {isMenuOpen && (
-        <div className="mt-2 mx-auto max-w-[1400px] bg-[#0a0a2e] rounded-2xl shadow-2xl shadow-black/30 border border-white/5 overflow-hidden">
+        <div className="mt-2 mx-auto max-w-[1400px] bg-[#1a3af5]/85 backdrop-blur-xl rounded-2xl shadow-2xl shadow-blue-900/40 border border-white/10 overflow-hidden">
           <div className="p-5 grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Nav Links */}
             <div className="lg:col-span-2">

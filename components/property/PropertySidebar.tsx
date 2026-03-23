@@ -69,7 +69,7 @@ export function PropertySidebar({
           href={`https://wa.me/${whatsappNumber}?text=${enquiryMessage}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center w-full py-3 px-5 rounded-[10px] glass-button text-[#1a1a2e] text-sm font-semibold hover:bg-[#1a1a2e] hover:text-white transition-all mb-4"
+          className="flex items-center justify-center w-full py-3 px-5 rounded-[10px] glass-button text-[#1a3af5] text-sm font-semibold hover:bg-[#1a3af5] hover:text-white transition-all mb-4"
         >
           Enquire Now
         </a>

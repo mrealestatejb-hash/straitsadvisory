@@ -72,7 +72,7 @@ function RadioGroup({
           key={opt}
           className={`flex items-center gap-1.5 px-3.5 py-2 border rounded-lg cursor-pointer text-[13px] font-medium transition-all ${
             value === opt
-              ? 'border-[#c9a962] bg-[#c9a96214] text-[#1a1a2e]'
+              ? 'border-[#c9a962] bg-[#c9a96214] text-[#1a3af5]'
               : 'border-gray-300 text-gray-700 hover:border-gray-400'
           }`}
         >
@@ -178,7 +178,7 @@ export default function SellPage() {
     <div className="min-h-screen bg-white">
       {/* Hero */}
       <section className="pt-16 md:pt-16">
-        <div className="bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#0f3460] text-center text-white py-16 px-6 md:py-20">
+        <div className="bg-gradient-to-br from-[#1a3af5] via-[#16213e] to-[#0f3460] text-center text-white py-16 px-6 md:py-20">
           <h1 className="text-3xl md:text-5xl font-extrabold mb-4 leading-tight">
             Sell Your <span className="text-[#c9a962]">Malaysia Property</span>
           </h1>
@@ -212,7 +212,7 @@ export default function SellPage() {
             className="glass-card text-center p-8 rounded-xl"
           >
             <div className="flex justify-center mb-4">{card.icon}</div>
-            <h3 className="text-base font-bold text-[#1a1a2e] mb-2">{card.title}</h3>
+            <h3 className="text-base font-bold text-[#1a3af5] mb-2">{card.title}</h3>
             <p className="text-sm text-gray-500 leading-relaxed">{card.desc}</p>
           </div>
         ))}
@@ -223,7 +223,7 @@ export default function SellPage() {
         {!submitted ? (
           <>
             <div className="text-center mb-10">
-              <h2 className="text-2xl md:text-[28px] font-extrabold text-[#1a1a2e] mb-2">
+              <h2 className="text-2xl md:text-[28px] font-extrabold text-[#1a3af5] mb-2">
                 Request Free Valuation
               </h2>
               <p className="text-[15px] text-gray-500">
@@ -241,7 +241,7 @@ export default function SellPage() {
                   }}
                   className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold transition-all ${
                     s.num === currentStep
-                      ? 'bg-[#1a1a2e] text-white'
+                      ? 'bg-[#1a3af5] text-white'
                       : s.num < currentStep
                       ? 'bg-emerald-600 text-white cursor-pointer'
                       : 'bg-gray-100 text-gray-400'
@@ -259,7 +259,7 @@ export default function SellPage() {
             {currentStep === 1 && (
               <div>
                 <div className="mb-5">
-                  <label className="block text-[13px] font-semibold text-[#1a1a2e] mb-1.5">
+                  <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
                     Property Type
                   </label>
                   <RadioGroup
@@ -270,7 +270,7 @@ export default function SellPage() {
                   />
                 </div>
                 <div className="mb-5">
-                  <label className="block text-[13px] font-semibold text-[#1a1a2e] mb-1.5">
+                  <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
                     Property Name / Development Name
                   </label>
                   <input
@@ -282,7 +282,7 @@ export default function SellPage() {
                   />
                 </div>
                 <div className="mb-5">
-                  <label className="block text-[13px] font-semibold text-[#1a1a2e] mb-1.5">
+                  <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
                     Unit Number <span className="text-xs text-gray-400 font-normal ml-1">(optional)</span>
                   </label>
                   <input
@@ -295,7 +295,7 @@ export default function SellPage() {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
                   <div>
-                    <label className="block text-[13px] font-semibold text-[#1a1a2e] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
                       Built-up Size (sqft)
                     </label>
                     <input
@@ -307,7 +307,7 @@ export default function SellPage() {
                     />
                   </div>
                   <div>
-                    <label className="block text-[13px] font-semibold text-[#1a1a2e] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
                       Bedrooms
                     </label>
                     <select
@@ -326,7 +326,7 @@ export default function SellPage() {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[13px] font-semibold text-[#1a1a2e] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
                       Bathrooms
                     </label>
                     <select
@@ -341,7 +341,7 @@ export default function SellPage() {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-[13px] font-semibold text-[#1a1a2e] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
                       Furnished Status
                     </label>
                     <select
@@ -359,7 +359,7 @@ export default function SellPage() {
                   <div className="flex-1" />
                   <button
                     onClick={() => goStep(2)}
-                    className="flex-1 py-3 px-6 rounded-lg bg-[#1a1a2e] text-white text-sm font-semibold hover:bg-[#c9a962] transition-colors text-center"
+                    className="flex-1 py-3 px-6 rounded-lg bg-[#1a3af5] text-white text-sm font-semibold hover:bg-[#c9a962] transition-colors text-center"
                   >
                     Next <ChevronRight className="inline w-4 h-4 ml-1" />
                   </button>
@@ -371,7 +371,7 @@ export default function SellPage() {
             {currentStep === 2 && (
               <div>
                 <div className="mb-5">
-                  <label className="block text-[13px] font-semibold text-[#1a1a2e] mb-1.5">State</label>
+                  <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">State</label>
                   <RadioGroup
                     name="state"
                     options={['Johor', 'Kuala Lumpur', 'Penang', 'Other']}
@@ -380,7 +380,7 @@ export default function SellPage() {
                   />
                 </div>
                 <div className="mb-5">
-                  <label className="block text-[13px] font-semibold text-[#1a1a2e] mb-1.5">
+                  <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
                     Area / Township
                   </label>
                   <input
@@ -392,7 +392,7 @@ export default function SellPage() {
                   />
                 </div>
                 <div className="mb-5">
-                  <label className="block text-[13px] font-semibold text-[#1a1a2e] mb-1.5">
+                  <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
                     Full Address
                   </label>
                   <textarea
@@ -411,7 +411,7 @@ export default function SellPage() {
                   </button>
                   <button
                     onClick={() => goStep(3)}
-                    className="flex-1 py-3 px-6 rounded-lg bg-[#1a1a2e] text-white text-sm font-semibold hover:bg-[#c9a962] transition-colors"
+                    className="flex-1 py-3 px-6 rounded-lg bg-[#1a3af5] text-white text-sm font-semibold hover:bg-[#c9a962] transition-colors"
                   >
                     Next <ChevronRight className="inline w-4 h-4 ml-1" />
                   </button>
@@ -423,7 +423,7 @@ export default function SellPage() {
             {currentStep === 3 && (
               <div>
                 <div className="mb-5">
-                  <label className="block text-[13px] font-semibold text-[#1a1a2e] mb-1.5">
+                  <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
                     Asking Price (RM)
                   </label>
                   <input
@@ -435,7 +435,7 @@ export default function SellPage() {
                   />
                 </div>
                 <div className="mb-5">
-                  <label className="block text-[13px] font-semibold text-[#1a1a2e] mb-1.5">
+                  <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
                     Reason for Selling
                   </label>
                   <RadioGroup
@@ -446,7 +446,7 @@ export default function SellPage() {
                   />
                 </div>
                 <div className="mb-5">
-                  <label className="block text-[13px] font-semibold text-[#1a1a2e] mb-1.5">Timeline</label>
+                  <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">Timeline</label>
                   <RadioGroup
                     name="timeline"
                     options={['ASAP', 'Within 3 months', 'Within 6 months', 'No rush']}
@@ -455,7 +455,7 @@ export default function SellPage() {
                   />
                 </div>
                 <div className="mb-5">
-                  <label className="block text-[13px] font-semibold text-[#1a1a2e] mb-1.5">
+                  <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
                     Any Existing Tenancy?
                   </label>
                   <RadioGroup
@@ -474,7 +474,7 @@ export default function SellPage() {
                   </button>
                   <button
                     onClick={() => goStep(4)}
-                    className="flex-1 py-3 px-6 rounded-lg bg-[#1a1a2e] text-white text-sm font-semibold hover:bg-[#c9a962] transition-colors"
+                    className="flex-1 py-3 px-6 rounded-lg bg-[#1a3af5] text-white text-sm font-semibold hover:bg-[#c9a962] transition-colors"
                   >
                     Next <ChevronRight className="inline w-4 h-4 ml-1" />
                   </button>
@@ -486,7 +486,7 @@ export default function SellPage() {
             {currentStep === 4 && (
               <div>
                 <div className="mb-5">
-                  <label className="block text-[13px] font-semibold text-[#1a1a2e] mb-1.5">Your Name</label>
+                  <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">Your Name</label>
                   <input
                     type="text"
                     value={form.contactName}
@@ -497,7 +497,7 @@ export default function SellPage() {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
                   <div>
-                    <label className="block text-[13px] font-semibold text-[#1a1a2e] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
                       Phone (WhatsApp)
                     </label>
                     <input
@@ -509,7 +509,7 @@ export default function SellPage() {
                     />
                   </div>
                   <div>
-                    <label className="block text-[13px] font-semibold text-[#1a1a2e] mb-1.5">Email</label>
+                    <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">Email</label>
                     <input
                       type="email"
                       value={form.contactEmail}
@@ -520,7 +520,7 @@ export default function SellPage() {
                   </div>
                 </div>
                 <div className="mb-5">
-                  <label className="block text-[13px] font-semibold text-[#1a1a2e] mb-1.5">
+                  <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
                     Preferred Contact Method
                   </label>
                   <RadioGroup
@@ -531,7 +531,7 @@ export default function SellPage() {
                   />
                 </div>
                 <div className="mb-5">
-                  <label className="block text-[13px] font-semibold text-[#1a1a2e] mb-1.5">
+                  <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
                     Best Time to Contact
                   </label>
                   <select
@@ -554,7 +554,7 @@ export default function SellPage() {
                   </button>
                   <button
                     onClick={() => goStep(5)}
-                    className="flex-1 py-3 px-6 rounded-lg bg-[#1a1a2e] text-white text-sm font-semibold hover:bg-[#c9a962] transition-colors"
+                    className="flex-1 py-3 px-6 rounded-lg bg-[#1a3af5] text-white text-sm font-semibold hover:bg-[#c9a962] transition-colors"
                   >
                     Next <ChevronRight className="inline w-4 h-4 ml-1" />
                   </button>
@@ -566,7 +566,7 @@ export default function SellPage() {
             {currentStep === 5 && (
               <div>
                 <div className="mb-5">
-                  <label className="block text-[13px] font-semibold text-[#1a1a2e] mb-1.5">
+                  <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
                     Property Photos{' '}
                     <span className="text-xs text-gray-400 font-normal ml-1">
                       (optional, up to 10 images)
@@ -628,7 +628,7 @@ export default function SellPage() {
                   </button>
                   <button
                     onClick={() => goStep(6)}
-                    className="flex-1 py-3 px-6 rounded-lg bg-[#1a1a2e] text-white text-sm font-semibold hover:bg-[#c9a962] transition-colors"
+                    className="flex-1 py-3 px-6 rounded-lg bg-[#1a3af5] text-white text-sm font-semibold hover:bg-[#c9a962] transition-colors"
                   >
                     Review <ChevronRight className="inline w-4 h-4 ml-1" />
                   </button>
@@ -639,7 +639,7 @@ export default function SellPage() {
             {/* Step 6: Review */}
             {currentStep === 6 && (
               <div>
-                <h3 className="text-lg font-bold text-[#1a1a2e] mb-4">Review Your Details</h3>
+                <h3 className="text-lg font-bold text-[#1a3af5] mb-4">Review Your Details</h3>
                 <div className="glass-card rounded-xl p-6">
                   {summaryRows.map(([label, value], i) => (
                     <div
@@ -649,7 +649,7 @@ export default function SellPage() {
                       }`}
                     >
                       <span className="text-gray-500">{label}</span>
-                      <span className="font-semibold text-[#1a1a2e] text-right max-w-[60%]">
+                      <span className="font-semibold text-[#1a3af5] text-right max-w-[60%]">
                         {value}
                       </span>
                     </div>
@@ -676,7 +676,7 @@ export default function SellPage() {
           /* Thank You */
           <div className="text-center py-16">
             <CheckCircle className="w-16 h-16 text-emerald-500 mx-auto mb-4" />
-            <h2 className="text-2xl md:text-[28px] font-extrabold text-[#1a1a2e] mb-3">
+            <h2 className="text-2xl md:text-[28px] font-extrabold text-[#1a3af5] mb-3">
               Thank You!
             </h2>
             <p className="text-base text-gray-500 max-w-[500px] mx-auto mb-6">

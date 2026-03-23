@@ -108,7 +108,7 @@ export function UnitTypesViewer({ units }: UnitTypesViewerProps) {
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-5 py-2 border-2 border-[#1a1a2e] rounded-lg text-[13px] font-semibold text-[#1a1a2e] hover:bg-[#1a1a2e] hover:text-white transition-colors"
+                  className="px-5 py-2 border-2 border-[#1a3af5] rounded-lg text-[13px] font-semibold text-[#1a3af5] hover:bg-[#1a3af5] hover:text-white transition-colors"
                 >
                   Request Price
                 </a>

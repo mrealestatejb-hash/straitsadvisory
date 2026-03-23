@@ -97,7 +97,7 @@ function BuyPageContent() {
         className="pt-16"
         style={{
           background:
-            'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)',
+            'linear-gradient(135deg, #1a3af5 0%, #16213e 50%, #0f3460 100%)',
         }}
       >
         <div className="px-5 md:px-[clamp(20px,5vw,60px)] py-[50px] text-center text-white">
@@ -280,13 +280,13 @@ function PropertyCard({ property }: { property: PropertyListing }) {
 
       {/* Card Body */}
       <div className="px-[18px] pt-4 pb-[18px]">
-        <h3 className="text-base font-bold text-[#1a1a2e] mb-1 leading-[1.3]">
+        <h3 className="text-base font-bold text-[#1a3af5] mb-1 leading-[1.3]">
           {property.name}
         </h3>
         <p className="text-xs text-gray-500 mb-2.5 font-medium">
           {property.location}
         </p>
-        <p className="text-lg font-extrabold text-[#1a1a2e] mb-3">
+        <p className="text-lg font-extrabold text-[#1a3af5] mb-3">
           {property.price}
         </p>
         <div className="flex flex-col gap-1 text-xs text-gray-500">

@@ -294,7 +294,7 @@ export default function ComparePage() {
       {/* CTA Section */}
       <section
         className="py-24 px-[clamp(20px,5vw,60px)] text-center"
-        style={{ background: 'linear-gradient(135deg, #1a1a2e 0%, #2d2d5a 100%)' }}
+        style={{ background: 'linear-gradient(135deg, #1a3af5 0%, #1430d4 100%)' }}
       >
         <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">
           Let&rsquo;s Start Your Malaysia<br />Property Journey

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { MapPin, ArrowRight } from 'lucide-react';
@@ -15,11 +15,8 @@ const ListingsMap = dynamic(() => import('@/components/home/ListingsMap'), {
   ),
 });
 
-// Video URLs from the HTML source
-const VIDEO_URLS = [
-  'https://videos.pexels.com/video-files/15186706/15186706-hd_1920_1080_30fps.mp4',
-  'https://videos.pexels.com/video-files/14717069/14717069-hd_1920_1080_30fps.mp4',
-];
+// Hero video
+const HERO_VIDEO = '/videos/hero.mp4';
 
 // Recommended properties from index.html
 const RECOMMENDED = [
@@ -54,42 +51,16 @@ const RECOMMENDED = [
 
 // ─── Video Hero Section ───
 function VideoHero() {
-  const [currentVid, setCurrentVid] = useState(0);
-  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentVid((prev) => (prev + 1) % VIDEO_URLS.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
-    videoRefs.current.forEach((vid, idx) => {
-      if (!vid) return;
-      if (idx === currentVid) {
-        vid.currentTime = 0;
-        vid.play().catch(() => {});
-      }
-    });
-  }, [currentVid]);
-
   return (
     <section className="relative w-full h-screen min-h-[600px] overflow-hidden bg-[#0a0a0a]">
-      {VIDEO_URLS.map((url, idx) => (
-        <video
-          key={url}
-          ref={(el) => { videoRefs.current[idx] = el; }}
-          src={url}
-          muted
-          autoPlay={idx === 0}
-          loop
-          playsInline
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1500ms] ${
-            idx === currentVid ? 'opacity-100' : 'opacity-0'
-          }`}
-        />
-      ))}
+      <video
+        src={HERO_VIDEO}
+        muted
+        autoPlay
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      />
       {/* Gradient overlay */}
       <div
         className="absolute inset-0 z-[1]"
@@ -129,10 +100,10 @@ function AboutSection() {
   return (
     <section className="bg-[#f5f5f5] py-20 px-[clamp(20px,5vw,60px)] text-center">
       <div className="glass-card max-w-[800px] mx-auto rounded-2xl p-10">
-        <h2 className="text-4xl font-extrabold text-[#1a1a2e] tracking-widest uppercase mb-5 leading-tight">
+        <h2 className="text-4xl font-extrabold text-[#1a3af5] tracking-widest uppercase mb-5 leading-tight">
           Straits Advisory
         </h2>
-        <p className="text-sm font-semibold text-[#1a1a2e] tracking-[3px] uppercase mb-8">
+        <p className="text-sm font-semibold text-[#1a3af5] tracking-[3px] uppercase mb-8">
           Technology Meets Expertise
         </p>
         <p className="text-base text-gray-600 leading-relaxed max-w-[750px] mx-auto">
@@ -151,7 +122,7 @@ function RecommendedProperties() {
   return (
     <section className="py-16 bg-white overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-[clamp(20px,5vw,60px)]">
-        <h2 className="text-[28px] font-extrabold text-[#1a1a2e] mb-2 text-center">
+        <h2 className="text-[28px] font-extrabold text-[#1a3af5] mb-2 text-center">
           Recommended Properties
         </h2>
         <p className="text-[15px] text-gray-500 text-center mb-8">
@@ -184,7 +155,7 @@ function RecommendedProperties() {
                 <MapPin className="w-3.5 h-3.5 text-gray-400" />
                 {prop.location}
               </p>
-              <p className="text-[15px] font-bold text-[#1a1a2e]">{prop.price}</p>
+              <p className="text-[15px] font-bold text-[#1a3af5]">{prop.price}</p>
             </div>
           </Link>
         ))}
@@ -207,7 +178,7 @@ function MapSection() {
   return (
     <section className="py-16 px-[clamp(16px,4vw,48px)] bg-white">
       <div className="max-w-[1400px] mx-auto">
-        <h2 className="text-[28px] font-extrabold text-[#1a1a2e] mb-2 text-center">
+        <h2 className="text-[28px] font-extrabold text-[#1a3af5] mb-2 text-center">
           Explore Our Listings
         </h2>
         <p className="text-[15px] text-gray-500 text-center mb-5">
@@ -221,7 +192,7 @@ function MapSection() {
               className={`px-5 py-2 rounded-full text-[13px] font-semibold transition-all duration-200 ${
                 activeCity === c.key
                   ? 'glass-dark text-white'
-                  : 'glass-button text-gray-500 hover:text-[#1a1a2e]'
+                  : 'glass-button text-gray-500 hover:text-[#1a3af5]'
               }`}
             >
               {c.label}
@@ -241,7 +212,7 @@ function BrowseSection() {
   return (
     <section className="py-12 px-[clamp(16px,4vw,48px)] text-center bg-gray-50 border-t border-b border-gray-200">
       <div className="max-w-[700px] mx-auto">
-        <h2 className="text-2xl font-extrabold text-[#1a1a2e] mb-2.5">
+        <h2 className="text-2xl font-extrabold text-[#1a3af5] mb-2.5">
           Browse All 90+ Properties
         </h2>
         <p className="text-[15px] text-gray-500 mb-7 leading-relaxed">
@@ -256,7 +227,7 @@ function BrowseSection() {
             <Link
               key={city.label}
               href={city.href}
-              className="glass-button inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-[#1a1a2e] text-base font-semibold transition-all duration-200"
+              className="glass-button inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-[#1a3af5] text-base font-semibold transition-all duration-200"
             >
               {city.label}
             </Link>

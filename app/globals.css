@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --navy: #1a1a2e;
-  --navy-mid: #2d2d5a;
+  --navy: #1a3af5;
+  --navy-mid: #1430d4;
   --gold: #c9a962;
   --bg: #f2f2f7;
   --bg-secondary: #e8e8f0;
@@ -21,8 +21,8 @@
   /* Liquid Glass tokens */
   --glass-bg: rgba(255, 255, 255, 0.45);
   --glass-bg-heavy: rgba(255, 255, 255, 0.65);
-  --glass-dark-bg: rgba(26, 26, 46, 0.6);
-  --glass-dark-bg-heavy: rgba(26, 26, 46, 0.8);
+  --glass-dark-bg: rgba(26, 58, 245, 0.55);
+  --glass-dark-bg-heavy: rgba(20, 48, 212, 0.8);
   --glass-border: rgba(255, 255, 255, 0.3);
   --glass-border-dark: rgba(255, 255, 255, 0.08);
   --glass-blur: blur(16px) saturate(180%);
