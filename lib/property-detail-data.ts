@@ -124,16 +124,65 @@ const phase3RentalData: RentalDataPoint[] = [
 ];
 
 const princessCovePhases: PhaseInfo[] = [
-  { key: 'overview', label: 'Overview', href: '/properties/rf-princess-cove' },
+  { key: 'overview', label: 'Overview', href: '/properties/rf-princess-cove-overview' },
   { key: 'phase-1', label: 'Phase 1', href: '/properties/rf-princess-cove-phase-1' },
   { key: 'phase-2', label: 'Phase 2', href: '/properties/rf-princess-cove-phase-2' },
   { key: 'phase-3', label: 'Phase 3' },
-  { key: 'phase-4', label: 'Phase 4', href: '/properties/rf-princess-cove-phase-4' },
 ];
 
 // ── Map of slug -> detail data ──
 
 const detailDataMap: Record<string, Omit<PropertyDetailData, 'property'>> = {
+  'rf-princess-cove-overview': {
+    phases: princessCovePhases.map((p) =>
+      p.key === 'overview'
+        ? { ...p, href: undefined }
+        : p.key === 'phase-3'
+          ? { ...p, href: '/properties/randf-princess-cove-phase-3' }
+          : p
+    ),
+    activePhase: 'overview',
+    whatsappNumber: '60197058001',
+    rentalData: phase3RentalData,
+    rentalSubtitle: 'R&F Princess Cove average monthly rental (2-bedroom)',
+    toSingapore: [
+      { route: 'RTS Link to Woodlands', time: '5 min' },
+      { route: 'CIQ Immigration', time: '1km walk / sheltered link' },
+      { route: 'Bus to SG (170/170X)', time: '45-60 min' },
+    ],
+    withinJB: [
+      { place: 'R&F Mall', time: 'Connected via bridge' },
+      { place: 'JB Sentral', time: '2 min drive' },
+      { place: 'City Square Mall', time: '5 min walk' },
+      { place: 'Komtar JBCC', time: '8 min walk' },
+    ],
+    whyRecommend: {
+      title: 'R&F Princess Cove',
+      subtitle: '116-acre integrated waterfront development with unmatched proximity to Singapore',
+      cards: [
+        {
+          title: '1km to RTS Link',
+          desc: 'Walk to CIQ Station — 5-minute connection to Singapore',
+          color: '#059669',
+        },
+        {
+          title: 'Freehold Tenure',
+          desc: 'Investment protected for generations across all phases',
+          color: '#d97706',
+        },
+        {
+          title: 'Multiple Phases',
+          desc: 'Choose completed units or exciting new launches',
+          color: '#7c3aed',
+        },
+        {
+          title: '5.5 – 8% Yields',
+          desc: 'Strong rental demand from Singapore spillover',
+          color: '#db2777',
+        },
+      ],
+    },
+  },
   'rf-princess-cove-phase-3': {
     detailedUnits: phase3Units,
     facilities: phase3Facilities,
@@ -185,7 +234,7 @@ const detailDataMap: Record<string, Omit<PropertyDetailData, 'property'>> = {
       p.key === 'phase-1'
         ? { ...p, href: undefined }
         : p.key === 'phase-3'
-          ? { ...p, href: '/properties/rf-princess-cove-phase-3' }
+          ? { ...p, href: '/properties/randf-princess-cove-phase-3' }
           : p
     ),
     activePhase: 'phase-1',
@@ -206,7 +255,7 @@ const detailDataMap: Record<string, Omit<PropertyDetailData, 'property'>> = {
       p.key === 'phase-2'
         ? { ...p, href: undefined }
         : p.key === 'phase-3'
-          ? { ...p, href: '/properties/rf-princess-cove-phase-3' }
+          ? { ...p, href: '/properties/randf-princess-cove-phase-3' }
           : p
     ),
     activePhase: 'phase-2',
@@ -227,7 +276,7 @@ const detailDataMap: Record<string, Omit<PropertyDetailData, 'property'>> = {
 // Slug aliases for backward compatibility
 const slugAliases: Record<string, string> = {
   'randf-princess-cove-phase-3': 'rf-princess-cove-phase-3',
-  'rf-princess-cove': 'rf-princess-cove-phase-1',
+  'rf-princess-cove': 'rf-princess-cove-overview',
 };
 
 export function getPropertyDetailData(slug: string): PropertyDetailData | null {
