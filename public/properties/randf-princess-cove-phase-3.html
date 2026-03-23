@@ -106,9 +106,43 @@ img{display:block;max-width:100%}
 .details-table td:last-child{color:var(--navy);font-weight:600}
 
 /* UNIT TABS */
-.fac-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.fac-item{display:flex;flex-direction:column;align-items:center;gap:6px;padding:16px 8px;border-radius:10px;background:#f9fafb;border:1px solid #f3f4f6;text-align:center;transition:all var(--transition)}
-.fac-item:hover{border-color:#e5e7eb;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+.fac-tabs{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.fac-tab{padding:10px 20px;border-radius:50px;font-size:13px;font-weight:600;color:var(--navy);border:1.5px solid #e5e7eb;background:#fff;cursor:pointer;transition:all var(--transition);font-family:inherit}
+.fac-tab:hover{border-color:var(--navy)}
+.fac-tab.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.fac-showcase{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:16px;overflow:hidden;border:1px solid #e5e7eb;background:#fff}
+.fac-hero{position:relative;min-height:300px;background:linear-gradient(135deg,#059669 0%,#047857 100%);display:flex;align-items:flex-end;padding:24px;color:#fff}
+.fac-hero-badge{position:absolute;top:16px;right:16px;padding:6px 14px;border-radius:50px;font-size:12px;font-weight:600;background:rgba(0,0,0,.35);backdrop-filter:blur(8px);color:#fff;display:flex;align-items:center;gap:6px}
+.fac-hero-label{font-size:17px;font-weight:700;text-shadow:0 1px 4px rgba(0,0,0,.3)}
+.fac-list{display:flex;flex-direction:column}
+.fac-list-item{display:flex;align-items:center;gap:14px;padding:16px 20px;border-bottom:1px solid #f3f4f6;cursor:pointer;transition:background .2s}
+.fac-list-item:last-child{border-bottom:none}
+.fac-list-item:hover{background:#f9fafb}
+.fac-list-item.active{background:#f0fdf4}
+.fac-list-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.fac-list-info h4{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:2px}
+.fac-list-info p{font-size:12px;color:#9ca3af}
+.fac-list-arrow{margin-left:auto;color:#d1d5db;font-size:16px}
+/* YIELD CHART */
+.yield-card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:28px;overflow:hidden}
+.yield-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:24px;gap:16px}
+.yield-title{font-size:20px;font-weight:800;color:var(--navy);margin-bottom:4px}
+.yield-subtitle{font-size:13px;color:#9ca3af}
+.yield-current{text-align:right;flex-shrink:0}
+.yield-current-value{display:block;font-size:32px;font-weight:800;color:#059669}
+.yield-current-label{font-size:12px;color:#9ca3af}
+.yield-chart{display:flex;align-items:flex-end;gap:0;height:200px;padding:0 8px;margin-bottom:8px;position:relative}
+.yield-chart::before{content:'';position:absolute;top:0;left:0;right:0;bottom:28px;border-bottom:1px dashed #e5e7eb}
+.yield-bar-group{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;position:relative}
+.yield-bar{width:60%;border-radius:6px 6px 0 0;transition:all .6s cubic-bezier(.4,0,.2,1);min-height:4px;position:relative}
+.yield-bar-label{position:absolute;top:-20px;left:50%;transform:translateX(-50%);font-size:11px;font-weight:700;color:#059669;white-space:nowrap}
+.yield-bar-year{font-size:12px;font-weight:600;color:#6b7280;margin-top:4px}
+.yield-insight{background:linear-gradient(135deg,#ecfdf5,#d1fae5);border-radius:12px;padding:16px 20px;display:flex;align-items:center;gap:14px;margin-top:16px}
+.yield-insight-icon{width:40px;height:40px;border-radius:10px;background:#059669;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.yield-insight-icon svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:2}
+.yield-insight-text h4{font-size:14px;font-weight:700;color:#059669;margin-bottom:2px}
+.yield-insight-text p{font-size:13px;color:#374151}
+.yield-disclaimer{font-size:11px;color:#d1d5db;margin-top:12px;font-style:italic}
 .fac-icon{font-size:24px}
 .fac-label{font-size:12px;color:#374151;font-weight:500;line-height:1.3}
 
@@ -214,7 +248,8 @@ img{display:block;max-width:100%}
   .hero h1{font-size:24px}
   .key-info{grid-template-columns:repeat(2,1fr)}
   .key-info-item{border-bottom:1px solid #e5e7eb}
-  .fac-grid{grid-template-columns:repeat(3,1fr)}
+  .fac-showcase{grid-template-columns:1fr}
+  .fac-hero{min-height:200px}
   .mortgage-grid{grid-template-columns:1fr}
   .related-grid{grid-template-columns:repeat(2,1fr)}
   .nearby-tabs{gap:0}
@@ -223,7 +258,7 @@ img{display:block;max-width:100%}
   .sidebar-wa,.sidebar-register{min-width:100%}
 }
 @media(max-width:480px){
-  .fac-grid{grid-template-columns:repeat(2,1fr)}
+  .fac-showcase{grid-template-columns:1fr}
   .related-grid{grid-template-columns:1fr}
   .key-info{flex-direction:column}
   .key-info-item{border-right:none}
@@ -328,13 +363,27 @@ img{display:block;max-width:100%}
 
     <!-- 2. Why We Recommend -->
     <div class="section">
-      <h2 class="section-title">Why we recommend R&amp;F Princess Cove Phase 3 &mdash; New Casa Suites</h2>
-      <ul class="check-list">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Highly accessible with a 650-metre sheltered link to CIQ, a dedicated Phase 3 bridge to R&amp;F Mall, and direct connection to the RTS station for seamless travel to Singapore.</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Linked to R&amp;F Mall, New Casa Suites brings together 30+ nationalities in a vibrant community enriched with shopping, education, healthcare, leisure &amp; culture.</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Phase 3 features the Urban Skypark with badminton hall, snooker room, basketball and tennis courts, yoga room, gym, Olympic pool, and leisure track.</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>R&amp;F Princess Cove leads Malaysia in property views and rental demand, with rental growth of over 60%. Top condominium in JB attracting strong interest from Singapore.</li>
-      </ul>
+      <p style="text-align:center;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#059669;margin-bottom:12px">WHY WE RECOMMEND</p>
+      <h2 style="text-align:center;font-size:clamp(24px,4vw,32px);font-weight:800;color:var(--navy);margin-bottom:8px">R&amp;F Princess Cove Phase 3</h2>
+      <p style="text-align:center;font-size:15px;color:#6b7280;margin-bottom:32px;max-width:520px;margin-left:auto;margin-right:auto">New Casa Suites &mdash; 650m sheltered link to CIQ with direct RTS connection to Singapore</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div style="background:linear-gradient(135deg,#ecfdf5,#d1fae5);border-radius:16px;padding:24px;display:flex;gap:16px;align-items:flex-start">
+          <div style="width:48px;height:48px;border-radius:12px;background:#059669;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+          <div><h3 style="font-size:16px;font-weight:700;color:#059669;margin-bottom:4px">650m to CIQ &amp; RTS</h3><p style="font-size:13px;color:#374151;line-height:1.5">Sheltered link bridge to CIQ &mdash; 5-minute RTS ride to Singapore</p></div>
+        </div>
+        <div style="background:linear-gradient(135deg,#fef3c7,#fde68a);border-radius:16px;padding:24px;display:flex;gap:16px;align-items:flex-start">
+          <div style="width:48px;height:48px;border-radius:12px;background:#d97706;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div><h3 style="font-size:16px;font-weight:700;color:#d97706;margin-bottom:4px">Freehold Tenure</h3><p style="font-size:13px;color:#374151;line-height:1.5">Investment protected for generations &mdash; full ownership rights</p></div>
+        </div>
+        <div style="background:linear-gradient(135deg,#ede9fe,#ddd6fe);border-radius:16px;padding:24px;display:flex;gap:16px;align-items:flex-start">
+          <div style="width:48px;height:48px;border-radius:12px;background:#7c3aed;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+          <div><h3 style="font-size:16px;font-weight:700;color:#7c3aed;margin-bottom:4px">Urban Skypark</h3><p style="font-size:13px;color:#374151;line-height:1.5">Olympic pool, gym, tennis, basketball &amp; rooftop leisure deck</p></div>
+        </div>
+        <div style="background:linear-gradient(135deg,#fce7f3,#fbcfe8);border-radius:16px;padding:24px;display:flex;gap:16px;align-items:flex-start">
+          <div style="width:48px;height:48px;border-radius:12px;background:#db2777;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+          <div><h3 style="font-size:16px;font-weight:700;color:#db2777;margin-bottom:4px">60%+ Rental Growth</h3><p style="font-size:13px;color:#374151;line-height:1.5">Top condo in JB for rental demand &mdash; strong Singapore spillover</p></div>
+        </div>
+      </div>
     </div>
 
     <!-- ABOUT -->
@@ -386,22 +435,39 @@ img{display:block;max-width:100%}
       </div>
     </div>
 
-    <!-- FACILITIES -->
+    <!-- FACILITIES & AMENITIES -->
     <div class="section" id="facilitiesSection">
       <h2 class="section-title">Facilities &amp; Amenities</h2>
-      <div class="fac-grid" style="grid-template-columns:repeat(4,1fr)">
-        <div class="fac-item"><span class="fac-icon">&#127946;</span><span class="fac-label">Olympic Pool</span></div>
-        <div class="fac-item"><span class="fac-icon">&#127947;</span><span class="fac-label">Gym</span></div>
-        <div class="fac-item"><span class="fac-icon">&#127934;</span><span class="fac-label">Tennis Court</span></div>
-        <div class="fac-item"><span class="fac-icon">&#127936;</span><span class="fac-label">Basketball</span></div>
-        <div class="fac-item"><span class="fac-icon">&#128692;</span><span class="fac-label">Jogging Track</span></div>
-        <div class="fac-item"><span class="fac-icon">&#127891;</span><span class="fac-label">Badminton</span></div>
-        <div class="fac-item"><span class="fac-icon">&#129528;</span><span class="fac-label">Yoga Room</span></div>
-        <div class="fac-item"><span class="fac-icon">&#127921;</span><span class="fac-label">Snooker Room</span></div>
-        <div class="fac-item"><span class="fac-icon">&#128716;</span><span class="fac-label">BBQ Area</span></div>
-        <div class="fac-item"><span class="fac-icon">&#127965;</span><span class="fac-label">Sky Garden</span></div>
-        <div class="fac-item"><span class="fac-icon">&#128118;</span><span class="fac-label">Playground</span></div>
-        <div class="fac-item"><span class="fac-icon">&#128663;</span><span class="fac-label">Parking</span></div>
+      <div class="fac-tabs" id="facTabs">
+        <button class="fac-tab active" onclick="switchFacTab('leisure',this)">Leisure &amp; Recreation</button>
+        <button class="fac-tab" onclick="switchFacTab('fitness',this)">Fitness &amp; Wellness</button>
+        <button class="fac-tab" onclick="switchFacTab('services',this)">Services &amp; Convenience</button>
+      </div>
+      <div class="fac-showcase">
+        <div class="fac-hero" id="facHero">
+          <span class="fac-hero-badge" id="facHeroBadge">&#128247; 5 photos</span>
+          <div class="fac-hero-label" id="facHeroLabel">Olympic Pool with Straits View</div>
+        </div>
+        <div class="fac-list" id="facList"></div>
+      </div>
+    </div>
+
+    <!-- RENTAL INCOME PERFORMANCE -->
+    <div class="section" id="yieldSection">
+      <div class="yield-card">
+        <div class="yield-header">
+          <div>
+            <h2 class="yield-title">Rental Income Performance</h2>
+            <p class="yield-subtitle" id="yieldSubtitle">R&amp;F Princess Cove average monthly rental (2-bedroom)</p>
+          </div>
+          <div class="yield-current">
+            <span class="yield-current-value" id="yieldCurrentValue">&mdash;</span>
+            <span class="yield-current-label">Current rental</span>
+          </div>
+        </div>
+        <div class="yield-chart" id="yieldChart"></div>
+        <div class="yield-insight" id="yieldInsight"></div>
+        <p class="yield-disclaimer">Source: Internal transaction data &amp; rental records. Past performance does not guarantee future results.</p>
       </div>
     </div>
 <!-- 8. What's Nearby -->
@@ -641,7 +707,102 @@ function filterNearby(cat, tab){
 
 renderNearbyList('transit');
 
-// Mortgage calculator
+// ─── FACILITIES DATA ───
+var facilitiesData = {
+  leisure: [
+    {icon:'🏊',name:'Olympic Pool',desc:'50m lap pool with straits view'},
+    {icon:'👶',name:'Kids Pool',desc:'Shallow pool & playground'},
+    {icon:'🎾',name:'Tennis Court',desc:'Professional grade court'},
+    {icon:'🍖',name:'BBQ Pavilion',desc:'Multiple BBQ stations'},
+    {icon:'🏃',name:'Jogging Track',desc:'Waterfront promenade'},
+  ],
+  fitness: [
+    {icon:'🏋️',name:'Gymnasium',desc:'Fully equipped fitness centre'},
+    {icon:'🏸',name:'Badminton Hall',desc:'Indoor badminton court'},
+    {icon:'🏀',name:'Basketball Court',desc:'Full-size outdoor court'},
+    {icon:'🧘',name:'Yoga Room',desc:'Dedicated yoga & meditation'},
+    {icon:'🎱',name:'Snooker Room',desc:'Recreation lounge'},
+  ],
+  services: [
+    {icon:'🏪',name:'R&F Mall',desc:'Connected retail & dining'},
+    {icon:'🎓',name:'International School',desc:'Shattuck-St. Marys'},
+    {icon:'🏥',name:'Medical Centre',desc:'On-site healthcare'},
+    {icon:'🌳',name:'Sky Garden',desc:'Rooftop green spaces'},
+    {icon:'🅿️',name:'Parking',desc:'Multi-level covered parking'},
+  ]
+};
+
+function switchFacTab(cat, tabEl) {
+  document.querySelectorAll('.fac-tab').forEach(function(t){t.classList.remove('active')});
+  if(tabEl) tabEl.classList.add('active');
+  renderFacilities(cat);
+}
+
+function renderFacilities(cat) {
+  var items = facilitiesData[cat] || [];
+  var listEl = document.getElementById('facList');
+  var heroEl = document.getElementById('facHeroLabel');
+  if(items.length > 0) heroEl.textContent = items[0].name;
+  var html = '';
+  items.forEach(function(item, i) {
+    html += '<div class="fac-list-item' + (i===0?' active':'') + '" onclick="selectFacility(this,\'' + item.name + '\')">';
+    html += '<div class="fac-list-icon">' + item.icon + '</div>';
+    html += '<div class="fac-list-info"><h4>' + item.name + '</h4><p>' + item.desc + '</p></div>';
+    html += '<div class="fac-list-arrow">&#8250;</div>';
+    html += '</div>';
+  });
+  listEl.innerHTML = html;
+}
+
+function selectFacility(el, name) {
+  document.querySelectorAll('.fac-list-item').forEach(function(i){i.classList.remove('active')});
+  el.classList.add('active');
+  document.getElementById('facHeroLabel').textContent = name;
+}
+
+renderFacilities('leisure');
+
+// ─── RENTAL INCOME CHART ───
+var rentalData = [
+  {year:2019, rent:1500},
+  {year:2020, rent:1400},
+  {year:2021, rent:1600},
+  {year:2022, rent:1800},
+  {year:2023, rent:2000},
+  {year:2024, rent:2200},
+  {year:2025, rent:2400}
+];
+
+function renderYieldChart() {
+  var container = document.getElementById('yieldChart');
+  if(!container || !rentalData.length) return;
+  var maxRent = Math.max.apply(null, rentalData.map(function(d){return d.rent}));
+  var maxHeight = 160;
+  var currentRent = rentalData[rentalData.length-1];
+  var firstRent = rentalData[0];
+  var growthPct = Math.round(((currentRent.rent - firstRent.rent) / firstRent.rent) * 100);
+  document.getElementById('yieldCurrentValue').textContent = 'RM' + currentRent.rent.toLocaleString();
+  var html = '';
+  rentalData.forEach(function(d, i) {
+    var barHeight = Math.round((d.rent / (maxRent * 1.3)) * maxHeight);
+    var isLatest = i === rentalData.length - 1;
+    var opacity = 0.3 + (i / rentalData.length) * 0.7;
+    var bg = isLatest ? '#059669' : 'rgba(5,150,105,' + opacity.toFixed(2) + ')';
+    html += '<div class="yield-bar-group">';
+    html += '<div class="yield-bar" style="height:' + barHeight + 'px;background:' + bg + '">';
+    html += '<span class="yield-bar-label">RM' + d.rent.toLocaleString() + '</span>';
+    html += '</div>';
+    html += '<span class="yield-bar-year">' + d.year + '</span>';
+    html += '</div>';
+  });
+  container.innerHTML = html;
+  var insightEl = document.getElementById('yieldInsight');
+  insightEl.innerHTML = '<div class="yield-insight-icon"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>' +
+    '<div class="yield-insight-text"><h4>+' + growthPct + '% rental growth since ' + firstRent.year + '</h4>' +
+    '<p>Consistent upward trend driven by RTS Link anticipation &amp; Singapore spillover</p></div>';
+}
+renderYieldChart();
+
 // MapLibre init
 document.addEventListener('DOMContentLoaded', function(){
   function initMap(){
