@@ -909,7 +909,7 @@ function filterProperties(){
   var cards=document.querySelectorAll('.property-card');
   var vis=0;
   // Whitelist: only show these properties (set to null to show all)
-  var whitelist=['r&f princess cove','r&f princess cove phase 3'];
+  var whitelist=['r&f princess cove phase 3'];
   cards.forEach(function(c){
     var inWhitelist=!whitelist||whitelist.indexOf(c.dataset.name)!==-1;
     var mc=!city||c.dataset.city===city;
