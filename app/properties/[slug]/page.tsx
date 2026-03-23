@@ -204,7 +204,7 @@ export default async function PropertyDetailPage({ params }: PageProps) {
         {/* Price */}
         <div className="pb-5">
           <div className="text-[13px] text-muted-foreground">Starting from</div>
-          <div className="text-[28px] font-extrabold text-foreground">
+          <div className="text-[clamp(22px,5vw,28px)] font-extrabold text-foreground">
             {property.priceRange && property.priceRange !== 'Coming Soon'
               ? property.priceRange
               : property.price.myr > 0

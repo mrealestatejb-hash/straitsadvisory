@@ -38,10 +38,10 @@ export function PropertyGallery({ images }: PropertyGalleryProps) {
 
   return (
     <>
-      <div className="grid grid-cols-[2fr_1fr_1fr] grid-rows-[220px_220px] gap-1 relative overflow-hidden cursor-pointer">
+      <div className="grid grid-cols-[1fr] grid-rows-[250px] sm:grid-cols-[2fr_1fr_1fr] sm:grid-rows-[220px_220px] gap-1 relative overflow-hidden cursor-pointer">
         {/* Main image */}
         <div
-          className="row-span-2 relative overflow-hidden hover:opacity-90 transition-opacity"
+          className="sm:row-span-2 relative overflow-hidden hover:opacity-90 transition-opacity"
           onClick={() => openLightbox(0)}
         >
           <Image
@@ -54,11 +54,11 @@ export function PropertyGallery({ images }: PropertyGalleryProps) {
           />
         </div>
 
-        {/* Small images */}
+        {/* Small images - hidden on mobile */}
         {smallImages.map((img, i) => (
           <div
             key={i}
-            className="relative overflow-hidden hover:opacity-90 transition-opacity"
+            className="relative overflow-hidden hover:opacity-90 transition-opacity hidden sm:block"
             onClick={() => openLightbox(i + 1)}
           >
             <Image
@@ -71,11 +71,11 @@ export function PropertyGallery({ images }: PropertyGalleryProps) {
           </div>
         ))}
 
-        {/* Fill empty slots with placeholders */}
+        {/* Fill empty slots with placeholders - hidden on mobile */}
         {Array.from({ length: Math.max(0, 4 - smallImages.length) }).map((_, i) => (
           <div
             key={`placeholder-${i}`}
-            className="bg-muted flex items-center justify-center"
+            className="bg-muted flex items-center justify-center hidden sm:flex"
           >
             <Camera className="w-8 h-8 text-muted-foreground/30" />
           </div>
