@@ -146,6 +146,28 @@ img{display:block;max-width:100%}
 .upfront-row:last-child{border-bottom:none;font-weight:700;color:var(--navy);padding-top:12px;border-top:2px solid #e5e7eb}
 .upfront-row .ur-label{color:#6b7280}
 
+/* STICKY SECTION NAV */
+.section-nav{position:sticky;top:64px;z-index:90;background:#fff;border-bottom:2px solid #e5e7eb;transition:box-shadow .3s}
+.section-nav.scrolled{box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.snav-link{padding:14px 20px;font-size:14px;font-weight:500;color:#6b7280;white-space:nowrap;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .2s}
+.snav-link:hover{color:var(--navy)}
+.snav-link.active{color:var(--navy);border-bottom-color:#c41230;font-weight:600}
+
+/* UNIT TYPES VIEWER */
+.unit-types-viewer{display:grid;grid-template-columns:220px 1fr;gap:0;border:1px solid #e5e7eb;border-radius:var(--radius);overflow:hidden;min-height:400px}
+.ut-sidebar{border-right:1px solid #e5e7eb;max-height:500px;overflow-y:auto}
+.ut-item{padding:14px 16px;border-bottom:1px solid #f3f4f6;cursor:pointer;transition:background .2s}
+.ut-item:hover{background:#f9fafb}
+.ut-item.active{background:#fff3f3;border-left:3px solid #c41230}
+.ut-item-name{font-size:14px;font-weight:600;color:var(--navy)}
+.ut-item-size{font-size:12px;color:#6b7280;margin-top:2px}
+.ut-detail{padding:0;display:flex;flex-direction:column}
+.ut-detail-header{padding:16px 20px;border-bottom:1px solid #e5e7eb;background:#fafafa}
+.ut-detail-type{font-size:16px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.5px}
+.ut-detail-specs{font-size:14px;color:#374151;margin-top:6px}
+.ut-detail-plan{flex:1;display:flex;align-items:center;justify-content:center;background:#fafafa}
+@media(max-width:768px){.unit-types-viewer{grid-template-columns:1fr}.ut-sidebar{max-height:200px;border-right:none;border-bottom:1px solid #e5e7eb}}
+
 /* FULL WIDTH SECTIONS */
 .full-width-section{max-width:var(--max-w);margin:0 auto;padding:48px clamp(20px,5vw,60px)}
 
@@ -240,18 +262,60 @@ img{display:block;max-width:100%}
 
 <!-- HERO SECTION -->
 <div class="hero">
-  <h1>R&amp;F Princess Cove - Phase 3</h1>
+  <div style="display:flex;align-items:center;gap:14px;margin-bottom:12px">
+    <div class="sidebar-dev-logo" style="width:48px;height:48px;font-size:18px">R&F</div>
+    <div>
+      <h1 style="margin-bottom:0">R&amp;F Princess Cove Phase 3 &mdash; New Casa Suites</h1>
+      <p style="font-size:14px;color:#6b7280;margin:2px 0 0">R&amp;F Princess Cove Phase 3 - New Casa Suites</p>
+    </div>
+  </div>
   <p class="location">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-    Princess Cove, Johor
+    Tanjung Puteri, Johor Bahru, Johor
+    <a href="#locationSection" style="margin-left:12px;padding:6px 16px;border:1px solid #d1d5db;border-radius:8px;font-size:13px;font-weight:500;color:#374151;transition:all .2s">See on Map</a>
   </p>
-  <div class="hero-price">
-    <span class="price-main" id="heroPrice">RM400,000 &mdash; RM5.2mil</span>
+  <div class="hero-badges">
+    <span class="badge badge-green">New Project: 2029</span>
+    <span class="badge badge-outline">Apartment</span>
+  </div>
+
+  <!-- Trust Badges -->
+  <div style="display:flex;gap:24px;flex-wrap:wrap;padding:14px 0;border-top:1px solid #e5e7eb;border-bottom:1px solid #e5e7eb;margin-bottom:20px">
+    <div style="display:flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:#374151"><span style="width:24px;height:24px;border-radius:50%;background:#ecfdf5;display:flex;align-items:center;justify-content:center;font-size:14px">&#10003;</span> Reputable Developer</div>
+    <div style="display:flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:#374151"><span style="width:24px;height:24px;border-radius:50%;background:#ecfdf5;display:flex;align-items:center;justify-content:center;font-size:14px">&#10003;</span> Accurate Information</div>
+    <div style="display:flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:#374151"><span style="width:24px;height:24px;border-radius:50%;background:#ecfdf5;display:flex;align-items:center;justify-content:center;font-size:14px">&#10003;</span> Extensive Property Listings</div>
+  </div>
+
+  <!-- Price + Specs Bar -->
+  <div style="display:flex;align-items:center;gap:32px;flex-wrap:wrap;padding-bottom:20px">
+    <div>
+      <div style="font-size:13px;color:#6b7280">Starting from</div>
+      <div class="price-main" id="heroPrice" style="font-size:28px">Price On Enquiry</div>
+    </div>
+    <div style="width:1px;height:48px;background:#e5e7eb"></div>
+    <div style="display:flex;gap:24px;align-items:center">
+      <div style="text-align:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="1.5"><path d="M3 12h2v7H3v-7zM7 8h2v11H7V8zM19 12h2v7h-2v-7zM15 8h2v11h-2V8zM11 5h2v14h-2V5z"/></svg><div style="font-size:13px;color:#374151;font-weight:500">1, 2, 3, 4 bed</div></div>
+      <div style="text-align:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="1.5"><path d="M4 12h16v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5z"/><path d="M6 12V8a2 2 0 012-2h2a2 2 0 012 2v4"/></svg><div style="font-size:13px;color:#374151;font-weight:500">1, 2, 3 bath</div></div>
+      <div style="text-align:center"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg><div style="font-size:13px;color:#374151;font-weight:500">313 - 1555 sqft</div></div>
+    </div>
+    <a href="#unitTypes" style="padding:10px 24px;border:1px solid #d1d5db;border-radius:8px;font-size:14px;font-weight:500;color:#374151;transition:all .2s">See Unit Types and Prices</a>
+  </div>
+</div>
+
+<!-- STICKY SECTION NAV -->
+<div class="section-nav" id="sectionNav">
+  <div style="max-width:var(--max-w);margin:0 auto;display:flex;gap:0;overflow-x:auto;padding:0 clamp(20px,5vw,60px)">
+    <a href="#overview" class="snav-link active">Overview</a>
+    <a href="#aboutSection" class="snav-link">About</a>
+    <a href="#unitTypes" class="snav-link">Unit Types</a>
+    <a href="#facilitiesSection" class="snav-link">Facilities &amp; Amenities</a>
+    <a href="#locationSection" class="snav-link">Location</a>
+    <a href="#mortgageSection" class="snav-link">Mortgage</a>
   </div>
 </div>
 
 <!-- TWO COLUMN LAYOUT -->
-<div class="two-col">
+<div class="two-col" id="overview">
 
   <!-- LEFT COLUMN (Main Content) -->
   <div class="main-col">
@@ -262,21 +326,21 @@ img{display:block;max-width:100%}
         <div class="key-info-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
           <span class="key-info-val">Freehold</span>
-          <span class="key-info-label">Lease Title</span>
+          <span class="key-info-label">Tenure</span>
         </div>
         <div class="key-info-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          <span class="key-info-val">2028 Q4</span>
-          <span class="key-info-label">Status</span>
+          <span class="key-info-val">2029</span>
+          <span class="key-info-label">Completion</span>
         </div>
         <div class="key-info-item">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5a17.92 17.92 0 01-8.716-2.247m0 0A8.966 8.966 0 013 12c0-1.777.514-3.431 1.4-4.825"/></svg>
-          <span class="key-info-val">Min RM500K</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582"/></svg>
+          <span class="key-info-val">Eligible</span>
           <span class="key-info-label">Foreigners</span>
         </div>
         <div class="key-info-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          <span class="key-info-val">RM500K</span>
+          <span class="key-info-val" id="kiMinEntry">From RM400K</span>
           <span class="key-info-label">Min. Entry</span>
         </div>
       </div>
@@ -284,37 +348,118 @@ img{display:block;max-width:100%}
 
     <!-- 2. Why We Recommend -->
     <div class="section">
-      <h2 class="section-title">Why we recommend R&amp;F Princess Cove - Phase 3</h2>
+      <h2 class="section-title">Why we recommend R&amp;F Princess Cove Phase 3 &mdash; New Casa Suites</h2>
       <ul class="check-list">
-        <li>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-          Existing amenities
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-          Entry price below market
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-          Spacious layouts
-        </li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Highly accessible with a 650-metre sheltered link to CIQ, a dedicated Phase 3 bridge to R&amp;F Mall, and direct connection to the RTS station for seamless travel to Singapore.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Linked to R&amp;F Mall, New Casa Suites brings together 30+ nationalities in a vibrant community enriched with shopping, education, healthcare, leisure &amp; culture.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>Phase 3 features the Urban Skypark with badminton hall, snooker room, basketball and tennis courts, yoga room, gym, Olympic pool, and leisure track.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>R&amp;F Princess Cove leads Malaysia in property views and rental demand, with rental growth of over 60%. Top condominium in JB attracting strong interest from Singapore.</li>
       </ul>
     </div>
 
+    <!-- ABOUT -->
+    <div class="section" id="aboutSection">
+      <h2 class="section-title">About R&amp;F Princess Cove Phase 3</h2>
+      <div class="about-text" id="aboutText">
+        <p>R&amp;F Princess Cove Phase 3 &mdash; New Casa Suites is the latest phase of the iconic 116-acre integrated waterfront development by R&amp;F Properties. Located in Tanjung Puteri, Johor Bahru, it sits just 650 metres from the Sultan Iskandar CIQ checkpoint and the upcoming RTS Link station, offering seamless 5-minute connectivity to Singapore's Woodlands North.</p>
+        <p style="margin-top:12px">New Casa Suites offers units ranging from 313 to 1,555 sqft across studio, 1, 2, 3, and 4-bedroom configurations. The development features the Urban Skypark &mdash; a rooftop leisure deck with Olympic pool, gym, tennis courts, jogging track, and children's play areas. All residents enjoy access to the existing R&amp;F Mall, cinema, international school, and medical centre within the integrated township.</p>
+        <p style="margin-top:12px">With freehold tenure, competitive entry prices, and the proven rental demand of the R&amp;F Princess Cove brand, Phase 3 represents a compelling opportunity for Singapore investors seeking capital appreciation and rental income from JB's most connected waterfront address.</p>
+      </div>
+      <button class="see-more-btn" id="seeMoreBtn" onclick="toggleAbout()">See more &darr;</button>
+    </div>
 
-    <!-- 5. Available Layouts -->
-    <div class="section">
-      <h2 class="section-title">Available Layouts</h2>
-      <div class="fac-grid">
-        <div class="fac-item"><span class="fac-icon">🛏️</span><span class="fac-label">Studio</span></div>
-        <div class="fac-item"><span class="fac-icon"></span><span class="fac-label">1 Bedroom</span></div>
-        <div class="fac-item"><span class="fac-icon">🏡</span><span class="fac-label">2 Bedroom</span></div>
-        <div class="fac-item"><span class="fac-icon"></span><span class="fac-label">3 Bedroom</span></div>
+    <!-- UNIT TYPES -->
+    <div class="section" id="unitTypes">
+      <h2 class="section-title">Unit Types</h2>
+      <div class="unit-types-viewer">
+        <div class="ut-sidebar">
+          <div class="ut-item active" onclick="selectUnit(this,0)">
+            <div class="ut-item-name">Type A/A(M)</div>
+            <div class="ut-item-size">313 sqft</div>
+          </div>
+          <div class="ut-item" onclick="selectUnit(this,1)">
+            <div class="ut-item-name">Type B1b/B1b(M)</div>
+            <div class="ut-item-size">555 sqft</div>
+          </div>
+          <div class="ut-item" onclick="selectUnit(this,2)">
+            <div class="ut-item-name">Type B2/B2(M)</div>
+            <div class="ut-item-size">558 sqft</div>
+          </div>
+          <div class="ut-item" onclick="selectUnit(this,3)">
+            <div class="ut-item-name">Type B1/B1(M)</div>
+            <div class="ut-item-size">577 sqft</div>
+          </div>
+          <div class="ut-item" onclick="selectUnit(this,4)">
+            <div class="ut-item-name">Type B3c</div>
+            <div class="ut-item-size">593 sqft</div>
+          </div>
+          <div class="ut-item" onclick="selectUnit(this,5)">
+            <div class="ut-item-name">Type B3b/B3b(M)</div>
+            <div class="ut-item-size">593 sqft</div>
+          </div>
+          <div class="ut-item" onclick="selectUnit(this,6)">
+            <div class="ut-item-name">Type B3/B3(M)</div>
+            <div class="ut-item-size">593 sqft</div>
+          </div>
+          <div class="ut-item" onclick="selectUnit(this,7)">
+            <div class="ut-item-name">Type B3a/B3a(M)</div>
+            <div class="ut-item-size">595 sqft</div>
+          </div>
+          <div class="ut-item" onclick="selectUnit(this,8)">
+            <div class="ut-item-name">Type C1/C1(M)</div>
+            <div class="ut-item-size">850 sqft</div>
+          </div>
+          <div class="ut-item" onclick="selectUnit(this,9)">
+            <div class="ut-item-name">Type C2/C2(M)</div>
+            <div class="ut-item-size">900 sqft</div>
+          </div>
+          <div class="ut-item" onclick="selectUnit(this,10)">
+            <div class="ut-item-name">Type D/D(M)</div>
+            <div class="ut-item-size">1,200 sqft</div>
+          </div>
+          <div class="ut-item" onclick="selectUnit(this,11)">
+            <div class="ut-item-name">Type E/E(M)</div>
+            <div class="ut-item-size">1,555 sqft</div>
+          </div>
+        </div>
+        <div class="ut-detail" id="utDetail">
+          <div class="ut-detail-header">
+            <div class="ut-detail-type" id="utType">TYPE A/A(M)</div>
+            <div class="ut-detail-specs" id="utSpecs">1 &#128716; &nbsp; 1 &#128701; &nbsp; 313 sqft</div>
+            <div style="font-size:13px;color:#6b7280;margin-top:4px" id="utFurnishing">Furnishing: Unfurnished</div>
+          </div>
+          <div class="ut-detail-plan" id="utPlan">
+            <div style="padding:60px 20px;text-align:center;color:#9ca3af">
+              <div style="font-size:48px;margin-bottom:12px">&#128206;</div>
+              <p style="font-size:14px;font-weight:600">Floor Plan</p>
+              <p style="font-size:13px">Contact us for detailed floor plans</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FACILITIES -->
+    <div class="section" id="facilitiesSection">
+      <h2 class="section-title">Facilities &amp; Amenities</h2>
+      <div class="fac-grid" style="grid-template-columns:repeat(4,1fr)">
+        <div class="fac-item"><span class="fac-icon">&#127946;</span><span class="fac-label">Olympic Pool</span></div>
+        <div class="fac-item"><span class="fac-icon">&#127947;</span><span class="fac-label">Gym</span></div>
+        <div class="fac-item"><span class="fac-icon">&#127934;</span><span class="fac-label">Tennis Court</span></div>
+        <div class="fac-item"><span class="fac-icon">&#127936;</span><span class="fac-label">Basketball</span></div>
+        <div class="fac-item"><span class="fac-icon">&#128692;</span><span class="fac-label">Jogging Track</span></div>
+        <div class="fac-item"><span class="fac-icon">&#127891;</span><span class="fac-label">Badminton</span></div>
+        <div class="fac-item"><span class="fac-icon">&#129528;</span><span class="fac-label">Yoga Room</span></div>
+        <div class="fac-item"><span class="fac-icon">&#127921;</span><span class="fac-label">Snooker Room</span></div>
+        <div class="fac-item"><span class="fac-icon">&#128716;</span><span class="fac-label">BBQ Area</span></div>
+        <div class="fac-item"><span class="fac-icon">&#127965;</span><span class="fac-label">Sky Garden</span></div>
+        <div class="fac-item"><span class="fac-icon">&#128118;</span><span class="fac-label">Playground</span></div>
+        <div class="fac-item"><span class="fac-icon">&#128663;</span><span class="fac-label">Parking</span></div>
       </div>
     </div>
 <!-- 8. What's Nearby -->
     <div class="section">
-      <h2 class="section-title">What's nearby</h2>
+      <h2 class="section-title" id="locationSection">What's nearby</h2>
       <div id="nearbyMap" class="map-container"></div>
       <link href="https://unpkg.com/maplibre-gl@4.1.2/dist/maplibre-gl.css" rel="stylesheet">
       <script src="https://unpkg.com/maplibre-gl@4.1.2/dist/maplibre-gl.js"></script>
@@ -331,7 +476,7 @@ img{display:block;max-width:100%}
 
     <!-- 9. Estimated Mortgage -->
     <div class="section">
-      <h2 class="section-title">Estimated Mortgage</h2>
+      <h2 class="section-title" id="mortgageSection">Estimated Mortgage</h2>
       <div class="mortgage-grid">
         <div class="mortgage-field">
           <label>Property Price (RM)</label>
@@ -376,11 +521,15 @@ img{display:block;max-width:100%}
       <div class="sidebar-dev">
         <div class="sidebar-dev-logo">R&F</div>
         <div class="sidebar-dev-info">
-          <h3>R&F Properties</h3>
-          <p>Licensed Developer</p>
+          <h3>R&amp;F Development Sdn Bhd</h3>
+          <span style="display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:4px;background:#059669;color:#fff;font-size:11px;font-weight:600;margin-top:4px">&#9733; Developer</span>
         </div>
       </div>
-      <a href="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20R%26F%20Princess%20Cove%20-%20Phase%203%20at%20Princess%20Cove.%20Could%20you%20share%20more%20details?" target="_blank" class="sidebar-register" style="border-color:#c41230;color:#c41230;font-weight:700;font-size:15px;text-align:center">Enquire Now</a>
+      <a href="https://wa.me/60197058001?text=Hi%2C%20I%27m%20interested%20in%20R%26F%20Princess%20Cove%20Phase%203%20New%20Casa%20Suites.%20Could%20you%20share%20more%20details?" target="_blank" class="sidebar-wa">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.138.562 4.145 1.543 5.888L0 24l6.304-1.654A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.97 0-3.837-.53-5.445-1.455l-.39-.232-4.047 1.062 1.08-3.946-.254-.404A9.715 9.715 0 0 1 2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/></svg>
+        WhatsApp
+      </a>
+      <a href="https://wa.me/60197058001?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20R%26F%20Princess%20Cove%20Phase%203%20New%20Casa%20Suites." target="_blank" class="sidebar-register">Enquire Now</a>
       <p style="font-size:11px;color:#9ca3af;line-height:1.5;margin-top:12px;text-align:center">I confirm that I have read the <a href="#" style="color:var(--navy);text-decoration:underline">privacy policy</a> and allow my information to be shared with this developer who may contact me later.</p>
     </div>
   </div><!-- /sidebar -->
@@ -456,6 +605,46 @@ fetch('https://api.exchangerate-api.com/v4/latest/MYR').then(function(r){return 
     var cur = countryToCurrency[cc] || 'MYR';
     convertAndDisplay(cur);
   }).catch(function(){ convertAndDisplay('MYR'); });
+});
+
+// Unit Types data & selector
+var unitTypes = [
+  {name:'TYPE A/A(M)',beds:1,baths:1,size:'313 sqft',furnishing:'Unfurnished'},
+  {name:'TYPE B1b/B1b(M)',beds:1,baths:1,size:'555 sqft',furnishing:'Unfurnished'},
+  {name:'TYPE B2/B2(M)',beds:1,baths:1,size:'558 sqft',furnishing:'Unfurnished'},
+  {name:'TYPE B1/B1(M)',beds:1,baths:1,size:'577 sqft',furnishing:'Unfurnished'},
+  {name:'TYPE B3c',beds:2,baths:1,size:'593 sqft',furnishing:'Unfurnished'},
+  {name:'TYPE B3b/B3b(M)',beds:2,baths:1,size:'593 sqft',furnishing:'Unfurnished'},
+  {name:'TYPE B3/B3(M)',beds:2,baths:1,size:'593 sqft',furnishing:'Unfurnished'},
+  {name:'TYPE B3a/B3a(M)',beds:2,baths:1,size:'595 sqft',furnishing:'Unfurnished'},
+  {name:'TYPE C1/C1(M)',beds:2,baths:2,size:'850 sqft',furnishing:'Unfurnished'},
+  {name:'TYPE C2/C2(M)',beds:3,baths:2,size:'900 sqft',furnishing:'Unfurnished'},
+  {name:'TYPE D/D(M)',beds:3,baths:3,size:'1,200 sqft',furnishing:'Unfurnished'},
+  {name:'TYPE E/E(M)',beds:4,baths:3,size:'1,555 sqft',furnishing:'Unfurnished'}
+];
+function selectUnit(el, idx) {
+  document.querySelectorAll('.ut-item').forEach(function(i){i.classList.remove('active')});
+  el.classList.add('active');
+  var u = unitTypes[idx];
+  document.getElementById('utType').textContent = u.name;
+  document.getElementById('utSpecs').innerHTML = u.beds + ' \ud83d\udecf\ufe0f &nbsp; ' + u.baths + ' \ud83d\udec1 &nbsp; ' + u.size;
+  document.getElementById('utFurnishing').textContent = 'Furnishing: ' + u.furnishing;
+}
+
+// Section nav scroll spy
+var sectionNav = document.getElementById('sectionNav');
+var snavLinks = document.querySelectorAll('.snav-link');
+window.addEventListener('scroll', function(){
+  if(sectionNav) sectionNav.classList.toggle('scrolled', window.scrollY > 500);
+  var sections = ['overview','aboutSection','unitTypes','facilitiesSection','locationSection','mortgageSection'];
+  var current = '';
+  sections.forEach(function(id){
+    var el = document.getElementById(id);
+    if(el && el.getBoundingClientRect().top <= 180) current = id;
+  });
+  snavLinks.forEach(function(link){
+    link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+  });
 });
 
 // About expand/collapse
