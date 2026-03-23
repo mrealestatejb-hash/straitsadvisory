@@ -114,13 +114,12 @@ const phase3Facilities: Record<string, FacilityItem[]> = {
 };
 
 const phase3RentalData: RentalDataPoint[] = [
-  { year: 2019, rent: 1500 },
   { year: 2020, rent: 1400 },
   { year: 2021, rent: 1600 },
-  { year: 2022, rent: 1800 },
-  { year: 2023, rent: 2000 },
-  { year: 2024, rent: 2200 },
-  { year: 2025, rent: 2400 },
+  { year: 2022, rent: 2300 },
+  { year: 2023, rent: 3000 },
+  { year: 2024, rent: 3200 },
+  { year: 2025, rent: 3300 },
 ];
 
 const princessCovePhases: PhaseInfo[] = [
