@@ -283,7 +283,6 @@ export default async function PropertyDetailPage({ params }: PageProps) {
       </div>
 
       {/* Similar Properties */}
-      <SimilarProperties currentSlug={slug} />
     </main>
   );
 }

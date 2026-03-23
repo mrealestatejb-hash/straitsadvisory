@@ -222,9 +222,7 @@ export default function HomePage() {
     <div className="min-h-screen">
       <VideoHero />
       <AboutSection />
-      <RecommendedProperties />
       <MapSection />
-      <BrowseSection />
     </div>
   );
 }
