@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { MapPin, ArrowRight } from 'lucide-react';
@@ -168,40 +168,17 @@ function RecommendedProperties() {
 
 // ─── Map Section ───
 function MapSection() {
-  const [activeCity, setActiveCity] = useState<'jb' | 'kl' | 'pg'>('jb');
-
-  const cities = [
-    { key: 'jb' as const, label: 'Johor Bahru' },
-    { key: 'kl' as const, label: 'Kuala Lumpur' },
-    { key: 'pg' as const, label: 'Penang' },
-  ];
-
   return (
     <section className="py-16 px-[clamp(16px,4vw,48px)] bg-white">
       <div className="max-w-[1400px] mx-auto">
         <h2 className="text-[28px] font-extrabold text-[#06457F] mb-2 text-center">
-          Explore Our Listings
+          Our Location
         </h2>
         <p className="text-[15px] text-gray-500 text-center mb-5">
-          90+ properties across Malaysia &mdash; click a pin for details
+          R&amp;F Princess Cove &mdash; Bukit Chagar, Johor Bahru
         </p>
-        <div className="flex justify-center gap-2 mb-5">
-          {cities.map((c) => (
-            <button
-              key={c.key}
-              onClick={() => setActiveCity(c.key)}
-              className={`px-5 py-2 rounded-full text-[13px] font-semibold transition-all duration-200 ${
-                activeCity === c.key
-                  ? 'glass-dark text-white'
-                  : 'glass-button text-gray-500 hover:text-[#06457F]'
-              }`}
-            >
-              {c.label}
-            </button>
-          ))}
-        </div>
         <div className="glass-card rounded-2xl overflow-hidden">
-          <ListingsMap activeCity={activeCity} />
+          <ListingsMap activeCity={'jb'} />
         </div>
       </div>
     </section>
