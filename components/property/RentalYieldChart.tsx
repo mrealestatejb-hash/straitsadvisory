@@ -26,17 +26,17 @@ export function RentalYieldChart({ data, subtitle }: RentalYieldChartProps) {
 
   return (
     <div className="py-8 border-b border-border">
-      <div className="glass-card rounded-2xl p-7 overflow-hidden">
+      <div className="glass-card rounded-2xl p-5 sm:p-7 overflow-hidden">
         {/* Header */}
         <div className="flex justify-between items-start mb-8 gap-4">
-          <div>
-            <h2 className="text-xl font-extrabold text-foreground mb-1">
+          <div className="min-w-0">
+            <h2 className="text-lg sm:text-xl font-extrabold text-foreground mb-1">
               Rental Income Performance
             </h2>
             {subtitle && <p className="text-[13px] text-muted-foreground">{subtitle}</p>}
           </div>
           <div className="text-right flex-shrink-0">
-            <span className="block text-[32px] font-extrabold text-emerald-600 leading-tight">
+            <span className="block text-[clamp(24px,6vw,32px)] font-extrabold text-emerald-600 leading-tight">
               RM{currentRent.rent.toLocaleString()}
             </span>
             <span className="text-xs text-muted-foreground">Current rental</span>
@@ -44,9 +44,9 @@ export function RentalYieldChart({ data, subtitle }: RentalYieldChartProps) {
         </div>
 
         {/* Chart */}
-        <div className="relative px-3">
+        <div className="relative px-0 sm:px-3">
           {/* Y-axis guide lines (behind bars) */}
-          <div className="absolute inset-x-3 bottom-[28px] top-0 flex flex-col justify-between pointer-events-none">
+          <div className="absolute inset-x-0 sm:inset-x-3 bottom-[28px] top-0 flex flex-col justify-between pointer-events-none">
             <div className="border-b border-dashed border-gray-200/60" />
             <div className="border-b border-dashed border-gray-200/60" />
             <div className="border-b border-dashed border-gray-200/60" />
@@ -54,7 +54,7 @@ export function RentalYieldChart({ data, subtitle }: RentalYieldChartProps) {
           </div>
 
           {/* Bars */}
-          <div className="flex items-end gap-3 relative" style={{ height: `${maxHeight + 40}px` }}>
+          <div className="flex items-end gap-1.5 sm:gap-3 relative" style={{ height: `${maxHeight + 40}px` }}>
             {data.map((d, i) => {
               const barHeight = Math.round((d.rent / (maxRent * 1.15)) * maxHeight);
               const isLatest = i === data.length - 1;
@@ -67,7 +67,7 @@ export function RentalYieldChart({ data, subtitle }: RentalYieldChartProps) {
                 <div key={d.year} className="flex-1 flex flex-col items-center relative">
                   {/* Value label */}
                   <span
-                    className={`text-[11px] font-bold whitespace-nowrap mb-1.5 ${
+                    className={`text-[10px] sm:text-[11px] font-bold whitespace-nowrap mb-1.5 ${
                       isLatest ? 'text-emerald-700' : 'text-emerald-600/80'
                     }`}
                   >
@@ -76,7 +76,7 @@ export function RentalYieldChart({ data, subtitle }: RentalYieldChartProps) {
 
                   {/* Bar */}
                   <div
-                    className={`w-[65%] rounded-t-lg transition-all duration-500 ${
+                    className={`w-[80%] sm:w-[65%] rounded-t-lg transition-all duration-500 ${
                       isLatest ? 'shadow-md shadow-emerald-200' : ''
                     }`}
                     style={{
