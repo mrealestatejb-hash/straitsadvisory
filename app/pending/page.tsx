@@ -26,9 +26,9 @@ export default async function PendingPage() {
       <div className="w-full max-w-md mx-4">
         <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 shadow-2xl text-center">
           {/* Pending icon */}
-          <div className="w-16 h-16 rounded-full bg-amber-500/10 border border-amber-500/20 flex items-center justify-center mx-auto mb-6">
+          <div className="w-16 h-16 rounded-full bg-[#D4C4A8]/10 border border-[#D4C4A8]/20 flex items-center justify-center mx-auto mb-6">
             <svg
-              className="w-8 h-8 text-amber-400"
+              className="w-8 h-8 text-[#D4C4A8]"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth={1.5}

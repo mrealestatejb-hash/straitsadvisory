@@ -196,7 +196,7 @@ export default function ComparePage() {
               <select
                 value={selectedSlug}
                 onChange={(e) => handleSlotChange(idx, e.target.value)}
-                className="glass-input w-full h-11 px-3.5 pr-9 rounded-lg text-sm text-gray-900 cursor-pointer transition-all focus:outline-none focus:border-[#c9a962] focus:ring-2 focus:ring-[#c9a962]/15 appearance-none"
+                className="glass-input w-full h-11 px-3.5 pr-9 rounded-lg text-sm text-gray-900 cursor-pointer transition-all focus:outline-none focus:border-[#D4C4A8] focus:ring-2 focus:ring-[#D4C4A8]/15 appearance-none"
                 style={{
                   backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236e6e73' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")`,
                   backgroundRepeat: 'no-repeat',
@@ -255,7 +255,7 @@ export default function ComparePage() {
                       </div>
                       <button
                         onClick={() => removeProperty(s.idx)}
-                        className="mt-2 w-7 h-7 rounded-full bg-gray-100 text-gray-400 flex items-center justify-center transition-all hover:bg-red-50 hover:text-red-500"
+                        className="mt-2 w-7 h-7 rounded-full bg-gray-100 text-gray-400 flex items-center justify-center transition-all hover:bg-[#5289AD]/10 hover:text-[#5289AD]"
                         title="Remove"
                       >
                         <X className="w-4 h-4" />
@@ -277,7 +277,7 @@ export default function ComparePage() {
                       <td
                         key={s.prop.slug}
                         className={`p-3.5 text-sm font-medium border-b border-gray-100 ${
-                          isBest ? 'text-emerald-600 font-bold glass-tint-green' : 'text-gray-900'
+                          isBest ? 'text-[#5289AD] font-bold glass-tint-green' : 'text-gray-900'
                         }`}
                       >
                         {row.fmt(s.prop[row.key])}
@@ -294,7 +294,7 @@ export default function ComparePage() {
       {/* CTA Section */}
       <section
         className="py-24 px-[clamp(20px,5vw,60px)] text-center"
-        style={{ background: 'linear-gradient(135deg, #06457F 0%, #0474C4 100%)' }}
+        style={{ background: 'linear-gradient(135deg, #243C4C 0%, #5289AD 100%)' }}
       >
         <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">
           Let&rsquo;s Start Your Malaysia<br />Property Journey

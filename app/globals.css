@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  /* Sapphire Nightfall Palette */
-  --navy: #06457F;
-  --navy-mid: #0474C4;
-  --gold: #C9A962;
-  --bg: #FAF9F7;
-  --bg-secondary: #F5F4F1;
-  --text: #262B40;
-  --text-secondary: #5379AE;
-  --text-tertiary: #7A8BA8;
-  --border: #D8DDE6;
-  --border-light: #E8ECF2;
+  /* Arctic Reflection Palette */
+  --navy: #243C4C;
+  --navy-mid: #5289AD;
+  --gold: #D4C4A8;
+  --bg: #F4FCFB;
+  --bg-secondary: #F4FCFB;
+  --text: #243C4C;
+  --text-secondary: #698696;
+  --text-tertiary: #698696;
+  --border: #ACBCBF;
+  --border-light: #ACBCBF;
   --green: #25d366;
   --radius: 20px;
   --radius-sm: 14px;
@@ -20,28 +20,28 @@
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
   /* Semantic color tokens */
-  --color-background: #FAF9F7;
+  --color-background: #F4FCFB;
   --color-surface: #FFFFFF;
-  --color-primary: #06457F;
-  --color-primary-light: #0474C4;
-  --color-primary-muted: #5379AE;
-  --color-dark: #262B40;
-  --color-dark-teal: #2C444C;
-  --color-light: #A8C4EC;
-  --color-accent: #C9A962;
-  --color-success: #10B981;
+  --color-primary: #243C4C;
+  --color-primary-light: #5289AD;
+  --color-primary-muted: #698696;
+  --color-dark: #243C4C;
+  --color-dark-teal: #243C4C;
+  --color-light: #ACBCBF;
+  --color-accent: #D4C4A8;
+  --color-success: #5289AD;
 
   /* Liquid Glass tokens */
   --glass-bg: rgba(255, 255, 255, 0.5);
   --glass-bg-heavy: rgba(255, 255, 255, 0.7);
-  --glass-dark-bg: rgba(6, 69, 127, 0.55);
-  --glass-dark-bg-heavy: rgba(38, 43, 64, 0.85);
+  --glass-dark-bg: rgba(36, 60, 76, 0.6);
+  --glass-dark-bg-heavy: rgba(36, 60, 76, 0.85);
   --glass-border: rgba(255, 255, 255, 0.35);
   --glass-border-dark: rgba(255, 255, 255, 0.1);
   --glass-blur: blur(16px) saturate(180%);
   --glass-blur-heavy: blur(24px) saturate(200%);
-  --glass-shadow: 0 4px 24px rgba(6, 69, 127, 0.06);
-  --glass-shadow-lg: 0 8px 40px rgba(6, 69, 127, 0.1);
+  --glass-shadow: 0 4px 24px rgba(36, 60, 76, 0.06);
+  --glass-shadow-lg: 0 8px 40px rgba(36, 60, 76, 0.1);
   --glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.6);
   --glass-highlight-dark: inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
@@ -53,7 +53,7 @@ html {
 body {
   font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
   color: var(--text);
-  background: #FAF9F7;
+  background: #F4FCFB;
   background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
@@ -198,7 +198,7 @@ body {
 .glass-input:focus {
   background: rgba(255, 255, 255, 0.7);
   border-color: var(--gold);
-  box-shadow: 0 0 0 3px rgba(201, 169, 98, 0.15), inset 0 1px 3px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 0 0 3px rgba(212, 196, 168, 0.15), inset 0 1px 3px rgba(0, 0, 0, 0.02);
   outline: none;
 }
 
@@ -220,47 +220,18 @@ body {
   border-radius: inherit;
 }
 
-/* Tinted glass variants */
-.glass-tint-green {
-  background: rgba(5, 150, 105, 0.08);
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
-  border: 1px solid rgba(5, 150, 105, 0.15);
-}
-
-.glass-tint-amber {
-  background: rgba(217, 119, 6, 0.08);
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
-  border: 1px solid rgba(217, 119, 6, 0.15);
-}
-
-.glass-tint-purple {
-  background: rgba(124, 58, 237, 0.08);
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
-  border: 1px solid rgba(124, 58, 237, 0.15);
-}
-
-.glass-tint-pink {
-  background: rgba(219, 39, 119, 0.08);
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
-  border: 1px solid rgba(219, 39, 119, 0.15);
-}
-
-.glass-tint-blue {
-  background: rgba(59, 130, 246, 0.08);
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
-  border: 1px solid rgba(59, 130, 246, 0.15);
-}
-
+/* Unified tinted glass variant */
+.glass-tint,
+.glass-tint-green,
+.glass-tint-amber,
+.glass-tint-purple,
+.glass-tint-pink,
+.glass-tint-blue,
 .glass-tint-red {
-  background: rgba(239, 68, 68, 0.08);
+  background: rgba(82, 137, 173, 0.06);
   backdrop-filter: blur(12px) saturate(180%);
   -webkit-backdrop-filter: blur(12px) saturate(180%);
-  border: 1px solid rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(82, 137, 173, 0.12);
 }
 
 /* ─── Disable hover animations site-wide ─── */

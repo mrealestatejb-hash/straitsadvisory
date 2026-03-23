@@ -16,30 +16,30 @@ interface WhyWeRecommendProps {
 const colorThemes: Record<string, { bg: string; iconBg: string; titleColor: string }> = {
   '#059669': {
     bg: 'glass-tint-green glass-specular',
-    iconBg: 'bg-emerald-600',
-    titleColor: 'text-emerald-600',
+    iconBg: 'bg-[#5289AD]',
+    titleColor: 'text-[#5289AD]',
   },
   '#d97706': {
     bg: 'glass-tint-amber glass-specular',
-    iconBg: 'bg-amber-600',
-    titleColor: 'text-amber-600',
+    iconBg: 'bg-[#D4C4A8]',
+    titleColor: 'text-[#D4C4A8]',
   },
   '#7c3aed': {
     bg: 'glass-tint-purple glass-specular',
-    iconBg: 'bg-violet-600',
-    titleColor: 'text-violet-600',
+    iconBg: 'bg-[#5289AD]',
+    titleColor: 'text-[#5289AD]',
   },
   '#db2777': {
     bg: 'glass-tint-pink glass-specular',
-    iconBg: 'bg-pink-600',
-    titleColor: 'text-pink-600',
+    iconBg: 'bg-[#5289AD]',
+    titleColor: 'text-[#5289AD]',
   },
 };
 
 export function WhyWeRecommend({ title, subtitle, cards }: WhyWeRecommendProps) {
   return (
     <div className="py-8 border-b border-border">
-      <p className="text-center text-[13px] font-semibold tracking-[2px] uppercase text-emerald-600 mb-3">
+      <p className="text-center text-[13px] font-semibold tracking-[2px] uppercase text-[#5289AD] mb-3">
         WHY WE RECOMMEND
       </p>
       <h2 className="text-center text-2xl md:text-[32px] font-extrabold text-foreground mb-2">

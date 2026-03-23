@@ -267,7 +267,7 @@ export function AdminDashboard({ currentUserId }: { currentUserId: string }) {
         <div
           className={`fixed top-4 right-4 z-50 px-4 py-3 rounded-xl text-sm font-medium shadow-lg transition-all ${
             toast.type === 'success'
-              ? 'bg-emerald-600 text-white'
+              ? 'bg-[#5289AD] text-white'
               : 'bg-red-600 text-white'
           }`}
         >
@@ -415,7 +415,7 @@ function UsersTab({
               </td>
               <td className="px-4 py-3">
                 {user.id === currentUserId ? (
-                  <span className="text-xs bg-violet-500/20 text-violet-300 px-2 py-1 rounded-full">
+                  <span className="text-xs bg-[#5289AD]/20 text-[#ACBCBF] px-2 py-1 rounded-full">
                     ADMIN
                   </span>
                 ) : (
@@ -432,11 +432,11 @@ function UsersTab({
               </td>
               <td className="px-4 py-3">
                 {user.id === currentUserId || user.approved ? (
-                  <span className="text-xs bg-emerald-500/20 text-emerald-300 px-2 py-1 rounded-full">
+                  <span className="text-xs bg-[#5289AD]/20 text-[#ACBCBF] px-2 py-1 rounded-full">
                     Approved
                   </span>
                 ) : (
-                  <span className="text-xs bg-amber-500/20 text-amber-300 px-2 py-1 rounded-full">
+                  <span className="text-xs bg-[#D4C4A8]/20 text-[#D4C4A8] px-2 py-1 rounded-full">
                     Pending
                   </span>
                 )}
@@ -450,7 +450,7 @@ function UsersTab({
                     {!user.approved ? (
                       <button
                         onClick={() => updateUser(user.id, { approved: true })}
-                        className="text-xs bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1 rounded-lg transition-colors cursor-pointer"
+                        className="text-xs bg-[#5289AD] hover:bg-[#5289AD] text-white px-3 py-1 rounded-lg transition-colors cursor-pointer"
                       >
                         Approve
                       </button>
@@ -546,10 +546,10 @@ function PropertiesTab({
                       <span
                         className={`text-xs px-2 py-1 rounded-full ${
                           property.status === 'new-launch'
-                            ? 'bg-blue-500/20 text-blue-300'
+                            ? 'bg-[#5289AD]/20 text-blue-300'
                             : property.status === 'construction'
-                              ? 'bg-amber-500/20 text-amber-300'
-                              : 'bg-emerald-500/20 text-emerald-300'
+                              ? 'bg-[#D4C4A8]/20 text-[#D4C4A8]'
+                              : 'bg-[#5289AD]/20 text-[#ACBCBF]'
                         }`}
                       >
                         {property.status}
@@ -564,7 +564,7 @@ function PropertiesTab({
                       <button
                         onClick={() => onTogglePublished(property)}
                         className={`w-10 h-6 rounded-full transition-colors cursor-pointer relative ${
-                          property.published ? 'bg-emerald-600' : 'bg-slate-600'
+                          property.published ? 'bg-[#5289AD]' : 'bg-slate-600'
                         }`}
                       >
                         <span
@@ -795,7 +795,7 @@ function PropertyFormModal({
                 type="button"
                 onClick={() => update('published', !form.published)}
                 className={`w-10 h-6 rounded-full transition-colors cursor-pointer relative ${
-                  form.published ? 'bg-emerald-600' : 'bg-slate-600'
+                  form.published ? 'bg-[#5289AD]' : 'bg-slate-600'
                 }`}
               >
                 <span

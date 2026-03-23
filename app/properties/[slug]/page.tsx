@@ -133,12 +133,12 @@ export default async function PropertyDetailPage({ params }: PageProps) {
 
   const statusClass =
     property.status === 'coming-soon'
-      ? 'bg-emerald-50 text-emerald-700 border-emerald-300'
+      ? 'bg-[#5289AD] text-[#5289AD] border-[#5289AD]'
       : property.status === 'sold-out'
         ? 'bg-gray-100 text-gray-600 border-gray-300'
         : property.status === 'limited'
-          ? 'bg-amber-50 text-amber-700 border-amber-300'
-          : 'bg-emerald-50 text-emerald-700 border-emerald-300';
+          ? 'bg-[#D4C4A8] text-[#243C4C] border-[#D4C4A8]'
+          : 'bg-[#5289AD] text-[#5289AD] border-[#5289AD]';
 
   return (
     <main className="min-h-screen bg-white">
@@ -165,7 +165,7 @@ export default async function PropertyDetailPage({ params }: PageProps) {
       {/* Hero section */}
       <div className="px-[clamp(20px,5vw,60px)] pt-7 max-w-[1200px] mx-auto">
         <div className="flex items-center gap-3.5 mb-3">
-          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#06457F] to-[#0474C4] flex items-center justify-center text-lg text-white font-extrabold flex-shrink-0">
+          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#243C4C] to-[#5289AD] flex items-center justify-center text-lg text-white font-extrabold flex-shrink-0">
             {(property.developer || 'SA')
               .split(/\s+/)
               .map((w) => w[0])
@@ -310,7 +310,7 @@ function SimilarProperties({ currentSlug }: { currentSlug: string }) {
             href={`/properties/${prop.slug}`}
             className="bg-white border border-border rounded-xl overflow-hidden hover:-translate-y-1 hover:shadow-lg transition-all"
           >
-            <div className="h-[140px] bg-gradient-to-br from-[#06457F] to-[#16213e] flex items-center justify-center">
+            <div className="h-[140px] bg-gradient-to-br from-[#243C4C] to-[#243C4C] flex items-center justify-center">
               {prop.image ? (
                 <img
                   src={prop.image}

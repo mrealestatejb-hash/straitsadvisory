@@ -54,8 +54,8 @@ export function Navigation() {
       <nav
         className={`flex items-center justify-between h-[56px] px-5 mx-auto max-w-[1400px] rounded-full transition-all duration-400 backdrop-blur-2xl border ${
           isScrolled
-            ? 'bg-[#262B40]/90 border-white/12 shadow-2xl shadow-[#262B40]/30'
-            : 'bg-[#262B40]/75 border-white/8 shadow-xl shadow-[#262B40]/20'
+            ? 'bg-[#243C4C]/90 border-white/12 shadow-2xl shadow-[#243C4C]/30'
+            : 'bg-[#243C4C]/75 border-white/8 shadow-xl shadow-[#243C4C]/20'
         }`}
         style={{ WebkitBackdropFilter: 'blur(24px) saturate(160%)' }}
       >
@@ -65,9 +65,9 @@ export function Navigation() {
           className="text-[17px] font-extrabold tracking-tight flex items-center gap-2.5 text-white"
         >
           <svg width="36" height="24" viewBox="-1 2 67 44" fill="none" className="flex-shrink-0">
-            <path d="M2 14c7-10 14-10 21 0s14 10 21 0 14-10 21 0" stroke="#1a6ee0" strokeWidth="4" strokeLinecap="round" fill="none" />
-            <path d="M2 24c7-10 14-10 21 0s14 10 21 0 14-10 21 0" stroke="#4da3f7" strokeWidth="4" strokeLinecap="round" fill="none" />
-            <path d="M2 34c7-10 14-10 21 0s14 10 21 0 14-10 21 0" stroke="#91cbff" strokeWidth="4" strokeLinecap="round" fill="none" />
+            <path d="M2 14c7-10 14-10 21 0s14 10 21 0 14-10 21 0" stroke="#243C4C" strokeWidth="4" strokeLinecap="round" fill="none" />
+            <path d="M2 24c7-10 14-10 21 0s14 10 21 0 14-10 21 0" stroke="#5289AD" strokeWidth="4" strokeLinecap="round" fill="none" />
+            <path d="M2 34c7-10 14-10 21 0s14 10 21 0 14-10 21 0" stroke="#ACBCBF" strokeWidth="4" strokeLinecap="round" fill="none" />
           </svg>
           Straits Advisory
         </Link>
@@ -98,7 +98,7 @@ export function Navigation() {
               <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${isLangOpen ? 'rotate-180' : ''}`} />
             </button>
             {isLangOpen && (
-              <div className="absolute right-0 top-full mt-2 bg-[#262B40]/90 backdrop-blur-2xl border border-white/10 rounded-xl shadow-2xl py-1 min-w-[110px] z-50">
+              <div className="absolute right-0 top-full mt-2 bg-[#243C4C]/90 backdrop-blur-2xl border border-white/10 rounded-xl shadow-2xl py-1 min-w-[110px] z-50">
                 {languages.map((lang) => (
                   <button
                     key={lang.code}
@@ -108,7 +108,7 @@ export function Navigation() {
                     }}
                     className={`w-full text-left px-4 py-2 text-sm transition-colors duration-150 ${
                       selectedLang === lang.code
-                        ? 'text-[#c9a962] bg-white/5'
+                        ? 'text-[#D4C4A8] bg-white/5'
                         : 'text-white/70 hover:text-white hover:bg-white/5'
                     }`}
                   >
@@ -124,7 +124,7 @@ export function Navigation() {
             href="https://wa.me/60197058001"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-5 py-[7px] rounded-full text-[13px] font-semibold bg-[#0474C4] border border-[#0474C4]/50 text-white hover:bg-[#0474C4]/90 transition-all duration-200"
+            className="px-5 py-[7px] rounded-full text-[13px] font-semibold bg-[#5289AD] border border-[#5289AD]/50 text-white hover:bg-[#5289AD]/90 transition-all duration-200"
           >
             WhatsApp Us
           </a>
@@ -151,7 +151,7 @@ export function Navigation() {
 
       {/* Dropdown Menu (both desktop "Menu" and mobile hamburger) */}
       {isMenuOpen && (
-        <div className="mt-2 mx-auto max-w-[1400px] bg-[#262B40]/92 backdrop-blur-2xl rounded-2xl shadow-2xl shadow-[#262B40]/30 border border-white/8 overflow-hidden" style={{ WebkitBackdropFilter: 'blur(24px) saturate(160%)' }}>
+        <div className="mt-2 mx-auto max-w-[1400px] bg-[#243C4C]/92 backdrop-blur-2xl rounded-2xl shadow-2xl shadow-[#243C4C]/30 border border-white/8 overflow-hidden" style={{ WebkitBackdropFilter: 'blur(24px) saturate(160%)' }}>
           <div className="p-5 grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Nav Links */}
             <div className="lg:col-span-2">
@@ -180,7 +180,7 @@ export function Navigation() {
                     onClick={() => setSelectedLang(lang.code)}
                     className={`px-3 py-1.5 rounded-full text-[13px] font-medium transition-all duration-150 ${
                       selectedLang === lang.code
-                        ? 'bg-[#c9a962] text-white'
+                        ? 'bg-[#D4C4A8] text-[#243C4C]'
                         : 'bg-white/8 text-white/60 hover:bg-white/15 hover:text-white'
                     }`}
                   >

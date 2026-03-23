@@ -199,7 +199,7 @@ export default function CalculatorPage() {
           <ScrollReveal direction="left">
             <Card className="p-6 h-full">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full bg-[#ACBCBF]/30 flex items-center justify-center">
                   <span className="text-2xl">🇸🇬</span>
                 </div>
                 <div>
@@ -274,7 +274,7 @@ export default function CalculatorPage() {
               </div>
 
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full bg-[#5289AD]/20 flex items-center justify-center">
                   <span className="text-2xl">🇲🇾</span>
                 </div>
                 <div>

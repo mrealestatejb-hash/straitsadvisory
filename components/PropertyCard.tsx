@@ -41,17 +41,17 @@ const statusConfig = {
   },
   'limited': {
     label: 'LIMITED UNITS',
-    bgColor: 'bg-amber-500',
-    textColor: 'text-white',
+    bgColor: 'bg-[#D4C4A8]',
+    textColor: 'text-[#243C4C]',
   },
   'coming-soon': {
     label: 'COMING SOON',
-    bgColor: 'bg-blue-500',
+    bgColor: 'bg-[#5289AD]',
     textColor: 'text-white',
   },
   'available': {
     label: 'AVAILABLE',
-    bgColor: 'bg-emerald-500',
+    bgColor: 'bg-[#5289AD]',
     textColor: 'text-white',
   },
 };
@@ -134,7 +134,7 @@ export function PropertyCard({ property }: PropertyCardProps) {
         {/* Yield badge - top left (only show if yield > 0 and status is available/limited) */}
         {property.yield > 0 && status === 'available' && (
           <div className="absolute top-3 left-3">
-            <span className="px-2.5 py-1 bg-emerald-500 text-white text-xs font-semibold rounded-full shadow-lg">
+            <span className="px-2.5 py-1 bg-[#5289AD] text-white text-xs font-semibold rounded-full shadow-lg">
               {property.yield}% yield
             </span>
           </div>
@@ -143,7 +143,7 @@ export function PropertyCard({ property }: PropertyCardProps) {
         {/* Yield badge for limited status - show next to status */}
         {property.yield > 0 && status === 'limited' && (
           <div className="absolute top-3 left-36">
-            <span className="px-2.5 py-1 bg-emerald-500 text-white text-xs font-semibold rounded-full shadow-lg">
+            <span className="px-2.5 py-1 bg-[#5289AD] text-white text-xs font-semibold rounded-full shadow-lg">
               {property.yield}% yield
             </span>
           </div>
@@ -159,8 +159,8 @@ export function PropertyCard({ property }: PropertyCardProps) {
           <Heart
             className={`w-5 h-5 transition-colors ${
               isSaved
-                ? 'fill-red-500 text-red-500'
-                : 'text-muted-foreground hover:text-red-500'
+                ? 'fill-[#5289AD] text-[#5289AD]'
+                : 'text-muted-foreground hover:text-[#5289AD]'
             }`}
           />
         </motion.button>

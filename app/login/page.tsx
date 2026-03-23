@@ -139,7 +139,7 @@ export default function LoginPage() {
               <p className="text-red-400 text-xs text-center">{error}</p>
             )}
             {success && (
-              <p className="text-emerald-400 text-xs text-center">{success}</p>
+              <p className="text-[#5289AD] text-xs text-center">{success}</p>
             )}
 
             <button

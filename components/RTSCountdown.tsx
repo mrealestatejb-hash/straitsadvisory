@@ -75,7 +75,7 @@ export function RTSCountdown() {
   // RTS is now open
   if (timeLeft.total <= 0) {
     return (
-      <div className="inline-flex items-center gap-3 bg-emerald-500/20 backdrop-blur-md rounded-2xl px-6 py-4 md:px-8 md:py-5 border border-emerald-500/30">
+      <div className="inline-flex items-center gap-3 bg-[#5289AD]/20 backdrop-blur-md rounded-2xl px-6 py-4 md:px-8 md:py-5 border border-[#5289AD]/30">
         <span className="text-2xl">🚇</span>
         <span className="text-lg md:text-xl font-semibold text-white">
           RTS Link Now Open

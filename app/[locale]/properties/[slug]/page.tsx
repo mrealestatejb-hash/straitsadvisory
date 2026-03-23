@@ -56,17 +56,17 @@ const statusConfig = {
   },
   'limited': {
     label: 'LIMITED UNITS AVAILABLE',
-    bgColor: 'bg-amber-500',
+    bgColor: 'bg-[#D4C4A8]',
     textColor: 'text-white',
   },
   'coming-soon': {
     label: 'COMING SOON',
-    bgColor: 'bg-blue-500',
+    bgColor: 'bg-[#5289AD]',
     textColor: 'text-white',
   },
   'available': {
     label: 'AVAILABLE NOW',
-    bgColor: 'bg-emerald-500',
+    bgColor: 'bg-[#5289AD]',
     textColor: 'text-white',
   },
 };
@@ -251,7 +251,7 @@ export default function PropertyDetailPage({ params }: PropertyDetailPageProps) 
               >
                 <Heart
                   className={`w-5 h-5 ${
-                    isSaved ? 'fill-red-500 text-red-500' : ''
+                    isSaved ? 'fill-[#5289AD] text-[#5289AD]' : ''
                   }`}
                 />
               </Button>

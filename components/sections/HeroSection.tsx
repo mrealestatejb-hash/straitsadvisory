@@ -21,7 +21,7 @@ export function HeroSection({ badge, title, subtitle, goldText }: HeroSectionPro
     return (
       <>
         {before}
-        <span className="text-[#c9a962]">{goldText}</span>
+        <span className="text-[#D4C4A8]">{goldText}</span>
         {after}
       </>
     );
@@ -31,7 +31,7 @@ export function HeroSection({ badge, title, subtitle, goldText }: HeroSectionPro
     <section
       className="relative py-32 md:py-40 px-[clamp(16px,4vw,48px)] overflow-hidden"
       style={{
-        background: 'linear-gradient(135deg, #06457F 0%, #0474C4 50%, #06457F 100%)',
+        background: 'linear-gradient(135deg, #243C4C 0%, #5289AD 50%, #243C4C 100%)',
       }}
     >
       {/* Decorative radial gradient overlay */}
@@ -39,13 +39,13 @@ export function HeroSection({ badge, title, subtitle, goldText }: HeroSectionPro
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            'radial-gradient(ellipse at 50% 0%, rgba(201,169,98,0.08) 0%, transparent 60%), radial-gradient(ellipse at 80% 100%, rgba(45,45,90,0.4) 0%, transparent 50%)',
+            'radial-gradient(ellipse at 50% 0%, rgba(212,196,168,0.08) 0%, transparent 60%), radial-gradient(ellipse at 80% 100%, rgba(45,45,90,0.4) 0%, transparent 50%)',
         }}
       />
 
       <div className="relative max-w-[900px] mx-auto text-center">
         {badge && (
-          <span className="inline-block px-4 py-1.5 mb-6 text-xs font-semibold uppercase tracking-wider text-[#c9a962] glass-pill">
+          <span className="inline-block px-4 py-1.5 mb-6 text-xs font-semibold uppercase tracking-wider text-[#D4C4A8] glass-pill">
             {badge}
           </span>
         )}

@@ -11,7 +11,7 @@ export function WhatsAppFAB() {
       {/* Phone Button */}
       <a
         href="tel:+60197058001"
-        className={`flex items-center justify-center w-14 h-14 rounded-full glass-button glass-specular bg-blue-500/70 text-white transition-transform duration-200 ${
+        className={`flex items-center justify-center w-14 h-14 rounded-full glass-button glass-specular bg-[#5289AD]/70 text-white transition-transform duration-200 ${
           isHovered === 'phone' ? 'scale-110' : ''
         }`}
         onMouseEnter={() => setIsHovered('phone')}

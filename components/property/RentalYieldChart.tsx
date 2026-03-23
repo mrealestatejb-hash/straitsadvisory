@@ -36,7 +36,7 @@ export function RentalYieldChart({ data, subtitle }: RentalYieldChartProps) {
             {subtitle && <p className="text-[12px] sm:text-[13px] text-muted-foreground">{subtitle}</p>}
           </div>
           <div className="text-left sm:text-right flex-shrink-0">
-            <span className="block text-[26px] sm:text-[32px] font-extrabold text-emerald-600 leading-tight">
+            <span className="block text-[26px] sm:text-[32px] font-extrabold text-[#5289AD] leading-tight">
               RM{currentRent.rent.toLocaleString()}
             </span>
             <span className="text-[11px] sm:text-xs text-muted-foreground">Current rental</span>
@@ -52,15 +52,15 @@ export function RentalYieldChart({ data, subtitle }: RentalYieldChartProps) {
               const isLatest = i === data.length - 1;
               const progress = i / (data.length - 1);
               const bgColor = isLatest
-                ? 'linear-gradient(180deg, #059669 0%, #047857 100%)'
-                : `linear-gradient(180deg, rgba(16, 185, 129, ${0.35 + progress * 0.45}) 0%, rgba(5, 150, 105, ${0.3 + progress * 0.5}) 100%)`;
+                ? 'linear-gradient(180deg, #5289AD 0%, #243C4C 100%)'
+                : `linear-gradient(180deg, rgba(82, 137, 173, ${0.35 + progress * 0.45}) 0%, rgba(36, 60, 76, ${0.3 + progress * 0.5}) 100%)`;
 
               return (
                 <div key={d.year} className="flex-1 flex flex-col items-center relative">
                   {/* Value label */}
                   <span
                     className={`text-[9px] sm:text-[11px] font-bold whitespace-nowrap mb-1 ${
-                      isLatest ? 'text-emerald-700' : 'text-emerald-600/80'
+                      isLatest ? 'text-[#5289AD]' : 'text-[#5289AD]/80'
                     }`}
                   >
                     RM{d.rent.toLocaleString()}
@@ -69,7 +69,7 @@ export function RentalYieldChart({ data, subtitle }: RentalYieldChartProps) {
                   {/* Bar */}
                   <div
                     className={`w-[70%] sm:w-[65%] rounded-t-md sm:rounded-t-lg ${
-                      isLatest ? 'shadow-md shadow-emerald-200' : ''
+                      isLatest ? 'shadow-md shadow-[#ACBCBF]' : ''
                     }`}
                     style={{
                       height: `${barHeight}px`,
@@ -96,11 +96,11 @@ export function RentalYieldChart({ data, subtitle }: RentalYieldChartProps) {
 
         {/* Growth insight */}
         <div className="glass-tint-green rounded-xl p-3 sm:p-4 flex items-center gap-3 mt-5">
-          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-[10px] bg-emerald-600 flex items-center justify-center flex-shrink-0">
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-[10px] bg-[#5289AD] flex items-center justify-center flex-shrink-0">
             <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
           </div>
           <div>
-            <h4 className="text-[13px] sm:text-sm font-bold text-emerald-600 mb-0.5">
+            <h4 className="text-[13px] sm:text-sm font-bold text-[#5289AD] mb-0.5">
               +{growthPct}% rental growth since {firstRent.year}
             </h4>
             <p className="text-[12px] sm:text-[13px] text-gray-700">

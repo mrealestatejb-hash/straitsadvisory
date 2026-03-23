@@ -23,7 +23,7 @@ export function PhaseSelector({ phases, activePhase }: PhaseSelectorProps) {
           return (
             <span
               key={phase.key}
-              className={`${baseClasses} text-foreground border-[#c9a962] cursor-default`}
+              className={`${baseClasses} text-foreground border-[#D4C4A8] cursor-default`}
             >
               {phase.label}
             </span>

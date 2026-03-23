@@ -68,7 +68,7 @@ export function UnitTypesViewer({ units }: UnitTypesViewerProps) {
               onClick={() => setSelectedIndex(i)}
               className={`px-4 py-3.5 border-b border-border/50 cursor-pointer transition-colors ${
                 selectedIndex === i
-                  ? 'glass-tint-pink border-l-[3px] border-l-red-600'
+                  ? 'glass-tint-pink border-l-[3px] border-l-[#5289AD]'
                   : 'hover:bg-muted/50'
               }`}
             >
@@ -108,7 +108,7 @@ export function UnitTypesViewer({ units }: UnitTypesViewerProps) {
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-5 py-2 border-2 border-[#06457F] rounded-lg text-[13px] font-semibold text-[#06457F] hover:bg-[#06457F] hover:text-white transition-colors"
+                  className="px-5 py-2 border-2 border-[#243C4C] rounded-lg text-[13px] font-semibold text-[#243C4C] hover:bg-[#243C4C] hover:text-white transition-colors"
                 >
                   Request Price
                 </a>

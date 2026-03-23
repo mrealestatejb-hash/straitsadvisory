@@ -3,7 +3,7 @@ export function CTASection() {
     <section
       className="py-20 px-[clamp(16px,4vw,48px)]"
       style={{
-        background: 'linear-gradient(135deg, #06457F 0%, #0474C4 100%)',
+        background: 'linear-gradient(135deg, #243C4C 0%, #5289AD 100%)',
       }}
     >
       <div className="max-w-[700px] mx-auto text-center glass-dark rounded-2xl p-10">

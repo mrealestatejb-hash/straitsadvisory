@@ -16,7 +16,7 @@ const services = [
   {
     icon: Search,
     title: 'Property Search & Acquisition',
-    color: 'glass-tint-blue glass-specular text-blue-600',
+    color: 'glass-tint-blue glass-specular text-[#5289AD]',
     items: [
       'New launch priority access',
       'Resale property sourcing',
@@ -29,7 +29,7 @@ const services = [
   {
     icon: Tag,
     title: 'Selling Your Property',
-    color: 'glass-tint-amber glass-specular text-amber-600',
+    color: 'glass-tint-amber glass-specular text-[#D4C4A8]',
     items: [
       'Market valuation (AI + comparable analysis)',
       'Professional photography & marketing',
@@ -42,7 +42,7 @@ const services = [
   {
     icon: KeyRound,
     title: 'Rental & Leasing',
-    color: 'glass-tint-green glass-specular text-green-600',
+    color: 'glass-tint-green glass-specular text-[#5289AD]',
     items: [
       'Tenant sourcing & screening',
       'Lease agreement preparation',
@@ -54,7 +54,7 @@ const services = [
   {
     icon: Building2,
     title: 'Property Management',
-    color: 'glass-tint-purple glass-specular text-purple-600',
+    color: 'glass-tint-purple glass-specular text-[#5289AD]',
     items: [
       'Long-term rental management',
       'Airbnb & short-term rental management',
@@ -67,7 +67,7 @@ const services = [
   {
     icon: Wrench,
     title: 'Renovation & Furnishing',
-    color: 'glass-tint-amber glass-specular text-orange-600',
+    color: 'glass-tint-amber glass-specular text-[#D4C4A8]',
     items: [
       'Interior design consultation',
       'Renovation project management',
@@ -79,7 +79,7 @@ const services = [
   {
     icon: Scale,
     title: 'Legal & Compliance',
-    color: 'glass-tint-blue glass-specular text-indigo-600',
+    color: 'glass-tint-blue glass-specular text-[#5289AD]',
     items: [
       'Lawyer coordination',
       'SPA review & explanation',
@@ -91,7 +91,7 @@ const services = [
   {
     icon: Banknote,
     title: 'Financing & Banking',
-    color: 'glass-tint-green glass-specular text-teal-600',
+    color: 'glass-tint-green glass-specular text-[#5289AD]',
     items: [
       'Mortgage pre-approval assistance',
       'Bank loan comparison',
@@ -103,7 +103,7 @@ const services = [
   {
     icon: ShieldCheck,
     title: 'Visa & Relocation',
-    color: 'glass-tint-red glass-specular text-red-600',
+    color: 'glass-tint-red glass-specular text-[#5289AD]',
     items: [
       'MM2H application support',
       'DE Rantau (digital nomad visa)',
@@ -115,7 +115,7 @@ const services = [
   {
     icon: Package,
     title: 'Post-Purchase Support',
-    color: 'glass-tint-green glass-specular text-green-600',
+    color: 'glass-tint-green glass-specular text-[#5289AD]',
     items: [
       'Vacant possession & handover',
       'Defect inspection & reporting',
@@ -147,10 +147,10 @@ export default function ServicesPage() {
 
       {/* Services Grid */}
       <section className="max-w-[1200px] mx-auto px-[clamp(20px,4vw,48px)] py-20">
-        <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-3 tracking-tight text-[#1d1d1f]">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-3 tracking-tight text-[#243C4C]">
           Everything You Need
         </h2>
-        <p className="text-center text-[#6e6e73] text-[17px] mb-12 max-w-[600px] mx-auto">
+        <p className="text-center text-[#698696] text-[17px] mb-12 max-w-[600px] mx-auto">
           Comprehensive property services across the full investment lifecycle.
         </p>
 
@@ -168,14 +168,14 @@ export default function ServicesPage() {
                 >
                   <Icon className="w-7 h-7" />
                 </div>
-                <h3 className="text-lg font-bold text-[#1d1d1f] mb-3">
+                <h3 className="text-lg font-bold text-[#243C4C] mb-3">
                   {service.title}
                 </h3>
                 <ul className="flex flex-col gap-2">
                   {service.items.map((item) => (
                     <li
                       key={item}
-                      className="text-sm text-[#6e6e73] leading-relaxed pl-[18px] relative before:content-[''] before:absolute before:left-0 before:top-[8px] before:w-1.5 before:h-1.5 before:rounded-full before:bg-[#c9a962]"
+                      className="text-sm text-[#698696] leading-relaxed pl-[18px] relative before:content-[''] before:absolute before:left-0 before:top-[8px] before:w-1.5 before:h-1.5 before:rounded-full before:bg-[#D4C4A8]"
                     >
                       {item}
                     </li>
@@ -190,7 +190,7 @@ export default function ServicesPage() {
       {/* How It Works */}
       <section
         className="py-20 px-[clamp(20px,4vw,48px)]"
-        style={{ background: '#06457F' }}
+        style={{ background: '#243C4C' }}
       >
         <div className="max-w-[1100px] mx-auto">
           <h2 className="text-3xl md:text-4xl font-extrabold text-center text-white mb-3 tracking-tight">
@@ -204,7 +204,7 @@ export default function ServicesPage() {
             {steps.map((step, i) => (
               <div key={step.num} className="contents">
                 <div className="glass-card flex flex-col items-center text-center px-2 min-w-[140px] max-w-[200px]">
-                  <div className="w-12 h-12 rounded-full bg-[#c9a962] text-[#06457F] text-lg font-extrabold flex items-center justify-center mb-3">
+                  <div className="w-12 h-12 rounded-full bg-[#D4C4A8] text-[#243C4C] text-lg font-extrabold flex items-center justify-center mb-3">
                     {step.num}
                   </div>
                   <div className="text-sm font-semibold text-white leading-snug">
@@ -226,7 +226,7 @@ export default function ServicesPage() {
       <section
         className="py-24 px-[clamp(20px,5vw,60px)] text-center"
         style={{
-          background: 'linear-gradient(135deg, #06457F 0%, #0474C4 100%)',
+          background: 'linear-gradient(135deg, #243C4C 0%, #5289AD 100%)',
         }}
       >
         <h2 className="text-3xl md:text-4xl lg:text-[44px] font-extrabold text-white mb-4 tracking-tight">

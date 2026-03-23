@@ -75,7 +75,7 @@ function VideoHero() {
       <div className="relative z-[2] h-full flex flex-col items-center justify-center text-center px-[clamp(20px,5vw,60px)]">
         <h1 className="text-[clamp(36px,7vw,72px)] font-extrabold tracking-tight leading-[1.08] mb-5 text-white">
           Bridging Markets.<br />
-          <span className="text-[#c9a962]">Building Futures.</span>
+          <span className="text-[#D4C4A8]">Building Futures.</span>
         </h1>
         <p className="text-[clamp(15px,2vw,20px)] text-white/75 max-w-[540px] leading-relaxed font-normal mb-9">
           Your trusted gateway to Investing in Malaysia&apos;s Real Estate.
@@ -100,12 +100,12 @@ function VideoHero() {
 // ─── About Section ───
 function AboutSection() {
   return (
-    <section className="bg-[#f5f5f5] py-20 px-[clamp(20px,5vw,60px)] text-center">
+    <section className="bg-[#F4FCFB] py-20 px-[clamp(20px,5vw,60px)] text-center">
       <div className="glass-card max-w-[800px] mx-auto rounded-2xl p-10">
-        <h2 className="text-4xl font-extrabold text-[#06457F] tracking-widest uppercase mb-5 leading-tight">
+        <h2 className="text-4xl font-extrabold text-[#243C4C] tracking-widest uppercase mb-5 leading-tight">
           Straits Advisory
         </h2>
-        <p className="text-sm font-semibold text-[#06457F] tracking-[3px] uppercase mb-8">
+        <p className="text-sm font-semibold text-[#243C4C] tracking-[3px] uppercase mb-8">
           Technology Meets Expertise
         </p>
         <p className="text-base text-gray-600 leading-relaxed max-w-[750px] mx-auto">
@@ -124,7 +124,7 @@ function RecommendedProperties() {
   return (
     <section className="py-16 bg-white overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-[clamp(20px,5vw,60px)]">
-        <h2 className="text-[28px] font-extrabold text-[#06457F] mb-2 text-center">
+        <h2 className="text-[28px] font-extrabold text-[#243C4C] mb-2 text-center">
           Recommended Properties
         </h2>
         <p className="text-[15px] text-gray-500 text-center mb-8">
@@ -147,7 +147,7 @@ function RecommendedProperties() {
               <span className="absolute top-2.5 left-2.5 px-3 py-1 rounded-full text-[11px] font-semibold bg-[rgba(26,26,46,0.85)] text-white backdrop-blur-sm">
                 {prop.statusBadge}
               </span>
-              <span className="absolute top-2.5 right-2.5 px-3 py-1 rounded-full text-[11px] font-semibold bg-[rgba(201,169,98,0.9)] text-white">
+              <span className="absolute top-2.5 right-2.5 px-3 py-1 rounded-full text-[11px] font-semibold bg-[rgba(212,196,168,0.9)] text-white">
                 {prop.tenureBadge}
               </span>
             </div>
@@ -157,7 +157,7 @@ function RecommendedProperties() {
                 <MapPin className="w-3.5 h-3.5 text-gray-400" />
                 {prop.location}
               </p>
-              <p className="text-[15px] font-bold text-[#06457F]">{prop.price}</p>
+              <p className="text-[15px] font-bold text-[#243C4C]">{prop.price}</p>
             </div>
           </Link>
         ))}
@@ -171,7 +171,7 @@ function MapSection() {
   return (
     <section className="py-16 px-[clamp(16px,4vw,48px)] bg-white">
       <div className="max-w-[1400px] mx-auto">
-        <h2 className="text-[28px] font-extrabold text-[#06457F] mb-2 text-center">
+        <h2 className="text-[28px] font-extrabold text-[#243C4C] mb-2 text-center">
           Our Location
         </h2>
         <p className="text-[15px] text-gray-500 text-center mb-5">
@@ -190,7 +190,7 @@ function BrowseSection() {
   return (
     <section className="py-12 px-[clamp(16px,4vw,48px)] text-center bg-gray-50 border-t border-b border-gray-200">
       <div className="max-w-[700px] mx-auto">
-        <h2 className="text-2xl font-extrabold text-[#06457F] mb-2.5">
+        <h2 className="text-2xl font-extrabold text-[#243C4C] mb-2.5">
           Browse All 90+ Properties
         </h2>
         <p className="text-[15px] text-gray-500 mb-7 leading-relaxed">
@@ -205,7 +205,7 @@ function BrowseSection() {
             <Link
               key={city.label}
               href={city.href}
-              className="glass-button inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-[#06457F] text-base font-semibold transition-all duration-200"
+              className="glass-button inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-[#243C4C] text-base font-semibold transition-all duration-200"
             >
               {city.label}
             </Link>

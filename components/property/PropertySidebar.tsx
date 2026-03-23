@@ -40,7 +40,7 @@ export function PropertySidebar({
           </div>
           <div>
             <h3 className="text-base font-bold text-foreground">{developer}</h3>
-            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded bg-emerald-600 text-white text-[11px] font-semibold mt-1">
+            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded bg-[#5289AD] text-white text-[11px] font-semibold mt-1">
               &#9733; Developer
             </span>
           </div>
@@ -69,7 +69,7 @@ export function PropertySidebar({
           href={`https://wa.me/${whatsappNumber}?text=${enquiryMessage}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center w-full py-3 px-5 rounded-[10px] glass-button text-[#06457F] text-sm font-semibold hover:bg-[#06457F] hover:text-white transition-all mb-4"
+          className="flex items-center justify-center w-full py-3 px-5 rounded-[10px] glass-button text-[#243C4C] text-sm font-semibold hover:bg-[#243C4C] hover:text-white transition-all mb-4"
         >
           Enquire Now
         </a>

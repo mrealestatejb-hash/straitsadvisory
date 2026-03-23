@@ -46,7 +46,7 @@ function RadioGroup({
           key={opt}
           className={`flex items-center gap-1.5 px-3.5 py-2 border rounded-lg cursor-pointer text-[13px] font-medium transition-all ${
             value === opt
-              ? 'border-[#c9a962] bg-[#c9a96214] text-[#06457F]'
+              ? 'border-[#D4C4A8] bg-[#D4C4A814] text-[#243C4C]'
               : 'border-gray-300 text-gray-700 hover:border-gray-400'
           }`}
         >
@@ -152,9 +152,9 @@ export default function RentPage() {
     <div className="min-h-screen bg-white">
       {/* Hero */}
       <section className="pt-16 md:pt-16">
-        <div className="bg-gradient-to-br from-[#06457F] via-[#16213e] to-[#0f3460] text-center text-white py-[70px] px-6">
+        <div className="bg-gradient-to-br from-[#243C4C] via-[#243C4C] to-[#243C4C] text-center text-white py-[70px] px-6">
           <h1 className="text-[32px] md:text-[56px] font-extrabold mb-4 leading-[1.1]">
-            Rent <span className="text-[#c9a962]">Made Simple</span>
+            Rent <span className="text-[#D4C4A8]">Made Simple</span>
           </h1>
           <p className="text-[15px] md:text-[19px] text-white/70 max-w-[520px] mx-auto">
             Whether you&rsquo;re a landlord or tenant, we&rsquo;ve got you covered.
@@ -166,7 +166,7 @@ export default function RentPage() {
       {!selectedPath && (
         <div className="max-w-[860px] mx-auto px-6 md:px-16 py-16">
           <div className="text-center mb-9">
-            <h2 className="text-[22px] md:text-[30px] font-extrabold text-[#06457F] mb-2">
+            <h2 className="text-[22px] md:text-[30px] font-extrabold text-[#243C4C] mb-2">
               I am a...
             </h2>
             <p className="text-[15px] text-gray-500">Choose the option that fits your situation.</p>
@@ -177,8 +177,8 @@ export default function RentPage() {
               onClick={() => selectPath('owner')}
               className="glass-card rounded-xl p-8 cursor-pointer flex flex-col"
             >
-              <Home className="w-9 h-9 text-[#c9a962] mb-3.5" />
-              <div className="text-xl font-extrabold text-[#06457F] mb-1">Property Owner</div>
+              <Home className="w-9 h-9 text-[#D4C4A8] mb-3.5" />
+              <div className="text-xl font-extrabold text-[#243C4C] mb-1">Property Owner</div>
               <div className="text-sm text-gray-500 mb-4 leading-relaxed">
                 I have a property to rent out
               </div>
@@ -190,7 +190,7 @@ export default function RentPage() {
                   'Optional: Full property management',
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-2 text-[13px] text-gray-700">
-                    <span className="w-[18px] h-[18px] rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center flex-shrink-0">
+                    <span className="w-[18px] h-[18px] rounded-full bg-[#5289AD] text-[#5289AD] flex items-center justify-center flex-shrink-0">
                       <Check className="w-3 h-3" />
                     </span>
                     {item}
@@ -202,7 +202,7 @@ export default function RentPage() {
                   e.stopPropagation();
                   selectPath('owner');
                 }}
-                className="w-full py-3 rounded-lg bg-[#06457F] text-white text-sm font-semibold hover:bg-[#c9a962] transition-colors flex items-center justify-center gap-1.5"
+                className="w-full py-3 rounded-lg bg-[#243C4C] text-white text-sm font-semibold hover:bg-[#D4C4A8] transition-colors flex items-center justify-center gap-1.5"
               >
                 List My Property <ChevronRight className="w-4 h-4" />
               </button>
@@ -213,8 +213,8 @@ export default function RentPage() {
               onClick={() => selectPath('tenant')}
               className="glass-card rounded-xl p-8 cursor-pointer flex flex-col"
             >
-              <Search className="w-9 h-9 text-[#c9a962] mb-3.5" />
-              <div className="text-xl font-extrabold text-[#06457F] mb-1">Tenant</div>
+              <Search className="w-9 h-9 text-[#D4C4A8] mb-3.5" />
+              <div className="text-xl font-extrabold text-[#243C4C] mb-1">Tenant</div>
               <div className="text-sm text-gray-500 mb-4 leading-relaxed">
                 I&rsquo;m looking for a place to rent
               </div>
@@ -226,7 +226,7 @@ export default function RentPage() {
                   'Flexible lease options',
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-2 text-[13px] text-gray-700">
-                    <span className="w-[18px] h-[18px] rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center flex-shrink-0">
+                    <span className="w-[18px] h-[18px] rounded-full bg-[#5289AD] text-[#5289AD] flex items-center justify-center flex-shrink-0">
                       <Check className="w-3 h-3" />
                     </span>
                     {item}
@@ -238,7 +238,7 @@ export default function RentPage() {
                   e.stopPropagation();
                   selectPath('tenant');
                 }}
-                className="w-full py-3 rounded-lg bg-gray-100 text-[#06457F] border border-gray-300 text-sm font-semibold hover:bg-[#06457F] hover:text-white hover:border-[#06457F] transition-colors flex items-center justify-center gap-1.5"
+                className="w-full py-3 rounded-lg bg-gray-100 text-[#243C4C] border border-gray-300 text-sm font-semibold hover:bg-[#243C4C] hover:text-white hover:border-[#243C4C] transition-colors flex items-center justify-center gap-1.5"
               >
                 Find a Rental <ChevronRight className="w-4 h-4" />
               </button>
@@ -254,13 +254,13 @@ export default function RentPage() {
             <>
               <button
                 onClick={goBack}
-                className="flex items-center gap-1.5 text-[13px] font-semibold text-gray-500 hover:text-[#06457F] transition-colors mb-6"
+                className="flex items-center gap-1.5 text-[13px] font-semibold text-gray-500 hover:text-[#243C4C] transition-colors mb-6"
               >
                 <ArrowLeft className="w-4 h-4" /> Back to selection
               </button>
 
               <div className="text-center mb-9">
-                <h2 className="text-[22px] md:text-[30px] font-extrabold text-[#06457F] mb-2">
+                <h2 className="text-[22px] md:text-[30px] font-extrabold text-[#243C4C] mb-2">
                   What do you need?
                 </h2>
                 <p className="text-[15px] text-gray-500">
@@ -274,12 +274,12 @@ export default function RentPage() {
                   onClick={() => selectLandlordSub('A')}
                   className={`glass-card rounded-xl p-6 cursor-pointer transition-all ${
                     landlordSub === 'A'
-                      ? 'border-2 border-[#c9a962]'
+                      ? 'border-2 border-[#D4C4A8]'
                       : ''
                   }`}
                 >
-                  <h4 className="text-base font-bold text-[#06457F] mb-2 flex items-center gap-2">
-                    <Search className="w-5 h-5 text-[#c9a962]" /> Find Tenants
+                  <h4 className="text-base font-bold text-[#243C4C] mb-2 flex items-center gap-2">
+                    <Search className="w-5 h-5 text-[#D4C4A8]" /> Find Tenants
                   </h4>
                   <ul className="space-y-0.5">
                     {['Tenant sourcing & screening', 'Lease agreement preparation', 'One-time service'].map(
@@ -288,7 +288,7 @@ export default function RentPage() {
                           key={item}
                           className="flex items-center gap-1.5 text-[13px] text-gray-500"
                         >
-                          <Check className="w-3 h-3 text-emerald-600 flex-shrink-0" />
+                          <Check className="w-3 h-3 text-[#5289AD] flex-shrink-0" />
                           {item}
                         </li>
                       )
@@ -299,12 +299,12 @@ export default function RentPage() {
                   onClick={() => selectLandlordSub('B')}
                   className={`glass-card rounded-xl p-6 cursor-pointer transition-all ${
                     landlordSub === 'B'
-                      ? 'border-2 border-[#c9a962]'
+                      ? 'border-2 border-[#D4C4A8]'
                       : ''
                   }`}
                 >
-                  <h4 className="text-base font-bold text-[#06457F] mb-2 flex items-center gap-2">
-                    <Home className="w-5 h-5 text-[#c9a962]" /> Full Management
+                  <h4 className="text-base font-bold text-[#243C4C] mb-2 flex items-center gap-2">
+                    <Home className="w-5 h-5 text-[#D4C4A8]" /> Full Management
                   </h4>
                   <ul className="space-y-0.5">
                     {['Tenant sourcing & screening', 'Lease agreement preparation'].map((item) => (
@@ -312,13 +312,13 @@ export default function RentPage() {
                         key={item}
                         className="flex items-center gap-1.5 text-[13px] text-gray-500"
                       >
-                        <Check className="w-3 h-3 text-emerald-600 flex-shrink-0" />
+                        <Check className="w-3 h-3 text-[#5289AD] flex-shrink-0" />
                         {item}
                       </li>
                     ))}
                   </ul>
                   <div className="mt-2 pt-2 border-t border-gray-200">
-                    <div className="text-[11px] font-bold text-[#c9a962] uppercase tracking-wider mb-1">
+                    <div className="text-[11px] font-bold text-[#D4C4A8] uppercase tracking-wider mb-1">
                       Plus
                     </div>
                     <ul className="space-y-0.5">
@@ -328,7 +328,7 @@ export default function RentPage() {
                             key={item}
                             className="flex items-center gap-1.5 text-[13px] text-gray-500"
                           >
-                            <Check className="w-3 h-3 text-emerald-600 flex-shrink-0" />
+                            <Check className="w-3 h-3 text-[#5289AD] flex-shrink-0" />
                             {item}
                           </li>
                         )
@@ -342,11 +342,11 @@ export default function RentPage() {
               {landlordSub && (
                 <div>
                   {/* Property Details */}
-                  <div className="text-[13px] font-bold text-[#06457F] uppercase tracking-wider mb-4 pb-2 border-b-2 border-[#c9a962] inline-block">
+                  <div className="text-[13px] font-bold text-[#243C4C] uppercase tracking-wider mb-4 pb-2 border-b-2 border-[#D4C4A8] inline-block">
                     Property Details
                   </div>
                   <div className="mb-5">
-                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                       Property Type
                     </label>
                     <RadioGroup
@@ -357,7 +357,7 @@ export default function RentPage() {
                     />
                   </div>
                   <div className="mb-5">
-                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                       Property Name
                     </label>
                     <input
@@ -365,12 +365,12 @@ export default function RentPage() {
                       value={llForm.propName}
                       onChange={(e) => updateLl('propName', e.target.value)}
                       placeholder="e.g. R&F Princess Cove"
-                      className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                      className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#D4C4A8] transition-colors"
                     />
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
                     <div>
-                      <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                      <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                         Unit Number
                       </label>
                       <input
@@ -378,11 +378,11 @@ export default function RentPage() {
                         value={llForm.unitNum}
                         onChange={(e) => updateLl('unitNum', e.target.value)}
                         placeholder="e.g. A-12-05"
-                        className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                        className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#D4C4A8] transition-colors"
                       />
                     </div>
                     <div>
-                      <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                      <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                         Built-up Size (sqft)
                       </label>
                       <input
@@ -390,19 +390,19 @@ export default function RentPage() {
                         value={llForm.builtUp}
                         onChange={(e) => updateLl('builtUp', e.target.value)}
                         placeholder="e.g. 850"
-                        className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                        className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#D4C4A8] transition-colors"
                       />
                     </div>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
                     <div>
-                      <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                      <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                         Bedrooms
                       </label>
                       <select
                         value={llForm.beds}
                         onChange={(e) => updateLl('beds', e.target.value)}
-                        className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                        className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#D4C4A8] transition-colors"
                       >
                         <option>Studio</option>
                         <option>1</option>
@@ -413,13 +413,13 @@ export default function RentPage() {
                       </select>
                     </div>
                     <div>
-                      <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                      <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                         Bathrooms
                       </label>
                       <select
                         value={llForm.baths}
                         onChange={(e) => updateLl('baths', e.target.value)}
-                        className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                        className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#D4C4A8] transition-colors"
                       >
                         <option>1</option>
                         <option>2</option>
@@ -429,7 +429,7 @@ export default function RentPage() {
                     </div>
                   </div>
                   <div className="mb-5">
-                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                       Furnished Status
                     </label>
                     <RadioGroup
@@ -441,11 +441,11 @@ export default function RentPage() {
                   </div>
 
                   {/* Location */}
-                  <div className="text-[13px] font-bold text-[#06457F] uppercase tracking-wider mt-8 mb-4 pb-2 border-b-2 border-[#c9a962] inline-block">
+                  <div className="text-[13px] font-bold text-[#243C4C] uppercase tracking-wider mt-8 mb-4 pb-2 border-b-2 border-[#D4C4A8] inline-block">
                     Location
                   </div>
                   <div className="mb-5">
-                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                       State
                     </label>
                     <RadioGroup
@@ -457,7 +457,7 @@ export default function RentPage() {
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
                     <div>
-                      <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                      <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                         Area / Township
                       </label>
                       <input
@@ -465,11 +465,11 @@ export default function RentPage() {
                         value={llForm.area}
                         onChange={(e) => updateLl('area', e.target.value)}
                         placeholder="e.g. Bukit Chagar"
-                        className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                        className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#D4C4A8] transition-colors"
                       />
                     </div>
                     <div>
-                      <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                      <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                         Full Address
                       </label>
                       <input
@@ -477,18 +477,18 @@ export default function RentPage() {
                         value={llForm.address}
                         onChange={(e) => updateLl('address', e.target.value)}
                         placeholder="Full property address"
-                        className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                        className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#D4C4A8] transition-colors"
                       />
                     </div>
                   </div>
 
                   {/* Rental Preferences */}
-                  <div className="text-[13px] font-bold text-[#06457F] uppercase tracking-wider mt-8 mb-4 pb-2 border-b-2 border-[#c9a962] inline-block">
+                  <div className="text-[13px] font-bold text-[#243C4C] uppercase tracking-wider mt-8 mb-4 pb-2 border-b-2 border-[#D4C4A8] inline-block">
                     Rental Preferences
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
                     <div>
-                      <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                      <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                         Target Rent (RM/month)
                       </label>
                       <input
@@ -496,23 +496,23 @@ export default function RentPage() {
                         value={llForm.rent}
                         onChange={(e) => updateLl('rent', e.target.value)}
                         placeholder="e.g. 2,500"
-                        className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                        className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#D4C4A8] transition-colors"
                       />
                     </div>
                     <div>
-                      <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                      <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                         Available From
                       </label>
                       <input
                         type="date"
                         value={llForm.availDate}
                         onChange={(e) => updateLl('availDate', e.target.value)}
-                        className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                        className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#D4C4A8] transition-colors"
                       />
                     </div>
                   </div>
                   <div className="mb-5">
-                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                       Minimum Lease
                     </label>
                     <RadioGroup
@@ -523,7 +523,7 @@ export default function RentPage() {
                     />
                   </div>
                   <div className="mb-5">
-                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                       Tenant Preference
                     </label>
                     <RadioGroup
@@ -534,7 +534,7 @@ export default function RentPage() {
                     />
                   </div>
                   <div className="mb-5">
-                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                       Pets Allowed?
                     </label>
                     <RadioGroup
@@ -548,11 +548,11 @@ export default function RentPage() {
                   {/* Management Options (Sub B only) */}
                   {landlordSub === 'B' && (
                     <>
-                      <div className="text-[13px] font-bold text-[#06457F] uppercase tracking-wider mt-8 mb-4 pb-2 border-b-2 border-[#c9a962] inline-block">
+                      <div className="text-[13px] font-bold text-[#243C4C] uppercase tracking-wider mt-8 mb-4 pb-2 border-b-2 border-[#D4C4A8] inline-block">
                         Management Options
                       </div>
                       <div className="mb-5">
-                        <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                        <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                           Rental Type
                         </label>
                         <RadioGroup
@@ -563,7 +563,7 @@ export default function RentPage() {
                         />
                       </div>
                       <div className="mb-5">
-                        <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                        <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                           Need Property Management Services?
                         </label>
                         <RadioGroup
@@ -577,11 +577,11 @@ export default function RentPage() {
                   )}
 
                   {/* Contact */}
-                  <div className="text-[13px] font-bold text-[#06457F] uppercase tracking-wider mt-8 mb-4 pb-2 border-b-2 border-[#c9a962] inline-block">
+                  <div className="text-[13px] font-bold text-[#243C4C] uppercase tracking-wider mt-8 mb-4 pb-2 border-b-2 border-[#D4C4A8] inline-block">
                     Contact
                   </div>
                   <div className="mb-5">
-                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                       Your Name
                     </label>
                     <input
@@ -589,12 +589,12 @@ export default function RentPage() {
                       value={llForm.name}
                       onChange={(e) => updateLl('name', e.target.value)}
                       placeholder="Full name"
-                      className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                      className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#D4C4A8] transition-colors"
                     />
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
                     <div>
-                      <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                      <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                         Phone (WhatsApp)
                       </label>
                       <input
@@ -602,11 +602,11 @@ export default function RentPage() {
                         value={llForm.phone}
                         onChange={(e) => updateLl('phone', e.target.value)}
                         placeholder="+65 or +60"
-                        className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                        className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#D4C4A8] transition-colors"
                       />
                     </div>
                     <div>
-                      <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                      <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                         Email
                       </label>
                       <input
@@ -614,7 +614,7 @@ export default function RentPage() {
                         value={llForm.email}
                         onChange={(e) => updateLl('email', e.target.value)}
                         placeholder="your@email.com"
-                        className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                        className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#D4C4A8] transition-colors"
                       />
                     </div>
                   </div>
@@ -633,8 +633,8 @@ export default function RentPage() {
           ) : (
             /* Landlord Thank You */
             <div className="text-center py-16">
-              <CheckCircle className="w-16 h-16 text-emerald-500 mx-auto mb-4" />
-              <h2 className="text-2xl md:text-[28px] font-extrabold text-[#06457F] mb-3">
+              <CheckCircle className="w-16 h-16 text-[#5289AD] mx-auto mb-4" />
+              <h2 className="text-2xl md:text-[28px] font-extrabold text-[#243C4C] mb-3">
                 Request Submitted!
               </h2>
               <p className="text-base text-gray-500 max-w-[500px] mx-auto mb-6 leading-relaxed">
@@ -663,13 +663,13 @@ export default function RentPage() {
             <>
               <button
                 onClick={goBack}
-                className="flex items-center gap-1.5 text-[13px] font-semibold text-gray-500 hover:text-[#06457F] transition-colors mb-6"
+                className="flex items-center gap-1.5 text-[13px] font-semibold text-gray-500 hover:text-[#243C4C] transition-colors mb-6"
               >
                 <ArrowLeft className="w-4 h-4" /> Back to selection
               </button>
 
               <div className="text-center mb-9">
-                <h2 className="text-[22px] md:text-[30px] font-extrabold text-[#06457F] mb-2">
+                <h2 className="text-[22px] md:text-[30px] font-extrabold text-[#243C4C] mb-2">
                   Tell us what you&rsquo;re looking for
                 </h2>
                 <p className="text-[15px] text-gray-500">
@@ -684,9 +684,9 @@ export default function RentPage() {
                     key={s.num}
                     className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold transition-all ${
                       s.num === tenantStep
-                        ? 'bg-[#06457F] text-white'
+                        ? 'bg-[#243C4C] text-white'
                         : s.num < tenantStep
-                        ? 'bg-emerald-600 text-white'
+                        ? 'bg-[#5289AD] text-white'
                         : 'bg-gray-100 text-gray-400'
                     }`}
                   >
@@ -702,7 +702,7 @@ export default function RentPage() {
               {tenantStep === 1 && (
                 <div>
                   <div className="mb-5">
-                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                       Property Type
                     </label>
                     <RadioGroup
@@ -713,7 +713,7 @@ export default function RentPage() {
                     />
                   </div>
                   <div className="mb-5">
-                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                       Location
                     </label>
                     <RadioGroup
@@ -724,7 +724,7 @@ export default function RentPage() {
                     />
                   </div>
                   <div className="mb-5">
-                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                       Preferred Area{' '}
                       <span className="text-xs text-gray-400 font-normal ml-1">(optional)</span>
                     </label>
@@ -733,11 +733,11 @@ export default function RentPage() {
                       value={tForm.area}
                       onChange={(e) => updateT('area', e.target.value)}
                       placeholder="e.g. Bukit Chagar, Danga Bay"
-                      className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                      className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#D4C4A8] transition-colors"
                     />
                   </div>
                   <div className="mb-5">
-                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                       Budget Range (RM/month)
                     </label>
                     <RadioGroup
@@ -748,7 +748,7 @@ export default function RentPage() {
                     />
                   </div>
                   <div className="mb-5">
-                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                       Bedrooms Needed
                     </label>
                     <RadioGroup
@@ -759,7 +759,7 @@ export default function RentPage() {
                     />
                   </div>
                   <div className="mb-5">
-                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                       Furnished Preference
                     </label>
                     <RadioGroup
@@ -773,7 +773,7 @@ export default function RentPage() {
                     <div className="flex-1" />
                     <button
                       onClick={() => goTenantStep(2)}
-                      className="flex-1 py-3 px-6 rounded-lg bg-[#06457F] text-white text-sm font-semibold hover:bg-[#c9a962] transition-colors"
+                      className="flex-1 py-3 px-6 rounded-lg bg-[#243C4C] text-white text-sm font-semibold hover:bg-[#D4C4A8] transition-colors"
                     >
                       Next <ChevronRight className="inline w-4 h-4 ml-1" />
                     </button>
@@ -785,7 +785,7 @@ export default function RentPage() {
               {tenantStep === 2 && (
                 <div>
                   <div className="mb-5">
-                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                       Move-in Date
                     </label>
                     <RadioGroup
@@ -796,7 +796,7 @@ export default function RentPage() {
                     />
                   </div>
                   <div className="mb-5">
-                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                       Lease Length
                     </label>
                     <RadioGroup
@@ -807,7 +807,7 @@ export default function RentPage() {
                     />
                   </div>
                   <div className="mb-5">
-                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                       Who will be staying?
                     </label>
                     <RadioGroup
@@ -818,7 +818,7 @@ export default function RentPage() {
                     />
                   </div>
                   <div className="mb-5">
-                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                       Pets?
                     </label>
                     <RadioGroup
@@ -837,7 +837,7 @@ export default function RentPage() {
                     </button>
                     <button
                       onClick={() => goTenantStep(3)}
-                      className="flex-1 py-3 px-6 rounded-lg bg-[#06457F] text-white text-sm font-semibold hover:bg-[#c9a962] transition-colors"
+                      className="flex-1 py-3 px-6 rounded-lg bg-[#243C4C] text-white text-sm font-semibold hover:bg-[#D4C4A8] transition-colors"
                     >
                       Next <ChevronRight className="inline w-4 h-4 ml-1" />
                     </button>
@@ -849,7 +849,7 @@ export default function RentPage() {
               {tenantStep === 3 && (
                 <div>
                   <div className="mb-5">
-                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                       Your Name
                     </label>
                     <input
@@ -857,12 +857,12 @@ export default function RentPage() {
                       value={tForm.name}
                       onChange={(e) => updateT('name', e.target.value)}
                       placeholder="Full name"
-                      className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                      className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#D4C4A8] transition-colors"
                     />
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
                     <div>
-                      <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                      <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                         Phone (WhatsApp)
                       </label>
                       <input
@@ -870,11 +870,11 @@ export default function RentPage() {
                         value={tForm.phone}
                         onChange={(e) => updateT('phone', e.target.value)}
                         placeholder="+65 or +60"
-                        className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                        className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#D4C4A8] transition-colors"
                       />
                     </div>
                     <div>
-                      <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                      <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                         Email
                       </label>
                       <input
@@ -882,12 +882,12 @@ export default function RentPage() {
                         value={tForm.email}
                         onChange={(e) => updateT('email', e.target.value)}
                         placeholder="your@email.com"
-                        className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                        className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#D4C4A8] transition-colors"
                       />
                     </div>
                   </div>
                   <div className="mb-5">
-                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                       Nationality{' '}
                       <span className="text-xs text-gray-400 font-normal ml-1">
                         (for MM2H / visa context)
@@ -898,11 +898,11 @@ export default function RentPage() {
                       value={tForm.nationality}
                       onChange={(e) => updateT('nationality', e.target.value)}
                       placeholder="e.g. Singaporean, Malaysian, British"
-                      className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                      className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#D4C4A8] transition-colors"
                     />
                   </div>
                   <div className="mb-5">
-                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                       Any Special Requirements?{' '}
                       <span className="text-xs text-gray-400 font-normal ml-1">(optional)</span>
                     </label>
@@ -910,7 +910,7 @@ export default function RentPage() {
                       value={tForm.special}
                       onChange={(e) => updateT('special', e.target.value)}
                       placeholder="e.g. ground floor preferred, near MRT, pet-friendly building..."
-                      className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors resize-y min-h-[80px]"
+                      className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#D4C4A8] transition-colors resize-y min-h-[80px]"
                     />
                   </div>
                   <div className="flex gap-3 mt-8">
@@ -933,8 +933,8 @@ export default function RentPage() {
           ) : (
             /* Tenant Thank You */
             <div className="text-center py-16">
-              <CheckCircle className="w-16 h-16 text-emerald-500 mx-auto mb-4" />
-              <h2 className="text-2xl md:text-[28px] font-extrabold text-[#06457F] mb-3">
+              <CheckCircle className="w-16 h-16 text-[#5289AD] mx-auto mb-4" />
+              <h2 className="text-2xl md:text-[28px] font-extrabold text-[#243C4C] mb-3">
                 Thanks!
               </h2>
               <p className="text-base text-gray-500 max-w-[500px] mx-auto mb-6 leading-relaxed">
@@ -958,7 +958,7 @@ export default function RentPage() {
       )}
 
       {/* CTA Section */}
-      <section className="py-24 px-6 text-center bg-gradient-to-br from-[#1a1a3e] to-[#2d2b55]">
+      <section className="py-24 px-6 text-center bg-gradient-to-br from-[#243C4C] to-[#243C4C]">
         <h2 className="text-3xl md:text-[44px] font-extrabold text-white mb-4 tracking-tight">
           Let&rsquo;s Start Your Malaysia
           <br />

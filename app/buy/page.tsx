@@ -97,19 +97,19 @@ function BuyPageContent() {
         className="pt-16"
         style={{
           background:
-            'linear-gradient(135deg, #06457F 0%, #16213e 50%, #0f3460 100%)',
+            'linear-gradient(135deg, #243C4C 0%, #243C4C 50%, #243C4C 100%)',
         }}
       >
         <div className="px-5 md:px-[clamp(20px,5vw,60px)] py-[50px] text-center text-white">
           <h1 className="text-[clamp(28px,5vw,48px)] font-extrabold mb-4 leading-[1.15]">
             {heroTitle ? (
               <>
-                <span className="text-[#c9a962]">{heroTitle}</span> Properties
+                <span className="text-[#D4C4A8]">{heroTitle}</span> Properties
               </>
             ) : (
               <>
                 Find Your{' '}
-                <span className="text-[#c9a962]">Malaysia Property</span>
+                <span className="text-[#D4C4A8]">Malaysia Property</span>
               </>
             )}
           </h1>
@@ -118,15 +118,15 @@ function BuyPageContent() {
           </p>
           <div className="flex justify-center gap-8 flex-wrap text-sm font-semibold text-white/85">
             <span className="flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#c9a962]" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#D4C4A8]" />
               Featured Properties
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#c9a962]" />3
+              <span className="w-1.5 h-1.5 rounded-full bg-[#D4C4A8]" />3
               Cities
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#c9a962]" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#D4C4A8]" />
               Freehold &amp; Leasehold
             </span>
           </div>
@@ -138,7 +138,7 @@ function BuyPageContent() {
         <select
           value={city}
           onChange={(e) => handleCityChange(e.target.value)}
-          className="glass-input h-[38px] px-3 rounded-lg font-inherit text-[13px] text-gray-700 cursor-pointer font-semibold focus:outline-none focus:border-[#c9a962]"
+          className="glass-input h-[38px] px-3 rounded-lg font-inherit text-[13px] text-gray-700 cursor-pointer font-semibold focus:outline-none focus:border-[#D4C4A8]"
         >
           <option value="">All Cities</option>
           <option value="johor-bahru">Johor Bahru</option>
@@ -149,7 +149,7 @@ function BuyPageContent() {
         <select
           value={area}
           onChange={(e) => setArea(e.target.value)}
-          className="glass-input h-[38px] px-3 rounded-lg font-inherit text-[13px] text-gray-700 cursor-pointer focus:outline-none focus:border-[#c9a962]"
+          className="glass-input h-[38px] px-3 rounded-lg font-inherit text-[13px] text-gray-700 cursor-pointer focus:outline-none focus:border-[#D4C4A8]"
         >
           <option value="">All Areas</option>
           {areaOptions.map((a) => (
@@ -162,7 +162,7 @@ function BuyPageContent() {
         <select
           value={status}
           onChange={(e) => setStatus(e.target.value)}
-          className="glass-input h-[38px] px-3 rounded-lg font-inherit text-[13px] text-gray-700 cursor-pointer focus:outline-none focus:border-[#c9a962]"
+          className="glass-input h-[38px] px-3 rounded-lg font-inherit text-[13px] text-gray-700 cursor-pointer focus:outline-none focus:border-[#D4C4A8]"
         >
           <option value="">All Status</option>
           <option value="completed">Completed</option>
@@ -173,7 +173,7 @@ function BuyPageContent() {
         <select
           value={tenure}
           onChange={(e) => setTenure(e.target.value)}
-          className="glass-input h-[38px] px-3 rounded-lg font-inherit text-[13px] text-gray-700 cursor-pointer focus:outline-none focus:border-[#c9a962]"
+          className="glass-input h-[38px] px-3 rounded-lg font-inherit text-[13px] text-gray-700 cursor-pointer focus:outline-none focus:border-[#D4C4A8]"
         >
           <option value="">All Tenure</option>
           <option value="freehold">Freehold</option>
@@ -185,7 +185,7 @@ function BuyPageContent() {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search property name..."
-          className="glass-input h-[38px] px-3 min-w-[160px] rounded-lg font-inherit text-[13px] text-gray-700 focus:outline-none focus:border-[#c9a962]"
+          className="glass-input h-[38px] px-3 min-w-[160px] rounded-lg font-inherit text-[13px] text-gray-700 focus:outline-none focus:border-[#D4C4A8]"
         />
 
         <button
@@ -223,7 +223,7 @@ function BuyPageContent() {
 function getBadgeClass(badge: string): string {
   const lower = badge.toLowerCase()
   if (lower === 'completed' || lower === 'new launch')
-    return 'bg-emerald-600 text-white'
+    return 'bg-[#5289AD] text-white'
   if (lower === 'freehold' || lower === 'leasehold')
     return 'bg-white/15 text-white border border-white/30 backdrop-blur-sm'
   // Default for other badges like "4 Phases"
@@ -280,13 +280,13 @@ function PropertyCard({ property }: { property: PropertyListing }) {
 
       {/* Card Body */}
       <div className="px-[18px] pt-4 pb-[18px]">
-        <h3 className="text-base font-bold text-[#06457F] mb-1 leading-[1.3]">
+        <h3 className="text-base font-bold text-[#243C4C] mb-1 leading-[1.3]">
           {property.name}
         </h3>
         <p className="text-xs text-gray-500 mb-2.5 font-medium">
           {property.location}
         </p>
-        <p className="text-lg font-extrabold text-[#06457F] mb-3">
+        <p className="text-lg font-extrabold text-[#243C4C] mb-3">
           {property.price}
         </p>
         <div className="flex flex-col gap-1 text-xs text-gray-500">
@@ -294,7 +294,7 @@ function PropertyCard({ property }: { property: PropertyListing }) {
             <MapPin className="w-3.5 h-3.5" />
             {property.distance}
           </span>
-          <span className="flex items-center gap-1 text-[#c9a962] font-semibold">
+          <span className="flex items-center gap-1 text-[#D4C4A8] font-semibold">
             <Sparkles className="w-3.5 h-3.5" />
             {property.feature}
           </span>

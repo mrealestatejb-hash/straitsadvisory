@@ -65,7 +65,7 @@ export default function HomePage() {
           >
             Bridging Markets.
             <br />
-            <span className="text-[#c9a962]">Building Futures.</span>
+            <span className="text-[#D4C4A8]">Building Futures.</span>
           </motion.h1>
 
           <motion.p

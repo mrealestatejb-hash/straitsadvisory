@@ -37,7 +37,7 @@ const features = [
     icon: Monitor,
     title: 'Client Portal',
     status: 'Live' as const,
-    color: 'bg-blue-50 text-blue-600',
+    color: 'bg-[#5289AD]/10 text-[#5289AD]',
     description:
       '24/7 access to documents, transaction progress, payment milestones — everything in one place.',
   },
@@ -45,7 +45,7 @@ const features = [
     icon: Bot,
     title: 'AI Property Advisor',
     status: 'Coming Soon' as const,
-    color: 'bg-purple-50 text-purple-600',
+    color: 'bg-[#5289AD]/10 text-[#5289AD]',
     description:
       'Instant answers to your property questions, multilingual support, available 24/7.',
   },
@@ -53,7 +53,7 @@ const features = [
     icon: BarChart3,
     title: 'Investment Calculator',
     status: 'Live' as const,
-    color: 'bg-green-50 text-green-600',
+    color: 'bg-[#5289AD]/10 text-[#5289AD]',
     description:
       'Total costs upfront — stamp duty, legal fees, levy. Compare ROI across properties instantly.',
   },
@@ -61,7 +61,7 @@ const features = [
     icon: Bell,
     title: 'Market Alerts',
     status: 'Live' as const,
-    color: 'bg-amber-50 text-amber-600',
+    color: 'bg-[#5289AD]/10 text-[#5289AD]',
     description:
       'Be the first to know about matching properties, price changes, and new launches.',
   },
@@ -69,7 +69,7 @@ const features = [
     icon: TrendingUp,
     title: 'Portfolio Dashboard',
     status: 'Coming Soon' as const,
-    color: 'bg-teal-50 text-teal-600',
+    color: 'bg-[#5289AD]/10 text-[#5289AD]',
     description:
       'Track all your Malaysian properties in one view — values, yields, and performance over time.',
   },
@@ -77,7 +77,7 @@ const features = [
     icon: Video,
     title: 'Virtual Viewing',
     status: 'Live' as const,
-    color: 'bg-pink-50 text-pink-600',
+    color: 'bg-[#5289AD]/10 text-[#5289AD]',
     description:
       'Live Zoom walkthroughs for overseas buyers. See every unit without leaving Singapore.',
   },
@@ -149,7 +149,7 @@ function CalculatorPanel() {
             type="number"
             value={price}
             onChange={(e) => setPrice(Number(e.target.value))}
-            className="glass-input w-full px-4 py-3 rounded-lg text-white text-[15px] outline-none focus:border-[#c9a962] transition-all"
+            className="glass-input w-full px-4 py-3 rounded-lg text-white text-[15px] outline-none focus:border-[#D4C4A8] transition-all"
           />
         </div>
         <div>
@@ -159,7 +159,7 @@ function CalculatorPanel() {
           <select
             value={type}
             onChange={(e) => setType(e.target.value)}
-            className="glass-input w-full px-4 py-3 rounded-lg text-white text-[15px] outline-none focus:border-[#c9a962] transition-all [&>option]:bg-[#06457F] [&>option]:text-white"
+            className="glass-input w-full px-4 py-3 rounded-lg text-white text-[15px] outline-none focus:border-[#D4C4A8] transition-all [&>option]:bg-[#243C4C] [&>option]:text-white"
           >
             <option value="residential">Residential</option>
             <option value="commercial">Commercial</option>
@@ -173,7 +173,7 @@ function CalculatorPanel() {
             type="number"
             value={rent}
             onChange={(e) => setRent(Number(e.target.value))}
-            className="glass-input w-full px-4 py-3 rounded-lg text-white text-[15px] outline-none focus:border-[#c9a962] transition-all"
+            className="glass-input w-full px-4 py-3 rounded-lg text-white text-[15px] outline-none focus:border-[#D4C4A8] transition-all"
           />
         </div>
         <div>
@@ -183,7 +183,7 @@ function CalculatorPanel() {
           <select
             value={nationality}
             onChange={(e) => setNationality(e.target.value)}
-            className="glass-input w-full px-4 py-3 rounded-lg text-white text-[15px] outline-none focus:border-[#c9a962] transition-all [&>option]:bg-[#06457F] [&>option]:text-white"
+            className="glass-input w-full px-4 py-3 rounded-lg text-white text-[15px] outline-none focus:border-[#D4C4A8] transition-all [&>option]:bg-[#243C4C] [&>option]:text-white"
           >
             <option value="foreigner">Foreigner</option>
             <option value="local">Malaysian</option>
@@ -198,7 +198,7 @@ function CalculatorPanel() {
       </div>
 
       <div className="bg-white/[0.04] rounded-xl p-6">
-        <h3 className="text-base font-bold mb-5 text-[#c9a962]">
+        <h3 className="text-base font-bold mb-5 text-[#D4C4A8]">
           Cost Breakdown
         </h3>
         <div className="space-y-0">
@@ -216,15 +216,15 @@ function CalculatorPanel() {
               <span className="font-semibold text-white">{row.value}</span>
             </div>
           ))}
-          <div className="flex justify-between pt-3.5 mt-1 border-t-2 border-[#c9a962]/30 text-base">
+          <div className="flex justify-between pt-3.5 mt-1 border-t-2 border-[#D4C4A8]/30 text-base">
             <span className="text-white/60">Total Investment</span>
-            <span className="font-extrabold text-[#c9a962]">
+            <span className="font-extrabold text-[#D4C4A8]">
               {fmt(results.total)}
             </span>
           </div>
           <div className="flex justify-between py-2.5 text-sm">
             <span className="text-white/60">Est. Gross Yield</span>
-            <span className="font-semibold text-[#34c759]">
+            <span className="font-semibold text-[#5289AD]">
               {results.yield}%
             </span>
           </div>
@@ -257,15 +257,15 @@ function PortalPanel() {
   ];
 
   const dotColor: Record<string, string> = {
-    done: 'bg-[#34c759]',
-    current: 'bg-[#c9a962] shadow-[0_0_8px_rgba(201,169,98,0.5)] animate-pulse',
+    done: 'bg-[#5289AD]',
+    current: 'bg-[#D4C4A8] shadow-[0_0_8px_rgba(212,196,168,0.5)] animate-pulse',
     pending: 'bg-white/20',
   };
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div className="bg-white/[0.06] rounded-xl p-5">
-        <h4 className="text-sm font-semibold mb-4 text-[#c9a962]">
+        <h4 className="text-sm font-semibold mb-4 text-[#D4C4A8]">
           Transaction Progress
         </h4>
         <div className="space-y-0">
@@ -278,7 +278,7 @@ function PortalPanel() {
         </div>
       </div>
       <div className="bg-white/[0.06] rounded-xl p-5">
-        <h4 className="text-sm font-semibold mb-4 text-[#c9a962]">
+        <h4 className="text-sm font-semibold mb-4 text-[#D4C4A8]">
           Your Documents
         </h4>
         <ul className="space-y-0">
@@ -328,7 +328,7 @@ function ViewingPanel() {
           <button className="w-11 h-11 rounded-full bg-white/15 backdrop-blur-md flex items-center justify-center text-white">
             <MessageCircle className="w-5 h-5" />
           </button>
-          <button className="w-11 h-11 rounded-full bg-[#ff3b30] flex items-center justify-center text-white">
+          <button className="w-11 h-11 rounded-full bg-[#243C4C] flex items-center justify-center text-white">
             <Phone className="w-5 h-5" />
           </button>
         </div>
@@ -339,7 +339,7 @@ function ViewingPanel() {
             R&F Princess Cove
           </h4>
           <p className="text-xs text-white/50">Unit B-12-03 &middot; 2 Bed &middot; 850 sqft</p>
-          <p className="text-[#c9a962] font-semibold text-sm mt-2">RM 520,000</p>
+          <p className="text-[#D4C4A8] font-semibold text-sm mt-2">RM 520,000</p>
         </div>
         <div className="bg-white/[0.06] rounded-xl p-4">
           <h4 className="text-sm font-semibold mb-3 text-white">
@@ -351,7 +351,7 @@ function ViewingPanel() {
               className="flex items-center gap-2 text-[13px] py-1 text-white/70"
             >
               {c.done ? (
-                <span className="text-[#34c759]">&#9989;</span>
+                <span className="text-[#5289AD]">&#9989;</span>
               ) : (
                 <span className="text-white/30">&#11036;</span>
               )}
@@ -371,25 +371,25 @@ function ConciergePanel() {
   return (
     <div className="max-w-[480px] mx-auto bg-white/[0.06] rounded-xl overflow-hidden">
       <div className="px-5 py-4 bg-white/[0.04] border-b border-white/[0.08] flex items-center gap-3">
-        <div className="w-9 h-9 rounded-full bg-[#c9a962] flex items-center justify-center text-base">
+        <div className="w-9 h-9 rounded-full bg-[#D4C4A8] flex items-center justify-center text-base">
           &#129302;
         </div>
         <div>
           <div className="text-sm font-semibold text-white">Straits Concierge</div>
-          <div className="text-[11px] text-[#34c759]">&#9679; Online</div>
+          <div className="text-[11px] text-[#5289AD]">&#9679; Online</div>
         </div>
       </div>
       <div className="p-5 flex flex-col gap-3 min-h-[280px]">
         <div className="max-w-[80%] px-4 py-2.5 rounded-2xl rounded-bl-[4px] bg-white/10 text-sm text-white leading-relaxed self-start">
           Hi! How can I help you today? &#127968;
         </div>
-        <div className="max-w-[80%] px-4 py-2.5 rounded-2xl rounded-br-[4px] bg-[#c9a962] text-sm text-[#06457F] font-medium leading-relaxed self-end">
+        <div className="max-w-[80%] px-4 py-2.5 rounded-2xl rounded-br-[4px] bg-[#D4C4A8] text-sm text-[#243C4C] font-medium leading-relaxed self-end">
           What are the stamp duty costs for a RM500K condo as a Singaporean?
         </div>
         <div className="max-w-[80%] px-4 py-2.5 rounded-2xl rounded-bl-[4px] bg-white/10 text-sm text-white leading-relaxed self-start">
           For RM 500,000, stamp duty is RM 9,000 (1% on first RM100K + 2% on next RM400K). No additional levy above state minimum. Want the full breakdown?
         </div>
-        <div className="max-w-[80%] px-4 py-2.5 rounded-2xl rounded-br-[4px] bg-[#c9a962] text-sm text-[#06457F] font-medium leading-relaxed self-end">
+        <div className="max-w-[80%] px-4 py-2.5 rounded-2xl rounded-br-[4px] bg-[#D4C4A8] text-sm text-[#243C4C] font-medium leading-relaxed self-end">
           Yes please, and compare yields with SG
         </div>
         <div className="max-w-[80%] px-4 py-2.5 rounded-2xl rounded-bl-[4px] bg-white/10 text-sm text-white leading-relaxed self-start">
@@ -403,7 +403,7 @@ function ConciergePanel() {
           className="flex-1 px-3.5 py-2.5 bg-white/[0.08] border border-white/[0.12] rounded-full text-white text-sm outline-none"
           readOnly
         />
-        <button className="px-4 py-2.5 bg-[#c9a962] text-[#06457F] rounded-full font-semibold text-sm">
+        <button className="px-4 py-2.5 bg-[#D4C4A8] text-[#243C4C] rounded-full font-semibold text-sm">
           Send
         </button>
       </div>
@@ -447,10 +447,10 @@ function AlertsPanel() {
       {alerts.map((a) => (
         <div
           key={a.title}
-          className="bg-white/[0.06] rounded-xl p-5 border-l-[3px] border-[#c9a962]"
+          className="bg-white/[0.06] rounded-xl p-5 border-l-[3px] border-[#D4C4A8]"
         >
           <div
-            className="text-[11px] font-semibold uppercase tracking-wide text-[#c9a962] mb-2"
+            className="text-[11px] font-semibold uppercase tracking-wide text-[#D4C4A8] mb-2"
             dangerouslySetInnerHTML={{ __html: a.type }}
           />
           <h4 className="text-[15px] font-semibold text-white mb-1">{a.title}</h4>
@@ -507,7 +507,7 @@ function PortfolioPanel() {
               >
                 <div
                   className={`text-base font-bold ${
-                    s.up ? 'text-[#34c759]' : 'text-white'
+                    s.up ? 'text-[#5289AD]' : 'text-white'
                   }`}
                 >
                   {s.value}
@@ -552,13 +552,13 @@ export default function AboutPage() {
       />
 
       {/* Stats Bar */}
-      <section className="glass-heavy py-10 px-[clamp(20px,4vw,48px)] border-b border-[#e8e8ed]">
+      <section className="glass-heavy py-10 px-[clamp(20px,4vw,48px)] border-b border-[#ACBCBF]">
         <div className="max-w-[1100px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           {stats.map((s) => (
             <div key={s.label} className="flex flex-col items-center">
-              <div className="text-[#c9a962] mb-2">{s.icon}</div>
-              <div className="text-lg font-bold text-[#1d1d1f]">{s.value}</div>
-              <div className="text-[13px] text-[#86868b]">{s.label}</div>
+              <div className="text-[#D4C4A8] mb-2">{s.icon}</div>
+              <div className="text-lg font-bold text-[#243C4C]">{s.value}</div>
+              <div className="text-[13px] text-[#698696]">{s.label}</div>
             </div>
           ))}
         </div>
@@ -566,10 +566,10 @@ export default function AboutPage() {
 
       {/* Features Grid */}
       <section className="max-w-[1100px] mx-auto px-[clamp(20px,4vw,48px)] py-20">
-        <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-3 tracking-tight text-[#1d1d1f]">
+        <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-3 tracking-tight text-[#243C4C]">
           What Sets Us Apart
         </h2>
-        <p className="text-center text-[#6e6e73] text-[17px] mb-12 max-w-[560px] mx-auto">
+        <p className="text-center text-[#698696] text-[17px] mb-12 max-w-[560px] mx-auto">
           Every tool and service designed to give you an unfair advantage in
           Malaysian property investment.
         </p>
@@ -589,19 +589,19 @@ export default function AboutPage() {
                 >
                   <Icon className="w-6 h-6" />
                 </div>
-                <h3 className="text-lg font-bold text-[#1d1d1f] mb-2 flex items-center gap-2.5 flex-wrap">
+                <h3 className="text-lg font-bold text-[#243C4C] mb-2 flex items-center gap-2.5 flex-wrap">
                   {f.title}
                   <span
                     className={`glass-pill inline-flex px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wide ${
                       isLive
-                        ? 'text-[#34c759]'
-                        : 'text-[#ff9f0a]'
+                        ? 'text-[#5289AD]'
+                        : 'text-[#D4C4A8]'
                     }`}
                   >
                     {f.status}
                   </span>
                 </h3>
-                <p className="text-sm text-[#6e6e73] leading-relaxed">
+                <p className="text-sm text-[#698696] leading-relaxed">
                   {f.description}
                 </p>
               </div>
@@ -611,7 +611,7 @@ export default function AboutPage() {
       </section>
 
       {/* Demo Section */}
-      <section className="py-20 px-[clamp(20px,4vw,48px)]" style={{ background: '#06457F' }}>
+      <section className="py-20 px-[clamp(20px,4vw,48px)]" style={{ background: '#243C4C' }}>
         <div className="max-w-[1100px] mx-auto">
           <h2 className="text-3xl md:text-4xl font-extrabold text-center text-white mb-3 tracking-tight">
             See It in Action
@@ -648,7 +648,7 @@ export default function AboutPage() {
       <section
         className="py-24 px-[clamp(20px,5vw,60px)] text-center"
         style={{
-          background: 'linear-gradient(135deg, #06457F 0%, #0474C4 100%)',
+          background: 'linear-gradient(135deg, #243C4C 0%, #5289AD 100%)',
         }}
       >
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-4 tracking-tight">

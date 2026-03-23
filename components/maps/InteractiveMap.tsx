@@ -30,7 +30,7 @@ export function InteractiveMap() {
           <p className="text-muted-foreground mb-4">
             Explore JB districts and find properties near the RTS station.
           </p>
-          <div className="flex items-center gap-2 text-sm text-amber-600 bg-amber-50 dark:bg-amber-950/30 dark:text-amber-400 rounded-lg p-3">
+          <div className="flex items-center gap-2 text-sm text-[#243C4C] bg-[#D4C4A8]/20 rounded-lg p-3">
             <AlertCircle className="w-4 h-4 flex-shrink-0" />
             <span>Map requires API key configuration</span>
           </div>

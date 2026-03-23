@@ -72,7 +72,7 @@ function RadioGroup({
           key={opt}
           className={`flex items-center gap-1.5 px-3.5 py-2 border rounded-lg cursor-pointer text-[13px] font-medium transition-all ${
             value === opt
-              ? 'border-[#c9a962] bg-[#c9a96214] text-[#06457F]'
+              ? 'border-[#D4C4A8] bg-[#D4C4A814] text-[#243C4C]'
               : 'border-gray-300 text-gray-700 hover:border-gray-400'
           }`}
         >
@@ -178,9 +178,9 @@ export default function SellPage() {
     <div className="min-h-screen bg-white">
       {/* Hero */}
       <section className="pt-16 md:pt-16">
-        <div className="bg-gradient-to-br from-[#06457F] via-[#16213e] to-[#0f3460] text-center text-white py-16 px-6 md:py-20">
+        <div className="bg-gradient-to-br from-[#243C4C] via-[#243C4C] to-[#243C4C] text-center text-white py-16 px-6 md:py-20">
           <h1 className="text-3xl md:text-5xl font-extrabold mb-4 leading-tight">
-            Sell Your <span className="text-[#c9a962]">Malaysia Property</span>
+            Sell Your <span className="text-[#D4C4A8]">Malaysia Property</span>
           </h1>
           <p className="text-base md:text-lg text-white/75 max-w-[550px] mx-auto">
             Get a free market valuation. No obligations, no pressure.
@@ -192,17 +192,17 @@ export default function SellPage() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-6 md:px-16 py-16 max-w-[1000px] mx-auto">
         {[
           {
-            icon: <BarChart3 className="w-9 h-9 text-[#c9a962]" />,
+            icon: <BarChart3 className="w-9 h-9 text-[#D4C4A8]" />,
             title: 'AI-Powered Valuation',
             desc: 'Accurate pricing based on recent transactions and market data analysis.',
           },
           {
-            icon: <Camera className="w-9 h-9 text-[#c9a962]" />,
+            icon: <Camera className="w-9 h-9 text-[#D4C4A8]" />,
             title: 'Professional Marketing',
             desc: 'Photos, virtual tours, and listings on all major property portals.',
           },
           {
-            icon: <Handshake className="w-9 h-9 text-[#c9a962]" />,
+            icon: <Handshake className="w-9 h-9 text-[#D4C4A8]" />,
             title: 'Dedicated Agent',
             desc: 'Personal service from listing to completion. One point of contact.',
           },
@@ -212,7 +212,7 @@ export default function SellPage() {
             className="glass-card text-center p-8 rounded-xl"
           >
             <div className="flex justify-center mb-4">{card.icon}</div>
-            <h3 className="text-base font-bold text-[#06457F] mb-2">{card.title}</h3>
+            <h3 className="text-base font-bold text-[#243C4C] mb-2">{card.title}</h3>
             <p className="text-sm text-gray-500 leading-relaxed">{card.desc}</p>
           </div>
         ))}
@@ -223,7 +223,7 @@ export default function SellPage() {
         {!submitted ? (
           <>
             <div className="text-center mb-10">
-              <h2 className="text-2xl md:text-[28px] font-extrabold text-[#06457F] mb-2">
+              <h2 className="text-2xl md:text-[28px] font-extrabold text-[#243C4C] mb-2">
                 Request Free Valuation
               </h2>
               <p className="text-[15px] text-gray-500">
@@ -241,9 +241,9 @@ export default function SellPage() {
                   }}
                   className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold transition-all ${
                     s.num === currentStep
-                      ? 'bg-[#06457F] text-white'
+                      ? 'bg-[#243C4C] text-white'
                       : s.num < currentStep
-                      ? 'bg-emerald-600 text-white cursor-pointer'
+                      ? 'bg-[#5289AD] text-white cursor-pointer'
                       : 'bg-gray-100 text-gray-400'
                   }`}
                 >
@@ -259,7 +259,7 @@ export default function SellPage() {
             {currentStep === 1 && (
               <div>
                 <div className="mb-5">
-                  <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                  <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                     Property Type
                   </label>
                   <RadioGroup
@@ -270,7 +270,7 @@ export default function SellPage() {
                   />
                 </div>
                 <div className="mb-5">
-                  <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                  <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                     Property Name / Development Name
                   </label>
                   <input
@@ -278,11 +278,11 @@ export default function SellPage() {
                     value={form.propName}
                     onChange={(e) => updateForm('propName', e.target.value)}
                     placeholder="e.g. R&F Princess Cove"
-                    className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                    className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#D4C4A8] transition-colors"
                   />
                 </div>
                 <div className="mb-5">
-                  <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                  <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                     Unit Number <span className="text-xs text-gray-400 font-normal ml-1">(optional)</span>
                   </label>
                   <input
@@ -290,12 +290,12 @@ export default function SellPage() {
                     value={form.unitNum}
                     onChange={(e) => updateForm('unitNum', e.target.value)}
                     placeholder="e.g. A-12-05"
-                    className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                    className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#D4C4A8] transition-colors"
                   />
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
                   <div>
-                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                       Built-up Size (sqft)
                     </label>
                     <input
@@ -303,17 +303,17 @@ export default function SellPage() {
                       value={form.builtUp}
                       onChange={(e) => updateForm('builtUp', e.target.value)}
                       placeholder="e.g. 850"
-                      className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                      className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#D4C4A8] transition-colors"
                     />
                   </div>
                   <div>
-                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                       Bedrooms
                     </label>
                     <select
                       value={form.bedrooms}
                       onChange={(e) => updateForm('bedrooms', e.target.value)}
-                      className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                      className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#D4C4A8] transition-colors"
                     >
                       <option>Studio</option>
                       <option>1</option>
@@ -326,13 +326,13 @@ export default function SellPage() {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                       Bathrooms
                     </label>
                     <select
                       value={form.bathrooms}
                       onChange={(e) => updateForm('bathrooms', e.target.value)}
-                      className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                      className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#D4C4A8] transition-colors"
                     >
                       <option>1</option>
                       <option>2</option>
@@ -341,13 +341,13 @@ export default function SellPage() {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                       Furnished Status
                     </label>
                     <select
                       value={form.furnished}
                       onChange={(e) => updateForm('furnished', e.target.value)}
-                      className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                      className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#D4C4A8] transition-colors"
                     >
                       <option>Unfurnished</option>
                       <option>Partially Furnished</option>
@@ -359,7 +359,7 @@ export default function SellPage() {
                   <div className="flex-1" />
                   <button
                     onClick={() => goStep(2)}
-                    className="flex-1 py-3 px-6 rounded-lg bg-[#06457F] text-white text-sm font-semibold hover:bg-[#c9a962] transition-colors text-center"
+                    className="flex-1 py-3 px-6 rounded-lg bg-[#243C4C] text-white text-sm font-semibold hover:bg-[#D4C4A8] transition-colors text-center"
                   >
                     Next <ChevronRight className="inline w-4 h-4 ml-1" />
                   </button>
@@ -371,7 +371,7 @@ export default function SellPage() {
             {currentStep === 2 && (
               <div>
                 <div className="mb-5">
-                  <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">State</label>
+                  <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">State</label>
                   <RadioGroup
                     name="state"
                     options={['Johor', 'Kuala Lumpur', 'Penang', 'Other']}
@@ -380,7 +380,7 @@ export default function SellPage() {
                   />
                 </div>
                 <div className="mb-5">
-                  <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                  <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                     Area / Township
                   </label>
                   <input
@@ -388,18 +388,18 @@ export default function SellPage() {
                     value={form.area}
                     onChange={(e) => updateForm('area', e.target.value)}
                     placeholder="e.g. Bukit Chagar, Iskandar Puteri"
-                    className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                    className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#D4C4A8] transition-colors"
                   />
                 </div>
                 <div className="mb-5">
-                  <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                  <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                     Full Address
                   </label>
                   <textarea
                     value={form.address}
                     onChange={(e) => updateForm('address', e.target.value)}
                     placeholder="Full property address"
-                    className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors resize-y min-h-[80px]"
+                    className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#D4C4A8] transition-colors resize-y min-h-[80px]"
                   />
                 </div>
                 <div className="flex gap-3 mt-8">
@@ -411,7 +411,7 @@ export default function SellPage() {
                   </button>
                   <button
                     onClick={() => goStep(3)}
-                    className="flex-1 py-3 px-6 rounded-lg bg-[#06457F] text-white text-sm font-semibold hover:bg-[#c9a962] transition-colors"
+                    className="flex-1 py-3 px-6 rounded-lg bg-[#243C4C] text-white text-sm font-semibold hover:bg-[#D4C4A8] transition-colors"
                   >
                     Next <ChevronRight className="inline w-4 h-4 ml-1" />
                   </button>
@@ -423,7 +423,7 @@ export default function SellPage() {
             {currentStep === 3 && (
               <div>
                 <div className="mb-5">
-                  <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                  <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                     Asking Price (RM)
                   </label>
                   <input
@@ -431,11 +431,11 @@ export default function SellPage() {
                     value={form.askPrice}
                     onChange={(e) => updateForm('askPrice', e.target.value)}
                     placeholder="e.g. 500,000"
-                    className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                    className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#D4C4A8] transition-colors"
                   />
                 </div>
                 <div className="mb-5">
-                  <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                  <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                     Reason for Selling
                   </label>
                   <RadioGroup
@@ -446,7 +446,7 @@ export default function SellPage() {
                   />
                 </div>
                 <div className="mb-5">
-                  <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">Timeline</label>
+                  <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">Timeline</label>
                   <RadioGroup
                     name="timeline"
                     options={['ASAP', 'Within 3 months', 'Within 6 months', 'No rush']}
@@ -455,7 +455,7 @@ export default function SellPage() {
                   />
                 </div>
                 <div className="mb-5">
-                  <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                  <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                     Any Existing Tenancy?
                   </label>
                   <RadioGroup
@@ -474,7 +474,7 @@ export default function SellPage() {
                   </button>
                   <button
                     onClick={() => goStep(4)}
-                    className="flex-1 py-3 px-6 rounded-lg bg-[#06457F] text-white text-sm font-semibold hover:bg-[#c9a962] transition-colors"
+                    className="flex-1 py-3 px-6 rounded-lg bg-[#243C4C] text-white text-sm font-semibold hover:bg-[#D4C4A8] transition-colors"
                   >
                     Next <ChevronRight className="inline w-4 h-4 ml-1" />
                   </button>
@@ -486,18 +486,18 @@ export default function SellPage() {
             {currentStep === 4 && (
               <div>
                 <div className="mb-5">
-                  <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">Your Name</label>
+                  <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">Your Name</label>
                   <input
                     type="text"
                     value={form.contactName}
                     onChange={(e) => updateForm('contactName', e.target.value)}
                     placeholder="Full name"
-                    className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                    className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#D4C4A8] transition-colors"
                   />
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
                   <div>
-                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                       Phone (WhatsApp)
                     </label>
                     <input
@@ -505,22 +505,22 @@ export default function SellPage() {
                       value={form.contactPhone}
                       onChange={(e) => updateForm('contactPhone', e.target.value)}
                       placeholder="+65 or +60"
-                      className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                      className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#D4C4A8] transition-colors"
                     />
                   </div>
                   <div>
-                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">Email</label>
+                    <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">Email</label>
                     <input
                       type="email"
                       value={form.contactEmail}
                       onChange={(e) => updateForm('contactEmail', e.target.value)}
                       placeholder="your@email.com"
-                      className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                      className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#D4C4A8] transition-colors"
                     />
                   </div>
                 </div>
                 <div className="mb-5">
-                  <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                  <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                     Preferred Contact Method
                   </label>
                   <RadioGroup
@@ -531,13 +531,13 @@ export default function SellPage() {
                   />
                 </div>
                 <div className="mb-5">
-                  <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                  <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                     Best Time to Contact
                   </label>
                   <select
                     value={form.bestTime}
                     onChange={(e) => updateForm('bestTime', e.target.value)}
-                    className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                    className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#D4C4A8] transition-colors"
                   >
                     <option>Morning (9am - 12pm)</option>
                     <option>Afternoon (12pm - 5pm)</option>
@@ -554,7 +554,7 @@ export default function SellPage() {
                   </button>
                   <button
                     onClick={() => goStep(5)}
-                    className="flex-1 py-3 px-6 rounded-lg bg-[#06457F] text-white text-sm font-semibold hover:bg-[#c9a962] transition-colors"
+                    className="flex-1 py-3 px-6 rounded-lg bg-[#243C4C] text-white text-sm font-semibold hover:bg-[#D4C4A8] transition-colors"
                   >
                     Next <ChevronRight className="inline w-4 h-4 ml-1" />
                   </button>
@@ -566,7 +566,7 @@ export default function SellPage() {
             {currentStep === 5 && (
               <div>
                 <div className="mb-5">
-                  <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
+                  <label className="block text-[13px] font-semibold text-[#243C4C] mb-1.5">
                     Property Photos{' '}
                     <span className="text-xs text-gray-400 font-normal ml-1">
                       (optional, up to 10 images)
@@ -586,8 +586,8 @@ export default function SellPage() {
                     }}
                     className={`border-2 border-dashed rounded-xl p-10 text-center cursor-pointer transition-all ${
                       dragOver
-                        ? 'border-[#c9a962] bg-[#c9a96208]'
-                        : 'border-gray-300 hover:border-[#c9a962]'
+                        ? 'border-[#D4C4A8] bg-[#D4C4A808]'
+                        : 'border-gray-300 hover:border-[#D4C4A8]'
                     }`}
                   >
                     <Upload className="w-9 h-9 text-gray-400 mx-auto mb-2" />
@@ -628,7 +628,7 @@ export default function SellPage() {
                   </button>
                   <button
                     onClick={() => goStep(6)}
-                    className="flex-1 py-3 px-6 rounded-lg bg-[#06457F] text-white text-sm font-semibold hover:bg-[#c9a962] transition-colors"
+                    className="flex-1 py-3 px-6 rounded-lg bg-[#243C4C] text-white text-sm font-semibold hover:bg-[#D4C4A8] transition-colors"
                   >
                     Review <ChevronRight className="inline w-4 h-4 ml-1" />
                   </button>
@@ -639,7 +639,7 @@ export default function SellPage() {
             {/* Step 6: Review */}
             {currentStep === 6 && (
               <div>
-                <h3 className="text-lg font-bold text-[#06457F] mb-4">Review Your Details</h3>
+                <h3 className="text-lg font-bold text-[#243C4C] mb-4">Review Your Details</h3>
                 <div className="glass-card rounded-xl p-6">
                   {summaryRows.map(([label, value], i) => (
                     <div
@@ -649,7 +649,7 @@ export default function SellPage() {
                       }`}
                     >
                       <span className="text-gray-500">{label}</span>
-                      <span className="font-semibold text-[#06457F] text-right max-w-[60%]">
+                      <span className="font-semibold text-[#243C4C] text-right max-w-[60%]">
                         {value}
                       </span>
                     </div>
@@ -675,8 +675,8 @@ export default function SellPage() {
         ) : (
           /* Thank You */
           <div className="text-center py-16">
-            <CheckCircle className="w-16 h-16 text-emerald-500 mx-auto mb-4" />
-            <h2 className="text-2xl md:text-[28px] font-extrabold text-[#06457F] mb-3">
+            <CheckCircle className="w-16 h-16 text-[#5289AD] mx-auto mb-4" />
+            <h2 className="text-2xl md:text-[28px] font-extrabold text-[#243C4C] mb-3">
               Thank You!
             </h2>
             <p className="text-base text-gray-500 max-w-[500px] mx-auto mb-6">
@@ -699,7 +699,7 @@ export default function SellPage() {
       </div>
 
       {/* CTA Section */}
-      <section className="py-24 px-6 text-center bg-gradient-to-br from-[#1a1a3e] to-[#2d2b55]">
+      <section className="py-24 px-6 text-center bg-gradient-to-br from-[#243C4C] to-[#243C4C]">
         <h2 className="text-3xl md:text-[44px] font-extrabold text-white mb-4 tracking-tight">
           Let&rsquo;s Start Your Malaysia
           <br />

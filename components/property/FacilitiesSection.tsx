@@ -19,9 +19,9 @@ const categoryLabels: Record<string, string> = {
 };
 
 const categoryGradients: Record<string, string> = {
-  leisure: 'bg-gradient-to-br from-emerald-600 to-emerald-800',
-  fitness: 'bg-gradient-to-br from-blue-600 to-blue-800',
-  services: 'bg-gradient-to-br from-purple-600 to-purple-800',
+  leisure: 'bg-gradient-to-br from-[#5289AD] to-[#243C4C]',
+  fitness: 'bg-gradient-to-br from-[#5289AD] to-[#243C4C]',
+  services: 'bg-gradient-to-br from-[#5289AD] to-[#243C4C]',
 };
 
 export function FacilitiesSection({ facilities }: FacilitiesSectionProps) {
@@ -50,7 +50,7 @@ export function FacilitiesSection({ facilities }: FacilitiesSectionProps) {
             className={`px-5 py-2.5 rounded-full text-[13px] font-semibold transition-all ${
               activeCategory === cat
                 ? 'glass-dark text-white border-none'
-                : 'glass-button text-[#06457F]'
+                : 'glass-button text-[#243C4C]'
             }`}
           >
             {categoryLabels[cat] || cat}
@@ -79,7 +79,7 @@ export function FacilitiesSection({ facilities }: FacilitiesSectionProps) {
               key={i}
               onClick={() => setActiveItemIndex(i)}
               className={`flex items-center gap-3.5 px-5 py-4 border-b border-border/50 last:border-b-0 cursor-pointer transition-colors ${
-                activeItemIndex === i ? 'bg-emerald-50' : 'hover:glass'
+                activeItemIndex === i ? 'bg-[#5289AD]/10' : 'hover:glass'
               }`}
             >
               <div className="w-10 h-10 rounded-[10px] flex items-center justify-center text-xl flex-shrink-0 bg-muted/50">
