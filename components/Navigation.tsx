@@ -64,10 +64,10 @@ export function Navigation() {
           href="/"
           className="text-[17px] font-extrabold tracking-tight flex items-center gap-2.5 text-white"
         >
-          <svg width="32" height="22" viewBox="0 0 60 40" fill="none">
-            <path d="M2 14c7-10 14-10 21 0s14 10 21 0 14-10 21 0" stroke="#1a6ee0" strokeWidth="4.5" strokeLinecap="round" fill="none" />
-            <path d="M2 24c7-10 14-10 21 0s14 10 21 0 14-10 21 0" stroke="#4da3f7" strokeWidth="4.5" strokeLinecap="round" fill="none" />
-            <path d="M2 34c7-10 14-10 21 0s14 10 21 0 14-10 21 0" stroke="#91cbff" strokeWidth="4.5" strokeLinecap="round" fill="none" />
+          <svg width="36" height="24" viewBox="-1 2 67 44" fill="none" className="flex-shrink-0">
+            <path d="M2 14c7-10 14-10 21 0s14 10 21 0 14-10 21 0" stroke="#1a6ee0" strokeWidth="4" strokeLinecap="round" fill="none" />
+            <path d="M2 24c7-10 14-10 21 0s14 10 21 0 14-10 21 0" stroke="#4da3f7" strokeWidth="4" strokeLinecap="round" fill="none" />
+            <path d="M2 34c7-10 14-10 21 0s14 10 21 0 14-10 21 0" stroke="#91cbff" strokeWidth="4" strokeLinecap="round" fill="none" />
           </svg>
           Straits Advisory
         </Link>
