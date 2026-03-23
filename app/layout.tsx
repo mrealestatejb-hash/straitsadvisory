@@ -4,7 +4,6 @@ import "./globals.css";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { CTASection } from "@/components/sections/CTASection";
-import { WhatsAppFAB } from "@/components/WhatsAppFAB";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -30,7 +29,7 @@ export default function RootLayout({
         <main>{children}</main>
         <CTASection />
         <Footer />
-        <WhatsAppFAB />
+
       </body>
     </html>
   );
