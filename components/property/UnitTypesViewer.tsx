@@ -59,7 +59,7 @@ export function UnitTypesViewer({ units }: UnitTypesViewerProps) {
       </div>
 
       {/* Viewer */}
-      <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] glass-card rounded-xl overflow-hidden min-h-[400px]">
+      <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] glass-card rounded-xl overflow-hidden min-h-[500px]">
         {/* Sidebar list */}
         <div className="border-b md:border-b-0 md:border-r border-border max-h-[200px] md:max-h-[500px] overflow-y-auto">
           {filteredUnits.map((unit, i) => (

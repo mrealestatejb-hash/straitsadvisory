@@ -259,16 +259,7 @@ export default async function PropertyDetailPage({ params }: PageProps) {
 
           {/* Unit Types */}
           {detailedUnits && detailedUnits.length > 0 && (
-            <>
-              <UnitTypesViewer units={detailedUnits} />
-              {brochureUrl && (
-                <BrochureDownload
-                  title={`${property.name} Brochure`}
-                  description="Find more details in the official developer brochure."
-                  url={brochureUrl}
-                />
-              )}
-            </>
+            <UnitTypesViewer units={detailedUnits} />
           )}
 
           {/* Facilities */}
@@ -287,7 +278,6 @@ export default async function PropertyDetailPage({ params }: PageProps) {
         <PropertySidebar
           developer={property.developer || 'Straits Advisory'}
           whatsappNumber={whatsappNumber}
-          brochureUrl={brochureUrl}
           propertyName={property.name}
         />
       </div>

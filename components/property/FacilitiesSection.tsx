@@ -59,7 +59,7 @@ export function FacilitiesSection({ facilities }: FacilitiesSectionProps) {
       </div>
 
       {/* Showcase panel */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-0 rounded-2xl overflow-hidden border border-border bg-white">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-0 rounded-2xl overflow-hidden border border-border bg-white min-h-[400px]">
         {/* Hero panel */}
         <div
           className={`relative min-h-[300px] ${categoryGradients[activeCategory] || 'bg-gradient-to-br from-gray-600 to-gray-800'} glass-specular flex items-end p-6 text-white`}
