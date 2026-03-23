@@ -1,0 +1,36 @@
+import { FileText, CheckCircle, Globe, DollarSign } from 'lucide-react';
+import type { ReactNode } from 'react';
+
+const iconMap: Record<string, ReactNode> = {
+  tenure: <FileText className="w-[22px] h-[22px] text-muted-foreground" />,
+  status: <CheckCircle className="w-[22px] h-[22px] text-muted-foreground" />,
+  foreigners: <Globe className="w-[22px] h-[22px] text-muted-foreground" />,
+  entry: <DollarSign className="w-[22px] h-[22px] text-muted-foreground" />,
+};
+
+interface KeyInfoItem {
+  icon: string;
+  value: string;
+  label: string;
+}
+
+interface KeyInfoRowProps {
+  items: KeyInfoItem[];
+}
+
+export function KeyInfoRow({ items }: KeyInfoRowProps) {
+  return (
+    <div className="flex flex-wrap border border-border rounded-xl overflow-hidden mb-2">
+      {items.map((item, i) => (
+        <div
+          key={i}
+          className="flex-1 min-w-[100px] px-3 py-4 text-center border-r border-border last:border-r-0 flex flex-col items-center gap-1"
+        >
+          {iconMap[item.icon] || <FileText className="w-[22px] h-[22px] text-muted-foreground" />}
+          <span className="text-base font-bold text-foreground">{item.value}</span>
+          <span className="text-[11px] text-muted-foreground uppercase tracking-wide">{item.label}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
