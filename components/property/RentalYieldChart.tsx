@@ -22,13 +22,13 @@ export function RentalYieldChart({ data, subtitle }: RentalYieldChartProps) {
     return { maxRent: max, currentRent: current, firstRent: first, growthPct: growth };
   }, [data]);
 
-  const maxHeight = 160;
+  const maxHeight = 180;
 
   return (
     <div className="py-8 border-b border-border">
       <div className="glass-card rounded-2xl p-7 overflow-hidden">
         {/* Header */}
-        <div className="flex justify-between items-start mb-6 gap-4">
+        <div className="flex justify-between items-start mb-8 gap-4">
           <div>
             <h2 className="text-xl font-extrabold text-foreground mb-1">
               Rental Income Performance
@@ -36,7 +36,7 @@ export function RentalYieldChart({ data, subtitle }: RentalYieldChartProps) {
             {subtitle && <p className="text-[13px] text-muted-foreground">{subtitle}</p>}
           </div>
           <div className="text-right flex-shrink-0">
-            <span className="block text-[32px] font-extrabold text-emerald-600">
+            <span className="block text-[32px] font-extrabold text-emerald-600 leading-tight">
               RM{currentRent.rent.toLocaleString()}
             </span>
             <span className="text-xs text-muted-foreground">Current rental</span>
@@ -44,36 +44,63 @@ export function RentalYieldChart({ data, subtitle }: RentalYieldChartProps) {
         </div>
 
         {/* Chart */}
-        <div className="flex items-end gap-0 h-[200px] px-2 mb-2 relative">
-          <div className="absolute top-0 left-0 right-0 bottom-7 border-b border-dashed border-border" />
-          {data.map((d, i) => {
-            const barHeight = Math.round((d.rent / (maxRent * 1.3)) * maxHeight);
-            const isLatest = i === data.length - 1;
-            const opacity = 0.3 + (i / data.length) * 0.7;
-            const bgColor = isLatest
-              ? '#059669'
-              : `rgba(5, 150, 105, ${opacity.toFixed(2)})`;
+        <div className="relative px-3">
+          {/* Y-axis guide lines (behind bars) */}
+          <div className="absolute inset-x-3 bottom-[28px] top-0 flex flex-col justify-between pointer-events-none">
+            <div className="border-b border-dashed border-gray-200/60" />
+            <div className="border-b border-dashed border-gray-200/60" />
+            <div className="border-b border-dashed border-gray-200/60" />
+            <div className="border-b border-gray-200/80" />
+          </div>
 
-            return (
-              <div key={d.year} className="flex-1 flex flex-col items-center gap-1 relative">
-                <div
-                  className="w-[60%] rounded-t-md relative min-h-[4px] transition-all duration-600"
-                  style={{ height: `${barHeight}px`, background: bgColor }}
-                >
-                  <span className="absolute -top-5 left-1/2 -translate-x-1/2 text-[11px] font-bold text-emerald-600 whitespace-nowrap">
+          {/* Bars */}
+          <div className="flex items-end gap-3 relative" style={{ height: `${maxHeight + 40}px` }}>
+            {data.map((d, i) => {
+              const barHeight = Math.round((d.rent / (maxRent * 1.15)) * maxHeight);
+              const isLatest = i === data.length - 1;
+              const progress = i / (data.length - 1);
+              const bgColor = isLatest
+                ? 'linear-gradient(180deg, #059669 0%, #047857 100%)'
+                : `linear-gradient(180deg, rgba(16, 185, 129, ${0.35 + progress * 0.45}) 0%, rgba(5, 150, 105, ${0.3 + progress * 0.5}) 100%)`;
+
+              return (
+                <div key={d.year} className="flex-1 flex flex-col items-center relative">
+                  {/* Value label */}
+                  <span
+                    className={`text-[11px] font-bold whitespace-nowrap mb-1.5 ${
+                      isLatest ? 'text-emerald-700' : 'text-emerald-600/80'
+                    }`}
+                  >
                     RM{d.rent.toLocaleString()}
                   </span>
+
+                  {/* Bar */}
+                  <div
+                    className={`w-[65%] rounded-t-lg transition-all duration-500 ${
+                      isLatest ? 'shadow-md shadow-emerald-200' : ''
+                    }`}
+                    style={{
+                      height: `${barHeight}px`,
+                      background: bgColor,
+                    }}
+                  />
+
+                  {/* Year label */}
+                  <span
+                    className={`text-xs font-semibold mt-2 ${
+                      isLatest ? 'text-foreground' : 'text-muted-foreground'
+                    }`}
+                  >
+                    {d.year}
+                  </span>
                 </div>
-                <span className="text-xs font-semibold text-muted-foreground mt-1">
-                  {d.year}
-                </span>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
 
         {/* Growth insight */}
-        <div className="glass-tint-green rounded-xl p-4 flex items-center gap-3.5 mt-4">
+        <div className="glass-tint-green rounded-xl p-4 flex items-center gap-3.5 mt-6">
           <div className="w-10 h-10 rounded-[10px] bg-emerald-600 flex items-center justify-center flex-shrink-0">
             <TrendingUp className="w-5 h-5 text-white" />
           </div>
