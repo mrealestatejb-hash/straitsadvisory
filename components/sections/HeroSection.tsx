@@ -31,7 +31,7 @@ export function HeroSection({ badge, title, subtitle, goldText }: HeroSectionPro
     <section
       className="relative py-32 md:py-40 px-[clamp(16px,4vw,48px)] overflow-hidden"
       style={{
-        background: 'linear-gradient(135deg, #1a3af5 0%, #1430d4 50%, #1a3af5 100%)',
+        background: 'linear-gradient(135deg, #06457F 0%, #0474C4 50%, #06457F 100%)',
       }}
     >
       {/* Decorative radial gradient overlay */}

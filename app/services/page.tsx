@@ -190,7 +190,7 @@ export default function ServicesPage() {
       {/* How It Works */}
       <section
         className="py-20 px-[clamp(20px,4vw,48px)]"
-        style={{ background: '#1a3af5' }}
+        style={{ background: '#06457F' }}
       >
         <div className="max-w-[1100px] mx-auto">
           <h2 className="text-3xl md:text-4xl font-extrabold text-center text-white mb-3 tracking-tight">
@@ -204,7 +204,7 @@ export default function ServicesPage() {
             {steps.map((step, i) => (
               <div key={step.num} className="contents">
                 <div className="glass-card flex flex-col items-center text-center px-2 min-w-[140px] max-w-[200px]">
-                  <div className="w-12 h-12 rounded-full bg-[#c9a962] text-[#1a3af5] text-lg font-extrabold flex items-center justify-center mb-3">
+                  <div className="w-12 h-12 rounded-full bg-[#c9a962] text-[#06457F] text-lg font-extrabold flex items-center justify-center mb-3">
                     {step.num}
                   </div>
                   <div className="text-sm font-semibold text-white leading-snug">
@@ -226,7 +226,7 @@ export default function ServicesPage() {
       <section
         className="py-24 px-[clamp(20px,5vw,60px)] text-center"
         style={{
-          background: 'linear-gradient(135deg, #1a3af5 0%, #1430d4 100%)',
+          background: 'linear-gradient(135deg, #06457F 0%, #0474C4 100%)',
         }}
       >
         <h2 className="text-3xl md:text-4xl lg:text-[44px] font-extrabold text-white mb-4 tracking-tight">

@@ -150,7 +150,7 @@ export default function NewsPage() {
     <div className="min-h-screen bg-white">
       {/* Hero */}
       <section className="pt-16 md:pt-16">
-        <div className="bg-gradient-to-br from-[#1a3af5] to-[#1430d4] text-center text-white py-20 md:py-24 px-6 relative overflow-hidden">
+        <div className="bg-gradient-to-br from-[#06457F] to-[#0474C4] text-center text-white py-20 md:py-24 px-6 relative overflow-hidden">
           <div className="absolute -top-1/2 -right-[30%] w-[80%] h-[200%] bg-[radial-gradient(ellipse,rgba(201,169,98,0.06)_0%,transparent_70%)] pointer-events-none" />
           <div className="relative z-10">
             <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-[#c9a962] text-[#c9a962] text-[13px] font-semibold tracking-wider uppercase mb-8 bg-[#c9a96214]">
@@ -194,7 +194,7 @@ export default function NewsPage() {
                 className="glass-card rounded-2xl overflow-hidden cursor-pointer"
               >
                 {/* Thumbnail */}
-                <div className="w-full aspect-video bg-gradient-to-br from-[#1a3af5] to-[#1430d4] relative flex items-center justify-center">
+                <div className="w-full aspect-video bg-gradient-to-br from-[#06457F] to-[#0474C4] relative flex items-center justify-center">
                   {article.icon}
                   <span className="glass-pill-dark absolute top-3 left-3 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-white">
                     {article.categoryLabel}
@@ -232,7 +232,7 @@ export default function NewsPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 px-6 text-center bg-gradient-to-br from-[#1a3af5] to-[#1430d4]">
+      <section className="py-24 px-6 text-center bg-gradient-to-br from-[#06457F] to-[#0474C4]">
         <h2 className="text-3xl md:text-[44px] font-extrabold text-white mb-4 tracking-tight">
           Let&rsquo;s Start Your Malaysia
           <br />
@@ -256,7 +256,7 @@ export default function NewsPage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#1a3af5] py-8 px-6 border-t border-white/[0.06] text-center">
+      <footer className="bg-[#06457F] py-8 px-6 border-t border-white/[0.06] text-center">
         <p className="text-[13px] text-white/35">
           &copy; 2025 Straits Advisory. All rights reserved.
         </p>

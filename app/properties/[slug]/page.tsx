@@ -165,7 +165,7 @@ export default async function PropertyDetailPage({ params }: PageProps) {
       {/* Hero section */}
       <div className="px-[clamp(20px,5vw,60px)] pt-7 max-w-[1200px] mx-auto">
         <div className="flex items-center gap-3.5 mb-3">
-          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1a3af5] to-[#1430d4] flex items-center justify-center text-lg text-white font-extrabold flex-shrink-0">
+          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#06457F] to-[#0474C4] flex items-center justify-center text-lg text-white font-extrabold flex-shrink-0">
             {(property.developer || 'SA')
               .split(/\s+/)
               .map((w) => w[0])
@@ -320,7 +320,7 @@ function SimilarProperties({ currentSlug }: { currentSlug: string }) {
             href={`/properties/${prop.slug}`}
             className="bg-white border border-border rounded-xl overflow-hidden hover:-translate-y-1 hover:shadow-lg transition-all"
           >
-            <div className="h-[140px] bg-gradient-to-br from-[#1a3af5] to-[#16213e] flex items-center justify-center">
+            <div className="h-[140px] bg-gradient-to-br from-[#06457F] to-[#16213e] flex items-center justify-center">
               {prop.image ? (
                 <img
                   src={prop.image}

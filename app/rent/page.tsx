@@ -46,7 +46,7 @@ function RadioGroup({
           key={opt}
           className={`flex items-center gap-1.5 px-3.5 py-2 border rounded-lg cursor-pointer text-[13px] font-medium transition-all ${
             value === opt
-              ? 'border-[#c9a962] bg-[#c9a96214] text-[#1a3af5]'
+              ? 'border-[#c9a962] bg-[#c9a96214] text-[#06457F]'
               : 'border-gray-300 text-gray-700 hover:border-gray-400'
           }`}
         >
@@ -152,7 +152,7 @@ export default function RentPage() {
     <div className="min-h-screen bg-white">
       {/* Hero */}
       <section className="pt-16 md:pt-16">
-        <div className="bg-gradient-to-br from-[#1a3af5] via-[#16213e] to-[#0f3460] text-center text-white py-[70px] px-6">
+        <div className="bg-gradient-to-br from-[#06457F] via-[#16213e] to-[#0f3460] text-center text-white py-[70px] px-6">
           <h1 className="text-[32px] md:text-[56px] font-extrabold mb-4 leading-[1.1]">
             Rent <span className="text-[#c9a962]">Made Simple</span>
           </h1>
@@ -166,7 +166,7 @@ export default function RentPage() {
       {!selectedPath && (
         <div className="max-w-[860px] mx-auto px-6 md:px-16 py-16">
           <div className="text-center mb-9">
-            <h2 className="text-[22px] md:text-[30px] font-extrabold text-[#1a3af5] mb-2">
+            <h2 className="text-[22px] md:text-[30px] font-extrabold text-[#06457F] mb-2">
               I am a...
             </h2>
             <p className="text-[15px] text-gray-500">Choose the option that fits your situation.</p>
@@ -178,7 +178,7 @@ export default function RentPage() {
               className="glass-card rounded-xl p-8 cursor-pointer flex flex-col"
             >
               <Home className="w-9 h-9 text-[#c9a962] mb-3.5" />
-              <div className="text-xl font-extrabold text-[#1a3af5] mb-1">Property Owner</div>
+              <div className="text-xl font-extrabold text-[#06457F] mb-1">Property Owner</div>
               <div className="text-sm text-gray-500 mb-4 leading-relaxed">
                 I have a property to rent out
               </div>
@@ -202,7 +202,7 @@ export default function RentPage() {
                   e.stopPropagation();
                   selectPath('owner');
                 }}
-                className="w-full py-3 rounded-lg bg-[#1a3af5] text-white text-sm font-semibold hover:bg-[#c9a962] transition-colors flex items-center justify-center gap-1.5"
+                className="w-full py-3 rounded-lg bg-[#06457F] text-white text-sm font-semibold hover:bg-[#c9a962] transition-colors flex items-center justify-center gap-1.5"
               >
                 List My Property <ChevronRight className="w-4 h-4" />
               </button>
@@ -214,7 +214,7 @@ export default function RentPage() {
               className="glass-card rounded-xl p-8 cursor-pointer flex flex-col"
             >
               <Search className="w-9 h-9 text-[#c9a962] mb-3.5" />
-              <div className="text-xl font-extrabold text-[#1a3af5] mb-1">Tenant</div>
+              <div className="text-xl font-extrabold text-[#06457F] mb-1">Tenant</div>
               <div className="text-sm text-gray-500 mb-4 leading-relaxed">
                 I&rsquo;m looking for a place to rent
               </div>
@@ -238,7 +238,7 @@ export default function RentPage() {
                   e.stopPropagation();
                   selectPath('tenant');
                 }}
-                className="w-full py-3 rounded-lg bg-gray-100 text-[#1a3af5] border border-gray-300 text-sm font-semibold hover:bg-[#1a3af5] hover:text-white hover:border-[#1a3af5] transition-colors flex items-center justify-center gap-1.5"
+                className="w-full py-3 rounded-lg bg-gray-100 text-[#06457F] border border-gray-300 text-sm font-semibold hover:bg-[#06457F] hover:text-white hover:border-[#06457F] transition-colors flex items-center justify-center gap-1.5"
               >
                 Find a Rental <ChevronRight className="w-4 h-4" />
               </button>
@@ -254,13 +254,13 @@ export default function RentPage() {
             <>
               <button
                 onClick={goBack}
-                className="flex items-center gap-1.5 text-[13px] font-semibold text-gray-500 hover:text-[#1a3af5] transition-colors mb-6"
+                className="flex items-center gap-1.5 text-[13px] font-semibold text-gray-500 hover:text-[#06457F] transition-colors mb-6"
               >
                 <ArrowLeft className="w-4 h-4" /> Back to selection
               </button>
 
               <div className="text-center mb-9">
-                <h2 className="text-[22px] md:text-[30px] font-extrabold text-[#1a3af5] mb-2">
+                <h2 className="text-[22px] md:text-[30px] font-extrabold text-[#06457F] mb-2">
                   What do you need?
                 </h2>
                 <p className="text-[15px] text-gray-500">
@@ -278,7 +278,7 @@ export default function RentPage() {
                       : ''
                   }`}
                 >
-                  <h4 className="text-base font-bold text-[#1a3af5] mb-2 flex items-center gap-2">
+                  <h4 className="text-base font-bold text-[#06457F] mb-2 flex items-center gap-2">
                     <Search className="w-5 h-5 text-[#c9a962]" /> Find Tenants
                   </h4>
                   <ul className="space-y-0.5">
@@ -303,7 +303,7 @@ export default function RentPage() {
                       : ''
                   }`}
                 >
-                  <h4 className="text-base font-bold text-[#1a3af5] mb-2 flex items-center gap-2">
+                  <h4 className="text-base font-bold text-[#06457F] mb-2 flex items-center gap-2">
                     <Home className="w-5 h-5 text-[#c9a962]" /> Full Management
                   </h4>
                   <ul className="space-y-0.5">
@@ -342,11 +342,11 @@ export default function RentPage() {
               {landlordSub && (
                 <div>
                   {/* Property Details */}
-                  <div className="text-[13px] font-bold text-[#1a3af5] uppercase tracking-wider mb-4 pb-2 border-b-2 border-[#c9a962] inline-block">
+                  <div className="text-[13px] font-bold text-[#06457F] uppercase tracking-wider mb-4 pb-2 border-b-2 border-[#c9a962] inline-block">
                     Property Details
                   </div>
                   <div className="mb-5">
-                    <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
                       Property Type
                     </label>
                     <RadioGroup
@@ -357,7 +357,7 @@ export default function RentPage() {
                     />
                   </div>
                   <div className="mb-5">
-                    <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
                       Property Name
                     </label>
                     <input
@@ -370,7 +370,7 @@ export default function RentPage() {
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
                     <div>
-                      <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
+                      <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
                         Unit Number
                       </label>
                       <input
@@ -382,7 +382,7 @@ export default function RentPage() {
                       />
                     </div>
                     <div>
-                      <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
+                      <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
                         Built-up Size (sqft)
                       </label>
                       <input
@@ -396,7 +396,7 @@ export default function RentPage() {
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
                     <div>
-                      <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
+                      <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
                         Bedrooms
                       </label>
                       <select
@@ -413,7 +413,7 @@ export default function RentPage() {
                       </select>
                     </div>
                     <div>
-                      <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
+                      <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
                         Bathrooms
                       </label>
                       <select
@@ -429,7 +429,7 @@ export default function RentPage() {
                     </div>
                   </div>
                   <div className="mb-5">
-                    <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
                       Furnished Status
                     </label>
                     <RadioGroup
@@ -441,11 +441,11 @@ export default function RentPage() {
                   </div>
 
                   {/* Location */}
-                  <div className="text-[13px] font-bold text-[#1a3af5] uppercase tracking-wider mt-8 mb-4 pb-2 border-b-2 border-[#c9a962] inline-block">
+                  <div className="text-[13px] font-bold text-[#06457F] uppercase tracking-wider mt-8 mb-4 pb-2 border-b-2 border-[#c9a962] inline-block">
                     Location
                   </div>
                   <div className="mb-5">
-                    <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
                       State
                     </label>
                     <RadioGroup
@@ -457,7 +457,7 @@ export default function RentPage() {
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
                     <div>
-                      <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
+                      <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
                         Area / Township
                       </label>
                       <input
@@ -469,7 +469,7 @@ export default function RentPage() {
                       />
                     </div>
                     <div>
-                      <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
+                      <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
                         Full Address
                       </label>
                       <input
@@ -483,12 +483,12 @@ export default function RentPage() {
                   </div>
 
                   {/* Rental Preferences */}
-                  <div className="text-[13px] font-bold text-[#1a3af5] uppercase tracking-wider mt-8 mb-4 pb-2 border-b-2 border-[#c9a962] inline-block">
+                  <div className="text-[13px] font-bold text-[#06457F] uppercase tracking-wider mt-8 mb-4 pb-2 border-b-2 border-[#c9a962] inline-block">
                     Rental Preferences
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
                     <div>
-                      <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
+                      <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
                         Target Rent (RM/month)
                       </label>
                       <input
@@ -500,7 +500,7 @@ export default function RentPage() {
                       />
                     </div>
                     <div>
-                      <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
+                      <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
                         Available From
                       </label>
                       <input
@@ -512,7 +512,7 @@ export default function RentPage() {
                     </div>
                   </div>
                   <div className="mb-5">
-                    <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
                       Minimum Lease
                     </label>
                     <RadioGroup
@@ -523,7 +523,7 @@ export default function RentPage() {
                     />
                   </div>
                   <div className="mb-5">
-                    <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
                       Tenant Preference
                     </label>
                     <RadioGroup
@@ -534,7 +534,7 @@ export default function RentPage() {
                     />
                   </div>
                   <div className="mb-5">
-                    <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
                       Pets Allowed?
                     </label>
                     <RadioGroup
@@ -548,11 +548,11 @@ export default function RentPage() {
                   {/* Management Options (Sub B only) */}
                   {landlordSub === 'B' && (
                     <>
-                      <div className="text-[13px] font-bold text-[#1a3af5] uppercase tracking-wider mt-8 mb-4 pb-2 border-b-2 border-[#c9a962] inline-block">
+                      <div className="text-[13px] font-bold text-[#06457F] uppercase tracking-wider mt-8 mb-4 pb-2 border-b-2 border-[#c9a962] inline-block">
                         Management Options
                       </div>
                       <div className="mb-5">
-                        <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
+                        <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
                           Rental Type
                         </label>
                         <RadioGroup
@@ -563,7 +563,7 @@ export default function RentPage() {
                         />
                       </div>
                       <div className="mb-5">
-                        <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
+                        <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
                           Need Property Management Services?
                         </label>
                         <RadioGroup
@@ -577,11 +577,11 @@ export default function RentPage() {
                   )}
 
                   {/* Contact */}
-                  <div className="text-[13px] font-bold text-[#1a3af5] uppercase tracking-wider mt-8 mb-4 pb-2 border-b-2 border-[#c9a962] inline-block">
+                  <div className="text-[13px] font-bold text-[#06457F] uppercase tracking-wider mt-8 mb-4 pb-2 border-b-2 border-[#c9a962] inline-block">
                     Contact
                   </div>
                   <div className="mb-5">
-                    <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
                       Your Name
                     </label>
                     <input
@@ -594,7 +594,7 @@ export default function RentPage() {
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
                     <div>
-                      <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
+                      <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
                         Phone (WhatsApp)
                       </label>
                       <input
@@ -606,7 +606,7 @@ export default function RentPage() {
                       />
                     </div>
                     <div>
-                      <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
+                      <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
                         Email
                       </label>
                       <input
@@ -634,7 +634,7 @@ export default function RentPage() {
             /* Landlord Thank You */
             <div className="text-center py-16">
               <CheckCircle className="w-16 h-16 text-emerald-500 mx-auto mb-4" />
-              <h2 className="text-2xl md:text-[28px] font-extrabold text-[#1a3af5] mb-3">
+              <h2 className="text-2xl md:text-[28px] font-extrabold text-[#06457F] mb-3">
                 Request Submitted!
               </h2>
               <p className="text-base text-gray-500 max-w-[500px] mx-auto mb-6 leading-relaxed">
@@ -663,13 +663,13 @@ export default function RentPage() {
             <>
               <button
                 onClick={goBack}
-                className="flex items-center gap-1.5 text-[13px] font-semibold text-gray-500 hover:text-[#1a3af5] transition-colors mb-6"
+                className="flex items-center gap-1.5 text-[13px] font-semibold text-gray-500 hover:text-[#06457F] transition-colors mb-6"
               >
                 <ArrowLeft className="w-4 h-4" /> Back to selection
               </button>
 
               <div className="text-center mb-9">
-                <h2 className="text-[22px] md:text-[30px] font-extrabold text-[#1a3af5] mb-2">
+                <h2 className="text-[22px] md:text-[30px] font-extrabold text-[#06457F] mb-2">
                   Tell us what you&rsquo;re looking for
                 </h2>
                 <p className="text-[15px] text-gray-500">
@@ -684,7 +684,7 @@ export default function RentPage() {
                     key={s.num}
                     className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold transition-all ${
                       s.num === tenantStep
-                        ? 'bg-[#1a3af5] text-white'
+                        ? 'bg-[#06457F] text-white'
                         : s.num < tenantStep
                         ? 'bg-emerald-600 text-white'
                         : 'bg-gray-100 text-gray-400'
@@ -702,7 +702,7 @@ export default function RentPage() {
               {tenantStep === 1 && (
                 <div>
                   <div className="mb-5">
-                    <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
                       Property Type
                     </label>
                     <RadioGroup
@@ -713,7 +713,7 @@ export default function RentPage() {
                     />
                   </div>
                   <div className="mb-5">
-                    <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
                       Location
                     </label>
                     <RadioGroup
@@ -724,7 +724,7 @@ export default function RentPage() {
                     />
                   </div>
                   <div className="mb-5">
-                    <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
                       Preferred Area{' '}
                       <span className="text-xs text-gray-400 font-normal ml-1">(optional)</span>
                     </label>
@@ -737,7 +737,7 @@ export default function RentPage() {
                     />
                   </div>
                   <div className="mb-5">
-                    <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
                       Budget Range (RM/month)
                     </label>
                     <RadioGroup
@@ -748,7 +748,7 @@ export default function RentPage() {
                     />
                   </div>
                   <div className="mb-5">
-                    <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
                       Bedrooms Needed
                     </label>
                     <RadioGroup
@@ -759,7 +759,7 @@ export default function RentPage() {
                     />
                   </div>
                   <div className="mb-5">
-                    <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
                       Furnished Preference
                     </label>
                     <RadioGroup
@@ -773,7 +773,7 @@ export default function RentPage() {
                     <div className="flex-1" />
                     <button
                       onClick={() => goTenantStep(2)}
-                      className="flex-1 py-3 px-6 rounded-lg bg-[#1a3af5] text-white text-sm font-semibold hover:bg-[#c9a962] transition-colors"
+                      className="flex-1 py-3 px-6 rounded-lg bg-[#06457F] text-white text-sm font-semibold hover:bg-[#c9a962] transition-colors"
                     >
                       Next <ChevronRight className="inline w-4 h-4 ml-1" />
                     </button>
@@ -785,7 +785,7 @@ export default function RentPage() {
               {tenantStep === 2 && (
                 <div>
                   <div className="mb-5">
-                    <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
                       Move-in Date
                     </label>
                     <RadioGroup
@@ -796,7 +796,7 @@ export default function RentPage() {
                     />
                   </div>
                   <div className="mb-5">
-                    <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
                       Lease Length
                     </label>
                     <RadioGroup
@@ -807,7 +807,7 @@ export default function RentPage() {
                     />
                   </div>
                   <div className="mb-5">
-                    <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
                       Who will be staying?
                     </label>
                     <RadioGroup
@@ -818,7 +818,7 @@ export default function RentPage() {
                     />
                   </div>
                   <div className="mb-5">
-                    <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
                       Pets?
                     </label>
                     <RadioGroup
@@ -837,7 +837,7 @@ export default function RentPage() {
                     </button>
                     <button
                       onClick={() => goTenantStep(3)}
-                      className="flex-1 py-3 px-6 rounded-lg bg-[#1a3af5] text-white text-sm font-semibold hover:bg-[#c9a962] transition-colors"
+                      className="flex-1 py-3 px-6 rounded-lg bg-[#06457F] text-white text-sm font-semibold hover:bg-[#c9a962] transition-colors"
                     >
                       Next <ChevronRight className="inline w-4 h-4 ml-1" />
                     </button>
@@ -849,7 +849,7 @@ export default function RentPage() {
               {tenantStep === 3 && (
                 <div>
                   <div className="mb-5">
-                    <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
                       Your Name
                     </label>
                     <input
@@ -862,7 +862,7 @@ export default function RentPage() {
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
                     <div>
-                      <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
+                      <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
                         Phone (WhatsApp)
                       </label>
                       <input
@@ -874,7 +874,7 @@ export default function RentPage() {
                       />
                     </div>
                     <div>
-                      <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
+                      <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
                         Email
                       </label>
                       <input
@@ -887,7 +887,7 @@ export default function RentPage() {
                     </div>
                   </div>
                   <div className="mb-5">
-                    <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
                       Nationality{' '}
                       <span className="text-xs text-gray-400 font-normal ml-1">
                         (for MM2H / visa context)
@@ -902,7 +902,7 @@ export default function RentPage() {
                     />
                   </div>
                   <div className="mb-5">
-                    <label className="block text-[13px] font-semibold text-[#1a3af5] mb-1.5">
+                    <label className="block text-[13px] font-semibold text-[#06457F] mb-1.5">
                       Any Special Requirements?{' '}
                       <span className="text-xs text-gray-400 font-normal ml-1">(optional)</span>
                     </label>
@@ -934,7 +934,7 @@ export default function RentPage() {
             /* Tenant Thank You */
             <div className="text-center py-16">
               <CheckCircle className="w-16 h-16 text-emerald-500 mx-auto mb-4" />
-              <h2 className="text-2xl md:text-[28px] font-extrabold text-[#1a3af5] mb-3">
+              <h2 className="text-2xl md:text-[28px] font-extrabold text-[#06457F] mb-3">
                 Thanks!
               </h2>
               <p className="text-base text-gray-500 max-w-[500px] mx-auto mb-6 leading-relaxed">

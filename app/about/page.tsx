@@ -159,7 +159,7 @@ function CalculatorPanel() {
           <select
             value={type}
             onChange={(e) => setType(e.target.value)}
-            className="glass-input w-full px-4 py-3 rounded-lg text-white text-[15px] outline-none focus:border-[#c9a962] transition-all [&>option]:bg-[#1a3af5] [&>option]:text-white"
+            className="glass-input w-full px-4 py-3 rounded-lg text-white text-[15px] outline-none focus:border-[#c9a962] transition-all [&>option]:bg-[#06457F] [&>option]:text-white"
           >
             <option value="residential">Residential</option>
             <option value="commercial">Commercial</option>
@@ -183,7 +183,7 @@ function CalculatorPanel() {
           <select
             value={nationality}
             onChange={(e) => setNationality(e.target.value)}
-            className="glass-input w-full px-4 py-3 rounded-lg text-white text-[15px] outline-none focus:border-[#c9a962] transition-all [&>option]:bg-[#1a3af5] [&>option]:text-white"
+            className="glass-input w-full px-4 py-3 rounded-lg text-white text-[15px] outline-none focus:border-[#c9a962] transition-all [&>option]:bg-[#06457F] [&>option]:text-white"
           >
             <option value="foreigner">Foreigner</option>
             <option value="local">Malaysian</option>
@@ -383,13 +383,13 @@ function ConciergePanel() {
         <div className="max-w-[80%] px-4 py-2.5 rounded-2xl rounded-bl-[4px] bg-white/10 text-sm text-white leading-relaxed self-start">
           Hi! How can I help you today? &#127968;
         </div>
-        <div className="max-w-[80%] px-4 py-2.5 rounded-2xl rounded-br-[4px] bg-[#c9a962] text-sm text-[#1a3af5] font-medium leading-relaxed self-end">
+        <div className="max-w-[80%] px-4 py-2.5 rounded-2xl rounded-br-[4px] bg-[#c9a962] text-sm text-[#06457F] font-medium leading-relaxed self-end">
           What are the stamp duty costs for a RM500K condo as a Singaporean?
         </div>
         <div className="max-w-[80%] px-4 py-2.5 rounded-2xl rounded-bl-[4px] bg-white/10 text-sm text-white leading-relaxed self-start">
           For RM 500,000, stamp duty is RM 9,000 (1% on first RM100K + 2% on next RM400K). No additional levy above state minimum. Want the full breakdown?
         </div>
-        <div className="max-w-[80%] px-4 py-2.5 rounded-2xl rounded-br-[4px] bg-[#c9a962] text-sm text-[#1a3af5] font-medium leading-relaxed self-end">
+        <div className="max-w-[80%] px-4 py-2.5 rounded-2xl rounded-br-[4px] bg-[#c9a962] text-sm text-[#06457F] font-medium leading-relaxed self-end">
           Yes please, and compare yields with SG
         </div>
         <div className="max-w-[80%] px-4 py-2.5 rounded-2xl rounded-bl-[4px] bg-white/10 text-sm text-white leading-relaxed self-start">
@@ -403,7 +403,7 @@ function ConciergePanel() {
           className="flex-1 px-3.5 py-2.5 bg-white/[0.08] border border-white/[0.12] rounded-full text-white text-sm outline-none"
           readOnly
         />
-        <button className="px-4 py-2.5 bg-[#c9a962] text-[#1a3af5] rounded-full font-semibold text-sm">
+        <button className="px-4 py-2.5 bg-[#c9a962] text-[#06457F] rounded-full font-semibold text-sm">
           Send
         </button>
       </div>
@@ -611,7 +611,7 @@ export default function AboutPage() {
       </section>
 
       {/* Demo Section */}
-      <section className="py-20 px-[clamp(20px,4vw,48px)]" style={{ background: '#1a3af5' }}>
+      <section className="py-20 px-[clamp(20px,4vw,48px)]" style={{ background: '#06457F' }}>
         <div className="max-w-[1100px] mx-auto">
           <h2 className="text-3xl md:text-4xl font-extrabold text-center text-white mb-3 tracking-tight">
             See It in Action
@@ -648,7 +648,7 @@ export default function AboutPage() {
       <section
         className="py-24 px-[clamp(20px,5vw,60px)] text-center"
         style={{
-          background: 'linear-gradient(135deg, #1a3af5 0%, #1430d4 100%)',
+          background: 'linear-gradient(135deg, #06457F 0%, #0474C4 100%)',
         }}
       >
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-4 tracking-tight">

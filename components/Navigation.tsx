@@ -52,12 +52,12 @@ export function Navigation() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-3 pt-3">
       <nav
-        className={`flex items-center justify-between h-[56px] px-5 mx-auto max-w-[1400px] rounded-full transition-all duration-400 backdrop-blur-2xl backdrop-saturate-150 border ${
+        className={`flex items-center justify-between h-[56px] px-5 mx-auto max-w-[1400px] rounded-full transition-all duration-400 backdrop-blur-2xl border ${
           isScrolled
-            ? 'bg-white/12 border-white/20 shadow-2xl shadow-black/15'
-            : 'bg-white/8 border-white/12 shadow-xl shadow-black/10'
+            ? 'bg-[#262B40]/90 border-white/12 shadow-2xl shadow-[#262B40]/30'
+            : 'bg-[#262B40]/75 border-white/8 shadow-xl shadow-[#262B40]/20'
         }`}
-        style={{ WebkitBackdropFilter: isScrolled ? 'blur(24px) saturate(150%)' : 'blur(20px) saturate(140%)' }}
+        style={{ WebkitBackdropFilter: 'blur(24px) saturate(160%)' }}
       >
         {/* Logo */}
         <Link
@@ -97,7 +97,7 @@ export function Navigation() {
               <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${isLangOpen ? 'rotate-180' : ''}`} />
             </button>
             {isLangOpen && (
-              <div className="absolute right-0 top-full mt-2 bg-black/50 backdrop-blur-2xl border border-white/15 rounded-xl shadow-2xl py-1 min-w-[110px] z-50">
+              <div className="absolute right-0 top-full mt-2 bg-[#262B40]/90 backdrop-blur-2xl border border-white/10 rounded-xl shadow-2xl py-1 min-w-[110px] z-50">
                 {languages.map((lang) => (
                   <button
                     key={lang.code}
@@ -123,7 +123,7 @@ export function Navigation() {
             href="https://wa.me/60197058001"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-5 py-[7px] rounded-full text-[13px] font-semibold bg-white/20 border border-white/25 text-white hover:bg-white/30 backdrop-blur-sm transition-all duration-200"
+            className="px-5 py-[7px] rounded-full text-[13px] font-semibold bg-[#0474C4] border border-[#0474C4]/50 text-white hover:bg-[#0474C4]/90 transition-all duration-200"
           >
             WhatsApp Us
           </a>
@@ -150,7 +150,7 @@ export function Navigation() {
 
       {/* Dropdown Menu (both desktop "Menu" and mobile hamburger) */}
       {isMenuOpen && (
-        <div className="mt-2 mx-auto max-w-[1400px] bg-black/45 backdrop-blur-2xl rounded-2xl shadow-2xl shadow-black/20 border border-white/12 overflow-hidden" style={{ WebkitBackdropFilter: 'blur(24px) saturate(150%)' }}>
+        <div className="mt-2 mx-auto max-w-[1400px] bg-[#262B40]/92 backdrop-blur-2xl rounded-2xl shadow-2xl shadow-[#262B40]/30 border border-white/8 overflow-hidden" style={{ WebkitBackdropFilter: 'blur(24px) saturate(160%)' }}>
           <div className="p-5 grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Nav Links */}
             <div className="lg:col-span-2">
