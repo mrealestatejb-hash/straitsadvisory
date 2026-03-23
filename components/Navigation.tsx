@@ -2,12 +2,12 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { Menu, X, Globe, ChevronDown } from 'lucide-react';
+import { Menu, X, Globe, ChevronDown, Search, User } from 'lucide-react';
 
 const navLinks = [
   { href: '/buy', label: 'Buy' },
-  { href: '/sell', label: 'Sell' },
   { href: '/rent', label: 'Rent' },
+  { href: '/sell', label: 'Sell' },
   { href: '/services', label: 'Services' },
   { href: '/about', label: 'About' },
   { href: '/news', label: 'News' },
@@ -32,7 +32,7 @@ export function Navigation() {
   const langRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    const handleScroll = () => setIsScrolled(window.scrollY > 30);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -50,50 +50,53 @@ export function Navigation() {
   const currentLangLabel = languages.find((l) => l.code === selectedLang)?.label || 'EN';
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'glass-dark-heavy'
-          : 'glass-dark'
-      }`}
-    >
-      <nav className="flex items-center justify-between h-16 px-[clamp(16px,4vw,48px)] max-w-[1400px] mx-auto">
+    <header className="fixed top-0 left-0 right-0 z-50 px-3 pt-3">
+      <nav
+        className={`flex items-center justify-between h-[56px] px-5 mx-auto max-w-[1400px] rounded-full transition-all duration-400 ${
+          isScrolled
+            ? 'bg-[#0a0a2e] shadow-2xl shadow-black/30'
+            : 'bg-[#10103a] shadow-xl shadow-black/20'
+        }`}
+      >
         {/* Logo */}
         <Link
           href="/"
-          className="text-lg font-bold flex items-center gap-2.5 text-white"
+          className="text-[17px] font-extrabold tracking-tight flex items-center gap-2.5 text-white"
         >
-          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <svg width="26" height="26" viewBox="0 0 28 28" fill="none">
             <rect width="28" height="28" rx="6" fill="#c9a962" />
             <path d="M8 14h12M14 8v12" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" />
           </svg>
           Straits Advisory
         </Link>
 
-        {/* Desktop Nav */}
-        <div className="hidden lg:flex items-center gap-6">
+        {/* Desktop Nav — Center */}
+        <div className="hidden lg:flex items-center gap-1">
           {navLinks.map((link) => (
             <Link
               key={link.label}
               href={link.href}
-              className="text-sm font-medium text-white/80 hover:text-white transition-colors duration-200"
+              className="text-[13px] font-medium text-white/75 hover:text-white px-3.5 py-1.5 rounded-full hover:bg-white/8 transition-all duration-200"
             >
               {link.label}
             </Link>
           ))}
+        </div>
 
+        {/* Desktop Right — Actions */}
+        <div className="hidden lg:flex items-center gap-2">
           {/* Language Selector */}
           <div ref={langRef} className="relative">
             <button
               onClick={() => setIsLangOpen(!isLangOpen)}
-              className="flex items-center gap-1.5 text-sm text-white/80 hover:text-white transition-colors duration-200"
+              className="flex items-center gap-1.5 text-[13px] text-white/70 hover:text-white px-3 py-1.5 rounded-full hover:bg-white/8 transition-all duration-200"
             >
-              <Globe className="h-4 w-4" />
+              <Globe className="h-3.5 w-3.5" />
               <span>{currentLangLabel}</span>
               <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${isLangOpen ? 'rotate-180' : ''}`} />
             </button>
             {isLangOpen && (
-              <div className="absolute right-0 top-full mt-2 glass-dark rounded-lg py-1 min-w-[100px] z-50">
+              <div className="absolute right-0 top-full mt-2 bg-[#0a0a2e] border border-white/10 rounded-xl shadow-2xl py-1 min-w-[110px] z-50">
                 {languages.map((lang) => (
                   <button
                     key={lang.code}
@@ -119,10 +122,19 @@ export function Navigation() {
             href="https://wa.me/60197058001"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-5 py-2 rounded-full text-sm font-semibold glass-button-green text-white"
+            className="px-5 py-[7px] rounded-full text-[13px] font-semibold bg-white text-[#0a0a2e] hover:bg-white/90 transition-all duration-200"
           >
             WhatsApp Us
           </a>
+
+          {/* Menu Icon */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="flex items-center gap-1.5 text-[13px] text-white/70 hover:text-white px-3 py-1.5 rounded-full hover:bg-white/8 transition-all duration-200"
+          >
+            <span>Menu</span>
+            <Menu className="h-4 w-4" />
+          </button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -131,54 +143,60 @@ export function Navigation() {
           className="lg:hidden p-2 text-white"
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
         >
-          {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </nav>
 
-      {/* Mobile Menu */}
+      {/* Dropdown Menu (both desktop "Menu" and mobile hamburger) */}
       {isMenuOpen && (
-        <div className="lg:hidden glass-dark-heavy border-t border-white/10 overflow-hidden">
-          <div className="px-5 py-4 flex flex-col gap-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                onClick={() => setIsMenuOpen(false)}
-                className="text-base font-medium text-white/80 hover:text-white py-3 border-b border-white/5 transition-colors duration-200"
-              >
-                {link.label}
-              </Link>
-            ))}
+        <div className="mt-2 mx-auto max-w-[1400px] bg-[#0a0a2e] rounded-2xl shadow-2xl shadow-black/30 border border-white/5 overflow-hidden">
+          <div className="p-5 grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {/* Nav Links */}
+            <div className="lg:col-span-2">
+              <p className="text-[10px] text-white/30 uppercase tracking-[2px] font-semibold mb-3">Navigation</p>
+              <div className="grid grid-cols-2 gap-1">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="text-[15px] font-medium text-white/80 hover:text-white py-2.5 px-3 rounded-lg hover:bg-white/5 transition-all duration-200"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
 
-            {/* Mobile Language Selector */}
-            <div className="py-3 border-b border-white/5">
-              <p className="text-xs text-white/40 uppercase tracking-wider mb-2">Language</p>
-              <div className="flex flex-wrap gap-2">
+            {/* Language & Contact */}
+            <div>
+              <p className="text-[10px] text-white/30 uppercase tracking-[2px] font-semibold mb-3">Language</p>
+              <div className="flex flex-wrap gap-1.5 mb-5">
                 {languages.map((lang) => (
                   <button
                     key={lang.code}
                     onClick={() => setSelectedLang(lang.code)}
-                    className={`px-3 py-1.5 rounded-full text-sm transition-colors duration-150 ${
+                    className={`px-3 py-1.5 rounded-full text-[13px] font-medium transition-all duration-150 ${
                       selectedLang === lang.code
                         ? 'bg-[#c9a962] text-white'
-                        : 'bg-white/10 text-white/70 hover:bg-white/20'
+                        : 'bg-white/8 text-white/60 hover:bg-white/15 hover:text-white'
                     }`}
                   >
                     {lang.label}
                   </button>
                 ))}
               </div>
-            </div>
 
-            {/* Mobile WhatsApp CTA */}
-            <a
-              href="https://wa.me/60197058001"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="glass-button-green text-white text-center py-3 rounded-full font-semibold mt-3"
-            >
-              WhatsApp Us
-            </a>
+              <a
+                href="https://wa.me/60197058001"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMenuOpen(false)}
+                className="block w-full text-center py-2.5 rounded-full text-[13px] font-semibold bg-[#25d366] text-white hover:bg-[#20bd5a] transition-all duration-200"
+              >
+                WhatsApp Us
+              </a>
+            </div>
           </div>
         </div>
       )}
