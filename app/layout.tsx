@@ -15,6 +15,11 @@ export const metadata: Metadata = {
   title: "Straits Advisory | Malaysia Property Investment",
   description:
     "Singapore's trusted gateway to Johor Bahru property investment. Premium JB properties, expert guidance from search to settlement.",
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg',
+  },
 };
 
 export default function RootLayout({
