@@ -281,10 +281,6 @@ export default async function PropertyDetailPage({ params }: PageProps) {
             <ConnectivitySection toSingapore={toSingapore} withinJB={withinJB} />
           )}
 
-          {/* Mortgage Calculator */}
-          <MortgageCalculator
-            defaultPrice={property.price.myr > 0 ? property.price.myr : 400000}
-          />
         </div>
 
         {/* Sidebar */}
