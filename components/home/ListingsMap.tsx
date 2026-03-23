@@ -8,11 +8,11 @@ interface ListingsMapProps {
   activeCity: 'all' | 'jb' | 'kl' | 'pg';
 }
 
-const CITY_VIEWS: Record<string, { center: [number, number]; zoom: number }> = {
-  all: { center: [103.72, 1.46], zoom: 6 },
-  jb: { center: [103.72, 1.46], zoom: 11 },
-  kl: { center: [101.69, 3.14], zoom: 12 },
-  pg: { center: [100.34, 5.37], zoom: 11 },
+const CITY_VIEWS: Record<string, { center: [number, number]; zoom: number; pitch: number; bearing: number }> = {
+  all: { center: [103.72, 1.46], zoom: 6, pitch: 30, bearing: 0 },
+  jb: { center: [103.75, 1.48], zoom: 11, pitch: 45, bearing: -15 },
+  kl: { center: [101.69, 3.14], zoom: 12, pitch: 45, bearing: -10 },
+  pg: { center: [100.34, 5.37], zoom: 11, pitch: 45, bearing: -10 },
 };
 
 interface MapListing {
@@ -135,8 +135,10 @@ export default function ListingsMap({ activeCity }: ListingsMapProps) {
     const mapInstance = new maplibregl.Map({
       container: mapContainer.current,
       style: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
-      center: [103.72, 1.46],
-      zoom: 6,
+      center: [103.75, 1.48],
+      zoom: 11,
+      pitch: 45,
+      bearing: -15,
       attributionControl: false,
     });
 
@@ -184,6 +186,8 @@ export default function ListingsMap({ activeCity }: ListingsMapProps) {
     map.current.flyTo({
       center: view.center,
       zoom: view.zoom,
+      pitch: view.pitch,
+      bearing: view.bearing,
       duration: 1500,
       essential: true,
     });
