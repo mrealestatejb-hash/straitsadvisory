@@ -149,7 +149,7 @@ function CalculatorPanel() {
             type="number"
             value={price}
             onChange={(e) => setPrice(Number(e.target.value))}
-            className="w-full px-4 py-3 bg-white/[0.08] border border-white/15 rounded-lg text-white text-[15px] outline-none focus:border-[#c9a962] transition-all"
+            className="glass-input w-full px-4 py-3 rounded-lg text-white text-[15px] outline-none focus:border-[#c9a962] transition-all"
           />
         </div>
         <div>
@@ -159,7 +159,7 @@ function CalculatorPanel() {
           <select
             value={type}
             onChange={(e) => setType(e.target.value)}
-            className="w-full px-4 py-3 bg-white/[0.08] border border-white/15 rounded-lg text-white text-[15px] outline-none focus:border-[#c9a962] transition-all [&>option]:bg-[#1a1a2e] [&>option]:text-white"
+            className="glass-input w-full px-4 py-3 rounded-lg text-white text-[15px] outline-none focus:border-[#c9a962] transition-all [&>option]:bg-[#1a1a2e] [&>option]:text-white"
           >
             <option value="residential">Residential</option>
             <option value="commercial">Commercial</option>
@@ -173,7 +173,7 @@ function CalculatorPanel() {
             type="number"
             value={rent}
             onChange={(e) => setRent(Number(e.target.value))}
-            className="w-full px-4 py-3 bg-white/[0.08] border border-white/15 rounded-lg text-white text-[15px] outline-none focus:border-[#c9a962] transition-all"
+            className="glass-input w-full px-4 py-3 rounded-lg text-white text-[15px] outline-none focus:border-[#c9a962] transition-all"
           />
         </div>
         <div>
@@ -183,7 +183,7 @@ function CalculatorPanel() {
           <select
             value={nationality}
             onChange={(e) => setNationality(e.target.value)}
-            className="w-full px-4 py-3 bg-white/[0.08] border border-white/15 rounded-lg text-white text-[15px] outline-none focus:border-[#c9a962] transition-all [&>option]:bg-[#1a1a2e] [&>option]:text-white"
+            className="glass-input w-full px-4 py-3 rounded-lg text-white text-[15px] outline-none focus:border-[#c9a962] transition-all [&>option]:bg-[#1a1a2e] [&>option]:text-white"
           >
             <option value="foreigner">Foreigner</option>
             <option value="local">Malaysian</option>
@@ -191,7 +191,7 @@ function CalculatorPanel() {
         </div>
         <button
           onClick={handleCalc}
-          className="w-full py-3.5 bg-[#c9a962] text-[#1a1a2e] rounded-lg text-[15px] font-bold hover:bg-[#d4b46e] transition-all mt-2 cursor-pointer"
+          className="glass-button-green w-full py-3.5 rounded-lg text-[15px] font-bold transition-all mt-2 cursor-pointer"
         >
           Calculate Total Costs
         </button>
@@ -552,7 +552,7 @@ export default function AboutPage() {
       />
 
       {/* Stats Bar */}
-      <section className="bg-white py-10 px-[clamp(20px,4vw,48px)] border-b border-[#e8e8ed]">
+      <section className="glass-heavy py-10 px-[clamp(20px,4vw,48px)] border-b border-[#e8e8ed]">
         <div className="max-w-[1100px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           {stats.map((s) => (
             <div key={s.label} className="flex flex-col items-center">
@@ -582,7 +582,7 @@ export default function AboutPage() {
             return (
               <div
                 key={f.title}
-                className="bg-white border border-[#e8e8ed] rounded-2xl p-7 transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:-translate-y-1"
+                className="glass-card rounded-2xl p-7"
               >
                 <div
                   className={`w-12 h-12 rounded-2xl ${bgClass} ${textClass} flex items-center justify-center mb-4`}
@@ -592,10 +592,10 @@ export default function AboutPage() {
                 <h3 className="text-lg font-bold text-[#1d1d1f] mb-2 flex items-center gap-2.5 flex-wrap">
                   {f.title}
                   <span
-                    className={`inline-flex px-2.5 py-0.5 rounded-full text-[11px] font-semibold uppercase tracking-wide ${
+                    className={`glass-pill inline-flex px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wide ${
                       isLive
-                        ? 'bg-[#34c759]/10 text-[#34c759]'
-                        : 'bg-[#ff9f0a]/10 text-[#ff9f0a]'
+                        ? 'text-[#34c759]'
+                        : 'text-[#ff9f0a]'
                     }`}
                   >
                     {f.status}
@@ -626,10 +626,10 @@ export default function AboutPage() {
               <button
                 key={t.id}
                 onClick={() => setActiveTab(t.id)}
-                className={`px-5 py-2.5 rounded-full text-sm font-medium border transition-all duration-300 cursor-pointer ${
+                className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer ${
                   activeTab === t.id
-                    ? 'bg-[#c9a962] text-[#1a1a2e] border-[#c9a962] font-semibold'
-                    : 'text-white/55 border-white/[0.12] hover:text-white/85 hover:border-white/25 bg-transparent'
+                    ? 'glass-dark font-semibold text-white'
+                    : 'glass-button text-white/55 hover:text-white/85'
                 }`}
               >
                 {t.label}
@@ -638,7 +638,7 @@ export default function AboutPage() {
           </div>
 
           {/* Panel */}
-          <div className="bg-white/[0.05] border border-white/10 rounded-2xl p-8 min-h-[420px] animate-[fadeIn_0.3s_ease]">
+          <div className="glass-card rounded-2xl p-8 min-h-[420px] animate-[fadeIn_0.3s_ease]">
             <ActivePanel />
           </div>
         </div>

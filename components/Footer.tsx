@@ -2,7 +2,7 @@ import { Phone, Mail, MessageCircle } from 'lucide-react';
 
 export function Footer() {
   return (
-    <footer className="bg-[#1a1a2e] text-white py-16">
+    <footer className="glass-dark-heavy text-white py-16 border-t border-white/5">
       <div className="max-w-[1400px] mx-auto px-[clamp(16px,4vw,48px)]">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {/* Brand */}

@@ -15,22 +15,22 @@ interface WhyWeRecommendProps {
 
 const colorThemes: Record<string, { bg: string; iconBg: string; titleColor: string }> = {
   '#059669': {
-    bg: 'bg-gradient-to-br from-emerald-50 to-emerald-100',
+    bg: 'glass-tint-green glass-specular',
     iconBg: 'bg-emerald-600',
     titleColor: 'text-emerald-600',
   },
   '#d97706': {
-    bg: 'bg-gradient-to-br from-amber-50 to-amber-200',
+    bg: 'glass-tint-amber glass-specular',
     iconBg: 'bg-amber-600',
     titleColor: 'text-amber-600',
   },
   '#7c3aed': {
-    bg: 'bg-gradient-to-br from-violet-50 to-violet-200',
+    bg: 'glass-tint-purple glass-specular',
     iconBg: 'bg-violet-600',
     titleColor: 'text-violet-600',
   },
   '#db2777': {
-    bg: 'bg-gradient-to-br from-pink-50 to-pink-200',
+    bg: 'glass-tint-pink glass-specular',
     iconBg: 'bg-pink-600',
     titleColor: 'text-pink-600',
   },

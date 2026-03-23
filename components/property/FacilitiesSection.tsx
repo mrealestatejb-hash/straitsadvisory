@@ -47,10 +47,10 @@ export function FacilitiesSection({ facilities }: FacilitiesSectionProps) {
           <button
             key={cat}
             onClick={() => handleCategorySwitch(cat)}
-            className={`px-5 py-2.5 rounded-full text-[13px] font-semibold border-[1.5px] transition-all ${
+            className={`px-5 py-2.5 rounded-full text-[13px] font-semibold transition-all ${
               activeCategory === cat
-                ? 'bg-[#1a1a2e] text-white border-[#1a1a2e]'
-                : 'bg-white text-[#1a1a2e] border-border hover:border-[#1a1a2e]'
+                ? 'glass-dark text-white border-none'
+                : 'glass-button text-[#1a1a2e]'
             }`}
           >
             {categoryLabels[cat] || cat}
@@ -62,7 +62,7 @@ export function FacilitiesSection({ facilities }: FacilitiesSectionProps) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-0 rounded-2xl overflow-hidden border border-border bg-white">
         {/* Hero panel */}
         <div
-          className={`relative min-h-[300px] ${categoryGradients[activeCategory] || 'bg-gradient-to-br from-gray-600 to-gray-800'} flex items-end p-6 text-white`}
+          className={`relative min-h-[300px] ${categoryGradients[activeCategory] || 'bg-gradient-to-br from-gray-600 to-gray-800'} glass-specular flex items-end p-6 text-white`}
         >
           <span className="absolute top-4 right-4 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-black/35 backdrop-blur-sm text-white flex items-center gap-1.5">
             {items.length} facilities
@@ -79,7 +79,7 @@ export function FacilitiesSection({ facilities }: FacilitiesSectionProps) {
               key={i}
               onClick={() => setActiveItemIndex(i)}
               className={`flex items-center gap-3.5 px-5 py-4 border-b border-border/50 last:border-b-0 cursor-pointer transition-colors ${
-                activeItemIndex === i ? 'bg-emerald-50' : 'hover:bg-muted/50'
+                activeItemIndex === i ? 'bg-emerald-50' : 'hover:glass'
               }`}
             >
               <div className="w-10 h-10 rounded-[10px] flex items-center justify-center text-xl flex-shrink-0 bg-muted/50">

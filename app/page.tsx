@@ -128,7 +128,7 @@ function VideoHero() {
 function AboutSection() {
   return (
     <section className="bg-[#f5f5f5] py-20 px-[clamp(20px,5vw,60px)] text-center">
-      <div className="max-w-[800px] mx-auto">
+      <div className="glass-card max-w-[800px] mx-auto rounded-2xl p-10">
         <h2 className="text-4xl font-extrabold text-[#1a1a2e] tracking-widest uppercase mb-5 leading-tight">
           Straits Advisory
         </h2>
@@ -165,7 +165,7 @@ function RecommendedProperties() {
           <Link
             key={prop.name}
             href={prop.href}
-            className="flex-none w-[300px] rounded-2xl overflow-hidden border border-gray-200 bg-white transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:-translate-y-1"
+            className="glass-card flex-none w-[300px] rounded-2xl overflow-hidden"
           >
             <div
               className="h-[180px] bg-center bg-cover relative"
@@ -218,17 +218,19 @@ function MapSection() {
             <button
               key={c.key}
               onClick={() => setActiveCity(c.key)}
-              className={`px-5 py-2 rounded-full border text-[13px] font-semibold transition-all duration-200 ${
+              className={`px-5 py-2 rounded-full text-[13px] font-semibold transition-all duration-200 ${
                 activeCity === c.key
-                  ? 'bg-[#1a1a2e] text-white border-[#1a1a2e]'
-                  : 'bg-white text-gray-500 border-gray-200 hover:border-[#1a1a2e] hover:text-[#1a1a2e]'
+                  ? 'glass-dark text-white'
+                  : 'glass-button text-gray-500 hover:text-[#1a1a2e]'
               }`}
             >
               {c.label}
             </button>
           ))}
         </div>
-        <ListingsMap activeCity={activeCity} />
+        <div className="glass-card rounded-2xl overflow-hidden">
+          <ListingsMap activeCity={activeCity} />
+        </div>
       </div>
     </section>
   );
@@ -254,7 +256,7 @@ function BrowseSection() {
             <Link
               key={city.label}
               href={city.href}
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#1a1a2e] text-white text-base font-semibold transition-all duration-200 hover:bg-[#c9a962] hover:text-[#1a1a2e]"
+              className="glass-button inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-[#1a1a2e] text-base font-semibold transition-all duration-200"
             >
               {city.label}
             </Link>

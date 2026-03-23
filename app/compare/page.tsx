@@ -187,7 +187,7 @@ export default function ComparePage() {
 
       {/* Property Selector */}
       <div className="max-w-[1200px] mx-auto px-[clamp(20px,4vw,48px)] pt-10 pb-5">
-        <div className="flex gap-4 flex-wrap items-end">
+        <div className="glass-card flex gap-4 flex-wrap items-end p-6 rounded-2xl">
           {slots.map((selectedSlug, idx) => (
             <div key={idx} className="flex-1 min-w-[220px]">
               <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1.5">
@@ -196,7 +196,7 @@ export default function ComparePage() {
               <select
                 value={selectedSlug}
                 onChange={(e) => handleSlotChange(idx, e.target.value)}
-                className="w-full h-11 px-3.5 pr-9 border border-gray-300 rounded-lg text-sm text-gray-900 bg-white cursor-pointer transition-all focus:outline-none focus:border-[#c9a962] focus:ring-2 focus:ring-[#c9a962]/15 appearance-none"
+                className="glass-input w-full h-11 px-3.5 pr-9 rounded-lg text-sm text-gray-900 cursor-pointer transition-all focus:outline-none focus:border-[#c9a962] focus:ring-2 focus:ring-[#c9a962]/15 appearance-none"
                 style={{
                   backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236e6e73' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")`,
                   backgroundRepeat: 'no-repeat',
@@ -215,7 +215,7 @@ export default function ComparePage() {
           <button
             onClick={addSlot}
             disabled={slots.length >= 4}
-            className="h-11 px-6 rounded-lg bg-[#1a1a2e] text-white text-sm font-semibold flex items-center gap-2 transition-all hover:bg-[#c9a962] hover:text-[#1a1a2e] disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-gray-400 whitespace-nowrap"
+            className="glass-button h-11 px-6 rounded-lg text-sm font-semibold flex items-center gap-2 transition-all disabled:opacity-40 disabled:cursor-not-allowed whitespace-nowrap"
           >
             <Plus className="w-4 h-4" />
             Add Property
@@ -224,7 +224,7 @@ export default function ComparePage() {
       </div>
 
       {/* Comparison Output */}
-      <div className="max-w-[1200px] mx-auto px-[clamp(20px,4vw,48px)] pb-16 overflow-x-auto">
+      <div className="max-w-[1200px] mx-auto px-[clamp(20px,4vw,48px)] pb-16 overflow-x-auto glass-card rounded-2xl mt-4 p-4">
         {!showTable ? (
           <div className="text-center py-20 text-gray-400">
             <Scale className="w-16 h-16 mx-auto mb-5 text-gray-300" />
@@ -277,7 +277,7 @@ export default function ComparePage() {
                       <td
                         key={s.prop.slug}
                         className={`p-3.5 text-sm font-medium border-b border-gray-100 ${
-                          isBest ? 'text-emerald-600 font-bold bg-emerald-50/40' : 'text-gray-900'
+                          isBest ? 'text-emerald-600 font-bold glass-tint-green' : 'text-gray-900'
                         }`}
                       >
                         {row.fmt(s.prop[row.key])}

@@ -87,7 +87,7 @@ export function MortgageCalculator({ defaultPrice = 400000 }: MortgageCalculator
             type="number"
             value={price}
             onChange={(e) => setPrice(Number(e.target.value) || 0)}
-            className="w-full px-3.5 py-2.5 border border-input rounded-lg text-sm font-medium text-foreground focus:outline-none focus:border-[#c9a962] transition-colors"
+            className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm font-medium text-foreground focus:outline-none focus:border-[#c9a962] transition-colors"
           />
         </div>
         <div>
@@ -100,7 +100,7 @@ export function MortgageCalculator({ defaultPrice = 400000 }: MortgageCalculator
             onChange={(e) => setDownPaymentPct(Number(e.target.value) || 0)}
             min={0}
             max={100}
-            className="w-full px-3.5 py-2.5 border border-input rounded-lg text-sm font-medium text-foreground focus:outline-none focus:border-[#c9a962] transition-colors"
+            className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm font-medium text-foreground focus:outline-none focus:border-[#c9a962] transition-colors"
           />
         </div>
         <div>
@@ -113,7 +113,7 @@ export function MortgageCalculator({ defaultPrice = 400000 }: MortgageCalculator
             onChange={(e) => setTenure(Number(e.target.value) || 0)}
             min={1}
             max={35}
-            className="w-full px-3.5 py-2.5 border border-input rounded-lg text-sm font-medium text-foreground focus:outline-none focus:border-[#c9a962] transition-colors"
+            className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm font-medium text-foreground focus:outline-none focus:border-[#c9a962] transition-colors"
           />
         </div>
         <div>
@@ -126,13 +126,13 @@ export function MortgageCalculator({ defaultPrice = 400000 }: MortgageCalculator
             onChange={(e) => setRate(Number(e.target.value) || 0)}
             step={0.1}
             min={0}
-            className="w-full px-3.5 py-2.5 border border-input rounded-lg text-sm font-medium text-foreground focus:outline-none focus:border-[#c9a962] transition-colors"
+            className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm font-medium text-foreground focus:outline-none focus:border-[#c9a962] transition-colors"
           />
         </div>
       </div>
 
       {/* Monthly payment result */}
-      <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-5 text-center mb-4">
+      <div className="glass-tint-green rounded-xl p-5 text-center mb-4">
         <div className="text-[13px] text-muted-foreground mb-1">Estimated Monthly Payment</div>
         <div className="text-[32px] font-extrabold text-emerald-600">
           RM{results.monthlyPayment.toLocaleString()}

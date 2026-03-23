@@ -6,7 +6,7 @@ export function CTASection() {
         background: 'linear-gradient(135deg, #1a1a2e 0%, #2d2d5a 100%)',
       }}
     >
-      <div className="max-w-[700px] mx-auto text-center">
+      <div className="max-w-[700px] mx-auto text-center glass-dark rounded-2xl p-10">
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
           Let&apos;s Start Your Malaysia Property Journey
         </h2>
@@ -18,7 +18,7 @@ export function CTASection() {
           href="https://wa.me/60197058001"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-8 py-4 bg-[#25d366] hover:bg-[#20bd5a] text-white font-semibold rounded-full transition-colors duration-200 text-lg"
+          className="inline-flex items-center gap-2 px-8 py-4 glass-button-green text-white font-semibold rounded-full text-lg"
         >
           <svg
             width="24"

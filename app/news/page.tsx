@@ -174,10 +174,10 @@ export default function NewsPage() {
             <button
               key={f.key}
               onClick={() => setActiveFilter(f.key)}
-              className={`px-5 py-2 rounded-full text-sm font-medium border transition-all cursor-pointer ${
+              className={`px-5 py-2 rounded-full text-sm font-medium transition-all cursor-pointer ${
                 activeFilter === f.key
-                  ? 'bg-[#1a1a2e] text-white border-[#1a1a2e]'
-                  : 'bg-white text-gray-500 border-gray-200 hover:text-gray-800 hover:border-gray-300'
+                  ? 'glass-dark text-white'
+                  : 'glass-button text-gray-500 hover:text-gray-800'
               }`}
             >
               {f.label}
@@ -191,12 +191,12 @@ export default function NewsPage() {
             {filteredArticles.map((article) => (
               <div
                 key={article.id}
-                className="bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all cursor-pointer"
+                className="glass-card rounded-2xl overflow-hidden cursor-pointer"
               >
                 {/* Thumbnail */}
                 <div className="w-full aspect-video bg-gradient-to-br from-[#1a1a2e] to-[#2d2d5a] relative flex items-center justify-center">
                   {article.icon}
-                  <span className="absolute top-3 left-3 px-3 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wider bg-[#1a1a2ed9] text-white backdrop-blur-sm">
+                  <span className="glass-pill-dark absolute top-3 left-3 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-white">
                     {article.categoryLabel}
                   </span>
                 </div>
@@ -220,7 +220,7 @@ export default function NewsPage() {
           </div>
         ) : (
           /* Empty state */
-          <div className="text-center py-20 text-gray-500">
+          <div className="glass-card text-center py-20 text-gray-500 rounded-2xl">
             <Newspaper className="w-12 h-12 mx-auto mb-4 text-gray-300" />
             <h3 className="text-xl font-bold text-gray-800 mb-2">Coming Soon</h3>
             <p className="text-sm max-w-md mx-auto">

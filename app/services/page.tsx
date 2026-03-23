@@ -16,7 +16,7 @@ const services = [
   {
     icon: Search,
     title: 'Property Search & Acquisition',
-    color: 'bg-blue-50 text-blue-600',
+    color: 'glass-tint-blue glass-specular text-blue-600',
     items: [
       'New launch priority access',
       'Resale property sourcing',
@@ -29,7 +29,7 @@ const services = [
   {
     icon: Tag,
     title: 'Selling Your Property',
-    color: 'bg-amber-50 text-amber-600',
+    color: 'glass-tint-amber glass-specular text-amber-600',
     items: [
       'Market valuation (AI + comparable analysis)',
       'Professional photography & marketing',
@@ -42,7 +42,7 @@ const services = [
   {
     icon: KeyRound,
     title: 'Rental & Leasing',
-    color: 'bg-green-50 text-green-600',
+    color: 'glass-tint-green glass-specular text-green-600',
     items: [
       'Tenant sourcing & screening',
       'Lease agreement preparation',
@@ -54,7 +54,7 @@ const services = [
   {
     icon: Building2,
     title: 'Property Management',
-    color: 'bg-purple-50 text-purple-600',
+    color: 'glass-tint-purple glass-specular text-purple-600',
     items: [
       'Long-term rental management',
       'Airbnb & short-term rental management',
@@ -67,7 +67,7 @@ const services = [
   {
     icon: Wrench,
     title: 'Renovation & Furnishing',
-    color: 'bg-orange-50 text-orange-600',
+    color: 'glass-tint-amber glass-specular text-orange-600',
     items: [
       'Interior design consultation',
       'Renovation project management',
@@ -79,7 +79,7 @@ const services = [
   {
     icon: Scale,
     title: 'Legal & Compliance',
-    color: 'bg-indigo-50 text-indigo-600',
+    color: 'glass-tint-blue glass-specular text-indigo-600',
     items: [
       'Lawyer coordination',
       'SPA review & explanation',
@@ -91,7 +91,7 @@ const services = [
   {
     icon: Banknote,
     title: 'Financing & Banking',
-    color: 'bg-teal-50 text-teal-600',
+    color: 'glass-tint-green glass-specular text-teal-600',
     items: [
       'Mortgage pre-approval assistance',
       'Bank loan comparison',
@@ -103,7 +103,7 @@ const services = [
   {
     icon: ShieldCheck,
     title: 'Visa & Relocation',
-    color: 'bg-red-50 text-red-600',
+    color: 'glass-tint-red glass-specular text-red-600',
     items: [
       'MM2H application support',
       'DE Rantau (digital nomad visa)',
@@ -115,7 +115,7 @@ const services = [
   {
     icon: Package,
     title: 'Post-Purchase Support',
-    color: 'bg-green-50 text-green-600',
+    color: 'glass-tint-green glass-specular text-green-600',
     items: [
       'Vacant possession & handover',
       'Defect inspection & reporting',
@@ -161,7 +161,7 @@ export default function ServicesPage() {
             return (
               <div
                 key={service.title}
-                className="bg-white border border-[#e8e8ed] rounded-2xl p-7 transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:-translate-y-1"
+                className="glass-card rounded-2xl p-7"
               >
                 <div
                   className={`w-14 h-14 rounded-2xl ${bgClass} ${textClass} flex items-center justify-center mb-4`}
@@ -203,7 +203,7 @@ export default function ServicesPage() {
           <div className="flex items-center justify-center flex-wrap gap-0 md:flex-row flex-col">
             {steps.map((step, i) => (
               <div key={step.num} className="contents">
-                <div className="flex flex-col items-center text-center px-2 min-w-[140px] max-w-[200px]">
+                <div className="glass-card flex flex-col items-center text-center px-2 min-w-[140px] max-w-[200px]">
                   <div className="w-12 h-12 rounded-full bg-[#c9a962] text-[#1a1a2e] text-lg font-extrabold flex items-center justify-center mb-3">
                     {step.num}
                   </div>

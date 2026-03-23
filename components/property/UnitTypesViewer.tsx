@@ -59,7 +59,7 @@ export function UnitTypesViewer({ units }: UnitTypesViewerProps) {
       </div>
 
       {/* Viewer */}
-      <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] border border-border rounded-xl overflow-hidden min-h-[400px]">
+      <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] glass-card rounded-xl overflow-hidden min-h-[400px]">
         {/* Sidebar list */}
         <div className="border-b md:border-b-0 md:border-r border-border max-h-[200px] md:max-h-[500px] overflow-y-auto">
           {filteredUnits.map((unit, i) => (
@@ -68,7 +68,7 @@ export function UnitTypesViewer({ units }: UnitTypesViewerProps) {
               onClick={() => setSelectedIndex(i)}
               className={`px-4 py-3.5 border-b border-border/50 cursor-pointer transition-colors ${
                 selectedIndex === i
-                  ? 'bg-red-50 border-l-[3px] border-l-red-600'
+                  ? 'glass-tint-pink border-l-[3px] border-l-red-600'
                   : 'hover:bg-muted/50'
               }`}
             >

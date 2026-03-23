@@ -175,7 +175,7 @@ export default function RentPage() {
             {/* Owner Card */}
             <div
               onClick={() => selectPath('owner')}
-              className="border-2 border-gray-200 rounded-xl p-8 cursor-pointer hover:border-[#c9a962] hover:-translate-y-1 hover:shadow-lg transition-all flex flex-col"
+              className="glass-card rounded-xl p-8 cursor-pointer flex flex-col"
             >
               <Home className="w-9 h-9 text-[#c9a962] mb-3.5" />
               <div className="text-xl font-extrabold text-[#1a1a2e] mb-1">Property Owner</div>
@@ -211,7 +211,7 @@ export default function RentPage() {
             {/* Tenant Card */}
             <div
               onClick={() => selectPath('tenant')}
-              className="border-2 border-gray-200 rounded-xl p-8 cursor-pointer hover:border-[#c9a962] hover:-translate-y-1 hover:shadow-lg transition-all flex flex-col"
+              className="glass-card rounded-xl p-8 cursor-pointer flex flex-col"
             >
               <Search className="w-9 h-9 text-[#c9a962] mb-3.5" />
               <div className="text-xl font-extrabold text-[#1a1a2e] mb-1">Tenant</div>
@@ -272,10 +272,10 @@ export default function RentPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-9">
                 <div
                   onClick={() => selectLandlordSub('A')}
-                  className={`border-2 rounded-xl p-6 cursor-pointer transition-all ${
+                  className={`glass-card rounded-xl p-6 cursor-pointer transition-all ${
                     landlordSub === 'A'
-                      ? 'border-[#c9a962] bg-[#c9a96208]'
-                      : 'border-gray-200 hover:border-[#c9a962]'
+                      ? 'border-2 border-[#c9a962]'
+                      : ''
                   }`}
                 >
                   <h4 className="text-base font-bold text-[#1a1a2e] mb-2 flex items-center gap-2">
@@ -297,10 +297,10 @@ export default function RentPage() {
                 </div>
                 <div
                   onClick={() => selectLandlordSub('B')}
-                  className={`border-2 rounded-xl p-6 cursor-pointer transition-all ${
+                  className={`glass-card rounded-xl p-6 cursor-pointer transition-all ${
                     landlordSub === 'B'
-                      ? 'border-[#c9a962] bg-[#c9a96208]'
-                      : 'border-gray-200 hover:border-[#c9a962]'
+                      ? 'border-2 border-[#c9a962]'
+                      : ''
                   }`}
                 >
                   <h4 className="text-base font-bold text-[#1a1a2e] mb-2 flex items-center gap-2">
@@ -365,7 +365,7 @@ export default function RentPage() {
                       value={llForm.propName}
                       onChange={(e) => updateLl('propName', e.target.value)}
                       placeholder="e.g. R&F Princess Cove"
-                      className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                      className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
                     />
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
@@ -378,7 +378,7 @@ export default function RentPage() {
                         value={llForm.unitNum}
                         onChange={(e) => updateLl('unitNum', e.target.value)}
                         placeholder="e.g. A-12-05"
-                        className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                        className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
                       />
                     </div>
                     <div>
@@ -390,7 +390,7 @@ export default function RentPage() {
                         value={llForm.builtUp}
                         onChange={(e) => updateLl('builtUp', e.target.value)}
                         placeholder="e.g. 850"
-                        className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                        className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
                       />
                     </div>
                   </div>
@@ -402,7 +402,7 @@ export default function RentPage() {
                       <select
                         value={llForm.beds}
                         onChange={(e) => updateLl('beds', e.target.value)}
-                        className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                        className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
                       >
                         <option>Studio</option>
                         <option>1</option>
@@ -419,7 +419,7 @@ export default function RentPage() {
                       <select
                         value={llForm.baths}
                         onChange={(e) => updateLl('baths', e.target.value)}
-                        className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                        className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
                       >
                         <option>1</option>
                         <option>2</option>
@@ -465,7 +465,7 @@ export default function RentPage() {
                         value={llForm.area}
                         onChange={(e) => updateLl('area', e.target.value)}
                         placeholder="e.g. Bukit Chagar"
-                        className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                        className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
                       />
                     </div>
                     <div>
@@ -477,7 +477,7 @@ export default function RentPage() {
                         value={llForm.address}
                         onChange={(e) => updateLl('address', e.target.value)}
                         placeholder="Full property address"
-                        className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                        className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
                       />
                     </div>
                   </div>
@@ -496,7 +496,7 @@ export default function RentPage() {
                         value={llForm.rent}
                         onChange={(e) => updateLl('rent', e.target.value)}
                         placeholder="e.g. 2,500"
-                        className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                        className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
                       />
                     </div>
                     <div>
@@ -507,7 +507,7 @@ export default function RentPage() {
                         type="date"
                         value={llForm.availDate}
                         onChange={(e) => updateLl('availDate', e.target.value)}
-                        className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                        className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
                       />
                     </div>
                   </div>
@@ -589,7 +589,7 @@ export default function RentPage() {
                       value={llForm.name}
                       onChange={(e) => updateLl('name', e.target.value)}
                       placeholder="Full name"
-                      className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                      className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
                     />
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
@@ -602,7 +602,7 @@ export default function RentPage() {
                         value={llForm.phone}
                         onChange={(e) => updateLl('phone', e.target.value)}
                         placeholder="+65 or +60"
-                        className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                        className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
                       />
                     </div>
                     <div>
@@ -614,7 +614,7 @@ export default function RentPage() {
                         value={llForm.email}
                         onChange={(e) => updateLl('email', e.target.value)}
                         placeholder="your@email.com"
-                        className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                        className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
                       />
                     </div>
                   </div>
@@ -622,7 +622,7 @@ export default function RentPage() {
                   <div className="flex justify-center mt-8">
                     <button
                       onClick={() => setLandlordSubmitted(true)}
-                      className="py-3 px-6 rounded-lg bg-emerald-600 text-white text-sm font-semibold hover:bg-emerald-700 transition-colors max-w-[320px] w-full"
+                      className="glass-button-green py-3 px-6 rounded-lg text-sm font-semibold transition-colors max-w-[320px] w-full"
                     >
                       Submit Rental Request
                     </button>
@@ -733,7 +733,7 @@ export default function RentPage() {
                       value={tForm.area}
                       onChange={(e) => updateT('area', e.target.value)}
                       placeholder="e.g. Bukit Chagar, Danga Bay"
-                      className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                      className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
                     />
                   </div>
                   <div className="mb-5">
@@ -857,7 +857,7 @@ export default function RentPage() {
                       value={tForm.name}
                       onChange={(e) => updateT('name', e.target.value)}
                       placeholder="Full name"
-                      className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                      className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
                     />
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
@@ -870,7 +870,7 @@ export default function RentPage() {
                         value={tForm.phone}
                         onChange={(e) => updateT('phone', e.target.value)}
                         placeholder="+65 or +60"
-                        className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                        className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
                       />
                     </div>
                     <div>
@@ -882,7 +882,7 @@ export default function RentPage() {
                         value={tForm.email}
                         onChange={(e) => updateT('email', e.target.value)}
                         placeholder="your@email.com"
-                        className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                        className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
                       />
                     </div>
                   </div>
@@ -898,7 +898,7 @@ export default function RentPage() {
                       value={tForm.nationality}
                       onChange={(e) => updateT('nationality', e.target.value)}
                       placeholder="e.g. Singaporean, Malaysian, British"
-                      className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                      className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
                     />
                   </div>
                   <div className="mb-5">
@@ -910,7 +910,7 @@ export default function RentPage() {
                       value={tForm.special}
                       onChange={(e) => updateT('special', e.target.value)}
                       placeholder="e.g. ground floor preferred, near MRT, pet-friendly building..."
-                      className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors resize-y min-h-[80px]"
+                      className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors resize-y min-h-[80px]"
                     />
                   </div>
                   <div className="flex gap-3 mt-8">
@@ -922,7 +922,7 @@ export default function RentPage() {
                     </button>
                     <button
                       onClick={() => setTenantSubmitted(true)}
-                      className="flex-1 py-3 px-6 rounded-lg bg-emerald-600 text-white text-sm font-semibold hover:bg-emerald-700 transition-colors"
+                      className="glass-button-green flex-1 py-3 px-6 rounded-lg text-sm font-semibold transition-colors"
                     >
                       Submit Request
                     </button>

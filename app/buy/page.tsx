@@ -134,11 +134,11 @@ function BuyPageContent() {
       </section>
 
       {/* Filter Bar */}
-      <div className="sticky top-16 z-[90] bg-white border-b border-gray-200 px-5 md:px-[clamp(20px,5vw,60px)] py-3.5 flex flex-wrap gap-2.5 items-center">
+      <div className="sticky top-16 z-[90] glass-heavy border-b border-gray-200 px-5 md:px-[clamp(20px,5vw,60px)] py-3.5 flex flex-wrap gap-2.5 items-center">
         <select
           value={city}
           onChange={(e) => handleCityChange(e.target.value)}
-          className="h-[38px] px-3 border border-[#c9a962] rounded-lg font-inherit text-[13px] text-gray-700 bg-white cursor-pointer font-semibold focus:outline-none focus:border-[#c9a962]"
+          className="glass-input h-[38px] px-3 rounded-lg font-inherit text-[13px] text-gray-700 cursor-pointer font-semibold focus:outline-none focus:border-[#c9a962]"
         >
           <option value="">All Cities</option>
           <option value="johor-bahru">Johor Bahru</option>
@@ -149,7 +149,7 @@ function BuyPageContent() {
         <select
           value={area}
           onChange={(e) => setArea(e.target.value)}
-          className="h-[38px] px-3 border border-gray-300 rounded-lg font-inherit text-[13px] text-gray-700 bg-white cursor-pointer focus:outline-none focus:border-[#c9a962]"
+          className="glass-input h-[38px] px-3 rounded-lg font-inherit text-[13px] text-gray-700 cursor-pointer focus:outline-none focus:border-[#c9a962]"
         >
           <option value="">All Areas</option>
           {areaOptions.map((a) => (
@@ -162,7 +162,7 @@ function BuyPageContent() {
         <select
           value={status}
           onChange={(e) => setStatus(e.target.value)}
-          className="h-[38px] px-3 border border-gray-300 rounded-lg font-inherit text-[13px] text-gray-700 bg-white cursor-pointer focus:outline-none focus:border-[#c9a962]"
+          className="glass-input h-[38px] px-3 rounded-lg font-inherit text-[13px] text-gray-700 cursor-pointer focus:outline-none focus:border-[#c9a962]"
         >
           <option value="">All Status</option>
           <option value="completed">Completed</option>
@@ -173,7 +173,7 @@ function BuyPageContent() {
         <select
           value={tenure}
           onChange={(e) => setTenure(e.target.value)}
-          className="h-[38px] px-3 border border-gray-300 rounded-lg font-inherit text-[13px] text-gray-700 bg-white cursor-pointer focus:outline-none focus:border-[#c9a962]"
+          className="glass-input h-[38px] px-3 rounded-lg font-inherit text-[13px] text-gray-700 cursor-pointer focus:outline-none focus:border-[#c9a962]"
         >
           <option value="">All Tenure</option>
           <option value="freehold">Freehold</option>
@@ -185,12 +185,12 @@ function BuyPageContent() {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search property name..."
-          className="h-[38px] px-3 min-w-[160px] border border-gray-300 rounded-lg font-inherit text-[13px] text-gray-700 bg-white focus:outline-none focus:border-[#c9a962]"
+          className="glass-input h-[38px] px-3 min-w-[160px] rounded-lg font-inherit text-[13px] text-gray-700 focus:outline-none focus:border-[#c9a962]"
         />
 
         <button
           onClick={clearFilters}
-          className="h-[38px] px-4 border-none rounded-lg bg-gray-100 text-gray-500 font-inherit text-[13px] font-medium cursor-pointer transition-all duration-200 hover:bg-gray-200 hover:text-gray-700"
+          className="glass-button h-[38px] px-4 rounded-lg text-gray-500 font-inherit text-[13px] font-medium cursor-pointer transition-all duration-200 hover:text-gray-700"
         >
           Clear Filters
         </button>
@@ -242,7 +242,7 @@ function PropertyCard({ property }: { property: PropertyListing }) {
   return (
     <Link
       href={`/properties/${property.slug}`}
-      className="group block bg-white rounded-xl overflow-hidden border border-gray-200 transition-all duration-[0.25s] ease-[cubic-bezier(.4,0,.2,1)] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.1)] no-underline text-inherit"
+      className="glass-card group block rounded-xl overflow-hidden no-underline text-inherit"
     >
       {/* Card Image */}
       <div className="relative aspect-[16/10]">

@@ -13,7 +13,7 @@ interface PhaseSelectorProps {
 
 export function PhaseSelector({ phases, activePhase }: PhaseSelectorProps) {
   return (
-    <div className="flex gap-0 max-w-[1200px] mx-auto px-[clamp(20px,5vw,60px)] border-b-2 border-border overflow-x-auto">
+    <div className="flex gap-0 max-w-[1200px] mx-auto px-[clamp(20px,5vw,60px)] border-b-2 border-border overflow-x-auto glass">
       {phases.map((phase) => {
         const isActive = phase.key === activePhase;
         const baseClasses =

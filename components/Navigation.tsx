@@ -53,8 +53,8 @@ export function Navigation() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#1a1a2e]/95 backdrop-blur-xl shadow-lg'
-          : 'bg-[#1a1a2e]/80 backdrop-blur-md'
+          ? 'glass-dark-heavy'
+          : 'glass-dark'
       }`}
     >
       <nav className="flex items-center justify-between h-16 px-[clamp(16px,4vw,48px)] max-w-[1400px] mx-auto">
@@ -93,7 +93,7 @@ export function Navigation() {
               <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${isLangOpen ? 'rotate-180' : ''}`} />
             </button>
             {isLangOpen && (
-              <div className="absolute right-0 top-full mt-2 bg-[#1a1a2e] border border-white/10 rounded-lg shadow-xl py-1 min-w-[100px] z-50">
+              <div className="absolute right-0 top-full mt-2 glass-dark rounded-lg py-1 min-w-[100px] z-50">
                 {languages.map((lang) => (
                   <button
                     key={lang.code}
@@ -119,7 +119,7 @@ export function Navigation() {
             href="https://wa.me/60197058001"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-5 py-2 rounded-full text-sm font-semibold bg-[#25d366] text-white hover:bg-[#20bd5a] transition-colors duration-200"
+            className="px-5 py-2 rounded-full text-sm font-semibold glass-button-green text-white"
           >
             WhatsApp Us
           </a>
@@ -137,7 +137,7 @@ export function Navigation() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="lg:hidden bg-[#1a1a2e] border-t border-white/10 overflow-hidden">
+        <div className="lg:hidden glass-dark-heavy border-t border-white/10 overflow-hidden">
           <div className="px-5 py-4 flex flex-col gap-1">
             {navLinks.map((link) => (
               <Link
@@ -175,7 +175,7 @@ export function Navigation() {
               href="https://wa.me/60197058001"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#25d366] text-white text-center py-3 rounded-full font-semibold mt-3"
+              className="glass-button-green text-white text-center py-3 rounded-full font-semibold mt-3"
             >
               WhatsApp Us
             </a>

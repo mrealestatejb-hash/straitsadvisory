@@ -21,7 +21,7 @@ export function ConnectivitySection({ toSingapore, withinJB }: ConnectivitySecti
       <h2 className="text-xl font-extrabold text-foreground mb-5">Connectivity</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {/* To Singapore */}
-        <div className="rounded-[14px] p-5 bg-gradient-to-br from-red-50 to-red-100 border border-red-200">
+        <div className="glass-card glass-tint-red rounded-[14px] p-5">
           <div className="flex items-center gap-2 mb-3.5 text-[15px] font-bold text-foreground">
             <Globe className="w-5 h-5" />
             To Singapore
@@ -38,7 +38,7 @@ export function ConnectivitySection({ toSingapore, withinJB }: ConnectivitySecti
         </div>
 
         {/* Within JB */}
-        <div className="rounded-[14px] p-5 bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200">
+        <div className="glass-card glass-tint-blue rounded-[14px] p-5">
           <div className="flex items-center gap-2 mb-3.5 text-[15px] font-bold text-foreground">
             <Globe className="w-5 h-5" />
             Within JB

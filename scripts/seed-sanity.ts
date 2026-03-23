@@ -93,7 +93,7 @@ const properties = [
     ],
     towers: ['A1', 'A2', 'A3', 'A3A', 'A5', 'A6', 'A7'],
     address: 'Jalan Tanjung Puteri, 80300 Johor Bahru',
-    coordinates: { _type: 'geopoint', lat: 1.4631, lng: 103.7644 },
+    coordinates: { _type: 'geopoint', lat: 1.4588, lng: 103.7694 },
     tourUrl: 'https://infishow.ideamake.cn/icp/xinshanguojicheng_10418/weishapanfuzhi_10.html',
     tourProvider: 'generic',
   },
@@ -138,7 +138,7 @@ const properties = [
     ],
     towers: ['B1', 'B2', 'B3', 'B3A'],
     address: 'Jalan Tanjung Puteri, 80300 Johor Bahru',
-    coordinates: { _type: 'geopoint', lat: 1.4631, lng: 103.7644 },
+    coordinates: { _type: 'geopoint', lat: 1.4588, lng: 103.7694 },
     tourUrl: 'https://infishow.ideamake.cn/icp/xinshanguojicheng_10418/weishapanfuzhi_10.html',
     tourProvider: 'generic',
   },
@@ -169,7 +169,7 @@ const properties = [
     unitTypes: [],
     towers: [],
     address: 'Jalan Tanjung Puteri, 80300 Johor Bahru',
-    coordinates: { _type: 'geopoint', lat: 1.4631, lng: 103.7644 },
+    coordinates: { _type: 'geopoint', lat: 1.4588, lng: 103.7694 },
   },
 ];
 

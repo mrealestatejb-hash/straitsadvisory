@@ -20,11 +20,11 @@ interface KeyInfoRowProps {
 
 export function KeyInfoRow({ items }: KeyInfoRowProps) {
   return (
-    <div className="flex flex-wrap border border-border rounded-xl overflow-hidden mb-2">
+    <div className="flex flex-wrap glass-card rounded-xl overflow-hidden mb-2">
       {items.map((item, i) => (
         <div
           key={i}
-          className="flex-1 min-w-[100px] px-3 py-4 text-center border-r border-border last:border-r-0 flex flex-col items-center gap-1"
+          className="flex-1 min-w-[100px] px-3 py-4 text-center border-r border-white/20 last:border-r-0 flex flex-col items-center gap-1"
         >
           {iconMap[item.icon] || <FileText className="w-[22px] h-[22px] text-muted-foreground" />}
           <span className="text-base font-bold text-foreground">{item.value}</span>

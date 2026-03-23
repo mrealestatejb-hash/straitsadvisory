@@ -84,7 +84,7 @@ export function PropertyGallery({ images }: PropertyGalleryProps) {
         {/* Photo count badge */}
         <button
           onClick={() => openLightbox(0)}
-          className="absolute bottom-4 right-4 z-5 bg-black/70 backdrop-blur-sm text-white px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-1.5 hover:bg-black/85 transition-colors border-none cursor-pointer"
+          className="absolute bottom-4 right-4 z-5 glass-dark text-white px-4 py-2 rounded-lg text-sm font-semibold flex items-center gap-1.5 hover:opacity-90 transition-all border-none cursor-pointer"
         >
           <Camera className="w-4 h-4" />
           {displayImages.length} Photos
@@ -109,13 +109,13 @@ export function PropertyGallery({ images }: PropertyGalleryProps) {
               <>
                 <button
                   onClick={prevImage}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/50 hover:bg-black/70 text-white flex items-center justify-center transition-colors"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full glass-dark text-white flex items-center justify-center transition-all hover:opacity-90"
                 >
                   <ChevronLeft className="w-6 h-6" />
                 </button>
                 <button
                   onClick={nextImage}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/50 hover:bg-black/70 text-white flex items-center justify-center transition-colors"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full glass-dark text-white flex items-center justify-center transition-all hover:opacity-90"
                 >
                   <ChevronRight className="w-6 h-6" />
                 </button>

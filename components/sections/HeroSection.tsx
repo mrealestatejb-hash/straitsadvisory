@@ -45,20 +45,22 @@ export function HeroSection({ badge, title, subtitle, goldText }: HeroSectionPro
 
       <div className="relative max-w-[900px] mx-auto text-center">
         {badge && (
-          <span className="inline-block px-4 py-1.5 mb-6 text-xs font-semibold uppercase tracking-wider text-[#c9a962] border border-[#c9a962]/40 rounded-full">
+          <span className="inline-block px-4 py-1.5 mb-6 text-xs font-semibold uppercase tracking-wider text-[#c9a962] glass-pill">
             {badge}
           </span>
         )}
 
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-          {renderTitle()}
-        </h1>
+        <div className="glass-dark rounded-2xl p-8">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+            {renderTitle()}
+          </h1>
 
-        {subtitle && (
-          <p className="text-lg md:text-xl text-white/65 max-w-[600px] mx-auto leading-relaxed">
-            {subtitle}
-          </p>
-        )}
+          {subtitle && (
+            <p className="text-lg md:text-xl text-white/65 max-w-[600px] mx-auto leading-relaxed">
+              {subtitle}
+            </p>
+          )}
+        </div>
       </div>
     </section>
   );

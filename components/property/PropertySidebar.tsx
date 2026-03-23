@@ -32,10 +32,10 @@ export function PropertySidebar({
 
   return (
     <div className="sticky top-20">
-      <div className="border border-border rounded-xl p-6 bg-white shadow-sm">
+      <div className="glass-card rounded-xl p-6">
         {/* Developer info */}
         <div className="flex items-center gap-3.5 mb-5">
-          <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#1a1a2e] to-[#2d2d5e] flex items-center justify-center text-[22px] text-white font-extrabold flex-shrink-0">
+          <div className="w-14 h-14 rounded-xl glass-dark flex items-center justify-center text-[22px] text-white font-extrabold flex-shrink-0">
             {devAbbrev}
           </div>
           <div>
@@ -51,7 +51,7 @@ export function PropertySidebar({
           href={`https://wa.me/${whatsappNumber}?text=${waMessage}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 w-full py-3.5 px-5 rounded-[10px] bg-[#25d366] text-white text-[15px] font-bold hover:bg-[#1ebe5d] hover:-translate-y-px hover:shadow-lg hover:shadow-green-500/30 transition-all mb-2.5"
+          className="flex items-center justify-center gap-2 w-full py-3.5 px-5 rounded-[10px] glass-button-green text-[15px] font-bold hover:-translate-y-px transition-all mb-2.5"
         >
           <svg
             viewBox="0 0 24 24"
@@ -69,7 +69,7 @@ export function PropertySidebar({
           href={`https://wa.me/${whatsappNumber}?text=${enquiryMessage}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center w-full py-3 px-5 rounded-[10px] bg-white text-[#1a1a2e] text-sm font-semibold border-2 border-[#1a1a2e] hover:bg-[#1a1a2e] hover:text-white transition-all mb-4"
+          className="flex items-center justify-center w-full py-3 px-5 rounded-[10px] glass-button text-[#1a1a2e] text-sm font-semibold hover:bg-[#1a1a2e] hover:text-white transition-all mb-4"
         >
           Enquire Now
         </a>

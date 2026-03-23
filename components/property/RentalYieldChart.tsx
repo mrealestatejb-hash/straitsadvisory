@@ -26,7 +26,7 @@ export function RentalYieldChart({ data, subtitle }: RentalYieldChartProps) {
 
   return (
     <div className="py-8 border-b border-border">
-      <div className="bg-white border border-border rounded-2xl p-7 overflow-hidden">
+      <div className="glass-card rounded-2xl p-7 overflow-hidden">
         {/* Header */}
         <div className="flex justify-between items-start mb-6 gap-4">
           <div>
@@ -73,7 +73,7 @@ export function RentalYieldChart({ data, subtitle }: RentalYieldChartProps) {
         </div>
 
         {/* Growth insight */}
-        <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-xl p-4 flex items-center gap-3.5 mt-4">
+        <div className="glass-tint-green rounded-xl p-4 flex items-center gap-3.5 mt-4">
           <div className="w-10 h-10 rounded-[10px] bg-emerald-600 flex items-center justify-center flex-shrink-0">
             <TrendingUp className="w-5 h-5 text-white" />
           </div>

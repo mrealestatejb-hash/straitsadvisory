@@ -209,7 +209,7 @@ export default function SellPage() {
         ].map((card) => (
           <div
             key={card.title}
-            className="text-center p-8 rounded-xl border border-gray-200 hover:-translate-y-1 hover:shadow-lg transition-all"
+            className="glass-card text-center p-8 rounded-xl"
           >
             <div className="flex justify-center mb-4">{card.icon}</div>
             <h3 className="text-base font-bold text-[#1a1a2e] mb-2">{card.title}</h3>
@@ -278,7 +278,7 @@ export default function SellPage() {
                     value={form.propName}
                     onChange={(e) => updateForm('propName', e.target.value)}
                     placeholder="e.g. R&F Princess Cove"
-                    className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                    className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
                   />
                 </div>
                 <div className="mb-5">
@@ -290,7 +290,7 @@ export default function SellPage() {
                     value={form.unitNum}
                     onChange={(e) => updateForm('unitNum', e.target.value)}
                     placeholder="e.g. A-12-05"
-                    className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                    className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
                   />
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
@@ -303,7 +303,7 @@ export default function SellPage() {
                       value={form.builtUp}
                       onChange={(e) => updateForm('builtUp', e.target.value)}
                       placeholder="e.g. 850"
-                      className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                      className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
                     />
                   </div>
                   <div>
@@ -313,7 +313,7 @@ export default function SellPage() {
                     <select
                       value={form.bedrooms}
                       onChange={(e) => updateForm('bedrooms', e.target.value)}
-                      className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                      className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
                     >
                       <option>Studio</option>
                       <option>1</option>
@@ -332,7 +332,7 @@ export default function SellPage() {
                     <select
                       value={form.bathrooms}
                       onChange={(e) => updateForm('bathrooms', e.target.value)}
-                      className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                      className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
                     >
                       <option>1</option>
                       <option>2</option>
@@ -347,7 +347,7 @@ export default function SellPage() {
                     <select
                       value={form.furnished}
                       onChange={(e) => updateForm('furnished', e.target.value)}
-                      className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                      className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
                     >
                       <option>Unfurnished</option>
                       <option>Partially Furnished</option>
@@ -388,7 +388,7 @@ export default function SellPage() {
                     value={form.area}
                     onChange={(e) => updateForm('area', e.target.value)}
                     placeholder="e.g. Bukit Chagar, Iskandar Puteri"
-                    className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                    className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
                   />
                 </div>
                 <div className="mb-5">
@@ -399,7 +399,7 @@ export default function SellPage() {
                     value={form.address}
                     onChange={(e) => updateForm('address', e.target.value)}
                     placeholder="Full property address"
-                    className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors resize-y min-h-[80px]"
+                    className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors resize-y min-h-[80px]"
                   />
                 </div>
                 <div className="flex gap-3 mt-8">
@@ -431,7 +431,7 @@ export default function SellPage() {
                     value={form.askPrice}
                     onChange={(e) => updateForm('askPrice', e.target.value)}
                     placeholder="e.g. 500,000"
-                    className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                    className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
                   />
                 </div>
                 <div className="mb-5">
@@ -492,7 +492,7 @@ export default function SellPage() {
                     value={form.contactName}
                     onChange={(e) => updateForm('contactName', e.target.value)}
                     placeholder="Full name"
-                    className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                    className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
                   />
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
@@ -505,7 +505,7 @@ export default function SellPage() {
                       value={form.contactPhone}
                       onChange={(e) => updateForm('contactPhone', e.target.value)}
                       placeholder="+65 or +60"
-                      className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                      className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
                     />
                   </div>
                   <div>
@@ -515,7 +515,7 @@ export default function SellPage() {
                       value={form.contactEmail}
                       onChange={(e) => updateForm('contactEmail', e.target.value)}
                       placeholder="your@email.com"
-                      className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                      className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
                     />
                   </div>
                 </div>
@@ -537,7 +537,7 @@ export default function SellPage() {
                   <select
                     value={form.bestTime}
                     onChange={(e) => updateForm('bestTime', e.target.value)}
-                    className="w-full px-3.5 py-2.5 border border-gray-300 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
+                    className="glass-input w-full px-3.5 py-2.5 rounded-lg text-sm text-gray-700 focus:outline-none focus:border-[#c9a962] transition-colors"
                   >
                     <option>Morning (9am - 12pm)</option>
                     <option>Afternoon (12pm - 5pm)</option>
@@ -640,7 +640,7 @@ export default function SellPage() {
             {currentStep === 6 && (
               <div>
                 <h3 className="text-lg font-bold text-[#1a1a2e] mb-4">Review Your Details</h3>
-                <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
+                <div className="glass-card rounded-xl p-6">
                   {summaryRows.map(([label, value], i) => (
                     <div
                       key={label}
@@ -664,7 +664,7 @@ export default function SellPage() {
                   </button>
                   <button
                     onClick={() => setSubmitted(true)}
-                    className="flex-1 py-3 px-6 rounded-lg bg-emerald-600 text-white text-sm font-semibold hover:bg-emerald-700 transition-colors"
+                    className="glass-button-green flex-1 py-3 px-6 rounded-lg text-sm font-semibold transition-colors"
                   >
                     Submit Valuation Request
                   </button>
