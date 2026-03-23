@@ -24,7 +24,7 @@ const RECOMMENDED = [
     name: 'R&F Princess Cove',
     location: 'Bukit Chagar, JB',
     price: 'From RM350,000',
-    image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&h=360&fit=crop',
+    image: '/images/properties/rf-princess-cove-overview/743701219.jpg',
     href: '/properties/rf-princess-cove',
     statusBadge: 'Completed',
     tenureBadge: 'Freehold',
