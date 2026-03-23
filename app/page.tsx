@@ -61,7 +61,14 @@ function VideoHero() {
         loop
         playsInline
         preload="auto"
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute w-full h-full object-cover"
+        style={{
+          top: '-8%',
+          left: '-2%',
+          width: '104%',
+          height: '116%',
+          objectPosition: 'center 30%',
+        }}
       />
       {/* Gradient overlay */}
       <div
