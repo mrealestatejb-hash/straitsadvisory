@@ -8,9 +8,11 @@ export function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2.5 mb-4">
-              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                <rect width="28" height="28" rx="6" fill="#c9a962" />
-                <path d="M8 14h12M14 8v12" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" />
+              <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+                <rect width="32" height="32" rx="8" fill="#0474C4" />
+                <path d="M6 13c2.5-3 5-3 7.5 0s5 3 7.5 0 5-3 7.5 0" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" fill="none" opacity="1" />
+                <path d="M6 17c2.5-3 5-3 7.5 0s5 3 7.5 0 5-3 7.5 0" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" fill="none" opacity="0.55" />
+                <path d="M6 21c2.5-3 5-3 7.5 0s5 3 7.5 0 5-3 7.5 0" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" fill="none" opacity="0.3" />
               </svg>
               <h3 className="text-lg font-bold">Straits Advisory</h3>
             </div>
