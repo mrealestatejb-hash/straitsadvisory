@@ -46,3 +46,4 @@ prisma/dev.db-journal
 nul
 dev.db
 .claude/
+.backup/
