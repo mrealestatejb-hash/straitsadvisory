@@ -67,10 +67,8 @@ export function LocationMap({ coordinates, propertyName, nearbyPOIs }: LocationM
 
     let cancelled = false;
 
-    import('maplibre-gl').then((mod) => {
+    import('maplibre-gl').then((maplibregl) => {
       if (cancelled || !mapContainer.current) return;
-
-      const maplibregl = mod.default;
 
       const map = new maplibregl.Map({
         container: mapContainer.current,
