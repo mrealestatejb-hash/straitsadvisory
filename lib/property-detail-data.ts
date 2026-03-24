@@ -87,6 +87,15 @@ const phase3Units: DetailedUnitType[] = [
   { name: 'Type D3/D3(M)', beds: 3, baths: 3, size: '1,141 sqft', img: '/brochure/floorplans/3br_type_d3.png', furnishing: 'Unfurnished' },
   { name: 'Type D2/D2(M)', beds: 3, baths: 3, size: '1,275 sqft', img: '/brochure/floorplans/3br_type_d2.png', furnishing: 'Unfurnished' },
   { name: 'Type E/E(M)', beds: 4, baths: 3, size: '1,555 sqft', img: '/brochure/floorplans/4br_type_e.png', furnishing: 'Unfurnished' },
+  // Penthouse units
+  { name: 'Type P1', beds: 5, baths: 5, size: '2,796 sqft', img: '/brochure/floorplans/penthouse_type_p1.png', furnishing: 'Unfurnished' },
+  { name: 'Type P1a', beds: 5, baths: 5, size: '2,796 sqft', img: '/brochure/floorplans/penthouse_type_p1a.png', furnishing: 'Unfurnished' },
+  { name: 'Type P2', beds: 5, baths: 5, size: '2,796 sqft', img: '/brochure/floorplans/penthouse_type_p2.png', furnishing: 'Unfurnished' },
+  { name: 'Type P2a', beds: 5, baths: 5, size: '2,796 sqft', img: '/brochure/floorplans/penthouse_type_p2a.png', furnishing: 'Unfurnished' },
+  { name: 'Type P3', beds: 5, baths: 5, size: '3,006 sqft', img: '/brochure/floorplans/penthouse_type_p3.png', furnishing: 'Unfurnished' },
+  { name: 'Type P3a', beds: 5, baths: 5, size: '3,006 sqft', img: '/brochure/floorplans/penthouse_type_p3a.png', furnishing: 'Unfurnished' },
+  { name: 'Type P4', beds: 5, baths: 5, size: '2,719 sqft', img: '/brochure/floorplans/penthouse_type_p4.png', furnishing: 'Unfurnished' },
+  { name: 'Type P4a', beds: 5, baths: 5, size: '2,719 sqft', img: '/brochure/floorplans/penthouse_type_p4a.png', furnishing: 'Unfurnished' },
 ];
 
 const phase3Facilities: Record<string, FacilityItem[]> = {

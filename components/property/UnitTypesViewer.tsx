@@ -53,7 +53,7 @@ export function UnitTypesViewer({ units }: UnitTypesViewerProps) {
                 : 'text-muted-foreground border-transparent hover:text-foreground'
             }`}
           >
-            {beds} Bedroom{beds > 1 ? 's' : ''}
+            {beds >= 5 ? 'Penthouse' : `${beds} Bedroom${beds > 1 ? 's' : ''}`}
           </button>
         ))}
       </div>
