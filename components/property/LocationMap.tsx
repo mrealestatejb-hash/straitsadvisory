@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { Train, Bus, GraduationCap, Hospital, ShoppingBag } from 'lucide-react';
+import { Train, GraduationCap, Hospital, ShoppingBag } from 'lucide-react';
 
 interface LocationMapProps {
   coordinates: [number, number];
@@ -49,7 +49,6 @@ export function LocationMap({ coordinates, propertyName }: LocationMapProps) {
     if (!mapDiv.current || mapReady.current) return;
     mapReady.current = true;
 
-    // Load MapLibre via script tag — proven stable approach
     const link = document.createElement('link');
     link.rel = 'stylesheet';
     link.href = 'https://unpkg.com/maplibre-gl@4.1.2/dist/maplibre-gl.css';
@@ -76,97 +75,119 @@ export function LocationMap({ coordinates, propertyName }: LocationMapProps) {
       map.addControl(new ml.NavigationControl({ showCompass: false }), 'top-right');
 
       map.on('load', () => {
-        // ─── Property point (rendered as WebGL circle, NOT DOM) ───
-        map.addSource('property', {
-          type: 'geojson',
-          data: {
-            type: 'Feature',
-            geometry: { type: 'Point', coordinates: coordinates },
-            properties: { name: propertyName },
-          },
-        });
-        map.addLayer({
-          id: 'property-circle',
-          type: 'circle',
-          source: 'property',
-          paint: {
-            'circle-radius': 10,
-            'circle-color': '#243C4C',
-            'circle-stroke-width': 3,
-            'circle-stroke-color': '#ffffff',
-          },
-        });
+        // Load pin images
+        const pinImages = [
+          { id: 'pin-property', url: '/images/markers/pin-property.png' },
+          { id: 'pin-transit', url: '/images/markers/pin-transit.png' },
+          { id: 'pin-shopping', url: '/images/markers/pin-shopping.png' },
+          { id: 'pin-hospital', url: '/images/markers/pin-hospital.png' },
+          { id: 'pin-school', url: '/images/markers/pin-school.png' },
+        ];
 
-        // ─── POI points (rendered as WebGL circles) ───
-        const poiFeatures = POIS.map(poi => ({
-          type: 'Feature' as const,
-          geometry: { type: 'Point' as const, coordinates: [poi.lng, poi.lat] },
-          properties: { name: poi.name, cat: poi.cat, dist: poi.dist, color: CAT_COLORS[poi.cat] || '#5289AD' },
-        }));
-
-        map.addSource('pois', {
-          type: 'geojson',
-          data: { type: 'FeatureCollection', features: poiFeatures },
+        let loaded = 0;
+        pinImages.forEach(pin => {
+          map.loadImage(pin.url, (err: any, image: any) => {
+            if (!err && image) {
+              map.addImage(pin.id, image);
+            }
+            loaded++;
+            if (loaded === pinImages.length) {
+              addLayers();
+            }
+          });
         });
 
-        map.addLayer({
-          id: 'poi-circles',
-          type: 'circle',
-          source: 'pois',
-          paint: {
-            'circle-radius': 7,
-            'circle-color': ['get', 'color'],
-            'circle-stroke-width': 2,
-            'circle-stroke-color': '#ffffff',
-          },
-        });
+        function addLayers() {
+          // Property marker
+          map.addSource('property', {
+            type: 'geojson',
+            data: {
+              type: 'Feature',
+              geometry: { type: 'Point', coordinates: coordinates },
+              properties: { name: propertyName },
+            },
+          });
+          map.addLayer({
+            id: 'property-pin',
+            type: 'symbol',
+            source: 'property',
+            layout: {
+              'icon-image': 'pin-property',
+              'icon-size': 0.8,
+              'icon-anchor': 'bottom',
+              'icon-allow-overlap': true,
+            },
+          });
 
-        // ─── Popup on click (not hover — avoids flicker) ───
-        const popup = new ml.Popup({ closeButton: false, closeOnClick: true, offset: 12 });
+          // POI markers
+          const poiFeatures = POIS.map(poi => ({
+            type: 'Feature' as const,
+            geometry: { type: 'Point' as const, coordinates: [poi.lng, poi.lat] },
+            properties: {
+              name: poi.name,
+              cat: poi.cat,
+              dist: poi.dist,
+              pinImage: `pin-${poi.cat}`,
+            },
+          }));
 
-        map.on('click', 'poi-circles', (e: any) => {
-          const feat = e.features[0];
-          popup
-            .setLngLat(feat.geometry.coordinates)
-            .setHTML(`<div style="font-family:Inter,sans-serif;padding:2px 4px"><strong style="font-size:13px">${feat.properties.name}</strong><br/><span style="font-size:12px;color:#5289AD">${feat.properties.dist}</span></div>`)
-            .addTo(map);
-        });
+          map.addSource('pois', {
+            type: 'geojson',
+            data: { type: 'FeatureCollection', features: poiFeatures },
+          });
 
-        map.on('click', 'property-circle', () => {
-          popup
-            .setLngLat(coordinates)
-            .setHTML(`<div style="font-family:Inter,sans-serif;padding:2px 4px"><strong style="font-size:14px">${propertyName}</strong></div>`)
-            .addTo(map);
-        });
+          map.addLayer({
+            id: 'poi-pins',
+            type: 'symbol',
+            source: 'pois',
+            layout: {
+              'icon-image': ['get', 'pinImage'],
+              'icon-size': 0.65,
+              'icon-anchor': 'bottom',
+              'icon-allow-overlap': true,
+            },
+          });
 
-        // Cursor pointer on hoverable layers
-        map.on('mouseenter', 'poi-circles', () => { map.getCanvas().style.cursor = 'pointer'; });
-        map.on('mouseleave', 'poi-circles', () => { map.getCanvas().style.cursor = ''; });
-        map.on('mouseenter', 'property-circle', () => { map.getCanvas().style.cursor = 'pointer'; });
-        map.on('mouseleave', 'property-circle', () => { map.getCanvas().style.cursor = ''; });
+          // Popup on click
+          const popup = new ml.Popup({ closeButton: false, closeOnClick: true, offset: [0, -40] });
 
-        setMapObj(map);
+          map.on('click', 'poi-pins', (e: any) => {
+            const feat = e.features[0];
+            popup
+              .setLngLat(feat.geometry.coordinates)
+              .setHTML(`<div style="font-family:Inter,sans-serif;padding:2px 4px"><strong style="font-size:13px">${feat.properties.name}</strong><br/><span style="font-size:12px;color:#5289AD">${feat.properties.dist}</span></div>`)
+              .addTo(map);
+          });
+
+          map.on('click', 'property-pin', () => {
+            popup
+              .setLngLat(coordinates)
+              .setHTML(`<div style="font-family:Inter,sans-serif;padding:2px 4px"><strong style="font-size:14px">${propertyName}</strong></div>`)
+              .addTo(map);
+          });
+
+          map.on('mouseenter', 'poi-pins', () => { map.getCanvas().style.cursor = 'pointer'; });
+          map.on('mouseleave', 'poi-pins', () => { map.getCanvas().style.cursor = ''; });
+          map.on('mouseenter', 'property-pin', () => { map.getCanvas().style.cursor = 'pointer'; });
+          map.on('mouseleave', 'property-pin', () => { map.getCanvas().style.cursor = ''; });
+
+          setMapObj(map);
+        }
       });
     }
-
-    return () => {
-      // Don't destroy on unmount — causes issues with React strict mode double-mount
-    };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // ─── Filter POIs by category using MapLibre filter (WebGL-level, zero DOM) ───
+  // Filter by category
   useEffect(() => {
     if (!mapObj) return;
     try {
       if (activeCat === 'all') {
-        mapObj.setFilter('poi-circles', null);
+        mapObj.setFilter('poi-pins', null);
       } else {
-        mapObj.setFilter('poi-circles', ['==', ['get', 'cat'], activeCat]);
+        mapObj.setFilter('poi-pins', ['==', ['get', 'cat'], activeCat]);
       }
-    } catch {
-      // Map not ready yet
-    }
+    } catch { /* map not ready */ }
   }, [activeCat, mapObj]);
 
   return (
