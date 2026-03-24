@@ -81,28 +81,34 @@ export function LocationMap({ coordinates, propertyName, nearbyPOIs }: LocationM
           ))
           .addTo(map);
 
-        // POI markers — use wrapper div so hover scale doesn't conflict with MapLibre's transform
+        // POI markers — NO transform on hover (conflicts with MapLibre positioning)
+        // Use box-shadow change for hover effect instead
         pois.forEach(poi => {
           const config = categoryConfig[poi.category] || categoryConfig.transit;
-          // Outer element for MapLibre positioning (no transform override)
-          const wrapper = document.createElement('div');
-          wrapper.className = `poi-marker poi-${poi.category}`;
-          wrapper.style.cssText = 'cursor:pointer;';
-          // Inner element for visual styling + hover scale
-          const inner = document.createElement('div');
-          inner.style.cssText = `width:28px;height:28px;border-radius:50%;background:${config.color};border:2px solid white;box-shadow:0 2px 8px rgba(0,0,0,0.2);display:flex;align-items:center;justify-content:center;color:white;transition:transform 0.15s ease;`;
-          inner.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/></svg>`;
-          wrapper.appendChild(inner);
-          // Hover on the wrapper scales only the inner element
-          wrapper.onmouseenter = () => { inner.style.transform = 'scale(1.15)'; };
-          wrapper.onmouseleave = () => { inner.style.transform = 'scale(1)'; };
+          const el = document.createElement('div');
+          el.className = `poi-marker poi-${poi.category}`;
+          el.style.cssText = `width:28px;height:28px;border-radius:50%;background:${config.color};border:2px solid white;box-shadow:0 2px 8px rgba(0,0,0,0.2);cursor:pointer;display:flex;align-items:center;justify-content:center;color:white;`;
+          el.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/></svg>`;
+          // Hover: only change box-shadow, never touch transform
+          el.onmouseenter = () => { el.style.boxShadow = `0 0 0 4px ${config.color}40, 0 2px 12px rgba(0,0,0,0.3)`; };
+          el.onmouseleave = () => { el.style.boxShadow = '0 2px 8px rgba(0,0,0,0.2)'; };
 
-          new maplibregl.default.Marker({ element: wrapper, anchor: 'center' })
+          const marker = new maplibregl.default.Marker({ element: el, anchor: 'center' })
             .setLngLat(poi.coordinates)
             .setPopup(new maplibregl.default.Popup({ offset: 18, closeButton: false }).setHTML(
               `<div style="font-family:Inter,sans-serif;padding:4px"><strong style="font-size:13px">${poi.name}</strong><br/><span style="font-size:12px;color:#666">${poi.distance}</span></div>`
             ))
             .addTo(map);
+
+          // Show popup on hover instead of click
+          el.onmouseenter = () => {
+            el.style.boxShadow = `0 0 0 4px ${config.color}40, 0 2px 12px rgba(0,0,0,0.3)`;
+            marker.togglePopup();
+          };
+          el.onmouseleave = () => {
+            el.style.boxShadow = '0 2px 8px rgba(0,0,0,0.2)';
+            marker.togglePopup();
+          };
         });
       });
 
