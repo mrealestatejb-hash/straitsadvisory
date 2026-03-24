@@ -93,22 +93,22 @@ export function LocationMap({ coordinates, propertyName, nearbyPOIs }: LocationM
           el.onmouseenter = () => { el.style.boxShadow = `0 0 0 4px ${config.color}40, 0 2px 12px rgba(0,0,0,0.3)`; };
           el.onmouseleave = () => { el.style.boxShadow = '0 2px 8px rgba(0,0,0,0.2)'; };
 
+          const popup = new maplibregl.default.Popup({ offset: 18, closeButton: false, closeOnClick: false })
+            .setHTML(`<div style="font-family:Inter,sans-serif;padding:4px"><strong style="font-size:13px">${poi.name}</strong><br/><span style="font-size:12px;color:#666">${poi.distance}</span></div>`);
+
           const marker = new maplibregl.default.Marker({ element: el, anchor: 'center' })
             .setLngLat(poi.coordinates)
-            .setPopup(new maplibregl.default.Popup({ offset: 18, closeButton: false }).setHTML(
-              `<div style="font-family:Inter,sans-serif;padding:4px"><strong style="font-size:13px">${poi.name}</strong><br/><span style="font-size:12px;color:#666">${poi.distance}</span></div>`
-            ))
             .addTo(map);
 
-          // Show popup on hover instead of click
-          el.onmouseenter = () => {
+          // Show popup on hover — use addTo/remove instead of toggle to prevent flicker
+          el.addEventListener('mouseenter', () => {
             el.style.boxShadow = `0 0 0 4px ${config.color}40, 0 2px 12px rgba(0,0,0,0.3)`;
-            marker.togglePopup();
-          };
-          el.onmouseleave = () => {
+            popup.setLngLat(poi.coordinates).addTo(map);
+          });
+          el.addEventListener('mouseleave', () => {
             el.style.boxShadow = '0 2px 8px rgba(0,0,0,0.2)';
-            marker.togglePopup();
-          };
+            popup.remove();
+          });
         });
       });
 
