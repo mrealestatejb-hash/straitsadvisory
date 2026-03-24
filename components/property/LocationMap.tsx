@@ -1,35 +1,29 @@
 'use client';
 
-import { useEffect, useRef, useState, useMemo, useCallback } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Train, Bus, GraduationCap, Hospital, ShoppingBag } from 'lucide-react';
 
 interface LocationMapProps {
-  coordinates: [number, number]; // [lng, lat]
+  coordinates: [number, number];
   propertyName: string;
-  nearbyPOIs?: Array<{
-    name: string;
-    category: string;
-    coordinates: [number, number];
-    distance: string;
-  }>;
 }
 
-const DEFAULT_POIS = [
-  { name: 'CIQ / RTS Link Station', category: 'transit', coordinates: [103.7644, 1.4469] as [number, number], distance: '1.0 km' },
-  { name: 'JB Sentral', category: 'transit', coordinates: [103.7631, 1.4613] as [number, number], distance: '1.2 km' },
-  { name: 'Singapore — Woodlands CIQ', category: 'transit', coordinates: [103.7710, 1.4480] as [number, number], distance: '15 min' },
-  { name: 'R&F Mall', category: 'shopping', coordinates: [103.7650, 1.4595] as [number, number], distance: '200m' },
-  { name: 'City Square Mall', category: 'shopping', coordinates: [103.7620, 1.4610] as [number, number], distance: '500m' },
-  { name: 'KOMTAR JBCC', category: 'shopping', coordinates: [103.7590, 1.4630] as [number, number], distance: '1.0 km' },
-  { name: 'KSL City Mall', category: 'shopping', coordinates: [103.7570, 1.4750] as [number, number], distance: '3.5 km' },
-  { name: 'Hospital Sultanah Aminah', category: 'hospital', coordinates: [103.7580, 1.4720] as [number, number], distance: '2.5 km' },
-  { name: 'KPJ Johor Specialist Hospital', category: 'hospital', coordinates: [103.7520, 1.4750] as [number, number], distance: '3.0 km' },
-  { name: 'Foon Yew High School', category: 'school', coordinates: [103.7530, 1.4650] as [number, number], distance: '1.5 km' },
-  { name: 'SK Sultan Ibrahim', category: 'school', coordinates: [103.7570, 1.4690] as [number, number], distance: '1.8 km' },
-  { name: 'Fairview International School', category: 'school', coordinates: [103.7500, 1.4800] as [number, number], distance: '3.5 km' },
+const POIS = [
+  { name: 'CIQ / RTS Link Station', cat: 'transit', lng: 103.7644, lat: 1.4469, dist: '1.0 km' },
+  { name: 'JB Sentral', cat: 'transit', lng: 103.7631, lat: 1.4613, dist: '1.2 km' },
+  { name: 'Woodlands CIQ (Singapore)', cat: 'transit', lng: 103.7710, lat: 1.4480, dist: '15 min' },
+  { name: 'R&F Mall', cat: 'shopping', lng: 103.7650, lat: 1.4595, dist: '200m' },
+  { name: 'City Square Mall', cat: 'shopping', lng: 103.7620, lat: 1.4610, dist: '500m' },
+  { name: 'KOMTAR JBCC', cat: 'shopping', lng: 103.7590, lat: 1.4630, dist: '1.0 km' },
+  { name: 'KSL City Mall', cat: 'shopping', lng: 103.7570, lat: 1.4750, dist: '3.5 km' },
+  { name: 'Hospital Sultanah Aminah', cat: 'hospital', lng: 103.7580, lat: 1.4720, dist: '2.5 km' },
+  { name: 'KPJ Johor Specialist Hospital', cat: 'hospital', lng: 103.7520, lat: 1.4750, dist: '3.0 km' },
+  { name: 'Foon Yew High School', cat: 'school', lng: 103.7530, lat: 1.4650, dist: '1.5 km' },
+  { name: 'SK Sultan Ibrahim', cat: 'school', lng: 103.7570, lat: 1.4690, dist: '1.8 km' },
+  { name: 'Fairview International School', cat: 'school', lng: 103.7500, lat: 1.4800, dist: '3.5 km' },
 ];
 
-const CATEGORY_CONFIG: Record<string, { icon: typeof Train; color: string; label: string }> = {
+const CAT_CONFIG: Record<string, { icon: typeof Train; color: string; label: string }> = {
   transit: { icon: Train, color: '#5289AD', label: 'Transit' },
   bus: { icon: Bus, color: '#5379AE', label: 'Bus' },
   school: { icon: GraduationCap, color: '#D4C4A8', label: 'Schools' },
@@ -37,176 +31,96 @@ const CATEGORY_CONFIG: Record<string, { icon: typeof Train; color: string; label
   shopping: { icon: ShoppingBag, color: '#7c3aed', label: 'Shopping' },
 };
 
-// Tile style with fallback
-const MAP_STYLE = 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json';
-const FALLBACK_STYLE = 'https://demotiles.maplibre.org/style.json';
+export function LocationMap({ coordinates, propertyName }: LocationMapProps) {
+  const mapDiv = useRef<HTMLDivElement>(null);
+  const mapInstance = useRef<any>(null);
+  const [activeCat, setActiveCat] = useState('all');
 
-export function LocationMap({ coordinates, propertyName, nearbyPOIs }: LocationMapProps) {
-  const mapContainer = useRef<HTMLDivElement>(null);
-  const mapRef = useRef<any>(null);
-  const markersRef = useRef<Array<{ marker: any; popup: any; el: HTMLElement; category: string }>>([]);
-  const [activeCategory, setActiveCategory] = useState<string>('all');
-  const [mapError, setMapError] = useState(false);
+  const categories = [...new Set(POIS.map(p => p.cat))];
 
-  const pois = useMemo(() => {
-    return nearbyPOIs && nearbyPOIs.length > 0 ? nearbyPOIs : DEFAULT_POIS;
-  }, [nearbyPOIs]);
-
-  const categories = useMemo(() => [...new Set(pois.map(p => p.category))], [pois]);
-
-  // Initialize map once
   useEffect(() => {
-    if (!mapContainer.current) return;
+    if (!mapDiv.current || mapInstance.current) return;
 
-    // Prevent double-init
-    if (mapRef.current) {
-      mapRef.current.remove();
-      mapRef.current = null;
-    }
-    markersRef.current = [];
+    const script = document.createElement('script');
+    script.src = 'https://unpkg.com/maplibre-gl@4.1.2/dist/maplibre-gl.js';
+    script.onload = initMap;
+    document.head.appendChild(script);
 
-    let cancelled = false;
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://unpkg.com/maplibre-gl@4.1.2/dist/maplibre-gl.css';
+    document.head.appendChild(link);
 
-    import('maplibre-gl').then((maplibregl) => {
-      if (cancelled || !mapContainer.current) return;
+    function initMap() {
+      if (typeof (window as any).maplibregl === 'undefined') {
+        setTimeout(initMap, 200);
+        return;
+      }
+      const ml = (window as any).maplibregl;
 
-      const map = new maplibregl.Map({
-        container: mapContainer.current,
-        style: MAP_STYLE,
+      const map = new ml.Map({
+        container: mapDiv.current,
+        style: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
         center: coordinates,
         zoom: 14,
         pitch: 45,
-        bearing: -15,
         attributionControl: false,
       });
 
-      map.on('error', (e: any) => {
-        // If style fails to load, try fallback
-        if (e?.error?.message?.includes('Failed to fetch') || e?.error?.status === 0) {
-          console.warn('Primary map style failed, trying fallback');
-          try {
-            map.setStyle(FALLBACK_STYLE);
-          } catch {
-            setMapError(true);
-          }
-        }
-      });
+      // Property marker — use built-in marker (no custom DOM)
+      new ml.Marker({ color: '#243C4C' })
+        .setLngLat(coordinates)
+        .setPopup(new ml.Popup({ offset: 25 }).setHTML(
+          `<strong>${propertyName}</strong>`
+        ))
+        .addTo(map);
 
-      map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
-
-      // Add markers once map is ready — use both 'load' and 'idle' events
-      // plus a fallback timeout in case events don't fire
-      let markersAdded = false;
-      function addMarkers() {
-        if (markersAdded || cancelled) return;
-        markersAdded = true;
-
-        // Property marker (main pin)
-        const propEl = document.createElement('div');
-        propEl.style.cssText = 'pointer-events:auto;cursor:pointer;';
-        propEl.innerHTML = `
-          <div style="width:44px;height:44px;border-radius:50%;background:#243C4C;border:3px solid white;
-            box-shadow:0 2px 8px rgba(0,0,0,0.25);display:flex;align-items:center;justify-content:center">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
-              <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
-              <polyline points="9 22 9 12 15 12 15 22" fill="rgba(255,255,255,0.3)" stroke="white" stroke-width="1.5"/>
-            </svg>
-          </div>`;
-
-        new maplibregl.Marker({ element: propEl, anchor: 'center' })
-          .setLngLat(coordinates)
+      // POI markers — use built-in colored markers
+      POIS.forEach(poi => {
+        const config = CAT_CONFIG[poi.cat];
+        const marker = new ml.Marker({ color: config?.color || '#5289AD', scale: 0.7 })
+          .setLngLat([poi.lng, poi.lat])
+          .setPopup(new ml.Popup({ offset: 20 }).setHTML(
+            `<strong>${poi.name}</strong><br/><span style="color:#5379AE">${poi.dist}</span>`
+          ))
           .addTo(map);
 
-        // POI markers
-        pois.forEach(poi => {
-          const config = CATEGORY_CONFIG[poi.category] || CATEGORY_CONFIG.transit;
+        // Store reference for filtering
+        const el = marker.getElement();
+        el.dataset.cat = poi.cat;
+      });
 
-          const el = document.createElement('div');
-          el.className = `poi-marker poi-${poi.category}`;
-          el.style.cssText = `
-            width:26px;height:26px;border-radius:50%;
-            background:${config.color};border:2px solid white;
-            box-shadow:0 2px 6px rgba(0,0,0,0.2);
-            cursor:pointer;display:flex;align-items:center;justify-content:center;
-            pointer-events:auto;
-          `;
-          el.innerHTML = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round"><circle cx="12" cy="12" r="3"/></svg>`;
-
-          const popup = new maplibregl.Popup({
-            offset: [0, -16],
-            closeButton: false,
-            closeOnClick: false,
-            className: 'sa-popup',
-          }).setHTML(
-            `<div style="font-family:Inter,system-ui,sans-serif;padding:6px 2px">
-              <strong style="font-size:13px;color:#243C4C">${poi.name}</strong><br/>
-              <span style="font-size:12px;color:#5379AE">${poi.distance}</span>
-            </div>`
-          );
-
-          const marker = new maplibregl.Marker({ element: el, anchor: 'center' })
-            .setLngLat(poi.coordinates)
-            .addTo(map);
-
-          // Hover: show popup at the POI coords (not attached to marker element)
-          el.addEventListener('mouseenter', () => {
-            popup.setLngLat(poi.coordinates).addTo(map);
-            el.style.boxShadow = `0 0 0 3px ${config.color}50, 0 2px 8px rgba(0,0,0,0.3)`;
-          });
-          el.addEventListener('mouseleave', () => {
-            popup.remove();
-            el.style.boxShadow = '0 2px 6px rgba(0,0,0,0.2)';
-          });
-
-          markersRef.current.push({ marker, popup, el, category: poi.category });
-        });
-      }
-
-      // Try multiple events — 'load' may have already fired
-      map.on('load', addMarkers);
-      map.on('idle', addMarkers);
-      // Fallback: if neither event fires within 3s, force add
-      setTimeout(addMarkers, 3000);
-
-      mapRef.current = map;
-    }).catch(() => {
-      setMapError(true);
-    });
+      map.addControl(new ml.NavigationControl({ showCompass: false }), 'top-right');
+      mapInstance.current = map;
+    }
 
     return () => {
-      cancelled = true;
-      if (mapRef.current) {
-        mapRef.current.remove();
-        mapRef.current = null;
+      if (mapInstance.current) {
+        mapInstance.current.remove();
+        mapInstance.current = null;
       }
-      markersRef.current = [];
     };
-    // Only re-init if coordinates change (not on every render)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [coordinates[0], coordinates[1], propertyName]);
-
-  // Filter POI markers by category using stored refs
-  const filterMarkers = useCallback((category: string) => {
-    setActiveCategory(category);
-    markersRef.current.forEach(({ el, category: cat }) => {
-      if (category === 'all' || cat === category) {
-        el.style.display = 'flex';
-      } else {
-        el.style.display = 'none';
-      }
-    });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  if (mapError) {
-    return (
-      <div className="py-8 border-b border-border">
-        <h2 className="text-xl font-extrabold text-foreground mb-4">Location</h2>
-        <div className="aspect-[16/9] rounded-xl bg-[#FAF9F7] flex items-center justify-center text-muted-foreground">
-          <p>Map unavailable. The property is located at {propertyName}.</p>
-        </div>
-      </div>
-    );
-  }
+  // Filter markers by category
+  useEffect(() => {
+    if (!mapInstance.current) return;
+    const container = mapDiv.current;
+    if (!container) return;
+
+    const markers = container.querySelectorAll('.maplibregl-marker');
+    markers.forEach((el: Element) => {
+      const htmlEl = el as HTMLElement;
+      const cat = htmlEl.dataset.cat;
+      if (!cat) return; // Property marker — always show
+      if (activeCat === 'all' || cat === activeCat) {
+        htmlEl.style.display = '';
+      } else {
+        htmlEl.style.display = 'none';
+      }
+    });
+  }, [activeCat]);
 
   return (
     <div className="py-8 border-b border-border">
@@ -215,27 +129,27 @@ export function LocationMap({ coordinates, propertyName, nearbyPOIs }: LocationM
       {/* Category filter tabs */}
       <div className="flex flex-wrap gap-2 mb-4">
         <button
-          onClick={() => filterMarkers('all')}
+          onClick={() => setActiveCat('all')}
           className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-colors ${
-            activeCategory === 'all'
+            activeCat === 'all'
               ? 'bg-[#243C4C] text-white'
-              : 'bg-[#A8C4EC]/15 text-[#5379AE] hover:bg-[#A8C4EC]/25'
+              : 'bg-[#A8C4EC]/15 text-[#5379AE]'
           }`}
         >
           All
         </button>
         {categories.map(cat => {
-          const config = CATEGORY_CONFIG[cat];
+          const config = CAT_CONFIG[cat];
           if (!config) return null;
           const Icon = config.icon;
           return (
             <button
               key={cat}
-              onClick={() => filterMarkers(cat)}
+              onClick={() => setActiveCat(cat)}
               className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-colors flex items-center gap-1.5 ${
-                activeCategory === cat
+                activeCat === cat
                   ? 'bg-[#243C4C] text-white'
-                  : 'bg-[#A8C4EC]/15 text-[#5379AE] hover:bg-[#A8C4EC]/25'
+                  : 'bg-[#A8C4EC]/15 text-[#5379AE]'
               }`}
             >
               <Icon className="w-3.5 h-3.5" />
@@ -245,32 +159,32 @@ export function LocationMap({ coordinates, propertyName, nearbyPOIs }: LocationM
         })}
       </div>
 
-      {/* Map container */}
+      {/* Map */}
       <div
-        ref={mapContainer}
-        className="w-full aspect-[16/9] rounded-xl overflow-hidden border border-border"
-        style={{ minHeight: 300 }}
+        ref={mapDiv}
+        className="w-full rounded-xl overflow-hidden border border-border"
+        style={{ height: 400 }}
       />
 
       {/* Nearby list */}
       <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
-        {pois
-          .filter(p => activeCategory === 'all' || p.category === activeCategory)
+        {POIS
+          .filter(p => activeCat === 'all' || p.cat === activeCat)
           .map((poi, i) => {
-            const config = CATEGORY_CONFIG[poi.category] || CATEGORY_CONFIG.transit;
-            const Icon = config.icon;
+            const config = CAT_CONFIG[poi.cat];
+            const Icon = config?.icon || Train;
             return (
-              <div key={i} className="flex items-center gap-3 py-2.5 px-3 rounded-lg hover:bg-[#A8C4EC]/10 transition-colors">
+              <div key={i} className="flex items-center gap-3 py-2.5 px-3 rounded-lg">
                 <div
                   className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
-                  style={{ backgroundColor: `${config.color}15` }}
+                  style={{ backgroundColor: `${config?.color || '#5289AD'}15` }}
                 >
-                  <Icon className="w-4 h-4" style={{ color: config.color }} />
+                  <Icon className="w-4 h-4" style={{ color: config?.color || '#5289AD' }} />
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium text-foreground truncate">{poi.name}</p>
                 </div>
-                <span className="text-xs font-semibold text-[#5289AD] flex-shrink-0">{poi.distance}</span>
+                <span className="text-xs font-semibold text-[#5289AD] flex-shrink-0">{poi.dist}</span>
               </div>
             );
           })}
