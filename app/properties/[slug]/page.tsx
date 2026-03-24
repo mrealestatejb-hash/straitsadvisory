@@ -199,28 +199,34 @@ export default async function PropertyDetailPage({ params }: PageProps) {
               </div>
             </div>
 
-            {/* Developer + Actions */}
-            <div className="flex items-center gap-4 flex-wrap">
-              <div className="md:text-right">
-                <span className="text-sm font-semibold text-foreground block">{property.developer || 'R&F Properties'}</span>
-                <span className="text-[11px] font-semibold bg-[#C9A962]/15 text-[#C9A962] px-2 py-0.5 rounded inline-block mt-0.5">&#9733; Developer</span>
+            {/* Developer + Enquire */}
+            <div className="flex items-center gap-3 flex-wrap">
+              <div className="inline-flex items-center gap-2.5 px-4 py-2.5 bg-white border border-border rounded-[10px]">
+                <div className="w-9 h-9 flex items-center justify-center bg-[#FAF9F7] rounded-lg text-[#5379AE]">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="3" y="3" width="7" height="18" rx="1"/>
+                    <rect x="14" y="8" width="7" height="13" rx="1"/>
+                    <line x1="6" y1="7" x2="6" y2="7.01"/>
+                    <line x1="6" y1="11" x2="6" y2="11.01"/>
+                    <line x1="6" y1="15" x2="6" y2="15.01"/>
+                    <line x1="17" y1="12" x2="17" y2="12.01"/>
+                    <line x1="17" y1="16" x2="17" y2="16.01"/>
+                  </svg>
+                </div>
+                <span className="text-sm font-semibold text-[#06457F]">{property.developer || 'R&F Properties'}</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" className="flex-shrink-0">
+                  <circle cx="12" cy="12" r="10" fill="#5289AD"/>
+                  <path d="M9 12l2 2 4-4" stroke="white" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
               </div>
-              <div className="flex gap-2">
-                <a
-                  href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Hi, I'm interested in ${property.name}`)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-5 py-2.5 rounded-lg text-sm font-semibold bg-[#25d366] text-white hover:bg-[#20bd5a] transition-colors"
-                >
-                  WhatsApp
-                </a>
-                <a
-                  href={`tel:+${whatsappNumber}`}
-                  className="px-5 py-2.5 rounded-lg text-sm font-semibold border-2 border-[#5379AE] text-[#5379AE] hover:bg-[#5379AE]/5 transition-colors"
-                >
-                  Enquire Now
-                </a>
-              </div>
+              <a
+                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Hi, I'm interested in ${property.name}`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-6 py-3 rounded-lg text-sm font-semibold bg-[#5379AE] text-white hover:bg-[#06457F] transition-colors"
+              >
+                Enquire Now
+              </a>
             </div>
           </div>
         </div>
