@@ -12,8 +12,6 @@ import { FacilitiesSection } from '@/components/property/FacilitiesSection';
 import { RentalYieldChart } from '@/components/property/RentalYieldChart';
 import { ConnectivitySection } from '@/components/property/ConnectivitySection';
 import { MortgageCalculator } from '@/components/property/MortgageCalculator';
-import { PropertySidebar } from '@/components/property/PropertySidebar';
-import { BrochureDownload } from '@/components/property/BrochureDownload';
 import { VirtualTourSection } from '@/components/property/VirtualTourSection';
 import { LocationMap } from '@/components/property/LocationMap';
 import { PropertyFAQ } from '@/components/property/PropertyFAQ';
@@ -165,41 +163,65 @@ export default async function PropertyDetailPage({ params }: PageProps) {
         <span>{property.name}</span>
       </div>
 
-      {/* Hero section */}
-      <div className="px-[clamp(20px,5vw,60px)] pt-7 max-w-[1200px] mx-auto">
-        <div className="flex items-center gap-3.5 mb-3">
-          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#243C4C] to-[#5289AD] flex items-center justify-center text-lg text-white font-extrabold flex-shrink-0">
-            {(property.developer || 'SA')
-              .split(/\s+/)
-              .map((w) => w[0])
-              .join('')
-              .slice(0, 3)}
+      {/* Property Header — inline layout */}
+      <div className="bg-white border-b border-border">
+        <div className="px-[clamp(20px,5vw,60px)] py-8 max-w-[1200px] mx-auto flex flex-col md:flex-row md:justify-between md:items-start gap-6">
+          {/* Left: Property Info */}
+          <div className="flex gap-4">
+            <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#243C4C] to-[#5289AD] flex items-center justify-center text-lg text-white font-extrabold flex-shrink-0">
+              {(property.developer || 'SA').split(/\s+/).map((w) => w[0]).join('').slice(0, 3)}
+            </div>
+            <div>
+              <h1 className="text-[clamp(24px,3.5vw,32px)] font-extrabold text-foreground leading-tight">
+                {property.name}
+              </h1>
+              {property.nameZh && (
+                <p className="text-sm text-muted-foreground mt-0.5">{property.nameZh}</p>
+              )}
+              <p className="text-sm text-muted-foreground flex items-center gap-1.5 mt-2">
+                <MapPin className="w-4 h-4 text-muted-foreground/60" />
+                {property.area}, {property.district || 'Johor Bahru'}, Johor
+              </p>
+            </div>
           </div>
-          <div>
-            <h1 className="text-[clamp(26px,4vw,34px)] font-extrabold text-foreground leading-tight">
-              {property.name}
-            </h1>
-            {property.nameZh && (
-              <p className="text-sm text-muted-foreground mt-0.5">{property.nameZh}</p>
-            )}
-          </div>
-        </div>
 
-        <p className="text-sm text-muted-foreground flex items-center gap-1.5 mb-3.5">
-          <MapPin className="w-4 h-4 text-muted-foreground/60" />
-          {property.area}, {property.district || 'Johor Bahru'}, Johor
-        </p>
+          {/* Right: Price + Developer + CTA */}
+          <div className="flex flex-col items-start md:items-end gap-4 flex-shrink-0">
+            {/* Price */}
+            <div className="md:text-right">
+              <div className="text-[13px] text-muted-foreground">Starting from</div>
+              <div className="text-[26px] font-extrabold text-[#06457F]">
+                {property.priceRange && property.priceRange !== 'Coming Soon'
+                  ? property.priceRange
+                  : property.price.myr > 0
+                    ? `RM${property.price.myr.toLocaleString()}`
+                    : 'Price On Enquiry'}
+              </div>
+            </div>
 
-
-        {/* Price */}
-        <div className="pb-5">
-          <div className="text-[13px] text-muted-foreground">Starting from</div>
-          <div className="text-[28px] font-extrabold text-foreground">
-            {property.priceRange && property.priceRange !== 'Coming Soon'
-              ? property.priceRange
-              : property.price.myr > 0
-                ? `RM${property.price.myr.toLocaleString()}`
-                : 'Price On Enquiry'}
+            {/* Developer + Actions */}
+            <div className="flex items-center gap-4 flex-wrap">
+              <div className="md:text-right">
+                <span className="text-sm font-semibold text-foreground block">{property.developer || 'R&F Properties'}</span>
+                <span className="text-[11px] font-semibold bg-[#C9A962]/15 text-[#C9A962] px-2 py-0.5 rounded inline-block mt-0.5">&#9733; Developer</span>
+              </div>
+              <div className="flex gap-2">
+                <a
+                  href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Hi, I'm interested in ${property.name}`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-2.5 rounded-lg text-sm font-semibold bg-[#25d366] text-white hover:bg-[#20bd5a] transition-colors"
+                >
+                  WhatsApp
+                </a>
+                <a
+                  href={`tel:+${whatsappNumber}`}
+                  className="px-5 py-2.5 rounded-lg text-sm font-semibold border-2 border-[#5379AE] text-[#5379AE] hover:bg-[#5379AE]/5 transition-colors"
+                >
+                  Enquire Now
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -207,10 +229,9 @@ export default async function PropertyDetailPage({ params }: PageProps) {
       {/* Phase Selector */}
       {phases && activePhase && <PhaseSelector phases={phases} activePhase={activePhase} />}
 
-      {/* Two column layout */}
-      <div className="max-w-[1200px] mx-auto px-[clamp(20px,5vw,60px)] grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-10 items-start pt-8 pb-16">
-        {/* Main content */}
-        <div className="min-w-0">
+      {/* Full-width content */}
+      <div className="max-w-[1200px] mx-auto px-[clamp(20px,5vw,60px)] pt-8 pb-16">
+        <div>
 
           {/* 1. Quick Stats Bar */}
           <div className="pb-8 border-b border-border">
@@ -266,22 +287,6 @@ export default async function PropertyDetailPage({ params }: PageProps) {
             />
           )}
 
-          {/* 9. About Developer — TRUST */}
-          <div className="py-8 border-b border-border">
-            <h2 className="text-xl font-extrabold text-foreground mb-4">About the Developer</h2>
-            <div className="flex items-start gap-4">
-              <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#243C4C] to-[#5289AD] flex items-center justify-center text-xl text-white font-extrabold flex-shrink-0">
-                {(property.developer || 'SA').split(/\s+/).map((w) => w[0]).join('').slice(0, 3)}
-              </div>
-              <div>
-                <h3 className="text-lg font-bold text-foreground">{property.developer || 'R&F Properties'}</h3>
-                <p className="text-sm text-muted-foreground mt-1 leading-relaxed">
-                  R&F Properties is one of China&apos;s largest integrated real estate developers, listed on the Hong Kong Stock Exchange. With over 30 years of experience and projects across 40+ cities globally, R&F has established a reputation for delivering premium mixed-use developments. Their flagship Johor Bahru project, R&F Princess Cove, is a 116-acre waterfront city that has become a landmark of the Iskandar Malaysia corridor.
-                </p>
-              </div>
-            </div>
-          </div>
-
           {/* 10. FAQ — OBJECTIONS */}
           <PropertyFAQ />
 
@@ -312,12 +317,6 @@ export default async function PropertyDetailPage({ params }: PageProps) {
 
         </div>
 
-        {/* Sidebar */}
-        <PropertySidebar
-          developer={property.developer || 'Straits Advisory'}
-          whatsappNumber={whatsappNumber}
-          propertyName={property.name}
-        />
       </div>
     </main>
   );
