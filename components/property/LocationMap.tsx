@@ -72,27 +72,34 @@ export function LocationMap({ coordinates, propertyName, nearbyPOIs }: LocationM
 
         // Property marker (main)
         const propertyEl = document.createElement('div');
+        propertyEl.style.cssText = 'cursor:pointer;';
         propertyEl.innerHTML = `<div style="width:40px;height:40px;border-radius:50%;background:#243C4C;border:3px solid white;box-shadow:0 4px 12px rgba(0,0,0,0.3);display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><polyline points="9 22 9 12 15 12 15 22" fill="rgba(255,255,255,0.3)" stroke="white" stroke-width="1.5"/></svg></div>`;
-        new maplibregl.default.Marker({ element: propertyEl })
+        new maplibregl.default.Marker({ element: propertyEl, anchor: 'center' })
           .setLngLat(coordinates)
-          .setPopup(new maplibregl.default.Popup({ offset: 25 }).setHTML(
+          .setPopup(new maplibregl.default.Popup({ offset: 25, closeButton: false }).setHTML(
             `<div style="font-family:Inter,sans-serif;padding:4px"><strong style="font-size:14px">${propertyName}</strong></div>`
           ))
           .addTo(map);
 
-        // POI markers
+        // POI markers — use wrapper div so hover scale doesn't conflict with MapLibre's transform
         pois.forEach(poi => {
           const config = categoryConfig[poi.category] || categoryConfig.transit;
-          const el = document.createElement('div');
-          el.className = `poi-marker poi-${poi.category}`;
-          el.style.cssText = `width:28px;height:28px;border-radius:50%;background:${config.color};border:2px solid white;box-shadow:0 2px 8px rgba(0,0,0,0.2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;color:white;transition:transform 0.2s;`;
-          el.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/></svg>`;
-          el.onmouseenter = () => { el.style.transform = 'scale(1.2)'; };
-          el.onmouseleave = () => { el.style.transform = 'scale(1)'; };
+          // Outer element for MapLibre positioning (no transform override)
+          const wrapper = document.createElement('div');
+          wrapper.className = `poi-marker poi-${poi.category}`;
+          wrapper.style.cssText = 'cursor:pointer;';
+          // Inner element for visual styling + hover scale
+          const inner = document.createElement('div');
+          inner.style.cssText = `width:28px;height:28px;border-radius:50%;background:${config.color};border:2px solid white;box-shadow:0 2px 8px rgba(0,0,0,0.2);display:flex;align-items:center;justify-content:center;color:white;transition:transform 0.15s ease;`;
+          inner.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/></svg>`;
+          wrapper.appendChild(inner);
+          // Hover on the wrapper scales only the inner element
+          wrapper.onmouseenter = () => { inner.style.transform = 'scale(1.15)'; };
+          wrapper.onmouseleave = () => { inner.style.transform = 'scale(1)'; };
 
-          new maplibregl.default.Marker({ element: el })
+          new maplibregl.default.Marker({ element: wrapper, anchor: 'center' })
             .setLngLat(poi.coordinates)
-            .setPopup(new maplibregl.default.Popup({ offset: 18 }).setHTML(
+            .setPopup(new maplibregl.default.Popup({ offset: 18, closeButton: false }).setHTML(
               `<div style="font-family:Inter,sans-serif;padding:4px"><strong style="font-size:13px">${poi.name}</strong><br/><span style="font-size:12px;color:#666">${poi.distance}</span></div>`
             ))
             .addTo(map);
