@@ -23,40 +23,46 @@ const POIS = [
   { name: 'Fairview International School', cat: 'school', lng: 103.7500, lat: 1.4800, dist: '3.5 km' },
 ];
 
-const CAT_CONFIG: Record<string, { icon: typeof Train; color: string; label: string }> = {
-  transit: { icon: Train, color: '#5289AD', label: 'Transit' },
-  bus: { icon: Bus, color: '#5379AE', label: 'Bus' },
-  school: { icon: GraduationCap, color: '#D4C4A8', label: 'Schools' },
-  hospital: { icon: Hospital, color: '#dc2626', label: 'Healthcare' },
-  shopping: { icon: ShoppingBag, color: '#7c3aed', label: 'Shopping' },
+const CAT_COLORS: Record<string, string> = {
+  transit: '#5289AD',
+  shopping: '#7c3aed',
+  hospital: '#dc2626',
+  school: '#D4C4A8',
+};
+
+const CAT_CONFIG: Record<string, { icon: typeof Train; label: string }> = {
+  transit: { icon: Train, label: 'Transit' },
+  shopping: { icon: ShoppingBag, label: 'Shopping' },
+  hospital: { icon: Hospital, label: 'Healthcare' },
+  school: { icon: GraduationCap, label: 'Schools' },
 };
 
 export function LocationMap({ coordinates, propertyName }: LocationMapProps) {
   const mapDiv = useRef<HTMLDivElement>(null);
-  const mapInstance = useRef<any>(null);
+  const mapReady = useRef(false);
   const [activeCat, setActiveCat] = useState('all');
+  const [mapObj, setMapObj] = useState<any>(null);
 
   const categories = [...new Set(POIS.map(p => p.cat))];
 
   useEffect(() => {
-    if (!mapDiv.current || mapInstance.current) return;
+    if (!mapDiv.current || mapReady.current) return;
+    mapReady.current = true;
 
-    const script = document.createElement('script');
-    script.src = 'https://unpkg.com/maplibre-gl@4.1.2/dist/maplibre-gl.js';
-    script.onload = initMap;
-    document.head.appendChild(script);
-
+    // Load MapLibre via script tag — proven stable approach
     const link = document.createElement('link');
     link.rel = 'stylesheet';
     link.href = 'https://unpkg.com/maplibre-gl@4.1.2/dist/maplibre-gl.css';
     document.head.appendChild(link);
 
-    function initMap() {
-      if (typeof (window as any).maplibregl === 'undefined') {
-        setTimeout(initMap, 200);
-        return;
-      }
+    const script = document.createElement('script');
+    script.src = 'https://unpkg.com/maplibre-gl@4.1.2/dist/maplibre-gl.js';
+    script.onload = tryInit;
+    document.head.appendChild(script);
+
+    function tryInit() {
       const ml = (window as any).maplibregl;
+      if (!ml) { setTimeout(tryInit, 200); return; }
 
       const map = new ml.Map({
         container: mapDiv.current,
@@ -67,73 +73,111 @@ export function LocationMap({ coordinates, propertyName }: LocationMapProps) {
         attributionControl: false,
       });
 
-      // Property marker — use built-in marker (no custom DOM)
-      new ml.Marker({ color: '#243C4C' })
-        .setLngLat(coordinates)
-        .setPopup(new ml.Popup({ offset: 25 }).setHTML(
-          `<strong>${propertyName}</strong>`
-        ))
-        .addTo(map);
-
-      // POI markers — use built-in colored markers
-      POIS.forEach(poi => {
-        const config = CAT_CONFIG[poi.cat];
-        const marker = new ml.Marker({ color: config?.color || '#5289AD', scale: 0.7 })
-          .setLngLat([poi.lng, poi.lat])
-          .setPopup(new ml.Popup({ offset: 20 }).setHTML(
-            `<strong>${poi.name}</strong><br/><span style="color:#5379AE">${poi.dist}</span>`
-          ))
-          .addTo(map);
-
-        // Store reference for filtering
-        const el = marker.getElement();
-        el.dataset.cat = poi.cat;
-      });
-
       map.addControl(new ml.NavigationControl({ showCompass: false }), 'top-right');
-      mapInstance.current = map;
+
+      map.on('load', () => {
+        // ─── Property point (rendered as WebGL circle, NOT DOM) ───
+        map.addSource('property', {
+          type: 'geojson',
+          data: {
+            type: 'Feature',
+            geometry: { type: 'Point', coordinates: coordinates },
+            properties: { name: propertyName },
+          },
+        });
+        map.addLayer({
+          id: 'property-circle',
+          type: 'circle',
+          source: 'property',
+          paint: {
+            'circle-radius': 10,
+            'circle-color': '#243C4C',
+            'circle-stroke-width': 3,
+            'circle-stroke-color': '#ffffff',
+          },
+        });
+
+        // ─── POI points (rendered as WebGL circles) ───
+        const poiFeatures = POIS.map(poi => ({
+          type: 'Feature' as const,
+          geometry: { type: 'Point' as const, coordinates: [poi.lng, poi.lat] },
+          properties: { name: poi.name, cat: poi.cat, dist: poi.dist, color: CAT_COLORS[poi.cat] || '#5289AD' },
+        }));
+
+        map.addSource('pois', {
+          type: 'geojson',
+          data: { type: 'FeatureCollection', features: poiFeatures },
+        });
+
+        map.addLayer({
+          id: 'poi-circles',
+          type: 'circle',
+          source: 'pois',
+          paint: {
+            'circle-radius': 7,
+            'circle-color': ['get', 'color'],
+            'circle-stroke-width': 2,
+            'circle-stroke-color': '#ffffff',
+          },
+        });
+
+        // ─── Popup on click (not hover — avoids flicker) ───
+        const popup = new ml.Popup({ closeButton: false, closeOnClick: true, offset: 12 });
+
+        map.on('click', 'poi-circles', (e: any) => {
+          const feat = e.features[0];
+          popup
+            .setLngLat(feat.geometry.coordinates)
+            .setHTML(`<div style="font-family:Inter,sans-serif;padding:2px 4px"><strong style="font-size:13px">${feat.properties.name}</strong><br/><span style="font-size:12px;color:#5289AD">${feat.properties.dist}</span></div>`)
+            .addTo(map);
+        });
+
+        map.on('click', 'property-circle', () => {
+          popup
+            .setLngLat(coordinates)
+            .setHTML(`<div style="font-family:Inter,sans-serif;padding:2px 4px"><strong style="font-size:14px">${propertyName}</strong></div>`)
+            .addTo(map);
+        });
+
+        // Cursor pointer on hoverable layers
+        map.on('mouseenter', 'poi-circles', () => { map.getCanvas().style.cursor = 'pointer'; });
+        map.on('mouseleave', 'poi-circles', () => { map.getCanvas().style.cursor = ''; });
+        map.on('mouseenter', 'property-circle', () => { map.getCanvas().style.cursor = 'pointer'; });
+        map.on('mouseleave', 'property-circle', () => { map.getCanvas().style.cursor = ''; });
+
+        setMapObj(map);
+      });
     }
 
     return () => {
-      if (mapInstance.current) {
-        mapInstance.current.remove();
-        mapInstance.current = null;
-      }
+      // Don't destroy on unmount — causes issues with React strict mode double-mount
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Filter markers by category
+  // ─── Filter POIs by category using MapLibre filter (WebGL-level, zero DOM) ───
   useEffect(() => {
-    if (!mapInstance.current) return;
-    const container = mapDiv.current;
-    if (!container) return;
-
-    const markers = container.querySelectorAll('.maplibregl-marker');
-    markers.forEach((el: Element) => {
-      const htmlEl = el as HTMLElement;
-      const cat = htmlEl.dataset.cat;
-      if (!cat) return; // Property marker — always show
-      if (activeCat === 'all' || cat === activeCat) {
-        htmlEl.style.display = '';
+    if (!mapObj) return;
+    try {
+      if (activeCat === 'all') {
+        mapObj.setFilter('poi-circles', null);
       } else {
-        htmlEl.style.display = 'none';
+        mapObj.setFilter('poi-circles', ['==', ['get', 'cat'], activeCat]);
       }
-    });
-  }, [activeCat]);
+    } catch {
+      // Map not ready yet
+    }
+  }, [activeCat, mapObj]);
 
   return (
     <div className="py-8 border-b border-border">
       <h2 className="text-xl font-extrabold text-foreground mb-4">Location</h2>
 
-      {/* Category filter tabs */}
       <div className="flex flex-wrap gap-2 mb-4">
         <button
           onClick={() => setActiveCat('all')}
           className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-colors ${
-            activeCat === 'all'
-              ? 'bg-[#243C4C] text-white'
-              : 'bg-[#A8C4EC]/15 text-[#5379AE]'
+            activeCat === 'all' ? 'bg-[#243C4C] text-white' : 'bg-[#A8C4EC]/15 text-[#5379AE]'
           }`}
         >
           All
@@ -147,9 +191,7 @@ export function LocationMap({ coordinates, propertyName }: LocationMapProps) {
               key={cat}
               onClick={() => setActiveCat(cat)}
               className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-colors flex items-center gap-1.5 ${
-                activeCat === cat
-                  ? 'bg-[#243C4C] text-white'
-                  : 'bg-[#A8C4EC]/15 text-[#5379AE]'
+                activeCat === cat ? 'bg-[#243C4C] text-white' : 'bg-[#A8C4EC]/15 text-[#5379AE]'
               }`}
             >
               <Icon className="w-3.5 h-3.5" />
@@ -159,27 +201,18 @@ export function LocationMap({ coordinates, propertyName }: LocationMapProps) {
         })}
       </div>
 
-      {/* Map */}
-      <div
-        ref={mapDiv}
-        className="w-full rounded-xl overflow-hidden border border-border"
-        style={{ height: 400 }}
-      />
+      <div ref={mapDiv} className="w-full rounded-xl overflow-hidden border border-border" style={{ height: 400 }} />
 
-      {/* Nearby list */}
       <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
         {POIS
           .filter(p => activeCat === 'all' || p.cat === activeCat)
           .map((poi, i) => {
-            const config = CAT_CONFIG[poi.cat];
-            const Icon = config?.icon || Train;
+            const Icon = CAT_CONFIG[poi.cat]?.icon || Train;
+            const color = CAT_COLORS[poi.cat] || '#5289AD';
             return (
               <div key={i} className="flex items-center gap-3 py-2.5 px-3 rounded-lg">
-                <div
-                  className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
-                  style={{ backgroundColor: `${config?.color || '#5289AD'}15` }}
-                >
-                  <Icon className="w-4 h-4" style={{ color: config?.color || '#5289AD' }} />
+                <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${color}15` }}>
+                  <Icon className="w-4 h-4" style={{ color }} />
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium text-foreground truncate">{poi.name}</p>
