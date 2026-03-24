@@ -94,8 +94,12 @@ export function LocationMap({ coordinates, propertyName, nearbyPOIs }: LocationM
 
       map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
 
-      map.on('load', () => {
-        if (cancelled) return;
+      // Add markers once map is ready — use both 'load' and 'idle' events
+      // plus a fallback timeout in case events don't fire
+      let markersAdded = false;
+      function addMarkers() {
+        if (markersAdded || cancelled) return;
+        markersAdded = true;
 
         // Property marker (main pin)
         const propEl = document.createElement('div');
@@ -156,7 +160,13 @@ export function LocationMap({ coordinates, propertyName, nearbyPOIs }: LocationM
 
           markersRef.current.push({ marker, popup, el, category: poi.category });
         });
-      });
+      }
+
+      // Try multiple events — 'load' may have already fired
+      map.on('load', addMarkers);
+      map.on('idle', addMarkers);
+      // Fallback: if neither event fires within 3s, force add
+      setTimeout(addMarkers, 3000);
 
       mapRef.current = map;
     }).catch(() => {
