@@ -89,14 +89,14 @@ export function PropertyFAQ() {
       <h2 className="text-xl font-extrabold text-foreground mb-6">Frequently Asked Questions</h2>
 
       <div
-        className="rounded-2xl overflow-hidden border border-border bg-white"
+        className="rounded-2xl overflow-hidden bg-white"
         style={{
-          boxShadow: '0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.08), 0 8px 32px rgba(0,0,0,0.06)',
+          boxShadow: '0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.06), 0 8px 32px rgba(0,0,0,0.04)',
         }}
       >
         <div className="flex flex-col md:flex-row">
           {/* Sidebar */}
-          <div className="md:w-[260px] flex-shrink-0 border-b md:border-b-0 md:border-r border-border bg-[#FAF9F7] p-4">
+          <div className="md:w-[260px] flex-shrink-0 bg-[#FAF9F7] p-4">
             {/* Mobile: horizontal scroll tabs */}
             <div className="flex md:flex-col gap-2 overflow-x-auto md:overflow-visible -mx-1 px-1 pb-1 md:pb-0">
               {faqCategories.map((cat) => (
@@ -128,10 +128,10 @@ export function PropertyFAQ() {
               return (
                 <div
                   key={item.q}
-                  className={`mb-2 rounded-xl border transition-all duration-200 ${
+                  className={`mb-2 rounded-xl transition-all duration-200 ${
                     isOpen
-                      ? 'border-[#A8C4EC] bg-[#FAF9F7]'
-                      : 'border-transparent hover:bg-[#FAF9F7]'
+                      ? 'bg-[#FAF9F7]'
+                      : 'hover:bg-[#FAF9F7]'
                   }`}
                 >
                   <button
