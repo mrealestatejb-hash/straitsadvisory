@@ -119,19 +119,6 @@ export function PropertyFAQ() {
               ))}
             </div>
 
-            {/* WhatsApp CTA */}
-            <div className="hidden md:block mt-6 pt-4 border-t border-border">
-              <p className="text-xs text-[#5379AE] mb-3">Still have questions?</p>
-              <a
-                href="https://wa.me/60102038001"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-sm font-semibold bg-[#25d366] text-white hover:bg-[#20bd5a] transition-colors"
-              >
-                <MessageCircle className="w-4 h-4" />
-                WhatsApp Us
-              </a>
-            </div>
           </div>
 
           {/* FAQ Content */}
