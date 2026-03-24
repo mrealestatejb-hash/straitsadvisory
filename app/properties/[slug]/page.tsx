@@ -221,12 +221,13 @@ export default async function PropertyDetailPage({ params }: PageProps) {
       <div className="max-w-[1200px] mx-auto px-[clamp(20px,5vw,60px)] grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-10 items-start pt-8 pb-16">
         {/* Main content */}
         <div className="min-w-0">
-          {/* Key Info Row */}
+
+          {/* 1. Quick Stats Bar */}
           <div className="pb-8 border-b border-border">
             <KeyInfoRow items={keyInfoItems} />
           </div>
 
-          {/* Why We Recommend */}
+          {/* 2. Why We Recommend — HOOK */}
           {whyRecommend && (
             <WhyWeRecommend
               title={whyRecommend.title}
@@ -238,39 +239,123 @@ export default async function PropertyDetailPage({ params }: PageProps) {
             />
           )}
 
-          {/* About */}
-          {property.description && (
-            <div className="py-8 border-b border-border">
-              <h2 className="text-xl font-extrabold text-foreground mb-4">
-                About {property.name}
-              </h2>
-              <div className="text-[15px] text-gray-700 leading-relaxed space-y-3">
-                {property.description.split('\n').map((p, i) => (
-                  <p key={i}>{p}</p>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Rental Yield Chart */}
+          {/* 3. Rental Income Performance — MONEY */}
           {rentalData && rentalData.length > 0 && (
             <RentalYieldChart data={rentalData} subtitle={rentalSubtitle} />
           )}
 
-          {/* Unit Types */}
+          {/* 4. Connectivity — LOCATION */}
+          {toSingapore && withinJB && (
+            <ConnectivitySection toSingapore={toSingapore} withinJB={withinJB} />
+          )}
+
+          {/* 5. Unit Types — PRODUCT */}
           {detailedUnits && detailedUnits.length > 0 && (
             <UnitTypesViewer units={detailedUnits} />
           )}
 
-          {/* Facilities */}
+          {/* 6. Facilities & Amenities — LIFESTYLE */}
           {facilities && Object.keys(facilities).length > 0 && (
             <FacilitiesSection facilities={facilities} />
           )}
 
-          {/* Connectivity */}
-          {toSingapore && withinJB && (
-            <ConnectivitySection toSingapore={toSingapore} withinJB={withinJB} />
-          )}
+          {/* 7. Virtual Tour — EXPERIENCE */}
+          <div className="py-8 border-b border-border">
+            <h2 className="text-xl font-extrabold text-foreground mb-4">360° Virtual Tour</h2>
+            {property.tourUrl ? (
+              <div className="relative aspect-video bg-[#243C4C] rounded-xl overflow-hidden">
+                <iframe
+                  src={property.tourUrl}
+                  className="absolute inset-0 w-full h-full border-0"
+                  allow="accelerometer; gyroscope; xr-spatial-tracking"
+                  allowFullScreen
+                  loading="lazy"
+                />
+              </div>
+            ) : (
+              <div className="aspect-video bg-[#243C4C]/5 rounded-xl flex items-center justify-center">
+                <div className="text-center text-muted-foreground">
+                  <span className="text-4xl block mb-2">🏠</span>
+                  <p className="font-semibold">Virtual Tour Coming Soon</p>
+                  <p className="text-sm mt-1">Contact us for a live video walkthrough</p>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* 8. Map — CONFIRM */}
+          <div className="py-8 border-b border-border">
+            <h2 className="text-xl font-extrabold text-foreground mb-4">Location</h2>
+            <div className="aspect-[16/9] bg-[#243C4C]/5 rounded-xl overflow-hidden">
+              <iframe
+                src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${encodeURIComponent(property.name + ' ' + (property.area || 'Johor Bahru'))}&zoom=15&maptype=satellite`}
+                className="w-full h-full border-0"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+          </div>
+
+          {/* 9. About Developer — TRUST */}
+          <div className="py-8 border-b border-border">
+            <h2 className="text-xl font-extrabold text-foreground mb-4">About the Developer</h2>
+            <div className="flex items-start gap-4">
+              <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#243C4C] to-[#5289AD] flex items-center justify-center text-xl text-white font-extrabold flex-shrink-0">
+                {(property.developer || 'SA').split(/\s+/).map((w) => w[0]).join('').slice(0, 3)}
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-foreground">{property.developer || 'R&F Properties'}</h3>
+                <p className="text-sm text-muted-foreground mt-1 leading-relaxed">
+                  R&F Properties is one of China&apos;s largest integrated real estate developers, listed on the Hong Kong Stock Exchange. With over 30 years of experience and projects across 40+ cities globally, R&F has established a reputation for delivering premium mixed-use developments. Their flagship Johor Bahru project, R&F Princess Cove, is a 116-acre waterfront city that has become a landmark of the Iskandar Malaysia corridor.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* 10. FAQ — OBJECTIONS */}
+          <div className="py-8 border-b border-border">
+            <h2 className="text-xl font-extrabold text-foreground mb-4">Frequently Asked Questions</h2>
+            <div className="space-y-4">
+              <div className="border border-border rounded-xl p-5">
+                <h3 className="font-semibold text-foreground">Can foreigners buy property in Malaysia?</h3>
+                <p className="text-sm text-muted-foreground mt-2 leading-relaxed">Yes, foreigners can purchase property in Malaysia above the state minimum threshold. In Johor, the minimum is RM1 million for most property types. R&F Princess Cove units are eligible for foreign ownership.</p>
+              </div>
+              <div className="border border-border rounded-xl p-5">
+                <h3 className="font-semibold text-foreground">What is the RTS Link and when does it open?</h3>
+                <p className="text-sm text-muted-foreground mt-2 leading-relaxed">The RTS (Rapid Transit System) Link is a cross-border rail connecting Johor Bahru to Singapore&apos;s Woodlands in just 5 minutes. It is expected to be operational by 2026-2027, significantly boosting property values in the surrounding area.</p>
+              </div>
+              <div className="border border-border rounded-xl p-5">
+                <h3 className="font-semibold text-foreground">What are the estimated rental yields?</h3>
+                <p className="text-sm text-muted-foreground mt-2 leading-relaxed">R&F Princess Cove 2-bedroom units currently achieve average monthly rentals of RM3,300, translating to gross yields of approximately 6-8%. Yields have grown 136% since 2020 driven by RTS anticipation and Singapore demand.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* 11. Visual Roadmap CTA — ACTION */}
+          <div className="py-8">
+            <div className="bg-gradient-to-br from-[#243C4C] to-[#5289AD] rounded-2xl p-8 text-center text-white">
+              <h2 className="text-2xl font-extrabold mb-3">Your Property Journey Starts Here</h2>
+              <p className="text-white/70 mb-6 max-w-md mx-auto">From discovery to keys in hand — we guide you every step of the way.</p>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <a
+                  href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Hi, I'm interested in ${property.name}`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 bg-[#25d366] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#20bd5a] transition-colors"
+                >
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.138.562 4.145 1.543 5.888L0 24l6.304-1.654A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.97 0-3.837-.53-5.445-1.455l-.39-.232-4.047 1.062 1.08-3.946-.254-.404A9.715 9.715 0 0 1 2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z"/></svg>
+                  Get Started on WhatsApp
+                </a>
+                <a
+                  href={`tel:+${whatsappNumber}`}
+                  className="inline-flex items-center justify-center gap-2 bg-white/15 border border-white/25 text-white px-8 py-3 rounded-full font-semibold hover:bg-white/25 transition-colors"
+                >
+                  Schedule a Call
+                </a>
+              </div>
+            </div>
+          </div>
 
         </div>
 
@@ -281,8 +366,6 @@ export default async function PropertyDetailPage({ params }: PageProps) {
           propertyName={property.name}
         />
       </div>
-
-      {/* Similar Properties */}
     </main>
   );
 }
