@@ -141,7 +141,7 @@ const detailDataMap: Record<string, Omit<PropertyDetailData, 'property'>> = {
           : p
     ),
     activePhase: 'overview',
-    whatsappNumber: '60197058001',
+    whatsappNumber: '60102038001',
     rentalData: phase3RentalData,
     rentalSubtitle: 'R&F Princess Cove average monthly rental (2-bedroom)',
     toSingapore: [
@@ -226,7 +226,7 @@ const detailDataMap: Record<string, Omit<PropertyDetailData, 'property'>> = {
     phases: princessCovePhases,
     activePhase: 'phase-3',
     brochureUrl: '/brochure/RF-New-Casa-Suites-Brochure.pdf',
-    whatsappNumber: '60197058001',
+    whatsappNumber: '60102038001',
   },
   'rf-princess-cove-phase-1': {
     phases: princessCovePhases.map((p) =>
@@ -237,7 +237,7 @@ const detailDataMap: Record<string, Omit<PropertyDetailData, 'property'>> = {
           : p
     ),
     activePhase: 'phase-1',
-    whatsappNumber: '60197058001',
+    whatsappNumber: '60102038001',
     toSingapore: [
       { route: 'RTS Link to Woodlands', time: '5 min' },
       { route: 'CIQ Immigration', time: '650m sheltered link' },
@@ -258,7 +258,7 @@ const detailDataMap: Record<string, Omit<PropertyDetailData, 'property'>> = {
           : p
     ),
     activePhase: 'phase-2',
-    whatsappNumber: '60197058001',
+    whatsappNumber: '60102038001',
     toSingapore: [
       { route: 'RTS Link to Woodlands', time: '6 min' },
       { route: 'CIQ Immigration', time: '800m walk' },
@@ -287,7 +287,7 @@ export function getPropertyDetailData(slug: string): PropertyDetailData | null {
     const detailData = detailDataMap[resolvedSlug] || {};
     return {
       property,
-      whatsappNumber: '60197058001',
+      whatsappNumber: '60102038001',
       ...detailData,
     };
   }
@@ -314,7 +314,7 @@ export function getPropertyDetailData(slug: string): PropertyDetailData | null {
     };
     return {
       property: basicProperty,
-      whatsappNumber: '60197058001',
+      whatsappNumber: '60102038001',
     };
   }
 

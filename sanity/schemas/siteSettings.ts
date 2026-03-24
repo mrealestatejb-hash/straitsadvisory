@@ -30,8 +30,8 @@ export default defineType({
       name: 'whatsappNumber',
       title: 'WhatsApp Number',
       type: 'string',
-      description: 'Include country code, e.g. 60197058001',
-      initialValue: '60197058001',
+      description: 'Include country code, e.g. 60102038001',
+      initialValue: '60102038001',
     }),
     defineField({
       name: 'phoneNumber',

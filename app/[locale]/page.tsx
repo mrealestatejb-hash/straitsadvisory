@@ -81,7 +81,7 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
-            href="https://wa.me/60169928899"
+            href="https://wa.me/60102038001"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2.5 bg-[#25d366] text-white px-9 py-4 rounded-full text-[17px] font-semibold shadow-[0_4px_20px_rgba(37,211,102,0.35)] hover:bg-[#20bd5a] hover:-translate-y-0.5 hover:shadow-[0_6px_28px_rgba(37,211,102,0.45)] transition-all duration-300"
@@ -171,13 +171,13 @@ export default function HomePage() {
       {/* Floating Action Buttons */}
       <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
         <a
-          href="tel:+60169928899"
+          href="tel:+60102038001"
           className="w-14 h-14 rounded-full bg-[#007aff] text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
         >
           <Phone className="w-6 h-6" />
         </a>
         <a
-          href="https://wa.me/60169928899"
+          href="https://wa.me/60102038001"
           target="_blank"
           rel="noopener noreferrer"
           className="w-14 h-14 rounded-full bg-[#25d366] text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform"

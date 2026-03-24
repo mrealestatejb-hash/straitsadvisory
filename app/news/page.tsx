@@ -15,7 +15,7 @@ import {
   Star,
 } from 'lucide-react';
 
-const WHATSAPP_URL = 'https://wa.me/60197058001';
+const WHATSAPP_URL = 'https://wa.me/60102038001';
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (

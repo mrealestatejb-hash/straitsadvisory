@@ -15,6 +15,8 @@ import { MortgageCalculator } from '@/components/property/MortgageCalculator';
 import { PropertySidebar } from '@/components/property/PropertySidebar';
 import { BrochureDownload } from '@/components/property/BrochureDownload';
 import { VirtualTourSection } from '@/components/property/VirtualTourSection';
+import { LocationMap } from '@/components/property/LocationMap';
+import { PropertyFAQ } from '@/components/property/PropertyFAQ';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -103,7 +105,7 @@ export default async function PropertyDetailPage({ params }: PageProps) {
     phases,
     activePhase,
     brochureUrl,
-    whatsappNumber = '60197058001',
+    whatsappNumber = '60102038001',
   } = data;
 
   // Build key info items
@@ -188,19 +190,6 @@ export default async function PropertyDetailPage({ params }: PageProps) {
           {property.area}, {property.district || 'Johor Bahru'}, Johor
         </p>
 
-        {/* Badges */}
-        <div className="flex flex-wrap gap-2 mb-4.5">
-          <span
-            className={`px-3.5 py-1 rounded-full text-xs font-semibold border ${statusClass}`}
-          >
-            {statusLabel}
-          </span>
-          {property.type && (
-            <span className="px-3.5 py-1 rounded-full text-xs font-semibold bg-muted text-muted-foreground border border-border">
-              Apartment
-            </span>
-          )}
-        </div>
 
         {/* Price */}
         <div className="pb-5">
@@ -270,18 +259,12 @@ export default async function PropertyDetailPage({ params }: PageProps) {
           )}
 
           {/* 8. Map — CONFIRM */}
-          <div className="py-8 border-b border-border">
-            <h2 className="text-xl font-extrabold text-foreground mb-4">Location</h2>
-            <div className="aspect-[16/9] bg-[#243C4C]/5 rounded-xl overflow-hidden">
-              <iframe
-                src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${encodeURIComponent(property.name + ' ' + (property.area || 'Johor Bahru'))}&zoom=15&maptype=satellite`}
-                className="w-full h-full border-0"
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
-          </div>
+          {property.coordinates && property.coordinates[0] !== 0 && (
+            <LocationMap
+              coordinates={property.coordinates}
+              propertyName={property.name}
+            />
+          )}
 
           {/* 9. About Developer — TRUST */}
           <div className="py-8 border-b border-border">
@@ -300,23 +283,7 @@ export default async function PropertyDetailPage({ params }: PageProps) {
           </div>
 
           {/* 10. FAQ — OBJECTIONS */}
-          <div className="py-8 border-b border-border">
-            <h2 className="text-xl font-extrabold text-foreground mb-4">Frequently Asked Questions</h2>
-            <div className="space-y-4">
-              <div className="border border-border rounded-xl p-5">
-                <h3 className="font-semibold text-foreground">Can foreigners buy property in Malaysia?</h3>
-                <p className="text-sm text-muted-foreground mt-2 leading-relaxed">Yes, foreigners can purchase property in Malaysia above the state minimum threshold. In Johor, the minimum is RM1 million for most property types. R&F Princess Cove units are eligible for foreign ownership.</p>
-              </div>
-              <div className="border border-border rounded-xl p-5">
-                <h3 className="font-semibold text-foreground">What is the RTS Link and when does it open?</h3>
-                <p className="text-sm text-muted-foreground mt-2 leading-relaxed">The RTS (Rapid Transit System) Link is a cross-border rail connecting Johor Bahru to Singapore&apos;s Woodlands in just 5 minutes. It is expected to be operational by 2026-2027, significantly boosting property values in the surrounding area.</p>
-              </div>
-              <div className="border border-border rounded-xl p-5">
-                <h3 className="font-semibold text-foreground">What are the estimated rental yields?</h3>
-                <p className="text-sm text-muted-foreground mt-2 leading-relaxed">R&F Princess Cove 2-bedroom units currently achieve average monthly rentals of RM3,300, translating to gross yields of approximately 6-8%. Yields have grown 136% since 2020 driven by RTS anticipation and Singapore demand.</p>
-              </div>
-            </div>
-          </div>
+          <PropertyFAQ />
 
           {/* 11. Visual Roadmap CTA — ACTION */}
           <div className="py-8">

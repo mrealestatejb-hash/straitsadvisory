@@ -14,7 +14,7 @@ import {
   X,
 } from 'lucide-react';
 
-const WHATSAPP_URL = 'https://wa.me/60197058001';
+const WHATSAPP_URL = 'https://wa.me/60102038001';
 
 type PropertyType = 'Condo/Apartment' | 'Landed House' | 'Commercial' | 'Land';
 type State = 'Johor' | 'Kuala Lumpur' | 'Penang' | 'Other';

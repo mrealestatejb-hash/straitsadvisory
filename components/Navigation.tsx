@@ -121,7 +121,7 @@ export function Navigation() {
 
           {/* WhatsApp CTA */}
           <a
-            href="https://wa.me/60197058001"
+            href="https://wa.me/60102038001"
             target="_blank"
             rel="noopener noreferrer"
             className="px-5 py-[7px] rounded-full text-[13px] font-semibold bg-[#5289AD] border border-[#5289AD]/50 text-white hover:bg-[#5289AD]/90 transition-all duration-200"
@@ -190,7 +190,7 @@ export function Navigation() {
               </div>
 
               <a
-                href="https://wa.me/60197058001"
+                href="https://wa.me/60102038001"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsMenuOpen(false)}

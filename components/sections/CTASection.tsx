@@ -96,7 +96,7 @@ export function CTASection() {
         {/* CTA */}
         <div className="text-center mt-14">
           <a
-            href="https://wa.me/60197058001"
+            href="https://wa.me/60102038001"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 bg-[#25d366] text-white font-semibold rounded-full text-lg hover:bg-[#20bd5a] transition-colors shadow-lg shadow-[#25d366]/25"

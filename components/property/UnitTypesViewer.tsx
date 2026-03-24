@@ -103,7 +103,7 @@ export function UnitTypesViewer({ units }: UnitTypesViewerProps) {
                   )}
                 </div>
                 <a
-                  href={`https://wa.me/60197058001?text=${encodeURIComponent(
+                  href={`https://wa.me/60102038001?text=${encodeURIComponent(
                     `Hi, I'd like to request the price for ${selectedUnit.name}`
                   )}`}
                   target="_blank"

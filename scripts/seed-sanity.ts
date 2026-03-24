@@ -178,7 +178,7 @@ const siteSettings = {
   _id: 'siteSettings',
   siteName: 'Straits Advisory',
   tagline: "Singapore's Gateway to Johor Bahru Property Investment",
-  whatsappNumber: '60197058001',
+  whatsappNumber: '60102038001',
   rtsOpeningDate: 'January 2027',
   heroStats: [
     { _key: 'stat1', value: '6-8', suffix: '%', label: 'Rental Yield' },

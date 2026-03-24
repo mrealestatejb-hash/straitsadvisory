@@ -26,11 +26,11 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-gray-400">
               <li>
                 <a
-                  href="tel:+60197058001"
+                  href="tel:+60102038001"
                   className="flex items-center gap-2 hover:text-white transition-colors duration-200"
                 >
                   <Phone className="h-4 w-4 text-[#D4C4A8]" />
-                  Call Us +60 19-705 8001
+                  Call Us +60 10-203 8001
                 </a>
               </li>
               <li>
@@ -44,7 +44,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="https://wa.me/60197058001"
+                  href="https://wa.me/60102038001"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 hover:text-[#25d366] transition-colors duration-200"

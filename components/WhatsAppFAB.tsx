@@ -10,7 +10,7 @@ export function WhatsAppFAB() {
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-3">
       {/* Phone Button */}
       <a
-        href="tel:+60197058001"
+        href="tel:+60102038001"
         className={`flex items-center justify-center w-14 h-14 rounded-full glass-button glass-specular bg-[#5289AD]/70 text-white transition-transform duration-200 ${
           isHovered === 'phone' ? 'scale-110' : ''
         }`}
@@ -23,7 +23,7 @@ export function WhatsAppFAB() {
 
       {/* WhatsApp Button */}
       <a
-        href="https://wa.me/60197058001"
+        href="https://wa.me/60102038001"
         target="_blank"
         rel="noopener noreferrer"
         className={`flex items-center justify-center w-14 h-14 rounded-full glass-button-green glass-specular text-white transition-transform duration-200 ${
