@@ -167,22 +167,17 @@ export default async function PropertyDetailPage({ params }: PageProps) {
       <div className="bg-white border-b border-border">
         <div className="px-[clamp(20px,5vw,60px)] py-8 max-w-[1200px] mx-auto flex flex-col md:flex-row md:justify-between md:items-start gap-6">
           {/* Left: Property Info */}
-          <div className="flex gap-4">
-            <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#243C4C] to-[#5289AD] flex items-center justify-center text-lg text-white font-extrabold flex-shrink-0">
-              {(property.developer || 'SA').split(/\s+/).map((w) => w[0]).join('').slice(0, 3)}
-            </div>
-            <div>
-              <h1 className="text-[clamp(24px,3.5vw,32px)] font-extrabold text-foreground leading-tight">
-                {property.name}
-              </h1>
-              {property.nameZh && (
-                <p className="text-sm text-muted-foreground mt-0.5">{property.nameZh}</p>
-              )}
-              <p className="text-sm text-muted-foreground flex items-center gap-1.5 mt-2">
-                <MapPin className="w-4 h-4 text-muted-foreground/60" />
-                {property.area}, {property.district || 'Johor Bahru'}, Johor
-              </p>
-            </div>
+          <div>
+            <h1 className="text-[clamp(24px,3.5vw,32px)] font-extrabold text-foreground leading-tight">
+              {property.name}
+            </h1>
+            {property.nameZh && (
+              <p className="text-sm text-muted-foreground mt-0.5">{property.nameZh}</p>
+            )}
+            <p className="text-sm text-muted-foreground flex items-center gap-1.5 mt-2">
+              <MapPin className="w-4 h-4 text-muted-foreground/60" />
+              {property.area}, {property.district || 'Johor Bahru'}, Johor
+            </p>
           </div>
 
           {/* Right: Price + Developer + CTA */}
@@ -199,9 +194,9 @@ export default async function PropertyDetailPage({ params }: PageProps) {
               </div>
             </div>
 
-            {/* Developer + Enquire */}
-            <div className="flex items-center gap-3 flex-wrap">
-              <div className="inline-flex items-center gap-2.5 px-4 py-2.5 bg-white border border-border rounded-[10px]">
+            {/* Developer + Enquire — equal width, fitted under price */}
+            <div className="flex gap-3 mt-1">
+              <div className="flex-1 inline-flex items-center justify-center gap-2.5 px-4 py-3 bg-white border border-border rounded-[10px]">
                 <div className="w-9 h-9 flex items-center justify-center bg-[#FAF9F7] rounded-lg text-[#5379AE]">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <rect x="3" y="3" width="7" height="18" rx="1"/>
@@ -223,7 +218,7 @@ export default async function PropertyDetailPage({ params }: PageProps) {
                 href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Hi, I'm interested in ${property.name}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3 rounded-lg text-sm font-semibold bg-[#5379AE] text-white hover:bg-[#06457F] transition-colors"
+                className="flex-1 flex items-center justify-center px-6 py-3 rounded-[10px] text-sm font-semibold bg-[#5379AE] text-white hover:bg-[#06457F] transition-colors"
               >
                 Enquire Now
               </a>
