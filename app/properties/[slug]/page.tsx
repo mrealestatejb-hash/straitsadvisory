@@ -142,9 +142,9 @@ export default async function PropertyDetailPage({ params }: PageProps) {
 
   return (
     <main className="min-h-screen bg-white">
-      {/* Gallery */}
+      {/* Gallery — full bleed behind nav */}
       {property.images && property.images.length > 0 && (
-        <div className="mt-16">
+        <div className="-mt-[80px] pt-0">
           <PropertyGallery images={property.images} />
         </div>
       )}

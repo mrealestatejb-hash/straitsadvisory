@@ -12,7 +12,7 @@ export function PropertyGallery({ images }: PropertyGalleryProps) {
   const heroImage = images[0];
 
   return (
-    <div className="relative w-full h-[340px] md:h-[440px] lg:h-[500px] overflow-hidden">
+    <div className="relative w-full h-[420px] md:h-[520px] lg:h-[580px] overflow-hidden">
       <Image
         src={heroImage}
         alt="Property"
