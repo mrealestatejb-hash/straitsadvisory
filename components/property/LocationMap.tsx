@@ -16,20 +16,20 @@ interface LocationMapProps {
 }
 
 const defaultPOIs = [
-  // Transit — GPS verified from Google Maps
-  { name: 'CIQ / RTS Link Station', category: 'transit', coordinates: [103.7660, 1.4613] as [number, number], distance: '650m' },
-  { name: 'JB Sentral', category: 'transit', coordinates: [103.7636, 1.4603] as [number, number], distance: '800m' },
-  { name: 'Singapore — Woodlands', category: 'transit', coordinates: [103.7673, 1.4483] as [number, number], distance: '1.2km' },
+  // Transit — GPS from Google Maps, property at [103.7637, 1.4627]
+  { name: 'CIQ / RTS Link Station', category: 'transit', coordinates: [103.7644, 1.4610] as [number, number], distance: '650m' },
+  { name: 'JB Sentral', category: 'transit', coordinates: [103.7625, 1.4607] as [number, number], distance: '800m' },
+  { name: 'Singapore — Woodlands', category: 'transit', coordinates: [103.7685, 1.4485] as [number, number], distance: '1.6km' },
   // Shopping
-  { name: 'R&F Mall', category: 'shopping', coordinates: [103.7688, 1.4575] as [number, number], distance: '200m' },
-  { name: 'City Square Mall', category: 'shopping', coordinates: [103.7633, 1.4618] as [number, number], distance: '900m' },
-  { name: 'KOMTAR JBCC', category: 'shopping', coordinates: [103.7619, 1.4637] as [number, number], distance: '1.2km' },
+  { name: 'R&F Mall', category: 'shopping', coordinates: [103.7645, 1.4618] as [number, number], distance: '200m' },
+  { name: 'City Square Mall', category: 'shopping', coordinates: [103.7620, 1.4615] as [number, number], distance: '300m' },
+  { name: 'KOMTAR JBCC', category: 'shopping', coordinates: [103.7590, 1.4630] as [number, number], distance: '600m' },
   // Healthcare
-  { name: 'KPJ Johor Specialist Hospital', category: 'hospital', coordinates: [103.7572, 1.4644] as [number, number], distance: '1.5km' },
-  { name: 'HSA Hospital', category: 'hospital', coordinates: [103.7548, 1.4618] as [number, number], distance: '1.7km' },
+  { name: 'KPJ Johor Specialist Hospital', category: 'hospital', coordinates: [103.7560, 1.4650] as [number, number], distance: '1km' },
+  { name: 'HSA Hospital', category: 'hospital', coordinates: [103.7530, 1.4620] as [number, number], distance: '1.2km' },
   // Schools
-  { name: 'Foon Yew High School', category: 'school', coordinates: [103.7579, 1.4655] as [number, number], distance: '1.5km' },
-  { name: 'SK Sultan Ibrahim', category: 'school', coordinates: [103.7621, 1.4651] as [number, number], distance: '1.2km' },
+  { name: 'Foon Yew High School', category: 'school', coordinates: [103.7570, 1.4660] as [number, number], distance: '1km' },
+  { name: 'SK Sultan Ibrahim', category: 'school', coordinates: [103.7610, 1.4650] as [number, number], distance: '500m' },
 ];
 
 const categoryConfig: Record<string, { icon: typeof Train; color: string; label: string }> = {

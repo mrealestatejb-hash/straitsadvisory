@@ -86,7 +86,7 @@ export function VirtualTourSection({ tourUrl, propertyName, thumbnailUrl }: Virt
           <iframe
             src={tourUrl}
             className="absolute inset-0 w-full h-full border-0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; xr-spatial-tracking"
+            allow="accelerometer; clipboard-write; gyroscope; xr-spatial-tracking"
             allowFullScreen
           />
         )}
