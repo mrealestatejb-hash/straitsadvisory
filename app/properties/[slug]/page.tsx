@@ -14,6 +14,7 @@ import { ConnectivitySection } from '@/components/property/ConnectivitySection';
 import { MortgageCalculator } from '@/components/property/MortgageCalculator';
 import { PropertySidebar } from '@/components/property/PropertySidebar';
 import { BrochureDownload } from '@/components/property/BrochureDownload';
+import { VirtualTourSection } from '@/components/property/VirtualTourSection';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -260,28 +261,13 @@ export default async function PropertyDetailPage({ params }: PageProps) {
           )}
 
           {/* 7. Virtual Tour — EXPERIENCE */}
-          <div className="py-8 border-b border-border">
-            <h2 className="text-xl font-extrabold text-foreground mb-4">360° Virtual Tour</h2>
-            {property.tourUrl ? (
-              <div className="relative aspect-video bg-[#243C4C] rounded-xl overflow-hidden">
-                <iframe
-                  src={property.tourUrl}
-                  className="absolute inset-0 w-full h-full border-0"
-                  allow="accelerometer; gyroscope; xr-spatial-tracking"
-                  allowFullScreen
-                  loading="lazy"
-                />
-              </div>
-            ) : (
-              <div className="aspect-video bg-[#243C4C]/5 rounded-xl flex items-center justify-center">
-                <div className="text-center text-muted-foreground">
-                  <span className="text-4xl block mb-2">🏠</span>
-                  <p className="font-semibold">Virtual Tour Coming Soon</p>
-                  <p className="text-sm mt-1">Contact us for a live video walkthrough</p>
-                </div>
-              </div>
-            )}
-          </div>
+          {property.tourUrl && (
+            <VirtualTourSection
+              tourUrl={property.tourUrl}
+              propertyName={property.name}
+              thumbnailUrl={property.image}
+            />
+          )}
 
           {/* 8. Map — CONFIRM */}
           <div className="py-8 border-b border-border">
