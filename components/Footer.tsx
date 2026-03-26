@@ -57,8 +57,11 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-white/10 text-center text-sm text-gray-500">
+        <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-500">
           <p>&copy; 2025 Straits Advisory. All rights reserved.</p>
+          <a href="/privacy" className="hover:text-white transition-colors duration-200">
+            Privacy Policy
+          </a>
         </div>
       </div>
     </footer>
