@@ -9,18 +9,18 @@ interface LocationMapProps {
 }
 
 const POIS = [
-  { name: 'CIQ / RTS Link Station', cat: 'transit', lng: 103.7644, lat: 1.4469, dist: '1.0 km' },
-  { name: 'JB Sentral', cat: 'transit', lng: 103.7631, lat: 1.4613, dist: '1.2 km' },
-  { name: 'Woodlands CIQ (Singapore)', cat: 'transit', lng: 103.7710, lat: 1.4480, dist: '15 min' },
-  { name: 'R&F Mall', cat: 'shopping', lng: 103.7650, lat: 1.4595, dist: '200m' },
-  { name: 'City Square Mall', cat: 'shopping', lng: 103.7620, lat: 1.4610, dist: '500m' },
-  { name: 'KOMTAR JBCC', cat: 'shopping', lng: 103.7590, lat: 1.4630, dist: '1.0 km' },
-  { name: 'KSL City Mall', cat: 'shopping', lng: 103.7570, lat: 1.4750, dist: '3.5 km' },
-  { name: 'Hospital Sultanah Aminah', cat: 'hospital', lng: 103.7580, lat: 1.4720, dist: '2.5 km' },
-  { name: 'KPJ Johor Specialist Hospital', cat: 'hospital', lng: 103.7520, lat: 1.4750, dist: '3.0 km' },
-  { name: 'Foon Yew High School', cat: 'school', lng: 103.7530, lat: 1.4650, dist: '1.5 km' },
-  { name: 'SK Sultan Ibrahim', cat: 'school', lng: 103.7570, lat: 1.4690, dist: '1.8 km' },
-  { name: 'Fairview International School', cat: 'school', lng: 103.7500, lat: 1.4800, dist: '3.5 km' },
+  { name: 'CIQ / RTS Link Station', cat: 'transit', lng: 103.7623, lat: 1.4665, dist: '1.0 km' },
+  { name: 'JB Sentral', cat: 'transit', lng: 103.7647, lat: 1.4625, dist: '450m' },
+  { name: 'Woodlands CIQ (Singapore)', cat: 'transit', lng: 103.7691, lat: 1.4456, dist: '1.5 km' },
+  { name: 'R&F Mall', cat: 'shopping', lng: 103.7692, lat: 1.4594, dist: '150m' },
+  { name: 'City Square Mall', cat: 'shopping', lng: 103.7642, lat: 1.4612, dist: '450m' },
+  { name: 'KOMTAR JBCC', cat: 'shopping', lng: 103.7628, lat: 1.4637, dist: '700m' },
+  { name: 'KSL City Mall', cat: 'shopping', lng: 103.7624, lat: 1.4855, dist: '3.0 km' },
+  { name: 'Hospital Sultanah Aminah', cat: 'hospital', lng: 103.7461, lat: 1.4588, dist: '2.4 km' },
+  { name: 'KPJ Johor Specialist Hospital', cat: 'hospital', lng: 103.7414, lat: 1.4761, dist: '3.4 km' },
+  { name: 'Foon Yew High School', cat: 'school', lng: 103.7787, lat: 1.4691, dist: '1.5 km' },
+  { name: 'SK Sultan Ibrahim', cat: 'school', lng: 103.7513, lat: 1.4740, dist: '2.4 km' },
+  { name: 'Fairview International School', cat: 'school', lng: 103.7340, lat: 1.5579, dist: '11.5 km' },
 ];
 
 const CAT_COLORS: Record<string, string> = {
@@ -68,14 +68,14 @@ export function LocationMap({ coordinates, propertyName }: LocationMapProps) {
         style: 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json',
         center: coordinates,
         zoom: 14,
-        pitch: 45,
+        pitch: 0,
         attributionControl: false,
       });
 
       map.addControl(new ml.NavigationControl({ showCompass: false }), 'top-right');
 
-      map.on('load', () => {
-        // Load pin images
+      map.on('load', async () => {
+        // Load pin images (MapLibre v4+ uses Promise-based loadImage)
         const pinImages = [
           { id: 'pin-property', url: '/images/markers/pin-property.png' },
           { id: 'pin-transit', url: '/images/markers/pin-transit.png' },
@@ -84,95 +84,91 @@ export function LocationMap({ coordinates, propertyName }: LocationMapProps) {
           { id: 'pin-school', url: '/images/markers/pin-school.png' },
         ];
 
-        let loaded = 0;
-        pinImages.forEach(pin => {
-          map.loadImage(pin.url, (err: any, image: any) => {
-            if (!err && image) {
-              map.addImage(pin.id, image);
-            }
-            loaded++;
-            if (loaded === pinImages.length) {
-              addLayers();
-            }
-          });
+        await Promise.all(pinImages.map(async (pin) => {
+          try {
+            const resp = await map.loadImage(pin.url);
+            map.addImage(pin.id, resp.data);
+          } catch { /* skip failed images */ }
+        }));
+
+        // Property marker
+        map.addSource('property', {
+          type: 'geojson',
+          data: {
+            type: 'Feature',
+            geometry: { type: 'Point', coordinates: coordinates },
+            properties: { name: propertyName },
+          },
+        });
+        map.addLayer({
+          id: 'property-pin',
+          type: 'symbol',
+          source: 'property',
+          layout: {
+            'icon-image': 'pin-property',
+            'icon-size': 0.8,
+            'icon-anchor': 'bottom',
+            'icon-allow-overlap': true,
+            'icon-pitch-alignment': 'viewport',
+            'icon-rotation-alignment': 'viewport',
+          },
         });
 
-        function addLayers() {
-          // Property marker
-          map.addSource('property', {
-            type: 'geojson',
-            data: {
-              type: 'Feature',
-              geometry: { type: 'Point', coordinates: coordinates },
-              properties: { name: propertyName },
-            },
-          });
-          map.addLayer({
-            id: 'property-pin',
-            type: 'symbol',
-            source: 'property',
-            layout: {
-              'icon-image': 'pin-property',
-              'icon-size': 0.8,
-              'icon-anchor': 'bottom',
-              'icon-allow-overlap': true,
-            },
-          });
+        // POI markers
+        const poiFeatures = POIS.map(poi => ({
+          type: 'Feature' as const,
+          geometry: { type: 'Point' as const, coordinates: [poi.lng, poi.lat] },
+          properties: {
+            name: poi.name,
+            cat: poi.cat,
+            dist: poi.dist,
+            pinImage: `pin-${poi.cat}`,
+          },
+        }));
 
-          // POI markers
-          const poiFeatures = POIS.map(poi => ({
-            type: 'Feature' as const,
-            geometry: { type: 'Point' as const, coordinates: [poi.lng, poi.lat] },
-            properties: {
-              name: poi.name,
-              cat: poi.cat,
-              dist: poi.dist,
-              pinImage: `pin-${poi.cat}`,
-            },
-          }));
+        map.addSource('pois', {
+          type: 'geojson',
+          data: { type: 'FeatureCollection', features: poiFeatures },
+        });
 
-          map.addSource('pois', {
-            type: 'geojson',
-            data: { type: 'FeatureCollection', features: poiFeatures },
-          });
+        map.addLayer({
+          id: 'poi-pins',
+          type: 'symbol',
+          source: 'pois',
+          layout: {
+            'icon-image': ['get', 'pinImage'],
+            'icon-size': 0.65,
+            'icon-anchor': 'bottom',
+            'icon-allow-overlap': true,
+            'icon-pitch-alignment': 'viewport',
+            'icon-rotation-alignment': 'viewport',
+          },
+        });
 
-          map.addLayer({
-            id: 'poi-pins',
-            type: 'symbol',
-            source: 'pois',
-            layout: {
-              'icon-image': ['get', 'pinImage'],
-              'icon-size': 0.65,
-              'icon-anchor': 'bottom',
-              'icon-allow-overlap': true,
-            },
-          });
+        // Popup on click
+        const popup = new ml.Popup({ closeButton: false, closeOnClick: true, offset: [0, -40] });
 
-          // Popup on click
-          const popup = new ml.Popup({ closeButton: false, closeOnClick: true, offset: [0, -40] });
+        map.on('click', 'poi-pins', (e: any) => {
+          const feat = e.features[0];
+          popup
+            .setLngLat(feat.geometry.coordinates)
+            .setHTML(`<div style="font-family:Inter,sans-serif;padding:2px 4px"><strong style="font-size:13px">${feat.properties.name}</strong><br/><span style="font-size:12px;color:#5289AD">${feat.properties.dist}</span></div>`)
+            .addTo(map);
+        });
 
-          map.on('click', 'poi-pins', (e: any) => {
-            const feat = e.features[0];
-            popup
-              .setLngLat(feat.geometry.coordinates)
-              .setHTML(`<div style="font-family:Inter,sans-serif;padding:2px 4px"><strong style="font-size:13px">${feat.properties.name}</strong><br/><span style="font-size:12px;color:#5289AD">${feat.properties.dist}</span></div>`)
-              .addTo(map);
-          });
+        map.on('click', 'property-pin', () => {
+          popup
+            .setLngLat(coordinates)
+            .setHTML(`<div style="font-family:Inter,sans-serif;padding:2px 4px"><strong style="font-size:14px">${propertyName}</strong></div>`)
+            .addTo(map);
+        });
 
-          map.on('click', 'property-pin', () => {
-            popup
-              .setLngLat(coordinates)
-              .setHTML(`<div style="font-family:Inter,sans-serif;padding:2px 4px"><strong style="font-size:14px">${propertyName}</strong></div>`)
-              .addTo(map);
-          });
+        map.on('mouseenter', 'poi-pins', () => { map.getCanvas().style.cursor = 'pointer'; });
+        map.on('mouseleave', 'poi-pins', () => { map.getCanvas().style.cursor = ''; });
+        map.on('mouseenter', 'property-pin', () => { map.getCanvas().style.cursor = 'pointer'; });
+        map.on('mouseleave', 'property-pin', () => { map.getCanvas().style.cursor = ''; });
 
-          map.on('mouseenter', 'poi-pins', () => { map.getCanvas().style.cursor = 'pointer'; });
-          map.on('mouseleave', 'poi-pins', () => { map.getCanvas().style.cursor = ''; });
-          map.on('mouseenter', 'property-pin', () => { map.getCanvas().style.cursor = 'pointer'; });
-          map.on('mouseleave', 'property-pin', () => { map.getCanvas().style.cursor = ''; });
-
-          setMapObj(map);
-        }
+        setMapObj(map);
       });
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
