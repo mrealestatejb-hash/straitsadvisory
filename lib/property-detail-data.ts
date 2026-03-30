@@ -279,6 +279,32 @@ const detailDataMap: Record<string, Omit<PropertyDetailData, 'property'>> = {
       { place: 'City Square Mall', time: '7 min walk' },
     ],
   },
+
+  'ctc-skyone-bukit-chagar': {
+    whatsappNumber: '60102038001',
+    brochureUrl: 'https://docs.wixstatic.com/ugd/d88810_59ce216018b047e9affe080c31018a5d.pdf',
+    toSingapore: [
+      { route: 'RTS Link to Woodlands', time: '5 min' },
+      { route: 'CIQ Immigration', time: '300m walk' },
+      { route: 'Bus to SG (170/170X)', time: '45-60 min' },
+    ],
+    withinJB: [
+      { place: 'SKS City Mall', time: 'Adjacent' },
+      { place: 'Sheraton Hotel', time: 'Next door' },
+      { place: 'City Square Mall', time: '5 min drive' },
+      { place: 'JB Sentral', time: '5 min drive' },
+    ],
+    whyRecommend: {
+      title: 'CTC Skyone',
+      subtitle: 'Closest freehold residence to the RTS Link station — just 300m away',
+      cards: [
+        { title: '300m to RTS', desc: 'One of the nearest developments to the RTS Link station for seamless cross-border commuting', color: 'blue' },
+        { title: 'Freehold Tenure', desc: 'Full freehold ownership in Johor Bahru city centre — a rare find this close to CIQ', color: 'emerald' },
+        { title: 'Dual-Key Layouts', desc: 'All units convertible to dual-key configurations for maximum rental flexibility', color: 'violet' },
+        { title: 'City Living', desc: 'Beside Sheraton Hotel & SKS City Mall with shopping, dining, and lifestyle at your doorstep', color: 'amber' },
+      ],
+    },
+  },
 };
 
 // Slug aliases for backward compatibility
