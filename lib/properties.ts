@@ -229,6 +229,8 @@ export const properties: Property[] = [
       "/images/properties/ctc-skyone-bukit-chagar/hero.jpg",
       "/images/properties/ctc-skyone-bukit-chagar/gallery-1.jpg",
     ],
+    tourUrl: "https://goprop360.com/360vr/CTC/",
+    tourProvider: "generic",
     featured: false,
     type: ["city"],
     coordinates: [103.7619, 1.4706],
