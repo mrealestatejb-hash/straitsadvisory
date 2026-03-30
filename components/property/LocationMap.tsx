@@ -24,10 +24,10 @@ const POIS = [
 ];
 
 const CAT_COLORS: Record<string, string> = {
-  transit: '#5289AD',
-  shopping: '#7c3aed',
-  hospital: '#dc2626',
-  school: '#D4C4A8',
+  transit: '#3B82F6',
+  shopping: '#8B5CF6',
+  hospital: '#EF4444',
+  school: '#F59E0B',
 };
 
 const CAT_CONFIG: Record<string, { icon: typeof Train; label: string }> = {
@@ -74,24 +74,8 @@ export function LocationMap({ coordinates, propertyName }: LocationMapProps) {
 
       map.addControl(new ml.NavigationControl({ showCompass: false }), 'top-right');
 
-      map.on('load', async () => {
-        // Load pin images (MapLibre v4+ uses Promise-based loadImage)
-        const pinImages = [
-          { id: 'pin-property', url: '/images/markers/pin-property.png' },
-          { id: 'pin-transit', url: '/images/markers/pin-transit.png' },
-          { id: 'pin-shopping', url: '/images/markers/pin-shopping.png' },
-          { id: 'pin-hospital', url: '/images/markers/pin-hospital.png' },
-          { id: 'pin-school', url: '/images/markers/pin-school.png' },
-        ];
-
-        await Promise.all(pinImages.map(async (pin) => {
-          try {
-            const resp = await map.loadImage(pin.url);
-            map.addImage(pin.id, resp.data);
-          } catch { /* skip failed images */ }
-        }));
-
-        // Property marker
+      map.on('load', () => {
+        // ── Property source ──
         map.addSource('property', {
           type: 'geojson',
           data: {
@@ -100,21 +84,45 @@ export function LocationMap({ coordinates, propertyName }: LocationMapProps) {
             properties: { name: propertyName },
           },
         });
+
+        // Property outer glow ring
         map.addLayer({
-          id: 'property-pin',
-          type: 'symbol',
+          id: 'property-glow',
+          type: 'circle',
           source: 'property',
-          layout: {
-            'icon-image': 'pin-property',
-            'icon-size': 0.8,
-            'icon-anchor': 'bottom',
-            'icon-allow-overlap': true,
-            'icon-pitch-alignment': 'viewport',
-            'icon-rotation-alignment': 'viewport',
+          paint: {
+            'circle-radius': 20,
+            'circle-color': '#0F172A',
+            'circle-opacity': 0.08,
+            'circle-blur': 0.7,
           },
         });
 
-        // POI markers
+        // Property main dot
+        map.addLayer({
+          id: 'property-pin',
+          type: 'circle',
+          source: 'property',
+          paint: {
+            'circle-radius': 8,
+            'circle-color': '#0F172A',
+            'circle-stroke-width': 2.5,
+            'circle-stroke-color': '#ffffff',
+          },
+        });
+
+        // Property inner white dot
+        map.addLayer({
+          id: 'property-inner',
+          type: 'circle',
+          source: 'property',
+          paint: {
+            'circle-radius': 2.5,
+            'circle-color': '#ffffff',
+          },
+        });
+
+        // ── POI source ──
         const poiFeatures = POIS.map(poi => ({
           type: 'Feature' as const,
           geometry: { type: 'Point' as const, coordinates: [poi.lng, poi.lat] },
@@ -122,7 +130,7 @@ export function LocationMap({ coordinates, propertyName }: LocationMapProps) {
             name: poi.name,
             cat: poi.cat,
             dist: poi.dist,
-            pinImage: `pin-${poi.cat}`,
+            color: CAT_COLORS[poi.cat] || '#6B7280',
           },
         }));
 
@@ -131,35 +139,67 @@ export function LocationMap({ coordinates, propertyName }: LocationMapProps) {
           data: { type: 'FeatureCollection', features: poiFeatures },
         });
 
+        // POI shadow
         map.addLayer({
-          id: 'poi-pins',
-          type: 'symbol',
+          id: 'poi-shadow',
+          type: 'circle',
           source: 'pois',
-          layout: {
-            'icon-image': ['get', 'pinImage'],
-            'icon-size': 0.65,
-            'icon-anchor': 'bottom',
-            'icon-allow-overlap': true,
-            'icon-pitch-alignment': 'viewport',
-            'icon-rotation-alignment': 'viewport',
+          paint: {
+            'circle-radius': 8,
+            'circle-color': '#000000',
+            'circle-opacity': 0.06,
+            'circle-blur': 0.6,
+            'circle-translate': [0, 1],
           },
         });
 
-        // Popup on click
-        const popup = new ml.Popup({ closeButton: false, closeOnClick: true, offset: [0, -40] });
+        // POI main dot
+        map.addLayer({
+          id: 'poi-pins',
+          type: 'circle',
+          source: 'pois',
+          paint: {
+            'circle-radius': 6,
+            'circle-color': ['get', 'color'],
+            'circle-stroke-width': 2,
+            'circle-stroke-color': '#ffffff',
+          },
+        });
+
+        // ── Popup on click ──
+        const popup = new ml.Popup({
+          closeButton: false,
+          closeOnClick: true,
+          offset: [0, -12],
+          className: 'clean-popup',
+        });
 
         map.on('click', 'poi-pins', (e: any) => {
           const feat = e.features[0];
+          const color = feat.properties.color;
           popup
             .setLngLat(feat.geometry.coordinates)
-            .setHTML(`<div style="font-family:Inter,sans-serif;padding:2px 4px"><strong style="font-size:13px">${feat.properties.name}</strong><br/><span style="font-size:12px;color:#5289AD">${feat.properties.dist}</span></div>`)
+            .setHTML(
+              `<div style="font-family:Inter,-apple-system,sans-serif;padding:6px 10px">` +
+              `<div style="display:flex;align-items:center;gap:6px">` +
+              `<div style="width:6px;height:6px;border-radius:50%;background:${color};flex-shrink:0"></div>` +
+              `<strong style="font-size:12px;font-weight:600;color:#1e293b">${feat.properties.name}</strong>` +
+              `</div>` +
+              `<div style="font-size:11px;color:#64748b;margin-top:2px;padding-left:12px">${feat.properties.dist} away</div>` +
+              `</div>`
+            )
             .addTo(map);
         });
 
         map.on('click', 'property-pin', () => {
           popup
             .setLngLat(coordinates)
-            .setHTML(`<div style="font-family:Inter,sans-serif;padding:2px 4px"><strong style="font-size:14px">${propertyName}</strong></div>`)
+            .setHTML(
+              `<div style="font-family:Inter,-apple-system,sans-serif;padding:6px 10px">` +
+              `<strong style="font-size:12px;font-weight:600;color:#0f172a">${propertyName}</strong>` +
+              `<div style="font-size:11px;color:#64748b;margin-top:1px">Your property</div>` +
+              `</div>`
+            )
             .addTo(map);
         });
 
@@ -178,11 +218,9 @@ export function LocationMap({ coordinates, propertyName }: LocationMapProps) {
   useEffect(() => {
     if (!mapObj) return;
     try {
-      if (activeCat === 'all') {
-        mapObj.setFilter('poi-pins', null);
-      } else {
-        mapObj.setFilter('poi-pins', ['==', ['get', 'cat'], activeCat]);
-      }
+      const filter = activeCat === 'all' ? null : ['==', ['get', 'cat'], activeCat];
+      mapObj.setFilter('poi-pins', filter);
+      mapObj.setFilter('poi-shadow', filter);
     } catch { /* map not ready */ }
   }, [activeCat, mapObj]);
 
@@ -190,6 +228,7 @@ export function LocationMap({ coordinates, propertyName }: LocationMapProps) {
     <div className="py-8 border-b border-border">
       <h2 className="text-xl font-extrabold text-foreground mb-4">Location</h2>
 
+      {/* Category filters */}
       <div className="flex flex-wrap gap-2 mb-4">
         <button
           onClick={() => setActiveCat('all')}
@@ -218,23 +257,25 @@ export function LocationMap({ coordinates, propertyName }: LocationMapProps) {
         })}
       </div>
 
+      {/* Map */}
       <div ref={mapDiv} className="w-full rounded-xl overflow-hidden border border-border" style={{ height: 400 }} />
 
+      {/* POI list */}
       <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
         {POIS
           .filter(p => activeCat === 'all' || p.cat === activeCat)
           .map((poi, i) => {
             const Icon = CAT_CONFIG[poi.cat]?.icon || Train;
-            const color = CAT_COLORS[poi.cat] || '#5289AD';
+            const color = CAT_COLORS[poi.cat] || '#3B82F6';
             return (
               <div key={i} className="flex items-center gap-3 py-2.5 px-3 rounded-lg">
-                <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${color}15` }}>
+                <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${color}12` }}>
                   <Icon className="w-4 h-4" style={{ color }} />
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium text-foreground truncate">{poi.name}</p>
                 </div>
-                <span className="text-xs font-semibold text-[#5289AD] flex-shrink-0">{poi.dist}</span>
+                <span className="text-xs font-semibold flex-shrink-0" style={{ color }}>{poi.dist}</span>
               </div>
             );
           })}
