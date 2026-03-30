@@ -282,7 +282,7 @@ const detailDataMap: Record<string, Omit<PropertyDetailData, 'property'>> = {
 
   'ctc-skyone-bukit-chagar': {
     whatsappNumber: '60102038001',
-    brochureUrl: 'https://docs.wixstatic.com/ugd/d88810_59ce216018b047e9affe080c31018a5d.pdf',
+    brochureUrl: '/brochures/ctc-skyone-bukit-chagar.pdf',
     toSingapore: [
       { route: 'RTS Link to Woodlands', time: '5 min' },
       { route: 'CIQ Immigration', time: '300m walk' },

@@ -228,8 +228,7 @@ export default async function PropertyDetailPage({ params }: PageProps) {
             {brochureUrl && (
               <a
                 href={brochureUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                download
                 className="flex items-center justify-center gap-2 px-5 py-2.5 rounded-[10px] text-sm font-semibold border border-[#5379AE]/20 text-[#5379AE] hover:bg-[#5379AE]/5 transition-colors w-full md:w-auto"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
