@@ -305,6 +305,256 @@ const detailDataMap: Record<string, Omit<PropertyDetailData, 'property'>> = {
       ],
     },
   },
+
+'paragon-gateway-taman-suria': {
+    whatsappNumber: '60102038001',
+    brochureUrl: '/brochures/paragon-gateway-taman-suria.pdf',
+    toSingapore: [
+      { route: 'RTS Link to Woodlands', time: 'TBD' },
+      { route: 'Bus to SG (170/170X)', time: '45-60 min' },
+    ],
+    withinJB: [],
+  },
+
+  'maxim-the-address-taman-pelangi': {
+    whatsappNumber: '60102038001',
+    brochureUrl: '/brochures/maxim-the-address-taman-pelangi.pdf',
+    toSingapore: [
+      { route: 'RTS Link to Woodlands', time: 'TBD' },
+      { route: 'Bus to SG (170/170X)', time: '45-60 min' },
+    ],
+    withinJB: [],
+  },
+
+  'golf-villa-forest-city-sfz': {
+    whatsappNumber: '60102038001',
+    brochureUrl: '/brochures/golf-villa-forest-city-sfz.pdf',
+    toSingapore: [
+      { route: 'RTS Link to Woodlands', time: 'TBD' },
+      { route: 'Bus to SG (170/170X)', time: '45-60 min' },
+    ],
+    withinJB: [],
+  },
+
+  'm-grand-minori-taman-pelangi': {
+    whatsappNumber: '60102038001',
+    brochureUrl: '/brochures/m-grand-minori-taman-pelangi.pdf',
+    toSingapore: [
+      { route: 'RTS Link to Woodlands', time: 'TBD' },
+      { route: 'Bus to SG (170/170X)', time: '45-60 min' },
+    ],
+    withinJB: [],
+  },
+
+  'the-astaka-one-bukit-senyum': {
+    whatsappNumber: '60102038001',
+    brochureUrl: '/brochures/the-astaka-one-bukit-senyum.pdf',
+    toSingapore: [
+      { route: 'RTS Link to Woodlands', time: 'TBD' },
+      { route: 'Bus to SG (170/170X)', time: '45-60 min' },
+    ],
+    withinJB: [],
+  },
+
+  'elysia-park-medini': {
+    whatsappNumber: '60102038001',
+    brochureUrl: '/brochures/elysia-park-medini.pdf',
+    toSingapore: [
+      { route: 'RTS Link to Woodlands', time: 'TBD' },
+      { route: 'Bus to SG (170/170X)', time: '45-60 min' },
+    ],
+    withinJB: [],
+  },
+
+  'the-arden-one-bukit-senyum': {
+    whatsappNumber: '60102038001',
+    brochureUrl: '/brochures/the-arden-one-bukit-senyum.pdf',
+    toSingapore: [
+      { route: 'RTS Link to Woodlands', time: 'TBD' },
+      { route: 'Bus to SG (170/170X)', time: '45-60 min' },
+    ],
+    withinJB: [],
+  },
+
+  'skypark-kepler-lido-waterfront-boulevard': {
+    whatsappNumber: '60102038001',
+    brochureUrl: '/brochures/skypark-kepler-lido-waterfront-boulevard.pdf',
+    toSingapore: [
+      { route: 'RTS Link to Woodlands', time: 'TBD' },
+      { route: 'Bus to SG (170/170X)', time: '45-60 min' },
+    ],
+    withinJB: [],
+  },
+
+  'suria-hill': {
+    whatsappNumber: '60102038001',
+    brochureUrl: '/brochures/suria-hill.pdf',
+    toSingapore: [
+      { route: 'RTS Link to Woodlands', time: 'TBD' },
+      { route: 'Bus to SG (170/170X)', time: '45-60 min' },
+    ],
+    withinJB: [],
+  },
+
+  'parkland-by-the-river-permas': {
+    whatsappNumber: '60102038001',
+    brochureUrl: '/brochures/parkland-by-the-river-permas.pdf',
+    toSingapore: [
+      { route: 'RTS Link to Woodlands', time: 'TBD' },
+      { route: 'Bus to SG (170/170X)', time: '45-60 min' },
+    ],
+    withinJB: [],
+  },
+
+  'skyline-one-sentosa-taman-sentosa': {
+    whatsappNumber: '60102038001',
+    brochureUrl: '/brochures/skyline-one-sentosa-taman-sentosa.pdf',
+    toSingapore: [
+      { route: 'RTS Link to Woodlands', time: 'TBD' },
+      { route: 'Bus to SG (170/170X)', time: '45-60 min' },
+    ],
+    withinJB: [],
+  },
+
+  'the-m-macrolink-medini': {
+    whatsappNumber: '60102038001',
+    brochureUrl: '/brochures/the-m-macrolink-medini.pdf',
+    toSingapore: [
+      { route: 'RTS Link to Woodlands', time: 'TBD' },
+      { route: 'Bus to SG (170/170X)', time: '45-60 min' },
+    ],
+    withinJB: [],
+  },
+
+  'nigella-park-forest-city-sfz': {
+    whatsappNumber: '60102038001',
+    brochureUrl: '/brochures/nigella-park-forest-city-sfz.pdf',
+    toSingapore: [
+      { route: 'RTS Link to Woodlands', time: 'TBD' },
+      { route: 'Bus to SG (170/170X)', time: '45-60 min' },
+    ],
+    withinJB: [],
+  },
+
+  'southern-marina-puteri-harbour': {
+    whatsappNumber: '60102038001',
+    brochureUrl: '/brochures/southern-marina-puteri-harbour.pdf',
+    toSingapore: [
+      { route: 'RTS Link to Woodlands', time: 'TBD' },
+      { route: 'Bus to SG (170/170X)', time: '45-60 min' },
+    ],
+    withinJB: [],
+  },
+
+  'ponderosa-regency': {
+    whatsappNumber: '60102038001',
+    brochureUrl: '/brochures/ponderosa-regency.pdf',
+    toSingapore: [
+      { route: 'RTS Link to Woodlands', time: 'TBD' },
+      { route: 'Bus to SG (170/170X)', time: '45-60 min' },
+    ],
+    withinJB: [],
+  },
+
+  'paragon-signature-suites-jalan-abdul-samad': {
+    whatsappNumber: '60102038001',
+    brochureUrl: '/brochures/paragon-signature-suites-jalan-abdul-samad.pdf',
+    toSingapore: [
+      { route: 'RTS Link to Woodlands', time: 'TBD' },
+      { route: 'Bus to SG (170/170X)', time: '45-60 min' },
+    ],
+    withinJB: [],
+  },
+
+  'puteri-cove-residences-puteri-harbour': {
+    whatsappNumber: '60102038001',
+    brochureUrl: '/brochures/puteri-cove-residences-puteri-harbour.pdf',
+    toSingapore: [
+      { route: 'RTS Link to Woodlands', time: 'TBD' },
+      { route: 'Bus to SG (170/170X)', time: '45-60 min' },
+    ],
+    withinJB: [],
+  },
+
+  'the-straits-duo-permas': {
+    whatsappNumber: '60102038001',
+    brochureUrl: '/brochures/the-straits-duo-permas.pdf',
+    toSingapore: [
+      { route: 'RTS Link to Woodlands', time: 'TBD' },
+      { route: 'Bus to SG (170/170X)', time: '45-60 min' },
+    ],
+    withinJB: [],
+  },
+
+  'exsim': {
+    whatsappNumber: '60102038001',
+    brochureUrl: '/brochures/exsim.pdf',
+    toSingapore: [
+      { route: 'RTS Link to Woodlands', time: 'TBD' },
+      { route: 'Bus to SG (170/170X)', time: '45-60 min' },
+    ],
+    withinJB: [],
+  },
+
+  'mbw-bay-danga-bay': {
+    whatsappNumber: '60102038001',
+    brochureUrl: '/brochures/mbw-bay-danga-bay.pdf',
+    toSingapore: [
+      { route: 'RTS Link to Woodlands', time: 'TBD' },
+      { route: 'Bus to SG (170/170X)', time: '45-60 min' },
+    ],
+    withinJB: [],
+  },
+
+  'country-garden-danga-bay': {
+    whatsappNumber: '60102038001',
+    brochureUrl: '/brochures/country-garden-danga-bay.pdf',
+    toSingapore: [
+      { route: 'RTS Link to Woodlands', time: 'TBD' },
+      { route: 'Bus to SG (170/170X)', time: '45-60 min' },
+    ],
+    withinJB: [],
+  },
+
+  'majestic-gensphere-bukit-chagar': {
+    whatsappNumber: '60102038001',
+    brochureUrl: '/brochures/majestic-gensphere-bukit-chagar.pdf',
+    toSingapore: [
+      { route: 'RTS Link to Woodlands', time: 'TBD' },
+      { route: 'Bus to SG (170/170X)', time: '45-60 min' },
+    ],
+    withinJB: [],
+  },
+
+  'paragon-calia-danga-bay': {
+    whatsappNumber: '60102038001',
+    brochureUrl: '/brochures/paragon-calia-danga-bay.pdf',
+    toSingapore: [
+      { route: 'RTS Link to Woodlands', time: 'TBD' },
+      { route: 'Bus to SG (170/170X)', time: '45-60 min' },
+    ],
+    withinJB: [],
+  },
+
+  'nadi-residence-southkey': {
+    whatsappNumber: '60102038001',
+    brochureUrl: '/brochures/nadi-residence-southkey.pdf',
+    toSingapore: [
+      { route: 'RTS Link to Woodlands', time: 'TBD' },
+      { route: 'Bus to SG (170/170X)', time: '45-60 min' },
+    ],
+    withinJB: [],
+  },
+
+  'summer-suites-bukit-chagar': {
+    whatsappNumber: '60102038001',
+    brochureUrl: '/brochures/summer-suites-bukit-chagar.pdf',
+    toSingapore: [
+      { route: 'RTS Link to Woodlands', time: 'TBD' },
+      { route: 'Bus to SG (170/170X)', time: '45-60 min' },
+    ],
+    withinJB: [],
+  },
 };
 
 // Slug aliases for backward compatibility
