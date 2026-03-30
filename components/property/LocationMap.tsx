@@ -23,11 +23,12 @@ const POIS = [
   { name: 'Fairview International School', cat: 'school', lng: 103.7340, lat: 1.5579, dist: '11.5 km' },
 ];
 
-const CAT_COLORS: Record<string, string> = {
-  transit: '#3B82F6',
-  shopping: '#8B5CF6',
-  hospital: '#EF4444',
-  school: '#F59E0B',
+const CAT_COLORS: Record<string, { main: string; light: string; dark: string; shadow: string }> = {
+  transit:  { main: '#3B82F6', light: '#60A5FA', dark: '#2563EB', shadow: '#1e40af' },
+  shopping: { main: '#8B5CF6', light: '#A78BFA', dark: '#7C3AED', shadow: '#5b21b6' },
+  hospital: { main: '#EF4444', light: '#F87171', dark: '#DC2626', shadow: '#991b1b' },
+  school:   { main: '#F59E0B', light: '#FBBF24', dark: '#D97706', shadow: '#92400e' },
+  property: { main: '#0F172A', light: '#334155', dark: '#020617', shadow: '#000000' },
 };
 
 const CAT_CONFIG: Record<string, { icon: typeof Train; label: string }> = {
@@ -36,6 +37,100 @@ const CAT_CONFIG: Record<string, { icon: typeof Train; label: string }> = {
   hospital: { icon: Hospital, label: 'Healthcare' },
   school: { icon: GraduationCap, label: 'Schools' },
 };
+
+/**
+ * Renders a 3D teardrop pin SVG to a canvas ImageData at 2x resolution.
+ * Includes gradient body, white inner circle, and ground shadow ellipse.
+ */
+function createPinImage(
+  colors: { main: string; light: string; dark: string; shadow: string },
+  size: number = 40
+): ImageData {
+  const scale = 2; // 2x for retina
+  const w = size * scale;
+  const h = (size + 10) * scale; // extra space for ground shadow
+  const canvas = document.createElement('canvas');
+  canvas.width = w;
+  canvas.height = h;
+  const ctx = canvas.getContext('2d')!;
+
+  const cx = w / 2;
+  const pinH = size * scale * 0.82;
+  const pinR = size * scale * 0.32;
+  const pinTop = 4 * scale;
+  const pinBottom = pinTop + pinH;
+
+  // ── Ground shadow ellipse ──
+  ctx.save();
+  ctx.beginPath();
+  ctx.ellipse(cx, h - 4 * scale, pinR * 0.7, 4 * scale, 0, 0, Math.PI * 2);
+  ctx.fillStyle = `${colors.shadow}30`;
+  ctx.fill();
+  ctx.restore();
+
+  // ── Pin body (teardrop) ──
+  ctx.save();
+  ctx.beginPath();
+  // Start from bottom point
+  ctx.moveTo(cx, pinBottom);
+  // Left curve up to circle
+  ctx.bezierCurveTo(
+    cx - pinR * 1.1, pinBottom - pinH * 0.35,
+    cx - pinR, pinTop + pinR * 0.5,
+    cx - pinR, pinTop + pinR
+  );
+  // Arc across the top
+  ctx.arc(cx, pinTop + pinR, pinR, Math.PI, 0, false);
+  // Right curve back down to point
+  ctx.bezierCurveTo(
+    cx + pinR, pinTop + pinR * 0.5,
+    cx + pinR * 1.1, pinBottom - pinH * 0.35,
+    cx, pinBottom
+  );
+  ctx.closePath();
+
+  // 3D gradient fill (light top-left to dark bottom-right)
+  const grad = ctx.createLinearGradient(cx - pinR, pinTop, cx + pinR * 0.5, pinBottom);
+  grad.addColorStop(0, colors.light);
+  grad.addColorStop(0.4, colors.main);
+  grad.addColorStop(1, colors.dark);
+  ctx.fillStyle = grad;
+  ctx.fill();
+
+  // Subtle inner shadow for depth
+  ctx.shadowColor = 'rgba(0,0,0,0.3)';
+  ctx.shadowBlur = 3 * scale;
+  ctx.shadowOffsetX = 0;
+  ctx.shadowOffsetY = 2 * scale;
+  ctx.fill();
+  ctx.restore();
+
+  // ── White highlight (top-left specular) ──
+  ctx.save();
+  ctx.beginPath();
+  ctx.ellipse(
+    cx - pinR * 0.25,
+    pinTop + pinR * 0.75,
+    pinR * 0.3,
+    pinR * 0.2,
+    -0.5,
+    0, Math.PI * 2
+  );
+  ctx.fillStyle = 'rgba(255,255,255,0.35)';
+  ctx.fill();
+  ctx.restore();
+
+  // ── White inner circle ──
+  ctx.save();
+  ctx.beginPath();
+  const innerR = pinR * 0.45;
+  ctx.arc(cx, pinTop + pinR, innerR, 0, Math.PI * 2);
+  ctx.fillStyle = '#ffffff';
+  ctx.fill();
+  ctx.restore();
+
+  return ctx.getImageData(0, 0, w, h);
+}
 
 export function LocationMap({ coordinates, propertyName }: LocationMapProps) {
   const mapDiv = useRef<HTMLDivElement>(null);
@@ -75,7 +170,22 @@ export function LocationMap({ coordinates, propertyName }: LocationMapProps) {
       map.addControl(new ml.NavigationControl({ showCompass: false }), 'top-right');
 
       map.on('load', () => {
-        // ── Property source ──
+        // ── Generate & register pin images ──
+        const pinSize = 34;
+        const propertyPinSize = 42;
+
+        // Property pin (larger, dark)
+        const propImg = createPinImage(CAT_COLORS.property, propertyPinSize);
+        map.addImage('pin-property', propImg, { pixelRatio: 2 });
+
+        // Category pins
+        for (const [cat, colors] of Object.entries(CAT_COLORS)) {
+          if (cat === 'property') continue;
+          const img = createPinImage(colors, pinSize);
+          map.addImage(`pin-${cat}`, img, { pixelRatio: 2 });
+        }
+
+        // ── Property source & layer ──
         map.addSource('property', {
           type: 'geojson',
           data: {
@@ -85,44 +195,21 @@ export function LocationMap({ coordinates, propertyName }: LocationMapProps) {
           },
         });
 
-        // Property outer glow ring
-        map.addLayer({
-          id: 'property-glow',
-          type: 'circle',
-          source: 'property',
-          paint: {
-            'circle-radius': 20,
-            'circle-color': '#0F172A',
-            'circle-opacity': 0.08,
-            'circle-blur': 0.7,
-          },
-        });
-
-        // Property main dot
         map.addLayer({
           id: 'property-pin',
-          type: 'circle',
+          type: 'symbol',
           source: 'property',
-          paint: {
-            'circle-radius': 8,
-            'circle-color': '#0F172A',
-            'circle-stroke-width': 2.5,
-            'circle-stroke-color': '#ffffff',
+          layout: {
+            'icon-image': 'pin-property',
+            'icon-size': 1,
+            'icon-anchor': 'bottom',
+            'icon-allow-overlap': true,
+            'icon-pitch-alignment': 'viewport',
+            'icon-rotation-alignment': 'viewport',
           },
         });
 
-        // Property inner white dot
-        map.addLayer({
-          id: 'property-inner',
-          type: 'circle',
-          source: 'property',
-          paint: {
-            'circle-radius': 2.5,
-            'circle-color': '#ffffff',
-          },
-        });
-
-        // ── POI source ──
+        // ── POI source & layer ──
         const poiFeatures = POIS.map(poi => ({
           type: 'Feature' as const,
           geometry: { type: 'Point' as const, coordinates: [poi.lng, poi.lat] },
@@ -130,7 +217,7 @@ export function LocationMap({ coordinates, propertyName }: LocationMapProps) {
             name: poi.name,
             cat: poi.cat,
             dist: poi.dist,
-            color: CAT_COLORS[poi.cat] || '#6B7280',
+            pinImage: `pin-${poi.cat}`,
           },
         }));
 
@@ -139,30 +226,17 @@ export function LocationMap({ coordinates, propertyName }: LocationMapProps) {
           data: { type: 'FeatureCollection', features: poiFeatures },
         });
 
-        // POI shadow
-        map.addLayer({
-          id: 'poi-shadow',
-          type: 'circle',
-          source: 'pois',
-          paint: {
-            'circle-radius': 8,
-            'circle-color': '#000000',
-            'circle-opacity': 0.06,
-            'circle-blur': 0.6,
-            'circle-translate': [0, 1],
-          },
-        });
-
-        // POI main dot
         map.addLayer({
           id: 'poi-pins',
-          type: 'circle',
+          type: 'symbol',
           source: 'pois',
-          paint: {
-            'circle-radius': 6,
-            'circle-color': ['get', 'color'],
-            'circle-stroke-width': 2,
-            'circle-stroke-color': '#ffffff',
+          layout: {
+            'icon-image': ['get', 'pinImage'],
+            'icon-size': 1,
+            'icon-anchor': 'bottom',
+            'icon-allow-overlap': true,
+            'icon-pitch-alignment': 'viewport',
+            'icon-rotation-alignment': 'viewport',
           },
         });
 
@@ -170,13 +244,14 @@ export function LocationMap({ coordinates, propertyName }: LocationMapProps) {
         const popup = new ml.Popup({
           closeButton: false,
           closeOnClick: true,
-          offset: [0, -12],
+          offset: [0, -44],
           className: 'clean-popup',
         });
 
         map.on('click', 'poi-pins', (e: any) => {
           const feat = e.features[0];
-          const color = feat.properties.color;
+          const cat = feat.properties.cat;
+          const color = CAT_COLORS[cat]?.main || '#6B7280';
           popup
             .setLngLat(feat.geometry.coordinates)
             .setHTML(
@@ -220,7 +295,6 @@ export function LocationMap({ coordinates, propertyName }: LocationMapProps) {
     try {
       const filter = activeCat === 'all' ? null : ['==', ['get', 'cat'], activeCat];
       mapObj.setFilter('poi-pins', filter);
-      mapObj.setFilter('poi-shadow', filter);
     } catch { /* map not ready */ }
   }, [activeCat, mapObj]);
 
@@ -266,7 +340,7 @@ export function LocationMap({ coordinates, propertyName }: LocationMapProps) {
           .filter(p => activeCat === 'all' || p.cat === activeCat)
           .map((poi, i) => {
             const Icon = CAT_CONFIG[poi.cat]?.icon || Train;
-            const color = CAT_COLORS[poi.cat] || '#3B82F6';
+            const color = CAT_COLORS[poi.cat]?.main || '#3B82F6';
             return (
               <div key={i} className="flex items-center gap-3 py-2.5 px-3 rounded-lg">
                 <div className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${color}12` }}>
