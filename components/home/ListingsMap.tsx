@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { properties } from '@/lib/properties';
@@ -16,7 +16,15 @@ const CITY_VIEWS: Record<string, { center: [number, number]; zoom: number; pitch
   pg: { center: [100.34, 5.38], zoom: 11, pitch: 0, bearing: 0 },
 };
 
-// Build GeoJSON from properties data
+interface SelectedFeature {
+  name: string;
+  slug: string;
+  loc: string;
+  price: string;
+  lng: number;
+  lat: number;
+}
+
 const propertiesGeoJSON: GeoJSON.FeatureCollection = {
   type: 'FeatureCollection',
   features: properties
@@ -33,7 +41,6 @@ const propertiesGeoJSON: GeoJSON.FeatureCollection = {
           : p.price.myr > 0
             ? `From RM${p.price.myr.toLocaleString()}`
             : 'Enquire',
-        city: 'jb',
       },
     })),
 };
@@ -41,7 +48,17 @@ const propertiesGeoJSON: GeoJSON.FeatureCollection = {
 export default function ListingsMap({ activeCity }: ListingsMapProps) {
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<maplibregl.Map | null>(null);
-  const popup = useRef<maplibregl.Popup | null>(null);
+  const [selected, setSelected] = useState<SelectedFeature | null>(null);
+  const [pos, setPos] = useState<{ x: number; y: number } | null>(null);
+
+  const updatePosition = useCallback((feat: SelectedFeature | null) => {
+    if (!feat || !map.current) {
+      setPos(null);
+      return;
+    }
+    const { x, y } = map.current.project([feat.lng, feat.lat]);
+    setPos({ x, y });
+  }, []);
 
   useEffect(() => {
     if (!mapContainer.current) return;
@@ -59,13 +76,11 @@ export default function ListingsMap({ activeCity }: ListingsMapProps) {
     mapInstance.addControl(new maplibregl.NavigationControl(), 'top-right');
 
     mapInstance.on('load', () => {
-      // Add properties source
       mapInstance.addSource('properties', {
         type: 'geojson',
         data: propertiesGeoJSON,
       });
 
-      // Shadow layer
       mapInstance.addLayer({
         id: 'properties-shadow',
         type: 'circle',
@@ -79,7 +94,6 @@ export default function ListingsMap({ activeCity }: ListingsMapProps) {
         },
       });
 
-      // Main dot
       mapInstance.addLayer({
         id: 'properties-pins',
         type: 'circle',
@@ -92,7 +106,6 @@ export default function ListingsMap({ activeCity }: ListingsMapProps) {
         },
       });
 
-      // Inner white dot
       mapInstance.addLayer({
         id: 'properties-inner',
         type: 'circle',
@@ -103,50 +116,23 @@ export default function ListingsMap({ activeCity }: ListingsMapProps) {
         },
       });
 
-      // Popup on click — anchor: 'bottom' keeps it locked above the pin
-      // closeOnClick: false prevents glitching when interacting with popup contents
-      const popupInstance = new maplibregl.Popup({
-        closeButton: true,
-        closeOnClick: false,
-        closeOnMove: false,
-        anchor: 'bottom',
-        offset: 16,
-        maxWidth: '260px',
-        className: 'listings-map-popup',
-      });
-      popup.current = popupInstance;
-
       mapInstance.on('click', 'properties-pins', (e: maplibregl.MapMouseEvent & { features?: maplibregl.GeoJSONFeature[] }) => {
         if (!e.features || !e.features[0]) return;
-        e.preventDefault?.();
         const feat = e.features[0];
         const coords = (feat.geometry as GeoJSON.Point).coordinates.slice() as [number, number];
         const props = feat.properties as { name: string; slug: string; loc: string; price: string };
 
-        popupInstance
-          .setLngLat(coords)
-          .setHTML(
-            `<div style="font-family:Inter,system-ui,sans-serif;min-width:200px;padding:4px 2px">` +
-            `<div style="font-size:15px;font-weight:700;color:#243C4C;margin-bottom:4px;line-height:1.3">${props.name}</div>` +
-            `<div style="font-size:12px;color:#6b7280;margin-bottom:8px">${props.loc}</div>` +
-            `<div style="font-size:14px;font-weight:700;color:#243C4C;margin-bottom:10px">${props.price}</div>` +
-            `<a data-property-link="${props.slug}" style="display:inline-block;padding:7px 14px;border-radius:6px;background:#243C4C;color:#fff;font-size:12px;font-weight:600;text-decoration:none;cursor:pointer" href="/properties/${props.slug}">View Details &rarr;</a>` +
-            `</div>`
-          )
-          .addTo(mapInstance);
-
-        // Wire up the View Details button manually to guarantee navigation
-        // (some popup containers swallow link clicks)
-        setTimeout(() => {
-          const link = document.querySelector(`a[data-property-link="${props.slug}"]`) as HTMLAnchorElement | null;
-          if (link) {
-            link.addEventListener('click', (ev) => {
-              ev.preventDefault();
-              ev.stopPropagation();
-              window.location.href = `/properties/${props.slug}`;
-            });
-          }
-        }, 0);
+        const selectedFeat: SelectedFeature = {
+          name: props.name,
+          slug: props.slug,
+          loc: props.loc,
+          price: props.price,
+          lng: coords[0],
+          lat: coords[1],
+        };
+        setSelected(selectedFeat);
+        const { x, y } = mapInstance.project(coords);
+        setPos({ x, y });
       });
 
       mapInstance.on('mouseenter', 'properties-pins', () => {
@@ -154,6 +140,17 @@ export default function ListingsMap({ activeCity }: ListingsMapProps) {
       });
       mapInstance.on('mouseleave', 'properties-pins', () => {
         mapInstance.getCanvas().style.cursor = '';
+      });
+
+      // Update popup position whenever the map moves/zooms
+      mapInstance.on('move', () => {
+        setSelected((current) => {
+          if (current) {
+            const { x, y } = mapInstance.project([current.lng, current.lat]);
+            setPos({ x, y });
+          }
+          return current;
+        });
       });
     });
 
@@ -179,10 +176,71 @@ export default function ListingsMap({ activeCity }: ListingsMapProps) {
     });
   }, [activeCity]);
 
+  // Keep position synced if selected changes
+  useEffect(() => {
+    updatePosition(selected);
+  }, [selected, updatePosition]);
+
   return (
-    <div
-      ref={mapContainer}
-      className="w-full h-[480px] rounded-2xl overflow-hidden border border-gray-200"
-    />
+    <div className="relative w-full h-[480px] rounded-2xl overflow-hidden border border-gray-200">
+      <div ref={mapContainer} className="absolute inset-0" />
+
+      {/* Custom React-rendered popup — fully under our control, anchored via map.project() */}
+      {selected && pos && (
+        <div
+          className="absolute pointer-events-none z-10"
+          style={{
+            left: `${pos.x}px`,
+            top: `${pos.y}px`,
+            transform: 'translate(-50%, calc(-100% - 18px))',
+          }}
+        >
+          <div
+            className="pointer-events-auto bg-white rounded-xl shadow-xl border border-gray-200"
+            style={{ minWidth: 220, fontFamily: 'Inter, system-ui, sans-serif' }}
+          >
+            <div className="px-4 py-3">
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setSelected(null);
+                  setPos(null);
+                }}
+                aria-label="Close"
+                className="absolute top-2 right-2 w-6 h-6 flex items-center justify-center rounded-full text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition-colors"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              </button>
+              <div className="text-[15px] font-bold text-[#243C4C] mb-1 pr-6 leading-tight">{selected.name}</div>
+              <div className="text-[12px] text-gray-500 mb-2">{selected.loc}</div>
+              <div className="text-[14px] font-bold text-[#243C4C] mb-3">{selected.price}</div>
+              <a
+                href={`/properties/${selected.slug}`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  window.location.href = `/properties/${selected.slug}`;
+                }}
+                className="inline-block px-3.5 py-2 rounded-md bg-[#243C4C] text-white text-[12px] font-semibold no-underline hover:bg-[#06457F] transition-colors"
+              >
+                View Details &rarr;
+              </a>
+            </div>
+            {/* Pointer triangle */}
+            <div
+              className="absolute left-1/2 -translate-x-1/2 -bottom-2 w-0 h-0"
+              style={{
+                borderLeft: '8px solid transparent',
+                borderRight: '8px solid transparent',
+                borderTop: '8px solid #ffffff',
+                filter: 'drop-shadow(0 1px 0 rgb(229 231 235))',
+              }}
+            />
+          </div>
+        </div>
+      )}
+    </div>
   );
 }
