@@ -194,31 +194,13 @@ export default async function PropertyDetailPage({ params }: PageProps) {
               </div>
             </div>
 
-            {/* Developer + Enquire — equal width, fitted under price */}
-            <div className="flex gap-3 mt-1">
-              <div className="flex-1 inline-flex items-center justify-center gap-2.5 px-4 py-3 bg-white border border-border rounded-[10px]">
-                <div className="w-9 h-9 flex items-center justify-center bg-[#FAF9F7] rounded-lg text-[#5379AE]">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="3" y="3" width="7" height="18" rx="1"/>
-                    <rect x="14" y="8" width="7" height="13" rx="1"/>
-                    <line x1="6" y1="7" x2="6" y2="7.01"/>
-                    <line x1="6" y1="11" x2="6" y2="11.01"/>
-                    <line x1="6" y1="15" x2="6" y2="15.01"/>
-                    <line x1="17" y1="12" x2="17" y2="12.01"/>
-                    <line x1="17" y1="16" x2="17" y2="16.01"/>
-                  </svg>
-                </div>
-                <span className="text-sm font-semibold text-[#06457F]">{property.developer || 'R&F Properties'}</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" className="flex-shrink-0">
-                  <circle cx="12" cy="12" r="10" fill="#5289AD"/>
-                  <path d="M9 12l2 2 4-4" stroke="white" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
+            {/* Enquire Now — full width */}
+            <div className="mt-1 w-full md:w-[280px]">
               <a
                 href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Hi, I'm interested in ${property.name}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 flex items-center justify-center px-6 py-3 rounded-[10px] text-sm font-semibold bg-[#5379AE] text-white hover:bg-[#06457F] transition-colors"
+                className="w-full flex items-center justify-center px-6 py-3 rounded-[10px] text-sm font-semibold bg-[#5379AE] text-white hover:bg-[#06457F] transition-colors"
               >
                 Enquire Now
               </a>
