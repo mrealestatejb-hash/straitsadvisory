@@ -1,0 +1,716 @@
+[
+  {
+    "name": "Summer Suites",
+    "slug": "summer-suites-bukit-chagar",
+    "location": "CIQ",
+    "maps_url": "https://maps.app.goo.gl/gHxFBCCKfKdQSHLt7",
+    "completion": "2028 Q4",
+    "tenure": "Freehold",
+    "price_range": "RM600K to Rm900K",
+    "min_myr": 600000,
+    "max_myr": 900000,
+    "foreign_eligible": true,
+    "unit_types": "2 bedrooms / 3 bedrooms",
+    "coords": [
+      103.7677,
+      1.4618
+    ]
+  },
+  {
+    "name": "CTC Skyone",
+    "slug": "ctc-skyone-bukit-chagar",
+    "location": "CIQ",
+    "maps_url": "https://maps.app.goo.gl/ycxby6g5sbw6CChR9",
+    "completion": "2030 Q4",
+    "tenure": "Freehold",
+    "price_range": "RM600K to RM2mil",
+    "min_myr": 600000,
+    "max_myr": 2000000,
+    "foreign_eligible": true,
+    "unit_types": "2 bedrooms / 3 bedrooms / 4 bedrooms / Penthouse",
+    "coords": [
+      103.7619,
+      1.4706
+    ]
+  },
+  {
+    "name": "Majestic Gensphere",
+    "slug": "majestic-gensphere-bukit-chagar",
+    "location": "CIQ",
+    "maps_url": "https://maps.app.goo.gl/jLJ78uj1q45rJ9xu9",
+    "completion": "2029 Q1",
+    "tenure": "Freehold",
+    "price_range": "RM500K to RM960K",
+    "min_myr": 500000,
+    "max_myr": 960000,
+    "foreign_eligible": true,
+    "unit_types": "1 Bedroom / 2 bedrooms / 3 bedrooms/ Duplex",
+    "coords": [
+      103.7648,
+      1.4603
+    ]
+  },
+  {
+    "name": "Exsim Causewayz",
+    "slug": "exsim",
+    "location": "CIQ",
+    "maps_url": "https://maps.app.goo.gl/bt8Z7B41stVc4Fcx8",
+    "completion": "2030 Q1",
+    "tenure": "Freehold",
+    "price_range": "RM500K to RM1.3mil",
+    "min_myr": 500000,
+    "max_myr": 1300000,
+    "foreign_eligible": true,
+    "unit_types": "studio / 1 bedrooms / 2 bedrooms / 3 bedrooms / dual key",
+    "coords": [
+      103.7665,
+      1.4628
+    ]
+  },
+  {
+    "name": "The Astaka",
+    "slug": "the-astaka-one-bukit-senyum",
+    "location": "One Bukit Senyum",
+    "maps_url": "https://maps.app.goo.gl/DnWUyNw2e7jRygsz9",
+    "completion": "2018",
+    "tenure": "Freehold",
+    "price_range": "RM2mil to RM3mil",
+    "min_myr": 2000000,
+    "max_myr": 3000000,
+    "foreign_eligible": true,
+    "unit_types": "3+1 Bedrooms / 4+1 Bedrooms",
+    "coords": [
+      103.7625,
+      1.4735
+    ]
+  },
+  {
+    "name": "The Arden",
+    "slug": "the-arden-one-bukit-senyum",
+    "location": "One Bukit Senyum",
+    "maps_url": "https://maps.app.goo.gl/Nv3xH6VrQyde3s6T7",
+    "completion": "2030 Q1",
+    "tenure": "Freehold",
+    "price_range": "RM1mil to RM1.8mil",
+    "min_myr": 1000000,
+    "max_myr": 1800000,
+    "foreign_eligible": true,
+    "unit_types": "2 Bedrooms / 3 Bedrooms",
+    "coords": [
+      103.7583,
+      1.4733
+    ]
+  },
+  {
+    "name": "Maxim The Address",
+    "slug": "maxim-the-address-taman-pelangi",
+    "location": "Taman Pelangi",
+    "maps_url": "https://maps.app.goo.gl/YND72khZQZ6ZNNRb6",
+    "completion": "2029 Q2",
+    "tenure": "Freehold",
+    "price_range": "RM400K to RM800K",
+    "min_myr": 400000,
+    "max_myr": 800000,
+    "foreign_eligible": true,
+    "unit_types": "1 bedroom / 2 bedrooms / 3 bedrooms",
+    "coords": [
+      103.7655,
+      1.4827
+    ]
+  },
+  {
+    "name": "Mah Sing M Grand Minori",
+    "slug": "m-grand-minori-taman-pelangi",
+    "location": "Taman Pelangi",
+    "maps_url": "https://maps.app.goo.gl/CeUs49XJWqU7ToYi6",
+    "completion": "2029 Q2",
+    "tenure": "Freehold",
+    "price_range": "RM400K to RM800K",
+    "min_myr": 400000,
+    "max_myr": 800000,
+    "foreign_eligible": true,
+    "unit_types": "1 bedroom / 2 bedrooms / 3 bedrooms",
+    "coords": [
+      103.7703,
+      1.4783
+    ]
+  },
+  {
+    "name": "Skyline One Sentosa",
+    "slug": "skyline-one-sentosa-taman-sentosa",
+    "location": "Taman Sentosa",
+    "maps_url": "https://maps.app.goo.gl/dY1oN9MZ9xst8HAPA",
+    "completion": "2030 Q2",
+    "tenure": "Freehold",
+    "price_range": "RM400k to RM800K",
+    "min_myr": 400000,
+    "max_myr": 800000,
+    "foreign_eligible": true,
+    "unit_types": "studio / 1 bedroom / 2 Bedrooms / 3 Bedrooms / Dual Key",
+    "coords": [
+      103.7671,
+      1.4966
+    ]
+  },
+  {
+    "name": "Sunway Majestic Ara SOHO",
+    "slug": "sunway-majestic-ara-soho",
+    "location": "Jalan Yahya Awal",
+    "maps_url": "https://maps.app.goo.gl/7wyq5H8yvtygwCrn8",
+    "completion": "2029 Q2",
+    "tenure": "Freehold",
+    "price_range": "RM350K to RM800K",
+    "min_myr": 350000,
+    "max_myr": 800000,
+    "foreign_eligible": true,
+    "unit_types": "Studio / 1 Bedroom / 2 Bedrooms / 3 Bedrooms",
+    "coords": [
+      103.6706,
+      1.4772
+    ]
+  },
+  {
+    "name": "Paragon Signature Suite",
+    "slug": "paragon-signature-suites-jalan-abdul-samad",
+    "location": "Jalan Abdul Samad",
+    "maps_url": "https://maps.app.goo.gl/tBbCyTGX1fCUtUXj8",
+    "completion": "2029 Q1",
+    "tenure": "Freehold",
+    "price_range": "RM400k to RM500K",
+    "min_myr": 400000,
+    "max_myr": 500000,
+    "foreign_eligible": true,
+    "unit_types": "1 bedroom / 1+1 Bedrooms",
+    "coords": [
+      103.7411,
+      1.4663
+    ]
+  },
+  {
+    "name": "Paragon Gateway",
+    "slug": "paragon-gateway-taman-suria",
+    "location": "Taman Suria",
+    "maps_url": "https://maps.app.goo.gl/xnME2pquoR6jnfbc8",
+    "completion": "2028 Q2",
+    "tenure": "Freehold",
+    "price_range": "RM400K to RM1mil",
+    "min_myr": 400000,
+    "max_myr": 1000000,
+    "foreign_eligible": true,
+    "unit_types": "1 bedroom / 2 bedrooms / 3 bedrooms / dual key",
+    "coords": [
+      103.7606,
+      1.5025
+    ]
+  },
+  {
+    "name": "Nadi Residence Southkey",
+    "slug": "nadi-residence-southkey",
+    "location": "Southkey",
+    "maps_url": "https://maps.app.goo.gl/r5ezEFxs9tGGk9Rf9",
+    "completion": "2028 Q1",
+    "tenure": "Leasehold",
+    "price_range": "RM400k to RM600k",
+    "min_myr": 400000,
+    "max_myr": 600000,
+    "foreign_eligible": true,
+    "unit_types": "1 Bedroom / 2 Bedrooms / 3 Bedrooms",
+    "coords": [
+      103.7748,
+      1.5038
+    ]
+  },
+  {
+    "name": "Marina Residence",
+    "slug": "marina-residence-bayu-puteri",
+    "location": "Taman Bakar Batu",
+    "maps_url": "https://maps.app.goo.gl/EVTDBoU97RhbbP2Q6",
+    "completion": "2018",
+    "tenure": "Leasehold",
+    "price_range": "RM600K to Rm700K",
+    "min_myr": 600000,
+    "max_myr": 700000,
+    "foreign_eligible": true,
+    "unit_types": "3 Bedrooms / 3+1 bedrooms",
+    "coords": [
+      103.6743,
+      1.3907
+    ]
+  },
+  {
+    "name": "Skypark Kepler Lido Boulevard",
+    "slug": "skypark-kepler-lido-waterfront-boulevard",
+    "location": "Lido Beach",
+    "maps_url": "https://maps.app.goo.gl/rxnwJrA73DArt7Ht5",
+    "completion": "2028 Q2",
+    "tenure": "Freehold",
+    "price_range": "RM580K to RM1.2mil",
+    "min_myr": 580000,
+    "max_myr": 1200000,
+    "foreign_eligible": true,
+    "unit_types": "1+1 bedrooms / 2 bedrooms / 3 bedrooms",
+    "coords": [
+      103.576,
+      1.414
+    ]
+  },
+  {
+    "name": "Country Garden Danga Bay",
+    "slug": "country-garden-danga-bay",
+    "location": "Danga Bay",
+    "maps_url": "https://maps.app.goo.gl/MayNri7k16caE2yA8",
+    "completion": "2016/2017",
+    "tenure": "Freehold",
+    "price_range": "RM500k to RM1.3mil",
+    "min_myr": 500000,
+    "max_myr": 1300000,
+    "foreign_eligible": true,
+    "unit_types": "Studio / 1 bedroom / 2 bedrooms / 3 bedrooms / 3+1 bedrooms",
+    "coords": [
+      103.7245,
+      1.4644
+    ]
+  },
+  {
+    "name": "MBW Bay",
+    "slug": "mbw-bay-danga-bay",
+    "location": "Danga Bay",
+    "maps_url": "https://maps.app.goo.gl/e1cdV2SFfhgfnpju8",
+    "completion": "2026 Q1",
+    "tenure": "Freehold",
+    "price_range": "RM400k to RM800K",
+    "min_myr": 400000,
+    "max_myr": 800000,
+    "foreign_eligible": true,
+    "unit_types": "1 bedroom / 2 bedrooms / 3 bedooms",
+    "coords": [
+      103.7213,
+      1.4695
+    ]
+  },
+  {
+    "name": "Calia Residences by PGB",
+    "slug": "paragon-calia-danga-bay",
+    "location": "Danga Bay",
+    "maps_url": "https://maps.app.goo.gl/mx25X2cRioJRgj9c6",
+    "completion": "2029 Q1",
+    "tenure": "Freehold",
+    "price_range": "RM400K to RM700K",
+    "min_myr": 400000,
+    "max_myr": 700000,
+    "foreign_eligible": true,
+    "unit_types": "1 bedroom / 2 bedrooms / 3 bedooms",
+    "coords": [
+      103.718,
+      1.4824
+    ]
+  },
+  {
+    "name": "Macrolink Medini",
+    "slug": "the-m-macrolink-medini",
+    "location": "Medini",
+    "maps_url": "https://maps.app.goo.gl/Fk5TeX6CjKt444eHA",
+    "completion": "2020",
+    "tenure": "Leasehold",
+    "price_range": "RM400K to RM800K",
+    "min_myr": 400000,
+    "max_myr": 800000,
+    "foreign_eligible": true,
+    "unit_types": "1 bedroom / 2 bedrooms / 3 bedrooms / 3+1 bedrooms / Duplex / Dual key",
+    "coords": [
+      103.6243,
+      1.4189
+    ]
+  },
+  {
+    "name": "Elysia Park Medini",
+    "slug": "elysia-park-medini",
+    "location": "Medini",
+    "maps_url": "https://maps.app.goo.gl/RkZQYHL43RB9sxcHA",
+    "completion": "",
+    "tenure": "Leasehold",
+    "price_range": "Rm400k to RM900k",
+    "min_myr": 400000,
+    "max_myr": 900000,
+    "foreign_eligible": true,
+    "unit_types": "2 Bedrooms / 3 Bedrooms / Duplex",
+    "coords": [
+      103.6367,
+      1.4254
+    ]
+  },
+  {
+    "name": "Puteri Cove Residences",
+    "slug": "puteri-cove-residences-puteri-harbour",
+    "location": "Puteri Harbour",
+    "maps_url": "https://maps.app.goo.gl/bw9PEkxyCYBCUYLR6",
+    "completion": "2018",
+    "tenure": "Freehold",
+    "price_range": "RM800K to RM4mil",
+    "min_myr": 800000,
+    "max_myr": 4000000,
+    "foreign_eligible": true,
+    "unit_types": "2 bedrooms / 3 bedrooms / Penthouse / soho",
+    "coords": [
+      103.6536,
+      1.4121
+    ]
+  },
+  {
+    "name": "Southern Marina Puteri Harbour",
+    "slug": "southern-marina-puteri-harbour",
+    "location": "Puteri Harbour",
+    "maps_url": "https://maps.app.goo.gl/s8W5L79PsnheFPkv7",
+    "completion": "2018",
+    "tenure": "Freehold",
+    "price_range": "RM700K to RM2.3mil",
+    "min_myr": 700000,
+    "max_myr": 2300000,
+    "foreign_eligible": true,
+    "unit_types": "1+1 bedroom / 2 +1 bedrooms / 3+1 bedrooms",
+    "coords": [
+      103.6558,
+      1.414
+    ]
+  },
+  {
+    "name": "Suria Hill Iskandar Puteri",
+    "slug": "suria-hill",
+    "location": "Iskandar Puteri",
+    "maps_url": "https://maps.app.goo.gl/5vvygGccaoVougoW7",
+    "completion": "2027 Q2",
+    "tenure": "Freehold",
+    "price_range": "RM2.8mil to RM3.5mil",
+    "min_myr": 2800000,
+    "max_myr": 3500000,
+    "foreign_eligible": true,
+    "unit_types": "Bungalow",
+    "coords": [
+      103.6466,
+      1.4487
+    ]
+  },
+  {
+    "name": "Ascent Park Iskandar Puteri",
+    "slug": "ascent-park-iskandar-puteri",
+    "location": "Iskandar Puteri",
+    "maps_url": "https://maps.app.goo.gl/bh8b7GogoGQqfr7Y8",
+    "completion": "2028 Q1",
+    "tenure": "Freehold",
+    "price_range": "RM1mil to RM3mil",
+    "min_myr": 1000000,
+    "max_myr": 3000000,
+    "foreign_eligible": true,
+    "unit_types": "Link House / Shophouse",
+    "coords": [
+      103.6469,
+      1.4402
+    ]
+  },
+  {
+    "name": "Bee Development Nusajaya",
+    "slug": "bee-development-nusajaya",
+    "location": "Iskandar Puteri",
+    "maps_url": "https://maps.app.goo.gl/ud9Vj5UPNWtwLXs76",
+    "completion": "2027 Q4",
+    "tenure": "Freehold",
+    "price_range": "RM800k to RM2mil",
+    "min_myr": 800000,
+    "max_myr": 2000000,
+    "foreign_eligible": true,
+    "unit_types": "Terrace House / Cluster House / Semi Detached",
+    "coords": [
+      103.6194,
+      1.4582
+    ]
+  },
+  {
+    "name": "The KEWS",
+    "slug": "senibong-kews",
+    "location": "Leisure Farm",
+    "maps_url": "https://maps.app.goo.gl/ERh1Ai9a8x6gEaMLA",
+    "completion": "2027 Q4",
+    "tenure": "Freehold",
+    "price_range": "RM1mil to RM3mil",
+    "min_myr": 1000000,
+    "max_myr": 3000000,
+    "foreign_eligible": true,
+    "unit_types": "Terrace House / Cluster House / Semi Detached",
+    "coords": [
+      103.6008,
+      1.4047
+    ]
+  },
+  {
+    "name": "Bayou Residences Leisure Farm",
+    "slug": "bayou-residences-leisure-farm",
+    "location": "Leisure Farm",
+    "maps_url": "https://maps.app.goo.gl/fn2YKQCLdCKeaS9e6",
+    "completion": "2020",
+    "tenure": "Freehold",
+    "price_range": "RM1.8mil to RM2.5mil",
+    "min_myr": 1800000,
+    "max_myr": 2500000,
+    "foreign_eligible": true,
+    "unit_types": "Link House",
+    "coords": [
+      103.6621,
+      1.3766
+    ]
+  },
+  {
+    "name": "Nigella Park Forest City (SFZ)",
+    "slug": "nigella-park-forest-city-sfz",
+    "location": "Forest City",
+    "maps_url": "https://maps.app.goo.gl/yXTe5f71XLcUs9gW8",
+    "completion": "2018",
+    "tenure": "Freehold",
+    "price_range": "RM4mil to RM8mil",
+    "min_myr": 4000000,
+    "max_myr": 8000000,
+    "foreign_eligible": true,
+    "unit_types": "Penthouse",
+    "coords": [
+      103.5939,
+      1.3405
+    ]
+  },
+  {
+    "name": "Golf Villa Forest City (SFZ)",
+    "slug": "golf-villa-forest-city-sfz",
+    "location": "Forest City",
+    "maps_url": "https://maps.app.goo.gl/zTd335wYPhJA6J8u8",
+    "completion": "2018",
+    "tenure": "Freehold",
+    "price_range": "RM1.1mil to RM2mil",
+    "min_myr": 1100000,
+    "max_myr": 2000000,
+    "foreign_eligible": true,
+    "unit_types": "Link House",
+    "coords": [
+      103.5372,
+      1.4129
+    ]
+  },
+  {
+    "name": "Carnelian Tower Forest City (SFZ)",
+    "slug": "carnelian-tower-forest-city-sfz",
+    "location": "Forest City",
+    "maps_url": "https://maps.app.goo.gl/FHu6hU4q5X43pPoV6",
+    "completion": "2018",
+    "tenure": "Freehold",
+    "price_range": "RM500k to RM2mil",
+    "min_myr": 500000,
+    "max_myr": 2000000,
+    "foreign_eligible": true,
+    "unit_types": "Office / Service Apartment",
+    "coords": [
+      103.5872,
+      1.3339
+    ]
+  },
+  {
+    "name": "Fraser Heights Gelang Patah",
+    "slug": "fraser-heights-gelang-patah",
+    "location": "Gelang Patah",
+    "maps_url": "https://maps.app.goo.gl/imMHUiykr7uoYqY8A",
+    "completion": "2026 Q2",
+    "tenure": "Freehold",
+    "price_range": "RM680k to RM780K",
+    "min_myr": 680000,
+    "max_myr": 780000,
+    "foreign_eligible": false,
+    "unit_types": "Terrace House",
+    "coords": [
+      103.567,
+      1.5059
+    ]
+  },
+  {
+    "name": "Central Park Country Garden",
+    "slug": "central-park-country-garden",
+    "location": "Taman Damansara Aliff",
+    "maps_url": "https://maps.app.goo.gl/ufEHeJbMvoifGqZf7",
+    "completion": "2019",
+    "tenure": "Freehold",
+    "price_range": "RM300k to RM900k",
+    "min_myr": 300000,
+    "max_myr": 900000,
+    "foreign_eligible": false,
+    "unit_types": "1+1 Bedroom / 2 Bedrooms / 3 Bedrooms / 4+1 Bedrooms / Terrace House",
+    "coords": [
+      103.7151,
+      1.5102
+    ]
+  },
+  {
+    "name": "Ponderosa Regency",
+    "slug": "ponderosa-regency",
+    "location": "Taman Ponderosa",
+    "maps_url": "https://maps.app.goo.gl/DzuNSqCbSchZiTjA7",
+    "completion": "2028 Q4",
+    "tenure": "Freehold",
+    "price_range": "RM300K to RM800K",
+    "min_myr": 300000,
+    "max_myr": 800000,
+    "foreign_eligible": true,
+    "unit_types": "Studio / 1 Bedroom / 2 bedrooms / 3 bedrooms / Duplex",
+    "coords": [
+      103.7778,
+      1.516
+    ]
+  },
+  {
+    "name": "Richmond Mayor Mount Austin",
+    "slug": "richmond-mayor-mount-austin",
+    "location": "Taman Mount Austin",
+    "maps_url": "https://maps.app.goo.gl/wCHRdoKBgv5RWRvw5",
+    "completion": "2030 Q4",
+    "tenure": "Freehold",
+    "price_range": "RM580K to RM1.3mil",
+    "min_myr": 580000,
+    "max_myr": 1300000,
+    "foreign_eligible": true,
+    "unit_types": "Studio / 2 bedrooms / 3 bedrooms",
+    "coords": [
+      103.7846,
+      1.55
+    ]
+  },
+  {
+    "name": "Topaz Crest Austin",
+    "slug": "topaz-crest-austin",
+    "location": "Taman Mount Austin",
+    "maps_url": "https://maps.app.goo.gl/m5y7uBTmSzm8uTjy7",
+    "completion": "2029 Q1",
+    "tenure": "Freehold",
+    "price_range": "RM300k to RM600K",
+    "min_myr": 300000,
+    "max_myr": 600000,
+    "foreign_eligible": false,
+    "unit_types": "1 Bedroom / 2 Bedrooms / 3 Bedrooms",
+    "coords": [
+      103.7684,
+      1.5779
+    ]
+  },
+  {
+    "name": "Daya 1 Residences Taman Daya",
+    "slug": "daya-1-residences-taman-daya",
+    "location": "Taman Daya",
+    "maps_url": "https://maps.app.goo.gl/1R9Kr51MESQVsnw66",
+    "completion": "2027 Q4",
+    "tenure": "Freehold",
+    "price_range": "RM300k to RM600k",
+    "min_myr": 300000,
+    "max_myr": 600000,
+    "foreign_eligible": false,
+    "unit_types": "1 Bedroom / 2 Bedrooms / 3 Bedrooms",
+    "coords": [
+      103.7628,
+      1.5441
+    ]
+  },
+  {
+    "name": "Parkland By The River",
+    "slug": "parkland-by-the-river-permas",
+    "location": "Taman Permas Jaya",
+    "maps_url": "https://maps.app.goo.gl/u3xRsxEWnVaUxRsVA",
+    "completion": "2028 Q1",
+    "tenure": "Freehold",
+    "price_range": "RM400K to RM700K",
+    "min_myr": 400000,
+    "max_myr": 700000,
+    "foreign_eligible": false,
+    "unit_types": "1 bedroom / 2 bedrooms / 3 bedooms",
+    "coords": [
+      103.799,
+      1.4947
+    ]
+  },
+  {
+    "name": "The Straits View DUOs",
+    "slug": "the-straits-duo-permas",
+    "location": "Taman Permas Jaya",
+    "maps_url": "https://maps.app.goo.gl/fHyGEmxbuJjHB4zVA",
+    "completion": "2028 Q1",
+    "tenure": "Freehold",
+    "price_range": "RM300K to RM600K",
+    "min_myr": 300000,
+    "max_myr": 600000,
+    "foreign_eligible": false,
+    "unit_types": "1 bedroom / 2 bedrooms / 3 bedooms / Dualkey",
+    "coords": [
+      103.8108,
+      1.4997
+    ]
+  },
+  {
+    "name": "Senibong Cove",
+    "slug": "isola-coast-senibong-cove",
+    "location": "Senibong Cove",
+    "maps_url": "https://maps.app.goo.gl/mmvpDdjcsZ7arGkt6",
+    "completion": "2016",
+    "tenure": "Freehold",
+    "price_range": "RM600K to Rm3mil",
+    "min_myr": 600000,
+    "max_myr": 3000000,
+    "foreign_eligible": true,
+    "unit_types": "3 bedrooms / Link house / Cluster House / Semi Detached",
+    "coords": [
+      103.8345,
+      1.4822
+    ]
+  },
+  {
+    "name": "Meridin East",
+    "slug": "meridin-east",
+    "location": "Pasir Gudang / Masai",
+    "maps_url": "https://maps.app.goo.gl/CwxyxghURprEtKHC6",
+    "completion": "2018",
+    "tenure": "Freehold",
+    "price_range": "RM500k to RM700K",
+    "min_myr": 500000,
+    "max_myr": 700000,
+    "foreign_eligible": false,
+    "unit_types": "Terrace House",
+    "coords": [
+      103.9471,
+      1.5192
+    ]
+  },
+  {
+    "name": "Eco Tropics",
+    "slug": "eco-tropics",
+    "location": "Pasir Gudang / Masai",
+    "maps_url": "https://maps.app.goo.gl/94iEfBXeiDEjJntF8",
+    "completion": "2018",
+    "tenure": "Freehold",
+    "price_range": "RM500k to RM700K",
+    "min_myr": 500000,
+    "max_myr": 700000,
+    "foreign_eligible": false,
+    "unit_types": "Terrace House",
+    "coords": [
+      103.9339,
+      1.4995
+    ]
+  },
+  {
+    "name": "D Secret Garden 2 Taman Kempas Indah",
+    "slug": "d-secret-garden-2-taman-kempas-indah",
+    "location": "Taman Kempas Indah",
+    "maps_url": "https://maps.app.goo.gl/srecYvwC3sJozN169",
+    "completion": "2027 Q4",
+    "tenure": "Freehold",
+    "price_range": "RM300K to Rm600K",
+    "min_myr": 300000,
+    "max_myr": 600000,
+    "foreign_eligible": true,
+    "unit_types": "1 Bedroom / 2 Bedrooms / 3 Bedrooms",
+    "coords": [
+      103.7094,
+      1.5528
+    ]
+  }
+]
