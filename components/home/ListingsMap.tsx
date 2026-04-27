@@ -103,16 +103,22 @@ export default function ListingsMap({ activeCity }: ListingsMapProps) {
         },
       });
 
-      // Popup on click
+      // Popup on click — anchor: 'bottom' keeps it locked above the pin
+      // closeOnClick: false prevents glitching when interacting with popup contents
       const popupInstance = new maplibregl.Popup({
-        closeButton: false,
-        closeOnClick: true,
-        offset: 12,
+        closeButton: true,
+        closeOnClick: false,
+        closeOnMove: false,
+        anchor: 'bottom',
+        offset: 16,
+        maxWidth: '260px',
+        className: 'listings-map-popup',
       });
       popup.current = popupInstance;
 
       mapInstance.on('click', 'properties-pins', (e: maplibregl.MapMouseEvent & { features?: maplibregl.GeoJSONFeature[] }) => {
         if (!e.features || !e.features[0]) return;
+        e.preventDefault?.();
         const feat = e.features[0];
         const coords = (feat.geometry as GeoJSON.Point).coordinates.slice() as [number, number];
         const props = feat.properties as { name: string; slug: string; loc: string; price: string };
@@ -120,14 +126,27 @@ export default function ListingsMap({ activeCity }: ListingsMapProps) {
         popupInstance
           .setLngLat(coords)
           .setHTML(
-            `<div style="font-family:Inter,system-ui,sans-serif;min-width:200px">` +
-            `<div style="font-size:15px;font-weight:700;color:#243C4C;margin-bottom:4px">${props.name}</div>` +
+            `<div style="font-family:Inter,system-ui,sans-serif;min-width:200px;padding:4px 2px">` +
+            `<div style="font-size:15px;font-weight:700;color:#243C4C;margin-bottom:4px;line-height:1.3">${props.name}</div>` +
             `<div style="font-size:12px;color:#6b7280;margin-bottom:8px">${props.loc}</div>` +
-            `<div style="font-size:14px;font-weight:700;color:#243C4C;margin-bottom:8px">${props.price}</div>` +
-            `<a style="display:inline-block;padding:6px 14px;border-radius:6px;background:#243C4C;color:#fff;font-size:12px;font-weight:600;text-decoration:none" href="/properties/${props.slug}">View Details &rarr;</a>` +
+            `<div style="font-size:14px;font-weight:700;color:#243C4C;margin-bottom:10px">${props.price}</div>` +
+            `<a data-property-link="${props.slug}" style="display:inline-block;padding:7px 14px;border-radius:6px;background:#243C4C;color:#fff;font-size:12px;font-weight:600;text-decoration:none;cursor:pointer" href="/properties/${props.slug}">View Details &rarr;</a>` +
             `</div>`
           )
           .addTo(mapInstance);
+
+        // Wire up the View Details button manually to guarantee navigation
+        // (some popup containers swallow link clicks)
+        setTimeout(() => {
+          const link = document.querySelector(`a[data-property-link="${props.slug}"]`) as HTMLAnchorElement | null;
+          if (link) {
+            link.addEventListener('click', (ev) => {
+              ev.preventDefault();
+              ev.stopPropagation();
+              window.location.href = `/properties/${props.slug}`;
+            });
+          }
+        }, 0);
       });
 
       mapInstance.on('mouseenter', 'properties-pins', () => {
