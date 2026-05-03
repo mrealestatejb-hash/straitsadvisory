@@ -40,17 +40,17 @@ const steps = [
 
 export function CTASection() {
   return (
-    <section className="py-20 px-[clamp(16px,4vw,48px)] bg-[#FAF9F7]">
+    <section className="py-12 md:py-20 px-[clamp(16px,4vw,48px)] bg-[#FAF9F7]">
       <div className="max-w-[1100px] mx-auto">
         {/* Header */}
-        <div className="text-center mb-12">
-          <p className="text-[13px] font-semibold tracking-[2px] uppercase text-[#5289AD] mb-3">
+        <div className="text-center mb-8 md:mb-12">
+          <p className="text-[12px] md:text-[13px] font-semibold tracking-[2px] uppercase text-[#5289AD] mb-2 md:mb-3">
             Your Investment Journey
           </p>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-[#243C4C] mb-3">
+          <h2 className="text-[26px] md:text-4xl font-extrabold text-[#243C4C] mb-2 md:mb-3">
             5 Steps to Ownership
           </h2>
-          <p className="text-[#5379AE] text-lg">
+          <p className="text-[#5379AE] text-[15px] md:text-lg leading-snug">
             We handle the complexity — you focus on the investment
           </p>
         </div>
@@ -60,14 +60,14 @@ export function CTASection() {
           {/* Connecting line */}
           <div className="hidden md:block absolute top-[52px] left-[10%] right-[10%] h-[3px] bg-[#A8C4EC]/40" />
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-4">
             {steps.map((step, i) => {
               const Icon = step.icon;
               return (
                 <div key={i} className="flex flex-col items-center text-center relative">
                   {/* Icon circle */}
-                  <div className={`w-[72px] h-[72px] rounded-full bg-gradient-to-br ${step.color} flex items-center justify-center mb-4 relative z-10 shadow-lg shadow-[#5289AD]/20`}>
-                    <Icon className="w-7 h-7 text-white" strokeWidth={1.8} />
+                  <div className={`w-[64px] h-[64px] md:w-[72px] md:h-[72px] rounded-full bg-gradient-to-br ${step.color} flex items-center justify-center mb-3 md:mb-4 relative z-10 shadow-lg shadow-[#5289AD]/20`}>
+                    <Icon className="w-6 h-6 md:w-7 md:h-7 text-white" strokeWidth={1.8} />
                   </div>
 
                   {/* Step number */}
@@ -94,7 +94,7 @@ export function CTASection() {
         </div>
 
         {/* CTA */}
-        <div className="text-center mt-14">
+        <div className="text-center mt-10 md:mt-14">
           <a
             href="https://wa.me/60102038001"
             target="_blank"

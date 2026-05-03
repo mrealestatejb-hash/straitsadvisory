@@ -24,11 +24,11 @@ export function KeyInfoRow({ items }: KeyInfoRowProps) {
       {items.map((item, i) => (
         <div
           key={i}
-          className="flex-1 min-w-[100px] px-3 py-4 text-center border-r border-white/20 last:border-r-0 flex flex-col items-center gap-1"
+          className="flex-1 min-w-[80px] px-2 sm:px-3 py-4 text-center border-r border-white/20 last:border-r-0 flex flex-col items-center gap-1"
         >
           {iconMap[item.icon] || <FileText className="w-[22px] h-[22px] text-muted-foreground" />}
-          <span className="text-base font-bold text-foreground">{item.value}</span>
-          <span className="text-[11px] text-muted-foreground uppercase tracking-wide">{item.label}</span>
+          <span className="text-[14px] sm:text-base font-bold text-foreground leading-tight line-clamp-1">{item.value}</span>
+          <span className="text-[11px] text-muted-foreground uppercase tracking-wide leading-tight">{item.label}</span>
         </div>
       ))}
     </div>

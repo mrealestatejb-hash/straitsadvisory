@@ -1,13 +1,18 @@
 'use client';
 
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { Phone, MessageCircle } from 'lucide-react';
 
 export function WhatsAppFAB() {
   const [isHovered, setIsHovered] = useState<string | null>(null);
+  const pathname = usePathname() || '';
+
+  // Property detail pages already have a sticky mobile contact bar — hide FAB on mobile there
+  const hideOnMobile = /^\/properties\/[^/]+$/.test(pathname);
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-3">
+    <div className={`fixed bottom-5 right-5 md:bottom-6 md:right-6 z-50 flex-col items-center gap-3 ${hideOnMobile ? 'hidden md:flex' : 'flex'}`}>
       {/* Phone Button */}
       <a
         href="tel:+60102038001"

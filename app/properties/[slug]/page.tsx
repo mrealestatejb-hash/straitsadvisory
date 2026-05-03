@@ -106,12 +106,17 @@ export default async function PropertyDetailPage({ params }: PageProps) {
     whatsappNumber = '60102038001',
   } = data;
 
-  // Build key info items
+  // Build key info items — keep values short for even row heights on mobile
+  const rawCompletion = property.completionYear || property.completion || 'TBD';
+  const completionShort = rawCompletion.length > 14
+    ? rawCompletion.replace(/\s*\(.+?\)/g, '').trim() || 'Mixed'
+    : rawCompletion;
+
   const keyInfoItems = [
     { icon: 'tenure', value: property.tenure || 'TBD', label: 'Tenure' },
     {
       icon: 'status',
-      value: property.completionYear || property.completion || 'TBD',
+      value: completionShort,
       label: 'Completion',
     },
     { icon: 'foreigners', value: 'Eligible', label: 'Foreigners' },
@@ -293,6 +298,43 @@ export default async function PropertyDetailPage({ params }: PageProps) {
         </div>
 
       </div>
+
+      {/* Sticky mobile contact bar */}
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-[80] bg-white/95 backdrop-blur-md border-t border-gray-200 px-4 py-2.5 flex gap-2 items-center" style={{ paddingBottom: 'calc(0.625rem + env(safe-area-inset-bottom))' }}>
+        <div className="flex-1 min-w-0">
+          <div className="text-[10px] uppercase tracking-wide text-muted-foreground leading-none">From</div>
+          <div className="text-[14px] font-extrabold text-[#06457F] truncate leading-tight">
+            {property.priceRange && property.priceRange !== 'Coming Soon'
+              ? property.priceRange.split('—')[0].trim()
+              : property.price.myr > 0
+                ? `RM${property.price.myr.toLocaleString()}`
+                : 'On Enquiry'}
+          </div>
+        </div>
+        <a
+          href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Hi, I'm interested in ${property.name}`)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex-shrink-0 inline-flex items-center justify-center gap-1.5 px-5 h-[44px] rounded-lg bg-[#25d366] text-white text-[14px] font-semibold"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347" />
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.138.562 4.145 1.543 5.888L0 24l6.304-1.654A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.97 0-3.837-.53-5.445-1.455l-.39-.232-4.047 1.062 1.08-3.946-.254-.404A9.715 9.715 0 0 1 2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z" />
+          </svg>
+          WhatsApp
+        </a>
+        <a
+          href={`tel:+${whatsappNumber}`}
+          className="flex-shrink-0 inline-flex items-center justify-center w-[44px] h-[44px] rounded-lg border border-[#5379AE]/30 text-[#5379AE]"
+          aria-label="Call"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+          </svg>
+        </a>
+      </div>
+      {/* Spacer so sticky bar doesn't cover content end */}
+      <div className="md:hidden h-[68px]" aria-hidden />
     </main>
   );
 }

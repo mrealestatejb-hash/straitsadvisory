@@ -98,25 +98,28 @@ export function PropertyFAQ() {
           {/* Sidebar */}
           <div className="md:w-[260px] flex-shrink-0 bg-[#FAF9F7] p-4">
             {/* Mobile: horizontal scroll tabs */}
-            <div className="flex md:flex-col gap-2 overflow-x-auto md:overflow-visible -mx-1 px-1 pb-1 md:pb-0">
-              {faqCategories.map((cat) => (
-                <button
-                  key={cat.id}
-                  onClick={() => handleCategoryClick(cat.id)}
-                  className={`whitespace-nowrap text-left px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
-                    activeCategory === cat.id
-                      ? 'bg-white text-[#06457F] shadow-sm'
-                      : 'text-[#5379AE] hover:bg-white/60'
-                  }`}
-                  style={
-                    activeCategory === cat.id
-                      ? { boxShadow: '0 1px 3px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.04)' }
-                      : undefined
-                  }
-                >
-                  {cat.label}
-                </button>
-              ))}
+            <div className="relative md:[all:unset]">
+              <div className="flex md:flex-col gap-2 overflow-x-auto md:overflow-visible -mx-1 px-1 pb-1 md:pb-0 scrollbar-hide" style={{scrollbarWidth: 'none'}}>
+                {faqCategories.map((cat) => (
+                  <button
+                    key={cat.id}
+                    onClick={() => handleCategoryClick(cat.id)}
+                    className={`whitespace-nowrap text-left px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
+                      activeCategory === cat.id
+                        ? 'bg-white text-[#06457F] shadow-sm'
+                        : 'text-[#5379AE] hover:bg-white/60'
+                    }`}
+                    style={
+                      activeCategory === cat.id
+                        ? { boxShadow: '0 1px 3px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.04)' }
+                        : undefined
+                    }
+                  >
+                    {cat.label}
+                  </button>
+                ))}
+              </div>
+              <div className="md:hidden pointer-events-none absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-[#FAF9F7] to-transparent" />
             </div>
 
           </div>

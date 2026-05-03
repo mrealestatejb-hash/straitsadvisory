@@ -4,7 +4,7 @@ import { Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { useState, useMemo, useEffect } from 'react'
 import Link from 'next/link'
-import { MapPin, Sparkles } from 'lucide-react'
+import { MapPin, Sparkles, SlidersHorizontal, X } from 'lucide-react'
 import { propertyListings, areas, type PropertyListing } from '@/lib/properties-data'
 
 const cityParamMap: Record<string, string> = {
@@ -32,6 +32,7 @@ function BuyPageContent() {
   const [status, setStatus] = useState('')
   const [tenure, setTenure] = useState('')
   const [search, setSearch] = useState('')
+  const [filtersOpen, setFiltersOpen] = useState(false)
 
   // Sync city from URL param on mount / param change
   useEffect(() => {
@@ -84,6 +85,19 @@ function BuyPageContent() {
     setSearch('')
   }
 
+  const activeFilterCount = [city, area, status, tenure].filter(Boolean).length
+
+  // Lock body scroll when mobile drawer is open
+  useEffect(() => {
+    if (filtersOpen) {
+      const prev = document.body.style.overflow
+      document.body.style.overflow = 'hidden'
+      return () => {
+        document.body.style.overflow = prev
+      }
+    }
+  }, [filtersOpen])
+
   // Hero text based on city
   const heroTitle = city ? cityNameMap[city] : null
   const heroSubtitle = city
@@ -133,8 +147,32 @@ function BuyPageContent() {
         </div>
       </section>
 
-      {/* Filter Bar */}
-      <div className="sticky top-16 z-[90] glass-heavy border-b border-gray-200 px-5 md:px-[clamp(20px,5vw,60px)] py-3.5 flex flex-wrap gap-2.5 items-center">
+      {/* Mobile Filter Bar (compact) */}
+      <div className="md:hidden sticky top-16 z-[90] glass-heavy border-b border-gray-200 px-4 py-3 flex gap-2 items-center">
+        <button
+          type="button"
+          onClick={() => setFiltersOpen(true)}
+          className="flex-shrink-0 inline-flex items-center gap-1.5 h-[40px] px-3 rounded-lg bg-[#243C4C] text-white text-[13px] font-semibold"
+        >
+          <SlidersHorizontal className="w-4 h-4" />
+          Filters
+          {activeFilterCount > 0 && (
+            <span className="ml-1 inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 rounded-full bg-[#D4C4A8] text-[11px] font-bold text-[#243C4C]">
+              {activeFilterCount}
+            </span>
+          )}
+        </button>
+        <input
+          type="text"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder="Search..."
+          className="glass-input flex-1 min-w-0 h-[40px] px-3 rounded-lg text-[13px] text-gray-700 focus:outline-none focus:border-[#D4C4A8]"
+        />
+      </div>
+
+      {/* Desktop Filter Bar */}
+      <div className="hidden md:flex sticky top-16 z-[90] glass-heavy border-b border-gray-200 px-[clamp(20px,5vw,60px)] py-3.5 flex-wrap gap-2.5 items-center">
         <select
           value={city}
           onChange={(e) => handleCityChange(e.target.value)}
@@ -195,6 +233,99 @@ function BuyPageContent() {
           Clear Filters
         </button>
       </div>
+
+      {/* Mobile Filter Drawer */}
+      {filtersOpen && (
+        <div className="md:hidden fixed inset-0 z-[200]">
+          <div
+            className="absolute inset-0 bg-black/50"
+            onClick={() => setFiltersOpen(false)}
+            aria-hidden
+          />
+          <div className="absolute bottom-0 left-0 right-0 bg-white rounded-t-2xl max-h-[85vh] flex flex-col">
+            <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
+              <h3 className="text-[16px] font-bold text-[#243C4C]">Filters</h3>
+              <button
+                type="button"
+                onClick={() => setFiltersOpen(false)}
+                aria-label="Close filters"
+                className="w-8 h-8 flex items-center justify-center rounded-full text-gray-500 hover:bg-gray-100"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="flex-1 overflow-y-auto px-5 py-4 space-y-4">
+              <div>
+                <label className="block text-[12px] font-semibold text-gray-500 uppercase tracking-wide mb-1.5">City</label>
+                <select
+                  value={city}
+                  onChange={(e) => handleCityChange(e.target.value)}
+                  className="w-full h-[44px] px-3 rounded-lg border border-gray-200 bg-white text-[14px] text-gray-700 focus:outline-none focus:border-[#D4C4A8]"
+                >
+                  <option value="">All Cities</option>
+                  <option value="johor-bahru">Johor Bahru</option>
+                  <option value="kuala-lumpur">Kuala Lumpur</option>
+                  <option value="penang">Penang</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-[12px] font-semibold text-gray-500 uppercase tracking-wide mb-1.5">Area</label>
+                <select
+                  value={area}
+                  onChange={(e) => setArea(e.target.value)}
+                  className="w-full h-[44px] px-3 rounded-lg border border-gray-200 bg-white text-[14px] text-gray-700 focus:outline-none focus:border-[#D4C4A8]"
+                >
+                  <option value="">All Areas</option>
+                  {areaOptions.map((a) => (
+                    <option key={a.value} value={a.value}>{a.label}</option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <label className="block text-[12px] font-semibold text-gray-500 uppercase tracking-wide mb-1.5">Status</label>
+                <select
+                  value={status}
+                  onChange={(e) => setStatus(e.target.value)}
+                  className="w-full h-[44px] px-3 rounded-lg border border-gray-200 bg-white text-[14px] text-gray-700 focus:outline-none focus:border-[#D4C4A8]"
+                >
+                  <option value="">All Status</option>
+                  <option value="completed">Completed</option>
+                  <option value="new-launch">New Launch</option>
+                  <option value="under-construction">Under Construction</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-[12px] font-semibold text-gray-500 uppercase tracking-wide mb-1.5">Tenure</label>
+                <select
+                  value={tenure}
+                  onChange={(e) => setTenure(e.target.value)}
+                  className="w-full h-[44px] px-3 rounded-lg border border-gray-200 bg-white text-[14px] text-gray-700 focus:outline-none focus:border-[#D4C4A8]"
+                >
+                  <option value="">All Tenure</option>
+                  <option value="freehold">Freehold</option>
+                  <option value="leasehold">Leasehold</option>
+                </select>
+              </div>
+            </div>
+            <div className="flex gap-2.5 px-5 py-3.5 border-t border-gray-100 bg-white">
+              <button
+                type="button"
+                onClick={clearFilters}
+                className="flex-1 h-[44px] rounded-lg border border-gray-200 text-gray-600 text-[14px] font-semibold"
+              >
+                Clear All
+              </button>
+              <button
+                type="button"
+                onClick={() => setFiltersOpen(false)}
+                className="flex-[2] h-[44px] rounded-lg bg-[#243C4C] text-white text-[14px] font-semibold"
+              >
+                Show {filtered.length} {filtered.length === 1 ? 'property' : 'properties'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Results Bar */}
       <div className="px-5 md:px-[clamp(20px,5vw,60px)] py-4 flex justify-between items-center">

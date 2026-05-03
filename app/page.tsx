@@ -72,26 +72,35 @@ function VideoHero() {
         }}
       />
       {/* Content */}
-      <div className="relative z-[2] h-full flex flex-col items-center justify-center text-center px-[clamp(20px,5vw,60px)]">
-        <h1 className="text-[clamp(36px,7vw,72px)] font-extrabold tracking-tight leading-[1.08] mb-5 text-white">
+      <div className="relative z-[2] h-full flex flex-col items-center justify-center text-center px-5 sm:px-[clamp(20px,5vw,60px)]">
+        <h1 className="text-[clamp(32px,7.2vw,72px)] font-extrabold tracking-tight leading-[1.05] mb-4 md:mb-5 text-white">
           Bridging Markets.<br />
           <span className="text-[#D4C4A8]">Building Futures.</span>
         </h1>
-        <p className="text-[clamp(15px,2vw,20px)] text-white/75 max-w-[540px] leading-relaxed font-normal mb-9">
+        <p className="text-[clamp(15px,2vw,20px)] text-white/75 max-w-[540px] leading-relaxed font-normal mb-7 md:mb-9">
           Your trusted gateway to Investing in Malaysia&apos;s Real Estate.
         </p>
-        <a
-          href="https://wa.me/6581234567"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2.5 bg-[#25d366] text-white px-9 py-4 rounded-full text-[17px] font-semibold transition-all hover:bg-[#20bd5a] hover:-translate-y-0.5 shadow-[0_4px_20px_rgba(37,211,102,0.35)] hover:shadow-[0_6px_28px_rgba(37,211,102,0.45)]"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-[22px] h-[22px]">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
-            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.138.562 4.145 1.543 5.888L0 24l6.304-1.654A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.97 0-3.837-.53-5.445-1.455l-.39-.232-4.047 1.062 1.08-3.946-.254-.404A9.715 9.715 0 0 1 2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z" />
-          </svg>
-          Get Started on WhatsApp
-        </a>
+        <div className="flex flex-col sm:flex-row gap-3 items-stretch sm:items-center w-full sm:w-auto max-w-[360px] sm:max-w-none">
+          <a
+            href="https://wa.me/60102038001"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2.5 bg-[#25d366] text-white px-7 sm:px-9 py-4 rounded-full text-[16px] sm:text-[17px] font-semibold transition-all hover:bg-[#20bd5a] hover:-translate-y-0.5 shadow-[0_4px_20px_rgba(37,211,102,0.35)] hover:shadow-[0_6px_28px_rgba(37,211,102,0.45)]"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-[20px] h-[20px] sm:w-[22px] sm:h-[22px]">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+              <path d="M12 0C5.373 0 0 5.373 0 12c0 2.138.562 4.145 1.543 5.888L0 24l6.304-1.654A11.943 11.943 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.97 0-3.837-.53-5.445-1.455l-.39-.232-4.047 1.062 1.08-3.946-.254-.404A9.715 9.715 0 0 1 2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75z" />
+            </svg>
+            Get Started on WhatsApp
+          </a>
+          <Link
+            href="/buy"
+            className="inline-flex items-center justify-center gap-2 px-7 sm:px-9 py-4 rounded-full text-[16px] sm:text-[17px] font-semibold text-white border border-white/40 bg-white/10 backdrop-blur-sm hover:bg-white/20 transition-all"
+          >
+            Browse Properties
+            <ArrowRight className="w-[18px] h-[18px]" />
+          </Link>
+        </div>
       </div>
     </section>
   );
@@ -100,15 +109,15 @@ function VideoHero() {
 // ─── About Section ───
 function AboutSection() {
   return (
-    <section className="bg-[#F4FCFB] py-20 px-[clamp(20px,5vw,60px)] text-center">
-      <div className="glass-card max-w-[800px] mx-auto rounded-2xl p-10">
-        <h2 className="text-4xl font-extrabold text-[#243C4C] tracking-widest uppercase mb-5 leading-tight">
+    <section className="bg-[#F4FCFB] py-12 md:py-20 px-[clamp(16px,5vw,60px)] text-center">
+      <div className="glass-card max-w-[800px] mx-auto rounded-2xl p-6 md:p-10">
+        <h2 className="text-[26px] md:text-4xl font-extrabold text-[#243C4C] tracking-[0.18em] md:tracking-widest uppercase mb-4 md:mb-5 leading-tight">
           Straits Advisory
         </h2>
-        <p className="text-sm font-semibold text-[#243C4C] tracking-[3px] uppercase mb-8">
+        <p className="text-[12px] md:text-sm font-semibold text-[#243C4C] tracking-[2px] md:tracking-[3px] uppercase mb-6 md:mb-8">
           Technology Meets Expertise
         </p>
-        <p className="text-base text-gray-600 leading-relaxed max-w-[750px] mx-auto">
+        <p className="text-[15px] md:text-base text-gray-600 leading-relaxed max-w-[750px] mx-auto">
           As Malaysia&apos;s most technologically advanced property consultancy, we bring together decades of
           experience enhanced by cutting-edge AI, real-time analytics and proprietary technology. We serve our
           clients with transparency and precision, no pressure tactics, just data-driven guidance tailored to
@@ -131,14 +140,14 @@ function RecommendedProperties() {
           Handpicked developments for Singapore investors
         </p>
       </div>
-      <div className="flex gap-5 justify-center px-[clamp(20px,5vw,60px)] pb-5 overflow-x-auto"
+      <div className="flex gap-5 justify-start md:justify-center px-[clamp(20px,5vw,60px)] pb-5 overflow-x-auto snap-x snap-mandatory"
         style={{ scrollbarWidth: 'none' }}
       >
         {RECOMMENDED.map((prop) => (
           <Link
             key={prop.name}
             href={prop.href}
-            className="glass-card flex-none w-[300px] rounded-2xl overflow-hidden"
+            className="glass-card flex-none w-[280px] sm:w-[300px] rounded-2xl overflow-hidden snap-start"
           >
             <div
               className="h-[180px] bg-center bg-cover relative"
@@ -169,9 +178,9 @@ function RecommendedProperties() {
 // ─── Map Section ───
 function MapSection() {
   return (
-    <section className="py-16 px-[clamp(16px,4vw,48px)] bg-white">
+    <section className="py-12 md:py-16 px-[clamp(16px,4vw,48px)] bg-white">
       <div className="max-w-[1400px] mx-auto">
-        <h2 className="text-[28px] font-extrabold text-[#243C4C] mb-2 text-center">
+        <h2 className="text-[24px] md:text-[28px] font-extrabold text-[#243C4C] mb-2 text-center">
           Our Location
         </h2>
         <p className="text-[15px] text-gray-500 text-center mb-5">
