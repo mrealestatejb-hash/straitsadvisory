@@ -147,8 +147,8 @@ function BuyPageContent() {
         </div>
       </section>
 
-      {/* Mobile Filter Bar (compact) */}
-      <div className="md:hidden sticky top-16 z-[90] glass-heavy border-b border-gray-200 px-4 py-3 flex gap-2 items-center">
+      {/* Mobile Filter Bar (compact) — solid bg, sits below floating nav pill */}
+      <div className="md:hidden sticky top-[76px] z-40 bg-white border-b border-gray-200 shadow-[0_2px_6px_rgba(15,23,42,0.05)] px-4 py-2.5 flex gap-2 items-center">
         <button
           type="button"
           onClick={() => setFiltersOpen(true)}
@@ -167,12 +167,12 @@ function BuyPageContent() {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search..."
-          className="glass-input flex-1 min-w-0 h-[40px] px-3 rounded-lg text-[13px] text-gray-700 focus:outline-none focus:border-[#D4C4A8]"
+          className="flex-1 min-w-0 h-[40px] px-3 rounded-lg border border-gray-200 bg-gray-50 text-[13px] text-gray-700 placeholder:text-gray-400 focus:outline-none focus:border-[#D4C4A8] focus:bg-white"
         />
       </div>
 
       {/* Desktop Filter Bar */}
-      <div className="hidden md:flex sticky top-16 z-[90] glass-heavy border-b border-gray-200 px-[clamp(20px,5vw,60px)] py-3.5 flex-wrap gap-2.5 items-center">
+      <div className="hidden md:flex sticky top-16 z-40 bg-white border-b border-gray-200 shadow-[0_2px_6px_rgba(15,23,42,0.05)] px-[clamp(20px,5vw,60px)] py-3.5 flex-wrap gap-2.5 items-center">
         <select
           value={city}
           onChange={(e) => handleCityChange(e.target.value)}
