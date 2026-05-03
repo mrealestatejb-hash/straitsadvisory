@@ -183,7 +183,7 @@ export default function ListingsMap({ activeCity }: ListingsMapProps) {
 
   return (
     <div className="relative w-full h-[480px] rounded-2xl overflow-hidden border border-gray-200">
-      <div ref={mapContainer} className="absolute inset-0" />
+      <div ref={mapContainer} className="w-full h-full" />
 
       {/* Custom React-rendered popup — fully under our control, anchored via map.project() */}
       {selected && pos && (
