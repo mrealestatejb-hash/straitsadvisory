@@ -4,7 +4,7 @@ import { Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { useState, useMemo, useEffect } from 'react'
 import Link from 'next/link'
-import { MapPin, Sparkles, SlidersHorizontal, X } from 'lucide-react'
+import { MapPin, Sparkles, X } from 'lucide-react'
 import { propertyListings, areas, type PropertyListing } from '@/lib/properties-data'
 
 const cityParamMap: Record<string, string> = {
@@ -85,7 +85,7 @@ function BuyPageContent() {
     setSearch('')
   }
 
-  const activeFilterCount = [city, area, status, tenure].filter(Boolean).length
+  const activeFilterCount = [city, area, status, tenure, search].filter(Boolean).length
 
   // Lock body scroll when mobile drawer is open
   useEffect(() => {
@@ -97,6 +97,16 @@ function BuyPageContent() {
       }
     }
   }, [filtersOpen])
+
+  // Open drawer from external triggers (e.g. global search FAB) via custom event or hash
+  useEffect(() => {
+    const open = () => setFiltersOpen(true)
+    window.addEventListener('open-buy-filters', open)
+    if (typeof window !== 'undefined' && window.location.hash === '#filters') {
+      setFiltersOpen(true)
+    }
+    return () => window.removeEventListener('open-buy-filters', open)
+  }, [])
 
   // Hero text based on city
   const heroTitle = city ? cityNameMap[city] : null
@@ -146,30 +156,6 @@ function BuyPageContent() {
           </div>
         </div>
       </section>
-
-      {/* Mobile Filter Bar (compact) — solid bg, sits below floating nav pill */}
-      <div className="md:hidden sticky top-[76px] z-40 bg-white border-b border-gray-200 shadow-[0_2px_6px_rgba(15,23,42,0.05)] px-4 py-2.5 flex gap-2 items-center">
-        <button
-          type="button"
-          onClick={() => setFiltersOpen(true)}
-          className="flex-shrink-0 inline-flex items-center gap-1.5 h-[40px] px-3 rounded-lg bg-[#243C4C] text-white text-[13px] font-semibold"
-        >
-          <SlidersHorizontal className="w-4 h-4" />
-          Filters
-          {activeFilterCount > 0 && (
-            <span className="ml-1 inline-flex items-center justify-center min-w-[18px] h-[18px] px-1 rounded-full bg-[#D4C4A8] text-[11px] font-bold text-[#243C4C]">
-              {activeFilterCount}
-            </span>
-          )}
-        </button>
-        <input
-          type="text"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          placeholder="Search..."
-          className="flex-1 min-w-0 h-[40px] px-3 rounded-lg border border-gray-200 bg-gray-50 text-[13px] text-gray-700 placeholder:text-gray-400 focus:outline-none focus:border-[#D4C4A8] focus:bg-white"
-        />
-      </div>
 
       {/* Desktop Filter Bar */}
       <div className="hidden md:flex sticky top-16 z-40 bg-white border-b border-gray-200 shadow-[0_2px_6px_rgba(15,23,42,0.05)] px-[clamp(20px,5vw,60px)] py-3.5 flex-wrap gap-2.5 items-center">
@@ -255,6 +241,16 @@ function BuyPageContent() {
               </button>
             </div>
             <div className="flex-1 overflow-y-auto px-5 py-4 space-y-4">
+              <div>
+                <label className="block text-[12px] font-semibold text-gray-500 uppercase tracking-wide mb-1.5">Search</label>
+                <input
+                  type="text"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  placeholder="Search property name..."
+                  className="w-full h-[44px] px-3 rounded-lg border border-gray-200 bg-white text-[14px] text-gray-700 focus:outline-none focus:border-[#D4C4A8]"
+                />
+              </div>
               <div>
                 <label className="block text-[12px] font-semibold text-gray-500 uppercase tracking-wide mb-1.5">City</label>
                 <select
